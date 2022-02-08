@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-02-08T11:55:04+03:30</updated><id>/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Post-Title</title><link href="/computational-intelligence/2022/02/06/post-title.html" rel="alternate" type="text/html" title="Post-Title" /><published>2022-02-06T11:07:38+03:30</published><updated>2022-02-06T11:07:38+03:30</updated><id>/computational-intelligence/2022/02/06/post-title</id><content type="html" xml:base="/computational-intelligence/2022/02/06/post-title.html"><![CDATA[<h1 id="title-1">Title-1</h1>
+<p>This is some text about title-1</p>
+<h2 id="sub-title-1-1">Sub-Title-1-1</h2>
+<p>This is some text about sub-title-1-1</p>
+<h2 id="sub-title-1-2">Sub-Title-1-2</h2>
+<p>This is some text about sub-title-1-2</p>
+
+<h1 id="title-2">Title-2</h1>
+<p>This is some text about title-2</p>
+<h2 id="sub-title-2-1">Sub-Title-2-1</h2>
+<p>This is some text about sub-title-1-1</p>
+<h2 id="sub-title-2-2">Sub-Title-2-2</h2>
+<p>This is some text about sub-title-1-2</p>]]></content><author><name>amirihusayn</name></author><category term="computational-intelligence" /><summary type="html"><![CDATA[This is some description.]]></summary></entry></feed>
