@@ -36,10 +36,12 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Collections settings
 collections:
   authors:
     output: true
 
+# Layout settings
 defaults:
   -
     scope:
@@ -64,6 +66,9 @@ defaults:
       path: ""
     values: 
       layout: "default"
+
+# Build destination settings
+destination: docs/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
