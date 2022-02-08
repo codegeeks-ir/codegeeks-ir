@@ -1,0 +1,19 @@
+---
+---
+<div class="card-group">
+    {% for author in site.authors %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">
+              <a href = "{{ author.url }}">{{ author.name }}</a>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+                {{ author.position }}
+            </h6>
+            <p class="card-text">{{ author.content }}</p>
+            {% assign github_link = "https://github.com/" | append: author.github_id %}
+            <a href="{{ github_link }}" class="card-link">Github</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

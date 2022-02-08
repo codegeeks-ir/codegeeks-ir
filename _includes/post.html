@@ -1,0 +1,18 @@
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header">post</div>
+    <div class="card-body text-dark">
+      <h5 class="card-title">
+        <a href = "{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </h5>  
+      <p class="card-text">{{ post.description }}</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">
+        {{ post.date | date_to_string }}
+        {% assign author = site.authors | where: "github_id", post.author %}
+        {% assign authors_path = site.url | append: "/authors/" %}
+        {% assign author_url = post.author | prepend: authors_path %}
+        - <a href = "{{ author_url }}">{{ post.author }}</a>
+    </div>
+</div>
