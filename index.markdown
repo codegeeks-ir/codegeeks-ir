@@ -3,5 +3,8 @@ layout: default
 title: CEITUUT
 ---
 
-#CEITUUT
-Association of computer engineering and information technology, Urmia University of Technology
+<div class="d-flex flex-row justify-content-center" 
+style="margin-top: -150px;">
+    <img src="/assets/images/Icon-With-Title.svg" 
+    alt="CEITUUT-Logo" class="w-75">
+</div>
