@@ -1,22 +1,23 @@
 ---
 layout: post
-title: "Post-Title"
+title: "نام پست"
 date: 2022-02-06 11:07:38 +0330
-categories: computational-intelligence
-description: "This is some description."
+categories: category
+description: "شرح مختصر"
 author: amirihusayn
 ---
 
-# Title-1  
-This is some text about title-1
-## Sub-Title-1-1  
-This is some text about sub-title-1-1
-## Sub-Title-1-2  
-This is some text about sub-title-1-2
+# عنوان  
+توضیحات
 
-# Title-2  
-This is some text about title-2
-## Sub-Title-2-1  
-This is some text about sub-title-1-1
-## Sub-Title-2-2  
-This is some text about sub-title-1-2
+## زیر بخش
+توضیحات
+
+## زیر بخش
+توضیحات
+
+### زیر بخش
+توضیحات
+
+#### زیر بخش
+توضیحات

@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://ceituut.github.io/sitemap.xml

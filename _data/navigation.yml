@@ -1,11 +1,22 @@
-- name: Home
+- name: 
   link: /
 
-- name: About
-  link: /about.html
+# These are feature pages that need to be implemented :
 
-- name: Authors
-  link: /authors.html
+# - name: منابع آموزشی
+#   link: /References
 
-- name: Blog
+# - name: پروژه ها
+#   link: /projects
+
+# - name: رویدادها
+#   link: /events
+
+- name: وبلاگ 
   link: /blog.html
+
+- name: تحریریه
+  link: /authors.html
+  
+- name: درباره ی ما
+  link: /about/

@@ -1,7 +1,7 @@
 ---
 github_id : someone
-name: Some One
-position: junior someone !
+name: نام
+position: موقعیت شغلی
 ---
 
-This is someone ! 
+فلانی آدم خوبی است. 
