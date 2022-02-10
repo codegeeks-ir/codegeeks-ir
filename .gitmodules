@@ -1,0 +1,6 @@
+[submodule "References"]
+	path = References
+	url = git@github.com:ceituut/References.git
+[submodule "Laboratory"]
+	path = Laboratory
+	url = git@github.com:ceituut/Laboratory.git
