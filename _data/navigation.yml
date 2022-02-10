@@ -3,8 +3,8 @@
 
 # These are feature pages that need to be implemented :
 
-# - name: منابع آموزشی
-#   link: /References
+- name: منابع آموزشی
+  link: /References
 
 # - name: پروژه ها
 #   link: /projects
