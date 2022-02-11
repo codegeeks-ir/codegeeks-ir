@@ -38,6 +38,8 @@ plugins:
 collections:
   authors:
     output: true
+  faqs:
+    output: true
 
 # Layout settings
 defaults:
@@ -47,6 +49,13 @@ defaults:
       type: "authors"
     values: 
       layout: "author"
+
+  -
+    scope:
+      path: ""
+      type: "faqs"
+    values: 
+      layout: "faq"
 
   - 
     scope:

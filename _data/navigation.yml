@@ -12,8 +12,8 @@
 # - name: رویدادها
 #   link: /events
 
-# - name: سوالات متداول
-#   link: /faq
+- name: سوالات متداول
+  link: /faqs.html
 
 - name: وبلاگ 
   link: /blog.html

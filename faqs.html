@@ -1,0 +1,18 @@
+---
+---
+<div class="card-group">
+    {% for faq in site.faqs %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body p-5">
+            <!-- FAQ question -->
+            <h5 class="card-title mt-2">
+                <a href = "{{ faq.url }}">{{ faq.question }}</a>
+            </h5>
+            <!-- FAQ categories -->
+            <h6 class="card-subtitle mb-2 text-muted">
+                {{ faq.categories }}
+            </h6>
+        </div>
+    </div>
+    {% endfor %}
+</div>
