@@ -12,6 +12,9 @@
 # - name: رویدادها
 #   link: /events
 
+# - name: سوالات متداول
+#   link: /faq
+
 - name: وبلاگ 
   link: /blog.html
 

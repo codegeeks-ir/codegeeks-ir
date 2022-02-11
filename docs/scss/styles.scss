@@ -2,6 +2,8 @@
 @import "../node_modules/bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
+$primary: #0073e5;
+$success: #008049;
 $gradient: linear-gradient(45deg, #0073e5, #008049);
 $link-decoration: none;
 
@@ -14,6 +16,9 @@ $link-decoration: none;
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/mixins/box-shadow";
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
 
@@ -23,8 +28,44 @@ body {
     background-attachment: fixed;
 }
 
+table {
+    @extend .table;
+    @extend .table-hover;
+    @extend .table-secondary ;
+    @extend .table-borderless;
+    th {
+        background-color: #008049;
+        color: $light;
+    }
+    tr {
+        border: solid 2px $light;
+    }
+}
+
+td a {
+    @extend .btn;
+    @extend .btn-primary;
+    background-color: $primary;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+p a {
+    @extend .btn;
+    @extend .btn-primary;
+    background-color: $primary;
+    width: 200px;
+    padding: 1px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+hr {
+    visibility: hidden;
+    margin-bottom: 15px;
+}
+
 .content {
-    background-color: $light;
     p {
         display: flex;
         flex-direction: row;

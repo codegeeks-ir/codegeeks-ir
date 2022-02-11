@@ -1,7 +1,6 @@
 ---
 github_id : amirihusayn
-name: امیر گودرزی
-position: توسعه دهنده Uinty
+name: Amir Goodarzi
+position: Unity Developer
 ---
-
-علاقه مند به دنیای هنر و بازی سازی 
+Amir loves to make games but his old labtop doesn't ! 
