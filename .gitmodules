@@ -4,3 +4,6 @@
 [submodule "Laboratory"]
 	path = Laboratory
 	url = git@github.com:ceituut/Laboratory.git
+[submodule "_faqs"]
+	path = _faqs
+	url = git@github.com:ceituut/_faqs.git
