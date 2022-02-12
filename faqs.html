@@ -1,9 +1,9 @@
 ---
 ---
-<div class="card-group">
+<div class="d-flex flex-column">
     {% for faq in site.faqs %}
-    <div class="card" style="width: 18rem;">
-        <div class="card-body p-5">
+    <div class="card align-self-center w-100 mt-1 mb-1">
+        <div class="card-body p-2">
             <!-- FAQ question -->
             <h5 class="card-title mt-2">
                 <a href = "{{ faq.url }}">{{ faq.question }}</a>
