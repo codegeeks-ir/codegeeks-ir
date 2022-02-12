@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
+<nav class="navbar shadow">
     <div class="container-fluid">
         <!-- CEITUUT logo -->
         <a class="navbar-brand" href="{{ site.url }}">
@@ -16,12 +16,16 @@
         <!-- Other links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav w-100 me-auto mb-2 mb-lg-0">
+                {% assign page_url = page.url %}
                 {% for item in site.data.navigation %}
-                <li class="nav-item">
-                    <a aria-current="page" href="{{ item.link }}" 
-                    class="nav-link {% if page.url == itme.link %}
-                     active {% endif %}">{{ item.name }}</a>
-                </li>
+                    {% assign item_link = item.link %}
+                    <li class="nav-item">
+                        <a aria-current="page" href="{{ item.link }}" 
+                        class="nav-link {% if page_url == item_link %}
+                        active {% endif %}">
+                        {{ item.name }}
+                        </a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>

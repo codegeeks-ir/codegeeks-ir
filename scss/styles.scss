@@ -4,7 +4,7 @@
 // 2. Include any default variable overrides here
 $primary: #0073e5;
 $success: #008049;
-$gradient: linear-gradient(45deg, #0073e5, #008049);
+$gradient: linear-gradient(45deg, $primary, $success);
 $link-decoration: none;
 
 // 3. Include remainder of required Bootstrap stylesheets
@@ -18,6 +18,7 @@ $link-decoration: none;
 @import "../node_modules/bootstrap/scss/images";
 @import "../node_modules/bootstrap/scss/buttons";
 @import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/navbar";
 @import "../node_modules/bootstrap/scss/mixins/box-shadow";
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
@@ -34,7 +35,7 @@ table {
     @extend .table-secondary ;
     @extend .table-borderless;
     th {
-        background-color: #008049;
+        background-color: $success;
         color: $light;
     }
     tr {
@@ -53,7 +54,7 @@ td a {
 p a {
     @extend .btn;
     @extend .btn-primary;
-    background-color: $primary;
+    background-color: $primary; 
     width: 200px;
     padding: 1px;
     margin-right: 5px;
@@ -66,6 +67,9 @@ hr {
 }
 
 .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     p {
         display: flex;
         flex-direction: row;
@@ -85,4 +89,15 @@ hr {
     img {
         border-radius: 100%;
     }
+}
+
+.navbar {
+    @extend .navbar-expand-lg; 
+    @extend .navbar-expand-md; 
+    @extend .navbar-light; 
+    background-color: $light;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3000;
 }

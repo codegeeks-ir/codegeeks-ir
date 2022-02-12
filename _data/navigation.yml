@@ -1,16 +1,16 @@
 - name: 
   link: /
 
+- name: منابع آموزشی
+  link: /References/
+
 # These are feature pages that need to be implemented :
 
-- name: منابع آموزشی
-  link: /References
-
 # - name: پروژه ها
-#   link: /projects
+#   link: /projects/
 
 # - name: رویدادها
-#   link: /events
+#   link: /events/
 
 - name: سوالات متداول
   link: /faqs.html

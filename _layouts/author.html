@@ -11,6 +11,7 @@ layout: default
       <h3 class="card-subtitle mb-2 text-muted">
         {{ page.position }}
       </h3>  
+      <p class="card-text">{{ content }}</p>
       <ul>
           {% assign author_id  = page.github_id | split: "/" | last%}
           {% assign filtered_posts = site.posts | where: "author", author_id %}
@@ -20,6 +21,3 @@ layout: default
       </ul>
     </div>
 </div>
-
-
-{{ content }}
