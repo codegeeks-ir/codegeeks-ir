@@ -51,6 +51,13 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
+  --font-famliy-iransans : irsans;
+}
+
+
+@font-face {
+  font-family: irsans;
+  src: url(../fonts/irsans.ttf);
 }
 
 *,
@@ -67,7 +74,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: var(--font-famliy-iransans);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -238,7 +245,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: var(--bs-font-monospace);
+  font-family: var( --font-famliy-iransans);
   font-size: 1em;
   direction: ltr /* rtl:ignore */;
   unicode-bidi: bidi-override;
