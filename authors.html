@@ -1,9 +1,15 @@
 ---
 ---
-<div class="d-flex flex-column align-items-center w-75">
+<div class="d-flex flex-row flex-wrap justify-content-center align-items-center w-75">
     {% for author in site.authors %}
-    <div class="card w-100 m-1 shadow">
-        <div class="card-body p-5">
+    <div class="card m-1 shadow" style="min-width: 200px;">
+        <div class="card-body p-2">
+            {% assign github_link = "https://github.com/" | append: author.github_id %}
+            {% assign github_pic = github_link | append: ".png?size=40" %}
+            <!-- Author github picture -->
+            <div class="profile-pic">
+                <img class="img-fluid" src='{{ github_pic }}' alt="{{ author.name }} profile picture">
+            </div>
             <!-- Author name -->
             <h5 class="card-title mt-2">
                 <a href = "{{ author.url }}">{{ author.name }}</a>
@@ -12,12 +18,6 @@
             <h6 class="card-subtitle mb-2 text-muted">
                 {{ author.position }}
             </h6>
-            {% assign github_link = "https://github.com/" | append: author.github_id %}
-            {% assign github_pic = github_link | append: ".png" %}
-            <!-- Author github picture -->
-            <div class="profile-pic">
-                <img class="img-fluid" src='{{ github_pic }}' alt="{{ author.name }} profile picture">
-            </div>
             <!-- Author bio -->
             <p class="card-text">{{ author.content }}</p>
             <!-- Author github profile link -->

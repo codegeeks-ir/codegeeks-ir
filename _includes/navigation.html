@@ -1,11 +1,11 @@
-<nav class="navbar shadow">
+<nav class="navbar shadow
+{% if page.url == '/' %} home-navbar {% endif %}">
     <div class="container-fluid">
         <!-- CEITUUT logo -->
-        <a class="navbar-brand" href="{{ site.url }}">
-            <img src="/assets/images/Icon-Blue.svg" 
-            class="img" alt="CEITUUT Logo" style="width: 75px;">
-            CEITUUT
-        </a>
+            <a class="navbar-brand" href="{{ site.url }}">
+                <img src="/assets/images/Icon-Blue.svg" 
+                class="img" alt="CEITUUT Logo" style="width: 84px;">
+            </a>
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" 
         data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 

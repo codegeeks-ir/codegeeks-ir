@@ -3118,16 +3118,45 @@ progress {
 }
 body {
   font-family: "irsans";
+  color: #4e4e4e;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
+h1, .h1 {
+  color: #212529;
+  margin: 5px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  margin: 5px;
+  margin-top: 35px;
+  margin-bottom: 11.6666666667px;
+}
+
+table {
+  color: #4e4e4e;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  align-self: center;
+}
 table th {
   background-color: #008049;
   color: #f8f9fa;
 }
-table tr {
+table thead {
+  box-shadow: 0 -3px 10px #8b8b8b;
+}
+table tbody {
+  box-shadow: 0 3px 10px #8b8b8b;
+}
+table tbody tr {
   border: solid 2px #f8f9fa;
+  border-right: none;
+  border-left: none;
 }
 
 td a {
@@ -3136,11 +3165,15 @@ td a {
   padding-bottom: 1px;
 }
 
+p {
+  margin: 5px;
+}
+
 p a {
   background-color: #0073e5;
   width: 200px;
   padding: 1px;
-  margin-right: 5px;
+  margin: 0;
   margin-left: 5px;
 }
 
@@ -3164,7 +3197,8 @@ hr {
 }
 
 .profile-pic {
-  position: absolute;
+  position: relative;
+  display: flex;
   width: 45px;
   height: 45px;
   right: 3%;
@@ -3176,10 +3210,34 @@ hr {
 
 .navbar {
   background-color: #f8f9fa;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 3000;
+}
+
+.home-navbar .navbar-brand {
+  visibility: hidden;
+}
+
+.btn, td a, p a {
+  box-shadow: 0 0 10px #8b8b8b;
+}
+
+@media (max-width: 767.98px) {
+  p {
+    display: block;
+  }
+
+  p a {
+    display: block;
+  }
+}
+@media (max-width: 575.98px) {
+  .card p, .card h1, .card .h1, .card h2, .card .h2, .card h3, .card .h3, .card h4, .card .h4, .card h5, .card .h5, .card h6, .card .h6 {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
