@@ -3216,6 +3216,30 @@ hr {
   z-index: 3000;
 }
 
+.social-item {
+  border-radius: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 3px;
+}
+
+.service-group {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.service {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .home-navbar .navbar-brand {
   visibility: hidden;
 }

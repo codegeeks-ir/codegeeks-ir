@@ -7,3 +7,6 @@
 [submodule "_faqs"]
 	path = _faqs
 	url = git@github.com:ceituut/_faqs.git
+[submodule "guide"]
+	path = guide
+	url = git@github.com:ceituut/guide.git
