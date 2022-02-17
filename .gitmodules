@@ -10,3 +10,9 @@
 [submodule "guide"]
 	path = guide
 	url = git@github.com:ceituut/guide.git
+[submodule "_authors"]
+	path = _authors
+	url = git@github.com:ceituut/_authors.git
+[submodule "_posts"]
+	path = _posts
+	url = git@github.com:ceituut/_posts.git
