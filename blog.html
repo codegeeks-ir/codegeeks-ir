@@ -6,3 +6,13 @@
         {% include post.html %}
     {% endfor %}
 </div>
+<!-- persin-long-date madule -->
+<script src="./assets/js/persian-long-date.js"></script>
+<!-- change date to persian -->
+<script>
+    let dateElements = document.querySelectorAll(".date");
+    dateElements.forEach(element => {
+        element.innerHTML = getPersianDate(element.innerHTML);
+    element.style.visibility = "visible";
+    });
+</script>

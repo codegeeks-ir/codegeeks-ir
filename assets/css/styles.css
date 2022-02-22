@@ -3182,6 +3182,16 @@ hr {
   margin-bottom: 15px;
 }
 
+canvas {
+  width: 25% !important;
+  height: 25% !important;
+  padding: 15px;
+  border-style: dashed;
+  border-radius: 5px;
+  border-color: #008049;
+  margin: 15px;
+}
+
 .content {
   display: flex;
   flex-direction: row;
@@ -3248,6 +3258,157 @@ hr {
   box-shadow: 0 0 10px #8b8b8b;
 }
 
+.event-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-self: center;
+  background-color: #f8f9fa;
+  width: 250px;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 0 10px #8b8b8b;
+}
+
+.form-section {
+  width: 220px;
+  margin: 5px;
+}
+
+#capture-post, #capture-story {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 100vw;
+  width: 1080px;
+  height: 1080px;
+  padding-right: 20px;
+}
+
+.post-content, .story-content {
+  display: flex;
+  flex-flow: column;
+  width: 75%;
+}
+.post-content p, .story-content p {
+  font-size: 28px;
+}
+.post-content h1, .story-content h1, .post-content .h1, .story-content .h1 {
+  font-size: 64px;
+}
+.post-content h2, .story-content h2, .post-content .h2, .story-content .h2 {
+  font-size: 56px;
+}
+.post-content h3, .story-content h3, .post-content .h3, .story-content .h3 {
+  font-size: 44px;
+}
+.post-content h4, .story-content h4, .post-content .h4, .story-content .h4 {
+  font-size: 40px;
+}
+.post-content h5, .story-content h5, .post-content .h5, .story-content .h5 {
+  font-size: 36px;
+}
+.post-content hr, .story-content hr {
+  margin-top: 64px;
+}
+.post-content ul, .story-content ul {
+  font-size: 28px;
+  list-style: none;
+  padding: 0;
+}
+.post-content a, .story-content a {
+  font-size: 28px;
+  color: #4e4e4e;
+}
+
+.post-icons, .story-icons {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: end;
+  width: 25%;
+  background-image: linear-gradient(45deg, #0073e5, #008049);
+  padding: 5px;
+}
+.post-icons img, .story-icons img {
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+#capture-story {
+  flex-flow: column;
+  width: 1080px !important;
+  height: 1920px !important;
+  right: 200vw;
+}
+
+.story-content {
+  flex-flow: column;
+  width: 100% !important;
+  margin-top: 64px;
+}
+.story-content p {
+  font-size: 42px;
+}
+.story-content h1, .story-content .h1 {
+  font-size: 72px;
+}
+.story-content h2, .story-content .h2 {
+  font-size: 64px;
+}
+.story-content h3, .story-content .h3 {
+  font-size: 56px;
+}
+.story-content h4, .story-content .h4 {
+  font-size: 44px;
+}
+.story-content h5, .story-content .h5 {
+  font-size: 40px;
+}
+.story-content hr {
+  margin-top: 160px;
+}
+.story-content ul {
+  font-size: 28px;
+  list-style: none;
+  padding: 0;
+}
+.story-content a {
+  font-size: 42px;
+  color: #4e4e4e;
+}
+
+.story-icons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  flex-flow: row;
+  justify-content: flex-start;
+  width: 100%;
+  height: 200px;
+}
+.story-icons img {
+  width: 200px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.event-lecturer-pic {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.event-lecturer-pic img {
+  border-radius: 100%;
+}
+
 @media (max-width: 767.98px) {
   p {
     display: block;
@@ -3256,11 +3417,21 @@ hr {
   p a {
     display: block;
   }
+
+  canvas {
+    width: 25% !important;
+    height: 25% !important;
+  }
 }
 @media (max-width: 575.98px) {
   .card p, .card h1, .card .h1, .card h2, .card .h2, .card h3, .card .h3, .card h4, .card .h4, .card h5, .card .h5, .card h6, .card .h6 {
     padding-right: 5px;
     padding-left: 5px;
+  }
+
+  canvas {
+    width: 50% !important;
+    height: 50% !important;
   }
 }
 

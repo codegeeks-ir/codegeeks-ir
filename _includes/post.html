@@ -24,6 +24,8 @@
         </svg>
         {{ post.author }}
       </a> 
-      - {{ post.date | date_to_string }}
+      <p class="date" style="visibility: hidden;">
+        {{ post.date | date_to_string }}
+      </p>
   </div>
 </div>
