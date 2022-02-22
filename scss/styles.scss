@@ -28,6 +28,8 @@ $link-decoration: none;
 @import "../node_modules/bootstrap/scss/grid";
 
 // 5. Add additional custom code here
+
+// Default styles for tags
 @font-face {
     font-family: irsans;
     src: url(../fonts/irsans.ttf);
@@ -107,6 +109,17 @@ hr {
     margin-bottom: 15px;
 }
 
+canvas {
+    width: 25% !important;
+    height: 25% !important;
+    padding: 15px;
+    border-style: dashed;
+    border-radius: 5px;
+    border-color: $success;
+    margin: 15px;
+}
+
+// Custome classes
 .content {
     display: flex;
     flex-direction: row;
@@ -143,6 +156,7 @@ hr {
     width: 100%;
     z-index: 3000;
 }
+
 .social-item {
     border-radius: 5px;
     padding-right: 20px;
@@ -177,12 +191,147 @@ hr {
     box-shadow: 0 0 10px #8b8b8b; 
 }
 
+.event-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-self: center;
+    background-color: $light;
+    width: 250px;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 10px #8b8b8b; 
+}
+
+.form-section {
+    width: 220px;
+    margin: 5px;
+}
+
+// Post styls for capturing event
+#capture-post {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+
+    position: absolute; 
+    right: 100vw;
+
+    width: 1080px;
+    height: 1080px;
+    padding-right: 20px;
+}
+
+.post-content {
+    display: flex;
+    flex-flow: column;
+    width: 75%;
+    p { font-size: 28px; }
+    h1 { font-size: 64px; }
+    h2 { font-size: 56px; }
+    h3 { font-size: 44px; }
+    h4 { font-size: 40px; }
+    h5 { font-size: 36px; }
+    hr { margin-top: 64px;}
+    ul { 
+        font-size: 28px; 
+        list-style: none; 
+        padding: 0; 
+    }
+    a {
+        font-size: 28px;
+        color: $text-color;
+    }
+}
+
+.post-icons {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: end;
+    width: 25%;
+    background-image: $gradient;
+    padding: 5px;
+    img {
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 15%;
+        padding-left: 15%;
+    }
+}
+
+// Story styls for capturing event
+#capture-story {
+    @extend #capture-post;
+    flex-flow: column;
+    width: 1080px !important;
+    height: 1920px !important;
+    right: 200vw;
+}
+
+.story-content {
+    @extend .post-content;
+    flex-flow: column;
+    width: 100% !important;
+    margin-top: 64px;
+    p { font-size: 42px; }
+    h1 { font-size: 72px; }
+    h2 { font-size: 64px; }
+    h3 { font-size: 56px; }
+    h4 { font-size: 44px; }
+    h5 { font-size: 40px; }
+    hr { margin-top: 160px;}
+    ul { 
+        font-size: 28px; 
+        list-style: none; 
+        padding: 0; 
+    }
+    a {
+        font-size: 42px;
+        color: $text-color;
+    }
+}
+
+.story-icons {
+    @extend .post-icons;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    flex-flow: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: 200px;
+    img {
+        width: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.event-lecturer-pic {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    img {
+        border-radius: 100%;
+    }
+}
+
+// Customize styles in breakpoints
 @include media-breakpoint-down(md) {
     p {
         display: block;
     }
     p a {
         display: block;
+    }
+    canvas {
+    width: 25% !important;
+    height: 25% !important;
     }
 }
 
@@ -192,5 +341,9 @@ hr {
             padding-right: 5px;
             padding-left: 5px;
         }
+    }
+    canvas {
+    width: 50% !important;
+    height: 50% !important;
     }
 }

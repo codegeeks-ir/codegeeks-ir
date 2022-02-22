@@ -40,6 +40,8 @@ collections:
     output: true
   faqs:
     output: true
+  events:
+    output: true
 
 # Layout settings
 defaults:
@@ -56,6 +58,13 @@ defaults:
       type: "faqs"
     values: 
       layout: "faq"
+
+  -
+    scope:
+      path: ""
+      type: "events"
+    values: 
+      layout: "event"
 
   - 
     scope:

@@ -9,8 +9,8 @@
 # - name: پروژه ها
 #   link: /projects/
 
-# - name: رویدادها
-#   link: /events/
+- name: رویدادها
+  link: /events.html
 
 - name: سوالات متداول
   link: /faqs.html
