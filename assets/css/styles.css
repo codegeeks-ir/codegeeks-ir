@@ -3370,7 +3370,7 @@ canvas {
   font-size: 40px;
 }
 .story-content hr {
-  margin-top: 160px;
+  margin-top: 120px;
 }
 .story-content ul {
   font-size: 28px;
@@ -3385,7 +3385,7 @@ canvas {
 .story-icons {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 164px;
   flex-flow: row;
   justify-content: flex-start;
   width: 100%;

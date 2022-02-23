@@ -281,7 +281,7 @@ canvas {
     h3 { font-size: 56px; }
     h4 { font-size: 44px; }
     h5 { font-size: 40px; }
-    hr { margin-top: 160px;}
+    hr { margin-top: 120px;}
     ul { 
         font-size: 28px; 
         list-style: none; 
@@ -297,7 +297,7 @@ canvas {
     @extend .post-icons;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: 164px;
     flex-flow: row;
     justify-content: flex-start;
     width: 100%;
