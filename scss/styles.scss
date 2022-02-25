@@ -109,17 +109,17 @@ hr {
     margin-bottom: 15px;
 }
 
-canvas {
-    width: 25% !important;
-    height: 25% !important;
-    padding: 15px;
-    border-style: dashed;
-    border-radius: 5px;
-    border-color: $success;
+// Custome classes
+.my-button {
+    @extend .btn;
+    @extend .btn-primary;
+    background-color: $primary; 
+    width: 200px;
+    padding: 1px;
     margin: 15px;
+    margin-right: 0;
 }
 
-// Custome classes
 .content {
     display: flex;
     flex-direction: row;
@@ -321,6 +321,24 @@ canvas {
     }
 }
 
+#loading {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 30000;
+    width: 100vw;
+    height: 100vh;
+    background-image: $gradient;
+}
+
 // Customize styles in breakpoints
 @include media-breakpoint-down(md) {
     p {
@@ -328,10 +346,6 @@ canvas {
     }
     p a {
         display: block;
-    }
-    canvas {
-    width: 25% !important;
-    height: 25% !important;
     }
 }
 
@@ -341,9 +355,5 @@ canvas {
             padding-right: 5px;
             padding-left: 5px;
         }
-    }
-    canvas {
-    width: 50% !important;
-    height: 50% !important;
     }
 }
