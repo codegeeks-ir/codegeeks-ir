@@ -9,8 +9,8 @@
 - name: رویدادها
   link: /events.html
 
-- name: مسابقات
-  link: /contests.html
+# - name: مسابقات
+#   link: /contests.html
 
 - name: منابع آموزشی
   link: /References/
