@@ -19,3 +19,6 @@
 [submodule "_events"]
 	path = _events
 	url = git@github.com:ceituut/_events.git
+[submodule "_contests"]
+	path = _contests
+	url = git@github.com:ceituut/_contests.git

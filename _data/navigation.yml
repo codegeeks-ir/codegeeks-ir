@@ -1,9 +1,6 @@
 - name: 
   link: /
 
-- name: منابع آموزشی
-  link: /References/
-
 # These are feature pages that need to be implemented :
 
 # - name: پروژه ها
@@ -12,6 +9,12 @@
 - name: رویدادها
   link: /events.html
 
+- name: مسابقات
+  link: /contests.html
+
+- name: منابع آموزشی
+  link: /References/
+  
 - name: سوالات متداول
   link: /faqs.html
 
