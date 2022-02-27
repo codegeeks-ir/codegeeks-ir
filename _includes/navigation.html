@@ -2,9 +2,8 @@
 {% if page.url == '/' %} home-navbar {% endif %}">
     <div class="container-fluid">
         <!-- CEITUUT logo -->
-            <a class="navbar-brand" href="{{ site.url }}">
-                <img src="/assets/images/Icon-Blue.svg" 
-                class="img" alt="CEITUUT Logo" style="width: 84px;">
+            <a class="navbar-brand" href="{{ site.url }}" style="width: 84px;">
+                {% include ceit-icon.svg %}
             </a>
         <!-- Toggle button -->
         <button class="navbar-toggler" type="button" 
