@@ -1,23 +1,45 @@
 ---
 layout: default
 ---
-<div class="card shadow">
-    <div class="card-body text-dark">
-      <!-- Author name -->
-      <h2 class="card-title">
-          {{ page.name }}
-      </h2>
-      <!-- Author position -->
-      <h3 class="card-subtitle mb-2 text-muted">
-        {{ page.position }}
-      </h3>  
-      <p class="card-text">{{ content }}</p>
-      <ul>
-          {% assign author_id  = page.github_id | split: "/" | last%}
-          {% assign filtered_posts = site.posts | where: "author", author_id %}
-          {% for post in filtered_posts %}
-              {% include post.html %}
-          {% endfor %}
-      </ul>
+<div class="d-flex flex-column align-items-center w-100">
+    <!-- Profile -->
+    <div class="card align-items-center 
+    justify-content-center shadow w-100 m-1 mb-0 p-1"
+    style="border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0;">
+        {% assign github_link = "https://github.com/" | append: page.github_id %}
+        {% assign github_pic = github_link | append: ".png" %}
+        <!-- Github avatar -->
+        <div class="event-lecturer-pic mt-2" style="width: 150px;">
+            <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
+        </div>
+        <!-- Bio -->
+        <div class="text-center">
+            <!-- Author name -->
+            <h2 class="card-title">
+                {{ page.name }}
+            </h2>
+            <!-- Author position -->
+            <h3 class="card-subtitle mb-2 text-muted">
+              {{ page.position }}
+            </h3>  
+        </div>
+      <hr>
     </div>
+    <!-- About -->
+    <div class="card text-start align-items-center 
+    justify-content-center shadow w-100 m-1 p-1 
+    mt-0" style="border-top-left-radius: 0; 
+    border-top-right-radius: 0;">
+    {{ content }}
+    </div>
+    <!-- Posts -->
+    <ul class="d-flex flex-column align-items-center 
+    justify-content-center w-100 m-0 mt-5 p-0">
+        {% assign author_id  = page.github_id | split: "/" | last%}
+        {% assign filtered_posts = site.posts | where: "author", author_id %}
+        {% for post in filtered_posts %}
+            {% include post.html %}
+        {% endfor %}
+    </ul>
 </div>
