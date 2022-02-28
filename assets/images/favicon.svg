@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48.768 27.432001"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="ceit-icon.svg"
+   inkscape:version="1.1.2 (0a00cf5, 2022-02-04)"
+   inkscape:export-filename="/home/amirihusayn/favicon.png"
+   inkscape:export-xdpi="96.209999"
+   inkscape:export-ydpi="96.209999"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title13">ceit-uut-icon-title</title>
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.12"
+     inkscape:cx="78.417969"
+     inkscape:cy="16.503906"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="false"
+     inkscape:window-width="1306"
+     inkscape:window-height="697"
+     inkscape:window-x="60"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-global="true"
+     inkscape:pagecheckerboard="0"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     width="500px"
+     inkscape:snap-page="true" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>ceit-uut-icon-title</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>amirihusayn</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>ceit-uut</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>ceit-uut</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>amirihusayn</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:description>This is ceituut icon with title.</dc:description>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 6.024319,1.041919 c -0.4767825,0 -0.860622,0.3838352 -0.860622,0.8606092 0,0.476774 0.3838395,0.8606177 0.860622,0.8606177 0.4767783,0 0.8606134,-0.3838437 0.8606134,-0.8606177 0,-0.476774 -0.3838351,-0.8606092 -0.8606134,-0.8606092 z m 2.5818445,0 V 2.7631459 H 40.161833 V 1.041919 Z m 34.1375135,0 c -0.476774,0 -0.860609,0.3838352 -0.860609,0.8606092 0,0.476774 0.383835,0.8606177 0.860609,0.8606177 0.476787,0 0.860627,-0.3838437 0.860627,-0.8606177 0,-0.476774 -0.38384,-0.8606092 -0.860627,-0.8606092 z M 3.0121592,5.3449992 c -0.7151802,0 -1.2909287,0.5757527 -1.2909287,1.2909158 0,0.7151717 0.5757485,1.2909329 1.2909287,1.2909329 0.7151632,0 1.2909244,-0.5757612 1.2909244,-1.2909329 0,-0.7151631 -0.5757612,-1.2909158 -1.2909244,-1.2909158 z m 4.3030799,0 c -0.7151716,0 -1.2909201,0.5757527 -1.2909201,1.2909158 0,0.7151717 0.5757485,1.2909329 1.2909201,1.2909329 H 8.6061635 V 6.635915 5.3449992 Z m 32.8465939,0 v 2.5818487 h 1.290929 c 0.715163,0 1.290915,-0.5757612 1.290915,-1.2909329 0,-0.7151631 -0.575752,-1.2909158 -1.290915,-1.2909158 z m 5.594013,0 c -0.715163,0 -1.290933,0.5757527 -1.290933,1.2909158 0,0.7151717 0.57577,1.2909329 1.290933,1.2909329 0.715167,0 1.290916,-0.5757612 1.290916,-1.2909329 0,-0.7151631 -0.575749,-1.2909158 -1.290916,-1.2909158 z M 1.7212305,10.508693 c -0.9535565,0 -1.7212315,0.767674 -1.7212315,1.721235 0,0.953556 0.767675,1.721231 1.7212315,1.721231 0.9535609,0 1.7212354,-0.767675 1.7212354,-1.721231 0,-0.953561 -0.7676745,-1.721235 -1.7212354,-1.721235 z m 5.1637019,0 c -0.9535608,0 -1.7212354,0.767674 -1.7212354,1.721235 0,0.953556 0.7676746,1.721231 1.7212354,1.721231 h 1.7212311 v -3.442466 z m 33.2769006,0 v 3.442466 h 1.721235 c 0.95357,0 1.721236,-0.767675 1.721236,-1.721236 0,-0.953556 -0.767666,-1.72123 -1.721236,-1.72123 z m 6.884929,0 c -0.953557,0 -1.721236,0.767674 -1.721236,1.721235 0,0.953556 0.767679,1.721231 1.721236,1.721231 0.953555,0 1.721238,-0.767675 1.721238,-1.721231 0,-0.953561 -0.767683,-1.721235 -1.721238,-1.721235 z M 3.0121592,16.533008 c -0.7151802,0 -1.2909287,0.575748 -1.2909287,1.290928 0,0.715163 0.5757485,1.290921 1.2909287,1.290921 0.7151632,0 1.2909244,-0.575758 1.2909244,-1.290921 0,-0.71518 -0.5757612,-1.290928 -1.2909244,-1.290928 z m 4.3030799,0 c -0.7151716,0 -1.2909201,0.575761 -1.2909201,1.290928 0,0.715168 0.5757485,1.290921 1.2909201,1.290921 h 1.2909244 v -2.581849 z m 32.8465939,0 v 2.581849 h 1.290929 c 0.715163,0 1.290915,-0.575753 1.290915,-1.290925 0,-0.715172 -0.575752,-1.290924 -1.290915,-1.290924 z m 5.594013,0 c -0.715163,0 -1.290933,0.575761 -1.290933,1.290928 0,0.715168 0.57577,1.290921 1.290933,1.290921 0.715167,0 1.290916,-0.575753 1.290916,-1.290921 0,-0.715167 -0.575749,-1.290928 -1.290916,-1.290928 z M 6.024319,21.69671 c -0.4767825,0 -0.860622,0.383835 -0.860622,0.860618 0,0.476773 0.3838395,0.860617 0.860622,0.860617 0.4767783,0 0.8606134,-0.383844 0.8606134,-0.860617 0,-0.476783 -0.3838351,-0.860618 -0.8606134,-0.860618 z m 2.5818445,0 v 1.721235 H 40.161833 V 21.69671 Z m 34.1375135,0 c -0.476774,0 -0.860609,0.383835 -0.860609,0.860618 0,0.476773 0.383835,0.860617 0.860609,0.860617 0.476787,0 0.860627,-0.383844 0.860627,-0.860617 0,-0.476783 -0.38384,-0.860618 -0.860627,-0.860618 z m -23.483362,3.051966 v 1.641406 h 10.247366 v -1.641406 z"
+       style="fill:#000000;fill-opacity:1;stroke-width:0.0798342"
+       id="rect2610"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/amirihusayn/favicon.png"
+       inkscape:export-xdpi="96.209999"
+       inkscape:export-ydpi="96.209999" />
+  </g>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        filter: invert(100%);
+      }
+    }
+  </style>
+</svg>
