@@ -35,21 +35,27 @@ plugins:
   - jekyll-seo-tag
 
 # Collections settings
+collections_dir: collections
+
 collections:
   authors:
     output: true
+    permalink: /authors/:name
   faqs:
     output: true
+    permalink: /faqs/:name
   events:
     output: true
+    permalink: /events/:name
   contests:
     output: true
+    permalink: /contests/:name
 
 # Layout settings
 defaults:
   -
     scope:
-      path: ""
+      path: "/posts"
       type: "authors"
     values: 
       layout: "author"

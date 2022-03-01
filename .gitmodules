@@ -1,24 +1,18 @@
-[submodule "References"]
-	path = References
-	url = git@github.com:ceituut/References.git
-[submodule "Laboratory"]
-	path = Laboratory
-	url = git@github.com:ceituut/Laboratory.git
-[submodule "_faqs"]
-	path = _faqs
-	url = git@github.com:ceituut/_faqs.git
-[submodule "guide"]
-	path = guide
-	url = git@github.com:ceituut/guide.git
-[submodule "_authors"]
-	path = _authors
-	url = git@github.com:ceituut/_authors.git
-[submodule "_posts"]
-	path = _posts
-	url = git@github.com:ceituut/_posts.git
-[submodule "_events"]
-	path = _events
+[submodule "collections/_events"]
+	path = collections/_events
 	url = git@github.com:ceituut/_events.git
-[submodule "_contests"]
-	path = _contests
+[submodule "collections/_contests"]
+	path = collections/_contests
 	url = git@github.com:ceituut/_contests.git
+[submodule "collections/_faqs"]
+	path = collections/_faqs
+	url = git@github.com:ceituut/_faqs.git
+[submodule "collections/_authors"]
+	path = collections/_authors
+	url = git@github.com:ceituut/_authors.git
+[submodule "collections/_posts"]
+	path = collections/_posts
+	url = git@github.com:ceituut/_posts.git
+[submodule "collections/References"]
+	path = collections/References
+	url = git@github.com:ceituut/References.git

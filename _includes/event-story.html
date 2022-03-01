@@ -12,7 +12,7 @@
         <!-- Lecturer -->
         <div class="row">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
-            {% assign github_pic = "../events/images/" | append: page.github_id | append: ".png" %}
+            {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
             <div class="event-lecturer-pic w-25">
                 <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
