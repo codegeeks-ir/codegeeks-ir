@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: CEITUUT
+title: انجمن کامپیوتر
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Association of Computer Engineering and Information Technology, Urmia University of Technology
+  انجمن علمی کامپیوتر و فناوری اطلاعات دانشگاه صنعتی ارومیه
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ceituut.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
@@ -50,12 +50,15 @@ collections:
   contests:
     output: true
     permalink: /contests/:name
+  members:
+    output: false
+    permalink: /members/:name
 
 # Layout settings
 defaults:
   -
     scope:
-      path: "/posts"
+      path: ""
       type: "authors"
     values: 
       layout: "author"

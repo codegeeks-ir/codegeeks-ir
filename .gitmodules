@@ -16,3 +16,6 @@
 [submodule "collections/References"]
 	path = collections/References
 	url = git@github.com:ceituut/References.git
+[submodule "collections/_members"]
+	path = collections/_members
+	url = git@github.com:ceituut/_members.git
