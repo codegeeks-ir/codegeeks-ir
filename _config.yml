@@ -103,7 +103,7 @@ defaults:
       layout: "default"
 
 # Build destination settings
-destination: docs/
+destination: collections/ceituut.github.io
 
 # Exclude from processing.
 # The following items will not be processed, by default.

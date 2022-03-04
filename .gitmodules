@@ -19,3 +19,6 @@
 [submodule "collections/_members"]
 	path = collections/_members
 	url = git@github.com:ceituut/_members.git
+[submodule "collections/ceituut.github.io"]
+	path = collections/ceituut.github.io
+	url = git@github.com:ceituut/ceituut.github.io.git
