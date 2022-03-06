@@ -8,14 +8,14 @@
   {% feed_meta %}
   {% seo %}
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{% link assets/images/favicon.svg %}">
   
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <!-- Styles -->
-  <link href="/assets/css/styles.css" rel="stylesheet">
+  <link href="{% link assets/css/styles.css %}" rel="stylesheet">
 
   <!-- Title -->
   {% assign contest_number = page.number %}
@@ -27,9 +27,9 @@
   <div class="container-fluid mb-3" style=" margin-top: 130px; text-align: justify;">
     <div class="d-flex flex-column align-items-center p-lg-5 p-md-2 p-sm-0">
       {% include loading.html %}
-      {% include contest.html %}
-      {% include contest-post.html %}
-      {% include contest-story.html %}
+      {% include contests/contest.html %}
+      {% include contests/contest-post.html %}
+      {% include contests/contest-story.html %}
       <div id="event-image-container" class="card shadow w-100 mt-3 p-lg-5 p-md-4 p-sm-2 p-0">
         <h1>اشتراک گذاری مسابقه</h1>
         <p>شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به اشتراک بگذارید.</p>

@@ -1,0 +1,25 @@
+<div class="card w-100 p-lg-5 p-md-4 p-sm-2 p-0 mt-5">
+    <!-- title -->
+    <h2>اعضای مرکزی انجمن</h2>
+    <hr>
+    {% assign members_collection = site.members | reverse %}
+    {% for member in members_collection %}
+        <!-- currentYearDate -->
+        <p class="card-text date mb-0" style="visibility: hidden;">{{ member.date | date_to_string }}</p>
+        {{ member.content }}
+    {% endfor %}
+</div>
+<!-- persin-long-date module -->
+<script src="../assets/js/persian-long-date.js"></script>
+<!-- change date to persian -->
+<script>
+    let dateElement = document.querySelectorAll(".date");
+    dateElement.forEach(element => {
+        let currentYearDate = new Date(element.innerHTML);
+        let nextYearDate = new Date(currentYearDate.getFullYear() + 1, currentYearDate.getMonth(), currentYearDate.getDay());
+        currentYearDate = getPersianDate(currentYearDate.toDateString()).split(" ")[3];
+        nextYearDate = getPersianDate(nextYearDate.toDateString()).split(" ")[3];
+        element.innerHTML = "سال" + " " + nextYearDate + " - " + currentYearDate;
+        element.style.visibility = "visible";
+    });
+</script>

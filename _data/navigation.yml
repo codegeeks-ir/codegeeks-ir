@@ -6,11 +6,11 @@
 # - name: پروژه ها
 #   link: /projects/
 
-- name: رویدادها
-  link: /events.html
-
 # - name: مسابقات
 #   link: /contests.html
+
+- name: رویدادها
+  link: /events.html
 
 - name: منابع آموزشی
   link: /collections/References/
@@ -21,11 +21,5 @@
 - name: وبلاگ 
   link: /blog.html
 
-- name: نویسندگان
-  link: /authors.html
-  
-- name: اعضای مرکزی
-  link: /members.html
-  
 - name: درباره ی ما
   link: /about/
