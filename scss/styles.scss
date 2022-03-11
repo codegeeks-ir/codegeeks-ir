@@ -292,10 +292,8 @@ a svg path {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
-
-    position: absolute; 
-    right: 100vw;
-
+    position: absolute;
+    clip-path: circle(0);
     width: 1080px;
     height: 1080px;
     padding-right: 20px;
@@ -346,7 +344,6 @@ a svg path {
     flex-flow: column;
     width: 1080px !important;
     height: 1920px !important;
-    right: 200vw;
 }
 
 .story-content {
@@ -406,22 +403,15 @@ a svg path {
 }
 
 #loading {
-    position: fixed;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    z-index: 3001;
-    width: 100vw;
-    height: 100vh;
-    background-color: $dark;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: $light
 }
 
 // Customize styles in breakpoints
