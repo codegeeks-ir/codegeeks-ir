@@ -1,0 +1,15 @@
+- name: 
+  link: /
+
+# These are feature pages that need to be implemented :
+# - name: پروژه ها
+#   link: /collections/projects/
+
+# - name: مسابقات
+#   link: /contests.html
+
+- name: رویدادها
+  link: /events.html
+
+- name: انتشارات 
+  link: /blog.html

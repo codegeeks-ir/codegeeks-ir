@@ -1,8 +1,8 @@
 <!-- Footer -->
-<!-- Social links -->
-<footer class="w-100 align-self-center">
-    <ul class="d-flex flex-row navbar-nav justify-content-center
-    w-100 mb-2 mb-lg-0 p-0">
+<footer class="d-flex flex-column w-100 align-self-center">
+    <!-- Social links -->
+    <ul class="d-flex flex-row navbar-nav 
+    justify-content-center m-0 p-0">
         <!-- Youtube link -->
         <li class="nav-item social-item">
             <a class="nav-link"
@@ -40,4 +40,25 @@
             </a>
         </li>
     </ul>
+    <hr class="mt-0" style="visibility: visible;">
+    <!-- Other links -->
+    <ul class="d-flex flex-row justify-content-center 
+    list-unstyled w-100 p-0 m-0">
+        {% assign page_url = page.url %}
+        {% for item in site.data.footer-navigation %}
+            {% assign item_link = item.link %}
+            <li class="p-2 pt-0 pb-0">
+                <a aria-current="page" href="{{ item.link }}" 
+                class="non-important">
+                {{ item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr class="mb-0" style="visibility: visible;">
+    <p class="non-important text-center p-2"
+    style="font-size: smaller;">تمامی حقوق متعلق به انجمن
+        علمی کامپیوتر و فناوری اطلاعات دانشگاه صنعتی ارومیه
+        می‌باشد.
+    </p>
 </footer>

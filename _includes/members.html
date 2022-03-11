@@ -1,13 +1,33 @@
 <div class="card w-100 p-lg-5 p-md-4 p-sm-2 p-0 mt-5">
     <!-- title -->
     <h2>اعضای مرکزی انجمن</h2>
-    <hr>
-    {% assign members_collection = site.members | reverse %}
-    {% for member in members_collection %}
-        <!-- currentYearDate -->
-        <p class="card-text date mb-0" style="visibility: hidden;">{{ member.date | date_to_string }}</p>
-        {{ member.content }}
-    {% endfor %}
+    <div id="accordion" class="mt-3">
+        {% assign members_collection = site.members | reverse %}
+        {% assign current = members_collection | first %}
+        {% for member in members_collection %}
+            {% assign header_id = "header" | append: member.members_id %}
+            {% assign collapse_id = "collapse" | append: member.members_id %}
+            <!-- Button -->
+            <button class="btn btn-link bg-light date non-important w-100 mb-0 mt-2 
+            {% if member.members_id != current.members_id %}collapsed{% endif %}" 
+            style="visibility: hidden;" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#{{ collapse_id }}" 
+            aria-expanded="{% if member.members_id == current.members_id %}true{% else %}false{% endif %}" 
+            aria-controls="{{ collapse_id }}">
+                {{ member.date | date_to_string }}
+            </button>
+            <!-- Collapse -->
+            <div id="{{ collapse_id }}" 
+            class="collapse  
+            {% if member.members_id == current.members_id %}show{% endif %}" 
+            style="margin-top: -30px;"
+            aria-labelledby="{{ header_id }}" 
+            data-parent="#accordion">
+                {{ member.content }}
+            </div>
+        {% endfor %}
+    </div>
 </div>
 <!-- persin-long-date module -->
 <script src="../assets/js/persian-long-date.js"></script>

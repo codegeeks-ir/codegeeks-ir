@@ -1,35 +1,32 @@
 <!-- For event -->
-<div class="card shadow w-100 p-lg-5 p-md-4 p-sm-2 p-0">
+<div class="card w-100 p-lg-5 p-md-4 p-sm-2 p-0">
     <!-- content -->
     <div class="d-flex flex-column">
-        <!-- Introduction -->
-        <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
-        <hr>
         <!-- Subject -->
-        <h1>
-            {{ page.title }}
-        </h1>
+        <h1>{{ page.title }}</h1>
         <!-- Lecturer -->
-        <div class="row">
+        <div class="d-flex flex-column">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="event-lecturer-pic" style="width: 180px">
+            <div class="event-lecturer-pic" style="width: 180px; margin-bottom: 15px;">
+                <div class="position-relative">
+                    <a href="{{ github_link }}" class="card-link"
+                    style="position: absolute; right: -4rem; top: 7rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor"
+                            class="bi bi-github" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                    </a>
+                </div>
                 <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture"
                 style="width: 150px; height: 150px;">
             </div>
             <!-- Bio -->
-            <div class="w-75">
-                <h2>{{ page.lecturer }}</h2>
-                <p>{{ page.bio }}</p>
-                <a href="{{ github_link }}" class="card-link">
-                    {{ page.github_id }}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor"
-                        class="bi bi-github" viewBox="0 0 16 16">
-                        <path
-                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                    </svg>
-                </a>
+            <div class="d-flex flex-column justify-content-end">
+                <h2 class="mt-0 mb-0">{{ page.lecturer }}</h2>
+                <p class="mt-0 mb-0">{{ page.bio }}</p>
             </div>
         </div>
         <hr>
@@ -42,15 +39,15 @@
         </ul>
         <hr>
         <!-- Date -->
-        <h3 class="date" style="visibility: hidden; margin: 0;">
+        <p class="date m-0 non-important" style="visibility: hidden;">
             {{ page.date | date_to_string }}
-        </h3>
+        </p>
         <!-- Time -->
-        <h4 style="margin: 0;">
+        <p class="m-0 non-important">
             ساعت
             {{ page.date | date: "%H:%M" }}
-        </h4>
+        </p>
         <!-- Location -->
-        <h5 style="margin: 0;">{{ page.location }}</h5>
+        <p class="m-0 non-important">{{ page.location }}</p>
     </div>
 </div>

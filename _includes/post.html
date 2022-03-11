@@ -1,5 +1,5 @@
-<div class="card w-100 m-1 shadow">
-  <div class="card-body m-0 text-dark">
+<div class="card w-100 m-1">
+  <div class="card-body m-0">
     <!-- Post title -->
     <h5 class="card-title">
       <a href = "{{ post.url }}">
@@ -24,7 +24,7 @@
         </svg>
         {{ post.author }}
       </a> 
-      <p class="date" style="visibility: hidden;">
+      <p class="date non-important" style="visibility: hidden;">
         {{ post.date | date_to_string }}
       </p>
   </div>

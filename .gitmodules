@@ -22,3 +22,6 @@
 [submodule "collections/ceituut.github.io"]
 	path = collections/ceituut.github.io
 	url = git@github.com:ceituut/ceituut.github.io.git
+[submodule "collections/guide"]
+	path = collections/guide
+	url = git@github.com:ceituut/guide.git

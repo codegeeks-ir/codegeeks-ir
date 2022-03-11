@@ -5,18 +5,20 @@
 $header-margin: 35px;
 $ceit-primary: #004080;
 $ceit-secondary: #008049;
-$primary: #0166cb;
+$primary: #2e73b8;
 $secondary: #3f3f3f;
 $success: #00ca73;
-$info: #5CA5B4;
+$info: #5b87b3;
 $warning: #D8B432;
 $danger: #DC4A33;
-$light: #ffffff;
-$dark: #272727;
+$light: #eeeeee;
+$dark: #212930;
 
 $text-color: #4a4a4a;
+$border-color: rgba($color: $text-color, $alpha: 0.15);
+$nonsignificant: #aaaaaa;
+$my-gradient: linear-gradient(45deg, $ceit-primary, $ceit-secondary);
 $nav-link-color: $text-color;
-$gradient: linear-gradient(45deg, $ceit-primary, $ceit-secondary);
 $link-decoration: none;
 
 // 3. Include remainder of required Bootstrap stylesheets
@@ -47,6 +49,7 @@ $link-decoration: none;
 body {
     font-family: 'irsans';
     color: $text-color;
+    background-color: $light;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -79,10 +82,10 @@ table {
         color: $light;
     }
     thead {
-        box-shadow: 0 -3px 10px #8b8b8b;
+        box-shadow: 0 -3 6px rgba($color: $text-color, $alpha: 0.1); 
     }
     tbody {
-        box-shadow: 0 3px 10px #8b8b8b;
+        box-shadow: 5px 5px 6px rgba($color: $text-color, $alpha: 0.1); 
         tr {
             border: solid 2px $light;
             border-right: none;
@@ -132,16 +135,15 @@ hr {
 }
 
 svg path {
-    fill: $light !important;
+    fill: $dark !important;
 }
 
 .navbar-brand svg path {
-    fill: $text-color !important;
+    fill: $light !important;
 }
 
-
 footer a svg path {
-    fill: $light !important;
+    fill: $nonsignificant !important;
 }
 
 p svg path {
@@ -175,6 +177,7 @@ a svg path {
             height: 100%;
         }
     }
+    margin-bottom: 50px;
 }
 
 .profile-pic {
@@ -193,19 +196,45 @@ a svg path {
     @extend .navbar-expand-lg; 
     @extend .navbar-expand-md; 
     @extend .navbar-light; 
-    background-color: $light;
+    background-color: $dark;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 3000;
+    padding: 0;
+}
+
+.navbar-toggler {
+    svg path {
+        fill: $light !important;
+    }
+}
+
+.navbar-light .navbar-toggler, .navbar .navbar-toggler {
+	color: $dark;
+	border: none;
 }
 
 .nav-link {
-    color: $text-color !important;
+    color: $light !important;
 }
 
 .card {
+    border-color: rgba($color: $text-color, $alpha: 0.15);
+    box-shadow: 5px 5px 5px rgba($color: $text-color, $alpha: 0.1); 
     background-color: $light;
+}
+
+.card-footer {
+    background-color: $light;
+    border-color: rgba($color: $text-color, $alpha: 0.15);
+}
+
+.non-important {
+    color: $nonsignificant;
+    svg path {
+        fill: $nonsignificant !important;
+    }
 }
 
 .social-item {
@@ -227,8 +256,8 @@ a svg path {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .home-navbar {
@@ -238,7 +267,7 @@ a svg path {
 }
 
 .btn {
-    box-shadow: 0 0 10px #8b8b8b; 
+    box-shadow: 0 0 6px rgba($color: $text-color, $alpha: 0.5);  
 }
 
 .event-form {
@@ -250,7 +279,7 @@ a svg path {
     width: 250px;
     border-radius: 5px;
     padding: 15px;
-    box-shadow: 0 0 10px #8b8b8b; 
+    box-shadow: 5px 5px 6px rgba($color: $text-color, $alpha: 0.1);  
 }
 
 .form-section {
@@ -300,7 +329,7 @@ a svg path {
     align-items: center;
     justify-content: end;
     width: 25%;
-    background-image: $gradient;
+    background-image: $my-gradient;
     padding: 5px;
     svg {
         width: 200px;
@@ -369,9 +398,15 @@ a svg path {
     img {
         border-radius: 100%;
     }
+    a {
+        border: solid 3px $light;
+        border-radius: 100%;
+        background-color: $light;
+    }
 }
 
 #loading {
+    position: fixed;
     display: flex;
     flex-flow: row;
     justify-content: center;
@@ -383,10 +418,10 @@ a svg path {
     left: 0;
     margin: 0;
     padding: 0;
-    z-index: 30000;
+    z-index: 3001;
     width: 100vw;
     height: 100vh;
-    background-image: $gradient;
+    background-color: $dark;
 }
 
 // Customize styles in breakpoints

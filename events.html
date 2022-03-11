@@ -14,9 +14,12 @@ title: "رویدادها"
             <h5 class="card-subtitle mb-2 text-muted">
                 {{ event.lecturer }}
             </h5>
-            <!-- Date -->
-            <p class="card-text date" style="visibility: hidden;">{{ event.date | date_to_string }}</p>
-            <p class="card-text">{{ event.date | date: "%H:%M" }}</p>
+        </div>
+        <!-- Date -->
+        <div class="card-footer d-flex flex-row justify-content-between">
+            <p class="card-text m-0 date non-important" 
+            style="visibility: hidden;">{{ event.date | date_to_string }}</p>
+            <p class="card-text m-0 non-important">ساعت {{ event.date | date: "%H:%M" }}</p>
         </div>
     </div>
     {% endfor %}

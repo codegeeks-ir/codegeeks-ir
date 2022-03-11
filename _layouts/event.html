@@ -23,10 +23,11 @@
 </head>
 
 <body class="bg-gradient" dir="rtl">
+  {% include loading.html %}
   {% include navigation.html %}
-  <div class="container-fluid mb-3" style=" margin-top: 130px; text-align: justify;">
+  <div class="container-fluid mb-3" 
+  style=" margin-top: 130px; margin-bottom: 130px; text-align: justify;">
     <div class="d-flex flex-column align-items-center p-lg-5 p-md-2 p-sm-0">
-      {% include loading.html %}
       {% include events/event.html %}
       {% include events/event-post.html %}
       {% include events/event-story.html %}
