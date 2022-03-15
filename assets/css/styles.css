@@ -3288,8 +3288,27 @@ a svg path {
 }
 
 .card-footer {
-  background-color: #eeeeee;
-  border-color: rgba(74, 74, 74, 0.15);
+  background-color: rgba(74, 74, 74, 0.04);
+  color: #eeeeee;
+  border: none;
+}
+
+.card-button {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: rgba(74, 74, 74, 0.04);
+}
+.card-button a {
+  background-color: rgba(46, 115, 184, 0.6);
+  color: #eeeeee;
+  border-radius: 0.8rem;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-top: 0.1rem;
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
 }
 
 .non-important {
