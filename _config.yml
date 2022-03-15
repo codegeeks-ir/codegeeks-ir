@@ -47,9 +47,9 @@ collections:
   events:
     output: true
     permalink: /events/:name
-  contests:
+  UUTCodeChallenge:
     output: true
-    permalink: /contests/:name
+    permalink: /challenges/:name
   members:
     output: false
     permalink: /members/:name
@@ -80,7 +80,7 @@ defaults:
   -
     scope:
       path: ""
-      type: "contests"
+      type: "UUTCodeChallenge"
     values: 
       layout: "contest"
 

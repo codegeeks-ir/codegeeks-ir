@@ -25,3 +25,6 @@
 [submodule "collections/guide"]
 	path = collections/guide
 	url = git@github.com:ceituut/guide.git
+[submodule "collections/_UUTCodeChallenge"]
+	path = collections/_UUTCodeChallenge
+	url = git@github.com:ceituut/_UUTCodeChallenge.git

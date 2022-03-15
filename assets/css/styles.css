@@ -3185,6 +3185,15 @@ hr {
   margin-bottom: 15px;
 }
 
+pre {
+  background-color: #212930;
+  color: #00ca73;
+  border-color: rgba(74, 74, 74, 0.15);
+  box-shadow: 5px 5px 5px rgba(74, 74, 74, 0.1);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
 #logo-motion svg {
   width: 300px;
   height: auto;

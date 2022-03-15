@@ -2,7 +2,7 @@
 title: "مسابقات"
 ---
 <div class="d-flex flex-column w-100">
-    {% assign contest_collection = site.contests | reverse %}
+    {% assign contest_collection = site.UUTCodeChallenge | reverse %}
     {% for contest in contest_collection %}
     <div class="card align-self-center w-100 mt-1 mb-1">
         <div class="card-body p-2">
@@ -16,21 +16,13 @@ title: "مسابقات"
                 امتیاز: 
                 {{ contest.score }}
             </h5>
-            <!-- Date -->
-            <div class="d-flex flex-row m-0 p-0">
-                <!-- Start date -->
-                <div class="w-50">
-                    <h5>زمان شروع</h5>
-                    <p class="card-text date" style="visibility: hidden;">{{ contest.start_date | date_to_string }}</p>
-                    <p class="card-text"> ساعت {{ contest.start_date | date: "%H:%M" }}</p>
-                </div>
-                <!-- End date -->
-                <div class="w-50">
-                    <h5>زمان پایان</h5>
-                    <p class="card-text date" style="visibility: hidden;">{{ contest.end_date | date_to_string }}</p>
-                    <p class="card-text"> ساعت {{ contest.end_date | date: "%H:%M" }}</p>
-                </div>
-            </div>
+        </div>
+        <!-- Date -->
+        <div class="card-footer d-flex flex-row justify-content-between">
+            <!-- Start date -->
+            <p class="card-text m-0 date non-important" style="visibility: hidden;">
+            {{ contest.start_date | date_to_string }}</p>
+            <p class="card-text m-0 non-important">ساعت {{ contest.start_date | date: "%H:%M" }}</p>
         </div>
     </div>
     {% endfor %}

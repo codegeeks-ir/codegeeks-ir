@@ -123,6 +123,15 @@ hr {
     margin-bottom: 15px;
 }
 
+pre {
+    background-color: $dark;
+    color: $success;
+    border-color: rgba($color: $text-color, $alpha: 0.15);
+    box-shadow: 5px 5px 5px rgba($color: $text-color, $alpha: 0.1); 
+    border-radius: 5px;
+    padding: 1rem;
+}
+
 // Theme svg icones
 #logo-motion svg {
     width: 300px;

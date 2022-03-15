@@ -1,37 +1,30 @@
 <!-- For contest -->
 <div class="card shadow w-100 p-lg-5 p-md-4 p-sm-2 p-0">
-    <!-- content -->
-    <div class="d-flex flex-column">
-        <!-- Introduction -->
-        <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
-        <hr>
-        <!-- Subject -->
-        <h1>
-            {% assign contest_number = page.number %}
-            {{ page.title | append: " " | append: contest_number }}
-        </h1>
-        <!-- Score -->
-        <h5 class="card-subtitle mb-2 text-muted">
-            {{ page.score }}
-            امتیاز
-        </h5>
-        <hr>
-        <!-- Date -->
-        <div class="d-flex flex-row m-0 p-0">
-            <!-- Start date -->
-            <div class="w-50">
-                <h5>زمان شروع</h5>
-                <p class="card-text date" style="visibility: hidden;">{{ page.start_date | date_to_string }}</p>
-                <p class="card-text"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
-            </div>
-            <!-- End date -->
-            <div class="w-50">
-                <h5>زمان پایان</h5>
-                <p class="card-text date" style="visibility: hidden;">{{ page.end_date | date_to_string }}</p>
-                <p class="card-text"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
-            </div>
+    <!-- Subject -->
+    <h1 class="mb-2">
+        {% assign contest_number = page.number %}
+        {{ page.title | append: " " | append: contest_number }}
+    </h1>
+    <!-- Score -->
+    <h5 class="card-subtitle mt-0 mb-2 text-muted">
+        {{ page.score }}
+        امتیاز
+    </h5>
+    <!-- Date -->
+    <div class="d-flex flex-row non-important m-0 p-0">
+        <!-- Start date -->
+        <div class="w-50">
+            <h5>زمان شروع</h5>
+            <p class="card-text date" style="visibility: hidden;">{{ page.start_date | date_to_string }}</p>
+            <p class="card-text"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
         </div>
-        <!-- Contest content -->
-        {{ content }}
+        <!-- End date -->
+        <div class="w-50">
+            <h5>زمان پایان</h5>
+            <p class="card-text date" style="visibility: hidden;">{{ page.end_date | date_to_string }}</p>
+            <p class="card-text"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
+        </div>
     </div>
+    <!-- Contest content -->
+    {{ content }}
 </div>

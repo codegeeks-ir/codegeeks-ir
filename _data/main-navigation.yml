@@ -5,8 +5,8 @@
 # - name: پروژه ها
 #   link: /collections/projects/
 
-# - name: مسابقات
-#   link: /contests.html
+- name: مسابقات
+  link: /contests.html
 
 - name: رویدادها
   link: /events.html
