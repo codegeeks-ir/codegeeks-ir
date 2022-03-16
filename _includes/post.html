@@ -1,18 +1,22 @@
-<div class="card w-100 mt-3 mb-3">
+<!--//////////card card-body card-title 
+  card-subtitle card-text card-footer 
+  date card-button non-important
+  style="visibility: hidden;"///////-->
+<div class="card w-full mt-3 mb-3">
   <div class="card-body p-2">
     <!-- Post title -->
     <h4 class="card-title mt-2">
         {{ post.title }}
     </h4>
     <!-- Post categories -->
-    <h5 class="card-subtitle mb-2 text-muted">
+    <h5 class="card-subtitle mb-2 text-neutral-700">
       {{ post.categories }}
     </h5>  
     <!-- Post description -->
     <p class="card-text">{{ post.description }}</p>
   </div>
   <!-- Post author and date -->
-  <div class="card-footer d-flex flex-row justify-content-between" dir="ltr">
+  <div class="card-footer flex flex-row justify-between" dir="ltr">
       {% assign author = site.authors | where: "github_id", post.author %}
       {% assign authors_path = site.url | append: "/authors/" %}
       {% assign author_url = post.author | prepend: authors_path %}

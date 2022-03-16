@@ -1,16 +1,16 @@
 ---
 title: "سوالات متداول"
 ---
-<div class="d-flex flex-column w-100">
+<div class="flex flex-col w-full">
     {% for faq in site.faqs %}
-    <div class="card align-self-center w-100 mt-2 mb-2">
+    <div class="card align-center w-full mt-2 mb-2">
         <div class="card-body p-2">
             <!-- FAQ question -->
             <h5 class="card-title mt-2">
                 <a href = "{{ faq.url }}">{{ faq.question }}</a>
             </h5>
             <!-- FAQ categories -->
-            <h6 class="card-subtitle mb-2 text-muted">
+            <h6 class="card-subtitle text-neutral-700 mb-2">
                 {{ faq.categories }}
             </h6>
         </div>

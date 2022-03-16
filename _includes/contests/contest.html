@@ -1,25 +1,25 @@
 <!-- For contest -->
-<div class="card shadow w-100 p-lg-5 p-md-4 p-sm-2 p-0">
+<div class="card w-full p-0 lg:p-5 md:p-4 sm:p-2">
     <!-- Subject -->
     <h1 class="mb-2">
         {% assign contest_number = page.number %}
         {{ page.title | append: " " | append: contest_number }}
     </h1>
     <!-- Score -->
-    <h5 class="card-subtitle mt-0 mb-2 text-muted">
+    <h5 class="card-subtitle mt-0 mb-2 text-neutral-700">
         {{ page.score }}
         امتیاز
     </h5>
     <!-- Date -->
-    <div class="d-flex flex-row non-important m-0 p-0">
+    <div class="flex flex-row non-important m-0 p-0">
         <!-- Start date -->
-        <div class="w-50">
+        <div class="w-1/2">
             <h5>زمان شروع</h5>
             <p class="card-text date" style="visibility: hidden;">{{ page.start_date | date_to_string }}</p>
             <p class="card-text"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
         </div>
         <!-- End date -->
-        <div class="w-50">
+        <div class="w-1/2">
             <h5>زمان پایان</h5>
             <p class="card-text date" style="visibility: hidden;">{{ page.end_date | date_to_string }}</p>
             <p class="card-text"> ساعت {{ page.end_date | date: "%H:%M" }}</p>

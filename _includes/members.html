@@ -1,4 +1,7 @@
-<div class="card w-100 p-lg-5 p-md-4 p-sm-2 p-0 mt-5">
+<!--//////card accordion btn btn-link bg-light date
+    non-important collapsed style="visibility: hidden;"
+    collapse show ///////-->
+<div class="card w-full mt-5 p-0 lg:p-5 md:p-4 sm:p-2">
     <!-- title -->
     <h2>اعضای مرکزی انجمن</h2>
     <div id="accordion" class="mt-3">
@@ -8,7 +11,7 @@
             {% assign header_id = "header" | append: member.members_id %}
             {% assign collapse_id = "collapse" | append: member.members_id %}
             <!-- Button -->
-            <button class="btn btn-link bg-light date non-important w-100 mb-0 mt-2 
+            <button class="btn btn-link bg-light date non-important w-full mb-0 mt-2 
             {% if member.members_id != current.members_id %}collapsed{% endif %}" 
             style="visibility: hidden;" 
             data-bs-toggle="collapse" 
@@ -19,9 +22,8 @@
             </button>
             <!-- Collapse -->
             <div id="{{ collapse_id }}" 
-            class="collapse  
+            class="collapse mt-8 
             {% if member.members_id == current.members_id %}show{% endif %}" 
-            style="margin-top: -30px;"
             aria-labelledby="{{ header_id }}" 
             data-parent="#accordion">
                 {{ member.content }}

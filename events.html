@@ -1,22 +1,22 @@
 ---
 title: "رویدادها"
 ---
-<div class="d-flex flex-column w-100">
+<div class="flex flex-col w-full">
     {% assign event_collection = site.events | reverse %}
     {% for event in event_collection %}
-    <div class="card align-self-center w-100 mt-3 mb-3">
+    <div class="card align-center w-full mt-3 mb-3">
         <div class="card-body p-2">
             <!-- Event subject -->
             <h4 class="card-title mt-2">
                 {{ event.title }}
             </h4>
             <!-- Lecturer -->
-            <h5 class="card-subtitle mb-2 text-muted">
+            <h5 class="card-subtitle mb-2 text-neutral-700">
                 {{ event.lecturer }}
             </h5>
         </div>
         <!-- Date -->
-        <div class="card-footer d-flex flex-row justify-content-between">
+        <div class="card-footer flex flex-row justify-between">
             <p class="card-text m-0 date non-important" 
             style="visibility: hidden;">{{ event.date | date_to_string }}</p>
             <p class="card-text m-0 non-important">ساعت {{ event.date | date: "%H:%M" }}</p>

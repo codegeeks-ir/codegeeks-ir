@@ -1,41 +1,41 @@
 ---
 layout: default
 ---
-<div class="d-flex flex-column align-items-center w-100">
+<div class="flex flex-col items-center w-full">
     <!-- Profile -->
-    <div class="card align-items-center 
-    justify-content-center w-100 m-1 mb-0 p-1"
-    style="border-bottom-left-radius: 0; 
-    border-bottom-right-radius: 0;">
-        {% assign github_link = "https://github.com/" | append: page.github_id %}
-        {% assign github_pic = github_link | append: ".png" %}
-        <!-- Github avatar -->
-        <div class="event-lecturer-pic mt-2" style="width: 150px;">
+    <!--///////////////card////////////-->
+    <div class="card items-center 
+    justify-center w-full m-1 mb-0 p-1 rounded-b-none">
+    {% assign github_link = "https://github.com/" | append: page.github_id %}
+    {% assign github_pic = github_link | append: ".png" %}
+    <!-- Github avatar -->
+    <!--///////////////event-lecturer-pic, img-fluid////////////-->
+        <div class="event-lecturer-pic mt-2 w-36">
             <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
         </div>
         <!-- Bio -->
+        <!--///////////////card-title, subtitle////////////-->
         <div class="text-center">
             <!-- Author name -->
             <h2 class="card-title">
                 {{ page.name }}
             </h2>
             <!-- Author position -->
-            <h3 class="card-subtitle mb-2 text-muted">
+            <h3 class="card-subtitle text-neutral-700 mb-2">
               {{ page.position }}
             </h3>  
         </div>
       <hr>
     </div>
     <!-- About -->
-    <div class="card text-start align-items-center 
-    justify-content-center w-100 m-1 p-1 
-    mt-0" style="border-top-left-radius: 0; 
-    border-top-right-radius: 0;">
-    {{ content }}
+    <!--///////////////card////////////-->
+    <div class="card text-start items-center 
+    justify-center rounded-t-none w-full m-1 mt-0 p-1">
+        {{ content }}
     </div>
     <!-- Posts -->
-    <ul class="d-flex flex-column align-items-center 
-    justify-content-center w-100 m-0 mt-5 p-0">
+    <ul class="flex flex-col items-center 
+    justify-center w-full m-0 mt-5 p-0">
         {% assign author_id  = page.github_id | split: "/" | last%}
         {% assign filtered_posts = site.posts | where: "author", author_id %}
         {% for post in filtered_posts %}

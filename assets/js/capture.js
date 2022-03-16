@@ -1,7 +1,6 @@
 const postElement = document.querySelector("#capture-post");
 const storyElement = document.querySelector("#capture-story");
 const saveContainer = document.querySelector("#event-image-container");
-const loadingElement = document.querySelector("#loading");
 
 // Capture post element
 html2canvas(postElement, {
@@ -41,6 +40,4 @@ html2canvas(storyElement, {
   aElement.innerText = "دانلود تصویر مناسب استوری";
   canvas.remove();
   saveContainer.appendChild(aElement);
-  // Remove loading spinner
-  setTimeout(loadingElement.style.display = 'none', 1000);
 });

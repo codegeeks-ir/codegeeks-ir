@@ -1,3 +1,8 @@
+<!--////////cardssssssssss
+    capture-story captutre-post contetn icons
+    event-lecturer-pic
+    card-link img-fluid
+    date non-important style="visibility: hidden;"///////-->
 <!-- For instagram post -->
 <div id="capture-post">
     <!-- content -->
@@ -10,15 +15,15 @@
             {{ page.title }}
         </h1>
         <!-- Lecturer -->
-        <div class="row">
+        <div class="flex flex-row">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="event-lecturer-pic w-25">
+            <div class="event-lecturer-pic w-1/4">
                 <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
             </div>
             <!-- Bio -->
-            <div class="w-75">
+            <div class="w-3/4">
                 <h2>{{ page.lecturer }}</h2>
                 <p>{{ page.bio }}</p>
                 <p href="{{ github_link }}" class="card-link">
@@ -41,7 +46,7 @@
         </ul>
         <hr>
         <!-- Date -->
-        <h3 class="date" style="visibility: hidden; margin: 0;">
+        <h3 class="date m-0" style="visibility: hidden;">
             {{ page.date | date_to_string }}
         </h3>
         <!-- Time -->

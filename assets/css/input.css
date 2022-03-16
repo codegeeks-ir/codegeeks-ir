@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p {
+    @apply flex-row;
+    @apply m-1;
+}
+
+p img {
+    @apply w-full;
+    @apply h-full;
+}

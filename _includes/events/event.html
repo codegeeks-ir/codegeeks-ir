@@ -1,16 +1,20 @@
+<!--////////cardssssssssss
+    event-lecturer-pic
+    card-link img-fluid
+    date non-important style="visibility: hidden;"///////-->
 <!-- For event -->
-<div class="card w-100 p-lg-5 p-md-4 p-sm-2 p-0">
+<div class="card w-full p-0 lg:p-5 md:p-4 sm:p-2">
     <!-- content -->
-    <div class="d-flex flex-column">
+    <div class="flex flex-col">
         <!-- Subject -->
         <h1>{{ page.title }}</h1>
         <!-- Lecturer -->
-        <div class="d-flex flex-column">
+        <div class="flex flex-col">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="event-lecturer-pic" style="width: 180px; margin-bottom: 15px;">
-                <div class="position-relative">
+            <div class="event-lecturer-pic w-44 mb-4">
+                <div class="relative">
                     <a href="{{ github_link }}" class="card-link"
                     style="position: absolute; right: -4rem; top: 7rem;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentcolor"
@@ -20,18 +24,19 @@
                         </svg>
                     </a>
                 </div>
-                <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture"
-                style="width: 150px; height: 150px;">
+                <img class="img-fluid w-40 h-40" 
+                src='{{ github_pic }}' 
+                alt="{{ lecturer.name }} profile picture">
             </div>
             <!-- Bio -->
-            <div class="d-flex flex-column justify-content-end">
-                <h2 class="mt-0 mb-0">{{ page.lecturer }}</h2>
-                <p class="mt-0 mb-0">{{ page.bio }}</p>
+            <div class="flex flex-col justify-end">
+                <h2 class="my-0">{{ page.lecturer }}</h2>
+                <p class="my-0">{{ page.bio }}</p>
             </div>
         </div>
         <hr>
         <!-- Topics -->
-        <ul style="list-style: none; padding: 0;">
+        <ul class="list-none p-0">
             <li><p>{{ page.topic1 }}</p></li>
             <li><p>{{ page.topic2 }}</p></li>
             <li><p>{{ page.topic3 }}</p></li>
@@ -39,15 +44,15 @@
         </ul>
         <hr>
         <!-- Date -->
-        <p class="date m-0 non-important" style="visibility: hidden;">
+        <p class="date non-important m-0" style="visibility: hidden;">
             {{ page.date | date_to_string }}
         </p>
         <!-- Time -->
-        <p class="m-0 non-important">
+        <p class="non-important m-0">
             ساعت
             {{ page.date | date: "%H:%M" }}
         </p>
         <!-- Location -->
-        <p class="m-0 non-important">{{ page.location }}</p>
+        <p class="non-important m-0">{{ page.location }}</p>
     </div>
 </div>
