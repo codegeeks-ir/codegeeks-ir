@@ -1,36 +1,52 @@
-<nav class="flex flex-wrap items-center justify-between pt-2 pb-2
-{% if page.url == '/' %} home-navbar {% endif %}">
-    <div class="container">
+<nav class="navbar{% if page.url == '/' %} home-navbar {% endif %}">
+    <div class="flex flex-row w-full justify-between">
         <!-- CEITUUT logo -->
-            <a class="pt-14 pb-14 mr-4 w-20" href="{{ site.url }}">
-                {% include svgs/ceit-icon.svg %}
-            </a>
-        <!-- Toggle button -->
-        <!--/////////////////////////////////-->
-        <button class="navbar-toggler" type="button" 
-        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
-        aria-controls="navbarSupportedContent" aria-expanded="false" 
-        aria-label="Toggle navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-        </button>
-        <!-- Other links -->
-        <!--/////////////////////////////////-->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav w-full mb-2 lg:mb-0">
-                {% assign page_url = page.url %}
-                {% for item in site.data.main-navigation %}
-                    {% assign item_link = item.link %}
-                    <li class="nav-item">
-                        <a aria-current="page" href="{{ item.link }}" 
-                        class="nav-link {% if page_url == item_link %}
-                        active {% endif %}">
-                        {{ item.name }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+        <a class="navbar-brand mr-4 w-20" href="{{ site.url }}">
+            {% include svgs/ceit-icon.svg %}
+        </a>
+        <!-- Mobile menu button-->
+        <div class="navbar-toggler flex items-center sm:hidden">
+            <button id="mobile-button" type="button" class="inline-flex items-center 
+            justify-center p-2 rounded-md text-gray-400" 
+            aria-controls="mobile-menu" aria-expanded="false">
+                {% include svgs/list.svg %}
+            </button>
         </div>
+        <!-- Desktop Menu -->
+        <div class="hidden w-full sm:block max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex flex-row w-full items-center justify-start h-16">
+                <div class="flex-1 flex w-full items-center justify-start">
+                    <ul class="flex flex-row w-full justify-start">
+                        {% assign page_url = page.url %}
+                        {% for item in site.data.main-navigation %}
+                            {% assign item_link = item.link %}
+                            <li class="mx-2">
+                                <a aria-current="page" href="{{ item.link }}" 
+                                class="nav-link {% if page_url == item_link %}
+                                active {% endif %}">
+                                {{ item.name }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="hidden w-full" id="mobile-menu">
+        <ul class="flex flex-col items-start w-full px-2 pt-2 pb-3">
+            {% assign page_url = page.url %}
+            {% for item in site.data.main-navigation %}
+                {% assign item_link = item.link %}
+                <li class="my-1 w-full">
+                    <a aria-current="page" href="{{ item.link }}" 
+                    class="nav-link block w-full {% if page_url == item_link %}
+                    active {% endif %}">
+                        {{ item.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </nav>

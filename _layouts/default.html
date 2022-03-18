@@ -18,11 +18,19 @@
   </head>
   <body class="bg-gradient-to-t" dir="rtl">
     {% include navigation.html %}
-    <div class="container mb-32 mt-32 text-justify">
-      <div class="flex flex-row justify-center mb-14 lg:p-5 md:p-2 sm:p-0">
+    <div class="container mb-36 mt-36 text-justify">
+      <div class="flex flex-row items-center justify-center m-2 mb-14 lg:p-5 md:p-2 sm:p-1">
         {{ content }}
       </div>
     </div> 
     {% include footer.html %}
+    <!-- Listner for mobile main menu button -->
+    <script>
+      const button = document.querySelector("#mobile-button");
+      const menu = document.querySelector("#mobile-menu");
+      button.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
   </body>
 </html>

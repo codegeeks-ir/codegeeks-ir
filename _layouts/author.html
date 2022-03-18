@@ -1,20 +1,16 @@
 ---
 layout: default
 ---
-<div class="flex flex-col items-center w-full">
+<div class="flex flex-col items-center justify-center w-full">
     <!-- Profile -->
-    <!--///////////////card////////////-->
-    <div class="card items-center 
-    justify-center w-full m-1 mb-0 p-1 rounded-b-none">
+    <div class="card mb-0 rounded-b-none">
     {% assign github_link = "https://github.com/" | append: page.github_id %}
     {% assign github_pic = github_link | append: ".png" %}
     <!-- Github avatar -->
-    <!--///////////////event-lecturer-pic, img-fluid////////////-->
-        <div class="event-lecturer-pic mt-2 w-36">
-            <img class="img-fluid" src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
+        <div class="lecturer-pic mt-2 w-36">
+            <img src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
         </div>
         <!-- Bio -->
-        <!--///////////////card-title, subtitle////////////-->
         <div class="text-center">
             <!-- Author name -->
             <h2 class="card-title">
@@ -28,14 +24,12 @@ layout: default
       <hr>
     </div>
     <!-- About -->
-    <!--///////////////card////////////-->
-    <div class="card text-start items-center 
-    justify-center rounded-t-none w-full m-1 mt-0 p-1">
+    <div class="card rounded-t-none m-1 mt-0 p-1">
         {{ content }}
     </div>
     <!-- Posts -->
     <ul class="flex flex-col items-center 
-    justify-center w-full m-0 mt-5 p-0">
+    justify-center w-full m-0 mt-5 p-2">
         {% assign author_id  = page.github_id | split: "/" | last%}
         {% assign filtered_posts = site.posts | where: "author", author_id %}
         {% for post in filtered_posts %}

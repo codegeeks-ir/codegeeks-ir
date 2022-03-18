@@ -20,18 +20,30 @@
 
 <body class="bg-gradient-to-t" dir="rtl">
   {% include navigation.html %}
-  <div class="container mb-32 mt-32 text-justify">
-    <div class="flex flex-row justify-center mb-14 lg:p-5 md:p-2 sm:p-0">
+  <div class="container mb-36 mt-36 text-justify">
+    <div class="flex flex-col items-center justify-center m-0 mb-14 p-2 lg:p-5 md:p-2 sm:p-0">
       {% include events/event.html %}
       {% include events/event-post.html %}
       {% include events/event-story.html %}
-      <div id="event-image-container" class="card w-full mt-3 p-0 lg:p-5 md:p-4 sm:p-2">
-        <h1>اشتراک گذاری رویداد</h1>
+      <div class="card p-0">
+        <h1 class="card-title m-0">
+          {% include svgs/share.svg %}
+          اشتراک گذاری رویداد
+        </h1>
         <p>شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به اشتراک بگذارید.</p>
+        <div id="event-image-container" class="card-footer justify-start"></div>
       </div>
     </div>
   </div>
   {% include footer.html %}
+  <!-- Listner for mobile main menu button -->
+  <script>
+    const button = document.querySelector("#mobile-button");
+    const menu = document.querySelector("#mobile-menu");
+    button.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
   <!-- persin-long-date madule -->
   <script src="../assets/js/persian-long-date.js"></script>
   <!-- Change date to persian -->

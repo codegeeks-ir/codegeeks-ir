@@ -12,7 +12,7 @@
   <link rel="icon" type="image/svg+xml" href="{% link assets/images/favicon.svg %}">
 
   <!-- Styles -->
-  <link href="{% link assets/css/styles.css %}" rel="stylesheet">
+  <link href="{% link assets/css/output.css %}" rel="stylesheet">
 
   <!-- Title -->
   {% assign contest_number = page.number %}
@@ -21,12 +21,20 @@
 
 <body class="bg-gradient-to-t" dir="rtl">
   {% include navigation.html %}
-  <div class="container mb-32 mt-32 text-justify">
-    <div class="flex flex-row justify-center mb-14 lg:p-5 md:p-2 sm:p-0">
+  <div class="container mb-36 mt-36 text-justify">
+    <div class="flex flex-row items-center justify-center m-0 mb-14 p-2 lg:p-5 md:p-2 sm:p-0">
       {% include contests/contest.html %}
     </div>
   </div>
   {% include footer.html %}
+  <!-- Listner for mobile main menu button -->
+  <script>
+    const button = document.querySelector("#mobile-button");
+    const menu = document.querySelector("#mobile-menu");
+    button.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
   <!-- persin-long-date madule -->
   <script src="../assets/js/persian-long-date.js"></script>
   <!-- Change date to persian -->

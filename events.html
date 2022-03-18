@@ -1,26 +1,31 @@
 ---
 title: "رویدادها"
 ---
-<div class="flex flex-col w-full">
+<div class="flex flex-col w-full mx-3">
     {% assign event_collection = site.events | reverse %}
     {% for event in event_collection %}
-    <div class="card align-center w-full mt-3 mb-3">
-        <div class="card-body p-2">
+    <div class="card">
+        <div class="card-body">
             <!-- Event subject -->
-            <h4 class="card-title mt-2">
+            <h4 class="card-title">
+                {% include svgs/bell.svg %}
                 {{ event.title }}
             </h4>
             <!-- Lecturer -->
-            <h5 class="card-subtitle mb-2 text-neutral-700">
+            <h5 class="card-subtitle">
                 {{ event.lecturer }}
             </h5>
         </div>
         <!-- Date -->
-        <div class="card-footer flex flex-row justify-between">
-            <p class="card-text m-0 date non-important" 
-            style="visibility: hidden;">{{ event.date | date_to_string }}</p>
-            <p class="card-text m-0 non-important">ساعت {{ event.date | date: "%H:%M" }}</p>
+        <div class="card-footer">
+            <p class="card-text m-0 date non-important invisible">
+                {{ event.date | date_to_string }}
+            </p>
+            <p class="card-text m-0 non-important">
+                ساعت {{ event.date | date: "%H:%M" }}
+            </p>
         </div>
+        <!-- Link -->
         <div class="card-button">
             <a href="{{ event.url }}">مشاهده</a>
         </div>

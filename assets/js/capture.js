@@ -15,7 +15,7 @@ html2canvas(postElement, {
   saveContainer.appendChild(canvas);
   postElement.remove();
   aElement.setAttribute('download', 'post-image.png');
-  aElement.setAttribute('class', 'my-button');
+  aElement.setAttribute('class', 'btn-primary');
   aElement.setAttribute('href', imageURL);
   aElement.innerText = "دانلود تصویر مناسب پست";
   canvas.remove();
@@ -35,7 +35,7 @@ html2canvas(storyElement, {
   saveContainer.appendChild(canvas);
   storyElement.remove();
   aElement.setAttribute('download', 'story-image.png');
-  aElement.setAttribute('class', 'my-button');
+  aElement.setAttribute('class', 'btn-primary');
   aElement.setAttribute('href', imageURL);
   aElement.innerText = "دانلود تصویر مناسب استوری";
   canvas.remove();

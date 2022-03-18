@@ -2,12 +2,225 @@
 @tailwind components;
 @tailwind utilities;
 
-p {
-    @apply flex-row;
-    @apply m-1;
+@layer components {
+  .btn-primary {
+    @apply m-1 py-1 px-2 
+    text-center
+    bg-blue-400 text-slate-100 
+    bg-opacity-75
+    font-semibold rounded-md shadow-md 
+    hover:bg-blue-500 focus:outline-none 
+    focus:ring-2 focus:ring-blue-400 
+    focus:ring-opacity-75
+    drop-shadow-sm;
+  }
+  .btn-light {
+    @apply btn-primary 
+    text-center
+    bg-gray-300 text-gray-500 
+    hover:bg-gray-400 focus:outline-none 
+    focus:ring-gray-300 
+  }
+
+  .card {
+    @apply w-full h-auto
+    bg-slate-200
+    rounded-t-md
+    p-0 mt-3 mb-3
+    border-solid border-4 border-b-0 border-slate-200
+    drop-shadow-md;
+  }
+  .card-body { @apply p-0; }
+  .card-title {
+      @apply flex flex-row
+      justify-start items-center
+      bg-slate-200 
+      text-gray-700 font-bold
+      rounded-t-md
+      py-2 px-2 m-0
+      w-full h-auto;
+  }
+  .card-subtitle {
+      @apply text-gray-500
+      my-0 mx-1
+      px-2 py-1;
+  }
+  .card-footer {
+    @apply flex flex-row
+    justify-between items-center
+    px-2 py-2
+    bg-slate-300
+    text-gray-100
+    rounded-md rounded-b-none
+    border-0;
+  }
+  .card-button {
+    @apply flex flex-row
+    justify-center items-end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    bg-slate-300
+    m-0 p-0;
+  }
+
+  .lecturer-pic {
+    @apply flex flex-col
+    items-center justify-center;
+  }
 }
 
-p img {
-    @apply w-full;
-    @apply h-full;
+:root {
+    --ceit-primary: #004080;
+    --ceit-secondary: #008049;
+    --my-gradient: linear-gradient(45deg, var(--ceit-primary), var(--ceit-secondary));
+}
+
+@font-face {
+    font-family: irsans;
+    src: url('..\/fonts\/irsans.ttf');
+}
+
+body {
+    @apply text-gray-700 bg-gray-700 bg-no-repeat bg-fixed;
+    font-family: 'irsans';
+}
+p, h1, h2, h3, h4, h5, h6 { @apply sm:p-1; }
+h1,h2,h3,h4,h5,h6 { @apply font-bold; }
+h1 { @apply text-3xl mx-1 my-9; }
+h2 { @apply text-2xl m-1 mt-3; }
+h3 { @apply text-2xl m-1 mt-3; }
+h4 { @apply text-xl m-1 mt-3; }
+h5 { @apply text-lg m-1 mt-3; }
+h6 { @apply text-base m-1 mt-3; }
+p { @apply text-base mx-1 my-3; }
+p a { @apply btn-primary w-52 m-1 p-1 px-3; }
+p img { @apply w-full h-full; }
+ul { @apply text-sm m-1 mt-3; }
+
+img { @apply max-w-full h-auto; }
+
+table { @apply text-gray-700 w-full my-7 self-center; }
+th { @apply bg-gray-700 text-gray-100 py-1 px-2; }
+thead { @apply drop-shadow-md; }
+tbody { @apply drop-shadow-md; }
+tbody tr { @apply bg-slate-100 even:bg-slate-200 hover:bg-gray-300; }
+td { @apply w-auto p-2; }
+td a { @apply btn-primary px-2 py-0; }
+
+pre {
+    direction: ltr;
+    @apply drop-shadow-md 
+    bg-gray-700 text-green-400 
+    rounded-md p-4;
+}
+
+footer { @apply flex flex-col w-full self-center; }
+footer p { @apply block text-gray-500 text-center text-xs p-2; }
+footer hr { @apply border-2 border-gray-800 border-opacity-50; }
+
+svg path { @apply fill-slate-200 !important;}
+footer a svg path { @apply fill-gray-400 !important; }
+p svg path { @apply fill-gray-700 !important; }
+a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
+#logo-motion svg { @apply md:w-96 sm:w-72 h-auto; }
+.navbar-brand svg { @apply w-20 h-auto; }
+.navbar-toggler svg { @apply w-6 h-auto; }
+.navbar svg path { @apply fill-gray-600 !important; }
+.card-title svg { @apply w-6 h-auto ml-2; }
+.card-title svg path { @apply fill-gray-800 !important; }
+.card-footer svg { @apply w-6 h-auto; }
+.post-icons svg { @apply w-48 h-auto;}
+.post-icons svg path { @apply fill-gray-100 !important; }
+.story-icons svg { @apply h-52 w-auto; }
+.story-icons svg path { @apply fill-gray-100 !important; }
+.lecturer-pic a svg { @apply w-8 h-auto; }
+
+.profile-pic {
+    @apply relative flex
+    w-12 h-12
+    right-3 top-3;
+}
+.profile-pic img { @apply rounded-full; }
+
+.navbar {
+    @apply fixed flex flex-col flex-wrap 
+    items-center justify-between
+    w-full p-0 top-0 z-10
+    drop-shadow-xl
+    bg-slate-200;
+}
+.nav-link { @apply text-gray-600 text-base font-bold; }
+.home-navbar .navbar-brand { @apply invisible; }
+.active { @apply bg-slate-300 text-gray-700 rounded-md py-1 px-2;}
+
+.card-button a {
+    @apply btn-primary 
+    rounded-xl rounded-b-none
+    py-0 px-3 mb-0;
+}
+
+.non-important { @apply text-gray-400; }
+.non-important svg path { @apply fill-gray-100; }
+
+.social-item { @apply rounded-md px-5 m-1; }
+.service-group { @apply flex flex-col items-center; }
+
+.service { @apply flex flex-row justify-center items-center w-full my-3; }
+
+#capture-post {
+    @apply absolute flex flex-row flex-wrap pr-5;
+    clip-path: circle(0);
+    width: 1080px;
+    height: 1080px;
+}
+
+.post-content { @apply flex flex-col w-3/4; }
+.post-content p { @apply text-2xl; }
+.post-content h1 { @apply text-6xl; }
+.post-content h2 { @apply text-5xl; }
+.post-content h3 { @apply text-4xl; }
+.post-content h4 { @apply text-3xl; }
+.post-content h5 { @apply text-2xl; }
+.post-content hr { @apply mt-16;}
+.post-content ul { @apply text-2xl list-none p-0; }
+.post-content a { @apply text-2xl text-gray-700; }
+
+.post-icons {
+    @apply flex flex-col items-center justify-end w-1/4 p-1;
+    background-image: var(--my-gradient);
+}
+
+#capture-story {
+    @apply absolute flex flex-col flex-wrap pr-5;
+    width: 1080px !important;
+    height: 1920px !important;
+    clip-path: circle(0);
+}
+
+.story-content {
+    @apply flex flex-col 
+    items-start justify-start 
+    w-full mt-16 p-1;
+}
+.story-content p { @apply text-4xl; }
+.story-content h1 { @apply text-7xl; }
+.story-content h2 { @apply text-6xl; }
+.story-content h3 { @apply text-5xl; }
+.story-content h4 { @apply text-5xl; }
+.story-content h5 { @apply text-4xl; }
+.story-content hr { @apply mt-32; }
+.story-content ul { @apply text-2xl list-none p-0; }
+.story-content a { @apply text-5xl text-gray-100; }
+
+.story-icons {
+    @apply absolute flex flex-row 
+    items-center justify-evenly
+    right-0 bottom-40 
+    w-full h-52 p-1;
+    background-image: var(--my-gradient);
+}
+
+.lecturer-pic img { @apply rounded-full; }
+.lecturer-pic a {
+    @apply rounded-full 
+    border-solid border-2 border-slate-200
+    bg-slate-200;
 }
