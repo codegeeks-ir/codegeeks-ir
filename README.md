@@ -11,7 +11,7 @@ Now you can Fork the repo, Create your branch from main, Commit your changes and
 When you are ready to commit changes, please do not use `git add . ` !    
 There are submodules inside `collections/` that are 
 actually another repos. If you mistakenly added those, be sure to run  
-`git rm --cached collections/` for unstaging `collections/`. Then You are free to make commit.   
+`git restore --staged collections/` for unstaging `collections/`. Then You are free to make commit.   
 
 ## How to update theme ?
 
