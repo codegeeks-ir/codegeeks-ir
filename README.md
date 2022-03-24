@@ -15,8 +15,8 @@ actually another repos. If you mistakenly added those, be sure to run
 
 ## How to update theme ?
 
-Currently We use [Bootstrap][] with [SASS][]. Check out `_layouts`, `_includes` and `scss` directories. To modify styles, 
-change the rules inside `scss/styles.scss`. This SASS file will be compiled to `assets/css/styles.css`.
+We use [tailwindcss][]. To modify styles, 
+change the rules inside `assets/input.css`. This will be processed to `assets/css/output.css`. Also You can check out html template files inside `_layouts` and `_includes` directories.
 
 ## How to update website content ?
 
@@ -31,14 +31,13 @@ directly. Instead You can fork those repos and send pull request. Here are the c
 [_members][]  
 [_posts][]  
 
-[jekyll]: https://jekyllrb.com/docs/installation/
-[Bootstrap]: https://getbootstrap.com/
-[SASS]: https://sass-lang.com/
+[jekyll]: https://jekyllrb.com/docs/installation/  
+[tailwindcss]: https://tailwindcss.com/  
 
 [References]: https://github.com/ceituut/References  
-[_authors]: https://github.com/ceituut/_authors 
-[_contests]: https://github.com/ceituut/_contests
-[_events]: https://github.com/ceituut/_events
-[_faqs]: https://github.com/ceituut/_faqs
+[_authors]: https://github.com/ceituut/_authors  
+[_contests]: https://github.com/ceituut/_contests  
+[_events]: https://github.com/ceituut/_events  
+[_faqs]: https://github.com/ceituut/_faqs  
 [_members]: https://github.com/ceituut/_members  
-[_posts]: https://github.com/ceituut/_posts
+[_posts]: https://github.com/ceituut/_posts  
