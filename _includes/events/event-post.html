@@ -1,43 +1,41 @@
 <!-- For instagram post -->
-<div id="capture-post">
+<div id="capture-post" class="card border-none">
     <!-- content -->
     <div class="post-content">
         <!-- Introduction -->
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
         <hr>
         <!-- Subject -->
-        <h1>
-            {{ page.title }}
-        </h1>
+        <h1>{{ page.title }}</h1>
         <!-- Lecturer -->
-        <div class="flex flex-row">
+        <div class="flex flex-row mt-4">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
             <div class="lecturer-pic w-1/4">
                 <img src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
+                <div class="relative">
+                    <p class="github-icon non-important">{% include svgs/github.svg %}</p>
+                    <p class="m-0 p-0 non-important">{{ page.github_id }}</p>
+                </div>
             </div>
             <!-- Bio -->
-            <div class="w-3/4">
+            <div class="post-bio">
                 <h2>{{ page.lecturer }}</h2>
                 <p>{{ page.bio }}</p>
-                <p href="{{ github_link }}" class="card-link">
-                    {{ page.github_id }}
-                    {% include svgs/github.svg %}
-                </p>
             </div>
         </div>
         <hr>
         <!-- Topics -->
         <ul>
-            <li><p>{{ page.topic1 }}</p></li>
-            <li><p>{{ page.topic2 }}</p></li>
-            <li><p>{{ page.topic3 }}</p></li>
-            <li><p>{{ page.topic4 }}</p></li>
+            <li><p class="m-0">{{ page.topic1 }}</p></li>
+            <li><p class="m-0">{{ page.topic2 }}</p></li>
+            <li><p class="m-0">{{ page.topic3 }}</p></li>
+            <li><p class="m-0">{{ page.topic4 }}</p></li>
         </ul>
         <hr>
         <!-- Date -->
-        <h3 class="date m-0" style="visibility: hidden;">
+        <h3 class="date invisible m-0">
             {{ page.date | date_to_string }}
         </h3>
         <!-- Time -->
