@@ -1,9 +1,6 @@
 [submodule "collections/_events"]
 	path = collections/_events
 	url = git@github.com:ceituut/_events.git
-[submodule "collections/_contests"]
-	path = collections/_contests
-	url = git@github.com:ceituut/_contests.git
 [submodule "collections/_faqs"]
 	path = collections/_faqs
 	url = git@github.com:ceituut/_faqs.git
@@ -19,9 +16,6 @@
 [submodule "collections/_members"]
 	path = collections/_members
 	url = git@github.com:ceituut/_members.git
-[submodule "collections/ceituut.github.io"]
-	path = collections/ceituut.github.io
-	url = git@github.com:ceituut/ceituut.github.io.git
 [submodule "collections/guide"]
 	path = collections/guide
 	url = git@github.com:ceituut/guide.git
