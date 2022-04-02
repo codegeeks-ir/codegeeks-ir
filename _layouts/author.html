@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="flex flex-col items-center justify-center w-full">
     <!-- Profile -->
-    <div class="card mb-0 rounded-b-none">
+    <div class="card flex flex-col items-center justify-center mb-0 rounded-b-none">
     {% assign github_link = "https://github.com/" | append: page.github_id %}
     {% assign github_pic = github_link | append: ".png" %}
     <!-- Github avatar -->
@@ -11,25 +11,22 @@ layout: default
             <img src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
         </div>
         <!-- Bio -->
-        <div class="text-center">
-            <!-- Author name -->
-            <h2 class="card-title">
-                {{ page.name }}
-            </h2>
-            <!-- Author position -->
-            <h3 class="card-subtitle text-neutral-700 mb-2">
-              {{ page.position }}
-            </h3>  
-        </div>
+        <!-- Author name -->
+        <h2 class="card-title justify-center">
+            {{ page.name }}
+        </h2>
+        <!-- Author position -->
+        <p class="card-subtitle text-center mb-2">
+          {{ page.position }}
+        </p>  
       <hr>
     </div>
     <!-- About -->
-    <div class="card rounded-t-none m-1 mt-0 p-1">
+    <div class="card non-important text-center rounded-t-none m-1 mt-0 p-1">
         {{ content }}
     </div>
     <!-- Posts -->
-    <ul class="flex flex-col items-center 
-    justify-center w-full m-0 mt-5 p-2">
+    <ul class="flex flex-col items-center justify-center w-full m-0 mt-5">
         {% assign author_id  = page.github_id | split: "/" | last%}
         {% assign filtered_posts = site.posts | where: "author", author_id %}
         {% for post in filtered_posts %}

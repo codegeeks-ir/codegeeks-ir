@@ -3,21 +3,15 @@
     <!-- content -->
     <div class="flex flex-col">
         <!-- Subject -->
-        <h1>{{ page.title }}</h1>
+        <h1 dir="auto">{{ page.title }}</h1>
         <!-- Lecturer -->
         <div class="flex flex-col">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="lecturer-pic w-44 mb-4">
-                <div class="relative">
-                    <a href="{{ github_link }}">
-                        {% include svgs/github.svg %}
-                    </a>
-                </div>
-                <img class="w-40 h-40" 
-                src='{{ github_pic }}' 
-                alt="{{ lecturer.name }} profile picture">
+            <div class="lecturer-pic relative w-44 mb-4">
+                <img src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
+                <a class="github-icon relative" href="{{ github_link }}">{% include svgs/github.svg %}</a>
             </div>
             <!-- Bio -->
             <div class="flex flex-col justify-end">
@@ -27,23 +21,20 @@
         </div>
         <hr>
         <!-- Topics -->
-        <ul class="list-none p-0">
-            <li><p>{{ page.topic1 }}</p></li>
-            <li><p>{{ page.topic2 }}</p></li>
-            <li><p>{{ page.topic3 }}</p></li>
-            <li><p>{{ page.topic4 }}</p></li>
-        </ul>
+        <div dir="auto">
+            {{ page.content }}
+        </div>
         <hr>
         <!-- Date -->
-        <p class="date non-important m-0" style="visibility: hidden;">
+        <p class="date non-important m-0 p-0 invisible">
             {{ page.date | date_to_string }}
         </p>
         <!-- Time -->
-        <p class="non-important m-0">
+        <p class="non-important m-0 p-0">
             ساعت
             {{ page.date | date: "%H:%M" }}
         </p>
         <!-- Location -->
-        <p class="non-important m-0">{{ page.location }}</p>
+        <p class="non-important m-0 p-0">{{ page.location }}</p>
     </div>
 </div>

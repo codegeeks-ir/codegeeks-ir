@@ -9,7 +9,7 @@
             {% assign collapse_id = "collapse" | append: member.members_id %}
             <!-- Button -->
             <button onclick="document.querySelector('#{{ collapse_id }}').classList.toggle('hidden')" 
-            class="btn-light date w-full mb-0 mt-2 invisible" 
+            class="btn-light date w-full rounded-b-none m-0 mt-2 invisible" 
             data-accordion-target="#{{ collapse_id }}"
             aria-expanded="{% if member.members_id == current.members_id %}true{% else %}false{% endif %}" 
             aria-controls="{{ collapse_id }}">
@@ -17,7 +17,7 @@
             </button>
             <!-- Collapse -->
             <div id="{{ collapse_id }}" 
-            class="collapse mt-8 
+            class="collapse m-0 -mt-6 
             {% if member.members_id != current.members_id %}hidden{% endif %}" 
             aria-labelledby="{{ header_id }}">
                 {{ member.content }}

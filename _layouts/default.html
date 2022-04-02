@@ -10,6 +10,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{% link assets/images/favicon.svg %}">
     
+    <!-- Syntax highlighter -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/vs2015.min.css">
+
     <!-- Styles -->
     <link href="{% link assets/css/output.css %}" rel="stylesheet">
 
@@ -31,6 +36,7 @@
       button.addEventListener("click", () => {
         menu.classList.toggle("hidden");
       });
+      hljs.highlightAll();
     </script>
   </body>
 </html>

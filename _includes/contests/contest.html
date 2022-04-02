@@ -6,7 +6,7 @@
         {{ page.title | append: " " | append: contest_number }}
     </h1>
     <!-- Score -->
-    <h5 class="card-subtitle mt-0 mb-2 text-neutral-700">
+    <h5 class="card-subtitle mt-0 mb-2">
         {{ page.score }}
         امتیاز
     </h5>
@@ -15,13 +15,13 @@
         <!-- Start date -->
         <div class="w-1/2">
             <h5>زمان شروع</h5>
-            <p class="card-text date" style="visibility: hidden;">{{ page.start_date | date_to_string }}</p>
+            <p class="card-text date invisible">{{ page.start_date | date_to_string }}</p>
             <p class="card-text"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
         </div>
         <!-- End date -->
         <div class="w-1/2">
             <h5>زمان پایان</h5>
-            <p class="card-text date" style="visibility: hidden;">{{ page.end_date | date_to_string }}</p>
+            <p class="card-text date invisible">{{ page.end_date | date_to_string }}</p>
             <p class="card-text"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
         </div>
     </div>

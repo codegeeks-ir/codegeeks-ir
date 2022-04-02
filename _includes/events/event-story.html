@@ -6,7 +6,7 @@
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
         <hr>
         <!-- Subject -->
-        <h1>{{ page.title }}</h1>
+        <h1 class="w-full" dir="auto">{{ page.title }}</h1>
         <!-- Lecturer -->
         <div class="flex flex-row mt-8">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
@@ -27,12 +27,9 @@
         </div>
         <hr>
         <!-- Topics -->
-        <ul>
-            <li><p class="m-0">{{ page.topic1 }}</p></li>
-            <li><p class="m-0">{{ page.topic2 }}</p></li>
-            <li><p class="m-0">{{ page.topic3 }}</p></li>
-            <li><p class="m-0">{{ page.topic4 }}</p></li>
-        </ul>
+        <div class="w-full" dir="auto">
+            {{ page.content }}
+        </div>
         <hr>
         <!-- Date -->
         <h3 class="date invisible m-0">
