@@ -7,10 +7,10 @@
         <!-- Lecturer -->
         <div class="flex flex-col">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
-            {% assign github_pic = "../events/" | append: page.github_id | append: ".png" %}
+            {% assign github_pic = "../" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
             <div class="lecturer-pic relative w-44 mb-4">
-                <img src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
+                <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
                 <a class="github-icon relative" href="{{ github_link }}">{% include svgs/github.svg %}</a>
             </div>
             <!-- Bio -->
