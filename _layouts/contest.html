@@ -1,55 +1,33 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% feed_meta %}
-  {% seo %}
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="{% link assets/images/favicon.svg %}">
-
-  <!-- Syntax highlighter -->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/vs2015.min.css">
-  
-  <!-- Styles -->
-  <link href="{% link assets/css/output.css %}" rel="stylesheet">
-
-  <!-- Title -->
-  {% assign contest_number = page.number %}
-  <title>{{ page.title | append: " " | append: contest_number }}</title>
-</head>
-
-<body class="bg-gradient-to-t" dir="rtl">
-  {% include navigation.html %}
-  <div class="container mb-36 mt-36 text-justify">
-    <div class="flex flex-row items-center justify-center m-0 mb-14 p-2 lg:p-5 md:p-2 sm:p-0">
-      {% include contests/contest.html %}
-    </div>
+---
+layout: default
+---
+<!-- For contest -->
+<div class="card w-full p-0 lg:p-5 md:p-4 sm:p-2">
+  <!-- Subject -->
+  <h1 class="mb-0">
+      {% assign contest_number = page.number %}
+      {{ page.title | append: " " | append: contest_number }}
+  </h1>
+  <!-- Score -->
+  <h5 class="card-subtitle mt-0 mb-2">
+      {{ page.score }}
+      امتیاز      
+  </h5>
+  <!-- Date -->
+  <div class="flex flex-row non-important mt-10 mb-20 p-0">
+      <!-- Start date -->
+      <div class="w-1/2">
+          <h5>زمان شروع</h5>
+          <p class="card-text date invisible my-0">{{ page.start_date | date_to_string }}</p>
+          <p class="card-text my-0"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
+        </div>
+        <!-- End date -->
+        <div class="w-1/2">
+          <h5>زمان پایان</h5>
+          <p class="card-text date invisible my-0">{{ page.end_date | date_to_string }}</p>
+          <p class="card-text my-0"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
+      </div>
   </div>
-  {% include footer.html %}
-  <!-- Listner for mobile main menu button -->
-  <script>
-    const button = document.querySelector("#mobile-button");
-    const menu = document.querySelector("#mobile-menu");
-    button.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  </script>
-  <!-- persin-long-date madule -->
-  <script src="../assets/js/persian-long-date.js"></script>
-  <!-- Change date to persian -->
-  <script>
-    let eventDateElements = document.querySelectorAll(".date");
-    eventDateElements.forEach(element => {
-        element.innerHTML = getPersianDate(element.innerHTML);
-    element.style.visibility = "visible";
-    });
-    hljs.highlightAll();
-  </script>
-</body>
-</html>
+  <!-- Contest content -->
+  {{ content }}
+</div>

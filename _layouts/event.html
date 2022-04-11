@@ -28,7 +28,7 @@
       <div class="card p-0">
         <h1 class="card-title m-0">
           {% include svgs/share.svg %}
-          اشتراک گذاری رویداد
+          اشتراک گذاری رویداد          
         </h1>
         <p>شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به اشتراک بگذارید.</p>
         <div id="event-image-container" class="card-button pt-3 justify-center"></div>
@@ -45,7 +45,7 @@
     });
   </script>
   <!-- persin-long-date madule -->
-  <script src="../assets/js/persian-long-date.js"></script>
+  <script src="{% link assets/js/persian-long-date.js %}"></script>
   <!-- Change date to persian -->
   <script>
     let eventDateElements = document.querySelectorAll(".date");
@@ -54,9 +54,9 @@
     element.style.visibility = "visible";
     });
   </script>
-  <!-- html2canvas madule -->
-  <script src="../assets/js/html2canvas.min.js"></script>
+  <!-- html2canvas module -->
+  <script src="{% link assets/js/html2canvas.min.js %}"></script>
   <!-- Capture script -->
-  <script src="../assets/js/capture.js"></script>
+  <script src="{% link assets/js/capture.js %}"></script>
 </body>
 </html>

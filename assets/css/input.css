@@ -149,7 +149,7 @@ a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
 }
 .nav-link { @apply text-gray-600 text-base font-bold; }
 .home-navbar .navbar-brand { @apply invisible; }
-.active { @apply bg-slate-300 text-gray-700 rounded-md py-1 px-2;}
+.active { @apply bg-slate-300 text-gray-700 rounded-md py-1 px-2; }
 
 .card-button a {
     @apply btn-primary 
@@ -157,11 +157,13 @@ a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
     py-0 px-3 mb-0;
 }
 
+.collection-container { @apply flex flex-col items-center w-full mx-3; }
+
 .non-important { @apply text-gray-400; }
 .non-important svg path { @apply fill-gray-400 !important; }
 
 .social-item { @apply rounded-md px-5 m-1; }
-.service-group { @apply flex flex-col items-center; }
+.service-group { @apply flex flex-col items-center w-full mt-5; }
 
 .service { @apply flex flex-row justify-center items-center w-full my-3; }
 
