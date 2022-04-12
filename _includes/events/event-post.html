@@ -10,7 +10,7 @@
         <!-- Lecturer -->
         <div class="flex flex-row mt-4">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
-            {% assign github_pic = "./" | append: page.github_id | append: ".png" %}
+            {% assign github_pic = "../" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
             <div class="lecturer-pic w-1/4">
                 <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
