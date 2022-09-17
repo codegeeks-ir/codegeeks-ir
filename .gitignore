@@ -9,3 +9,6 @@ vendor/
 .vscode/
 
 node_modules/
+
+# Ignore content
+collections/
