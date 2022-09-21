@@ -26,6 +26,7 @@ git clone --depth 1 -b main https://github.com/ceituut/_faqs.git collections/_fa
 git clone --depth 1 -b main https://github.com/ceituut/_members.git collections/_members
 git clone --depth 1 -b main https://github.com/ceituut/References.git collections/References
 git clone --depth 1 -b main https://github.com/ceituut/guide.git collections/guide
+git clone --depth 1 -b main https://github.com/ceituut/projects.git collections/projects
 ```  
 
 ## Join content team

@@ -8,5 +8,8 @@
 - name: رویدادها
   link: /events.html
 
+- name: پروژه ها
+  link: /collections/projects/
+
 - name: انتشارات 
   link: /blog.html
