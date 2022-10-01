@@ -79,6 +79,7 @@
 }
 
 body {
+    @apply bg-gradient-to-t flex flex-col items-center;
     @apply text-gray-700 bg-gray-700 bg-no-repeat bg-fixed;
     font-family: 'irsans';
 }
