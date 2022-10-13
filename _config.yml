@@ -41,17 +41,17 @@ collections:
   authors:
     output: true
     permalink: /:collection/:name
+  members:
+    output: false
+    permalink: /:collection/:name
   faqs:
     output: true
     permalink: /:collection/:name
   events:
     output: true
     permalink: /:collection/:name
-  UUTCodeChallenge:
+  code-challenge:
     output: true
-    permalink: /:collection/:name
-  members:
-    output: false
     permalink: /:collection/:name
 
 # Layout settings
@@ -76,7 +76,7 @@ defaults:
 
   - scope:
       path: ""
-      type: "UUTCodeChallenge"
+      type: "code-challenge"
     values:
       layout: "contest"
 
