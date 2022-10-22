@@ -25,16 +25,20 @@
             {{ page.content }}
         </div>
         <hr>
-        <!-- Date -->
-        <p class="date non-important m-0 p-0 invisible">
-            {{ page.date | date_to_string }}
-        </p>
-        <!-- Time -->
-        <p class="non-important m-0 p-0">
-            ساعت
-            {{ page.date | date: "%H:%M" }}
-        </p>
-        <!-- Location -->
-        <p class="non-important m-0 p-0">{{ page.location }}</p>
+        <!-- Time and location -->
+        <div class="event-time">
+            <!-- Date -->
+            <p class="date invisible m-0">{{ page.date | date_to_string }}</p>
+            <!-- Clock -->
+            <div class="flex flex-row items-center m-0 p-0">
+                <p class="mt-0 mb-0">{% include svgs/clock.svg %}</p>
+                <p class="mt-0 mb-0">ساعت {{ page.date | date: "%H:%M" }}</p>
+            </div>
+            <!-- Location -->
+            <div class="flex flex-row items-center m-0 p-0">
+                <p class="mt-0 mb-0">{% include svgs/geo-alt.svg %}</p>
+                <p class="mt-0 mb-0">{{ page.location }}</p>
+            </div>
+        </div>
     </div>
 </div>

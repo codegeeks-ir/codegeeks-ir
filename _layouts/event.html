@@ -25,6 +25,7 @@
       {% include events/event.html %}
       {% include events/event-post.html %}
       {% include events/event-story.html %}
+      <!-- Share event -->
       <div class="card p-0">
         <h1 class="card-title m-0">
           {% include svgs/share.svg %}
@@ -44,7 +45,13 @@
       menu.classList.toggle("hidden");
     });
   </script>
-  <!-- persin-long-date madule -->
+  <!-- textFit module -->
+  <script src="{% link assets/js/textFit.min.js %}"></script>
+  <!-- Fit text using textFit -->
+  <script>
+    textFit(document.getElementsByClassName('event-subject'));
+  </script>
+  <!-- persian-long-date module -->
   <script src="{% link assets/js/persian-long-date.js %}"></script>
   <!-- Change date to persian -->
   <script>

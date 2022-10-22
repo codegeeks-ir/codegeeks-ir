@@ -1,22 +1,28 @@
 <!-- For instagram post -->
-<div id="capture-post" class="card border-none">
-    <!-- content -->
-    <div class="post-content">
+<div id="capture-post" class="card border-none" style="margin-top: 1000px;">
+    <!-- Background -->
+    <div class="absolute" style="z-index: -10;">
+        <img src="{% link assets/images/background.png %}" alt="Background">
+    </div>
+    <!-- Heading -->
+    <div class="post-heading">
         <!-- Introduction -->
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
-        <hr>
         <!-- Subject -->
-        <h1 dir="auto">{{ page.title }}</h1>
+        <h1 class="event-subject" dir="auto">{{ page.title }}</h1>
+    </div>
+    <!-- Content -->
+    <div class="post-content">
         <!-- Lecturer -->
-        <div class="flex flex-row mt-4">
+        <div class="flex flex-row">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "./" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="lecturer-pic w-1/4">
+            <div class="lecturer-pic w-1/3">
                 <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
-                <div class="relative">
+                <div class="relative w-9/12 h-full">
                     <p class="github-icon non-important">{% include svgs/github.svg %}</p>
-                    <p class="m-0 p-0 non-important">{{ page.github_id }}</p>
+                    <p class="w-full text-center m-0 p-0 non-important">{{ page.github_id }}</p>
                 </div>
             </div>
             <!-- Bio -->
@@ -25,23 +31,25 @@
                 <p>{{ page.bio }}</p>
             </div>
         </div>
-        <hr>
         <!-- Topics -->
-        <div dir="auto">
+        <div class="post-topics" dir="auto">
             {{ page.content }}
         </div>
-        <hr>
-        <!-- Date -->
-        <h3 class="date invisible m-0">
-            {{ page.date | date_to_string }}
-        </h3>
-        <!-- Time -->
-        <h4 class="m-0">
-            ساعت 
-            {{ page.date | date: "%H:%M" }}
-        </h4>
-        <!-- Location -->
-        <h5 class="m-0">{{ page.location }}</h5>
+        <!-- Time and location -->
+        <div class="post-time">
+            <!-- Date -->
+            <h3 class="date invisible m-0">{{ page.date | date_to_string }}</h3>
+            <!-- Clock -->
+            <div class="flex flex-row items-center m-0 p-0">
+                <p class="mt-0 -mb-10">{% include svgs/clock.svg %}</p>
+                <h4 class="mt-0 mb-0">ساعت {{ page.date | date: "%H:%M" }}</h4>
+            </div>
+            <!-- Location -->
+            <div class="flex flex-row items-center m-0 p-0">
+                <p class="mt-0 -mb-10">{% include svgs/geo-alt.svg %}</p>
+                <h5 class="mt-0 mb-0">{{ page.location }}</h5>
+            </div>
+        </div>
     </div>
     <!-- Icons -->
     <div class="post-icons">
