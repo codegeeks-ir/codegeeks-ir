@@ -1,43 +1,79 @@
-const postElement = document.querySelector("#capture-post");
-const storyElement = document.querySelector("#capture-story");
-const saveContainer = document.querySelector("#event-image-container");
+// Select elements for export process 
+const postElement = document.querySelector("#export-post");
+const storyElement = document.querySelector("#export-story");
+const pdfElement = document.querySelector("#export-pdf");
+const saveContainer = document.querySelector("#event-export-link-container");
 
-// Capture post element
-html2canvas(postElement, {
-  width: 1080,
-  height: 1080,
+// Create links
+const postLink = document.createElement('a');
+const storyLink = document.createElement('a');
+const pdfLink = document.createElement('a');
+
+// export settings
+const postOptions = {    
+  width: 270,
+  height: 270,
+  scale: 4,
+  windowWidth: 270,
+  windowHeight: 270 
+};
+const storyOptions = {
+  width: 270,
+  height: 480,
+  scale: 4,
+  windowWidth: 270,
+  windowHeight: 480 
+};
+const pdfOptions = {
+  width: 793.3,
+  height: 1122,
   scale: 1,
-  windowWidth: 1080,
-  windowHeight: 1080
-}).then(canvas => {
+  windowWidth: 793.3,
+  windowHeight: 1122
+};
+const html2pdfOptions = {
+  filename:     'myfile.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 1 },
+  jsPDF:        { unit: 'in', format: 'A4', orientation: 'portrait' }
+};
+
+// export post element
+html2canvas(postElement, postOptions).then(canvas => {
   const imageURL = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-  const aElement = document.createElement('a');
   saveContainer.appendChild(canvas);
   postElement.remove();
-  aElement.setAttribute('download', 'post-image.png');
-  aElement.setAttribute('class', 'btn-primary');
-  aElement.setAttribute('href', imageURL);
-  aElement.innerText = "دانلود تصویر مناسب پست";
+  postLink.setAttribute('download', postElement.getAttribute('subject') + '-post.png');
+  postLink.setAttribute('class', 'btn-primary');
+  postLink.setAttribute('href', imageURL);
+  postLink.innerText = "دریافت تصویر پست";
+  saveContainer.appendChild(postLink);
   canvas.remove();
-  saveContainer.appendChild(aElement);
 });
 
-// Capture story element
-html2canvas(storyElement, {
-  width: 1080,
-  height: 1920,
-  scale: 1,
-  windowWidth: 1080,
-  windowHeight: 1920
-}).then(canvas => {
+// export story element
+html2canvas(storyElement, storyOptions).then(canvas => {
   const imageURL = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-  const aElement = document.createElement('a');
   saveContainer.appendChild(canvas);
   storyElement.remove();
-  aElement.setAttribute('download', 'story-image.png');
-  aElement.setAttribute('class', 'btn-primary');
-  aElement.setAttribute('href', imageURL);
-  aElement.innerText = "دانلود تصویر مناسب استوری";
+  storyLink.setAttribute('download', storyElement.getAttribute('subject') + '-story.png');
+  storyLink.setAttribute('class', 'btn-primary');
+  storyLink.setAttribute('href', imageURL);
+  storyLink.innerText = "دریافت تصویر استوری";
+  saveContainer.appendChild(storyLink);
   canvas.remove();
-  saveContainer.appendChild(aElement);
+});
+
+// export pdf element
+html2canvas(pdfElement, pdfOptions).then(canvas => {
+  saveContainer.appendChild(canvas);
+  pdfElement.remove();
+  pdfLink.innerText = "دریافت نسخه چاپی";
+  pdfLink.setAttribute('download', pdfElement.getAttribute('subject'));
+  pdfLink.setAttribute('class', 'btn-primary');
+  html2pdf().set(html2pdfOptions).from(canvas).toPdf().get('pdf').then((pdf => {
+    pdfLink.setAttribute('href', pdf.output('bloburl'));
+  }));
+  saveContainer.appendChild(pdfLink);
+  canvas.remove(); 
 });

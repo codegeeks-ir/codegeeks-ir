@@ -2,82 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reusable components */
 @layer components {
-  .btn-primary {
-    @apply m-1 py-1 px-2 
-    text-center
-    bg-blue-400 text-slate-100 
-    bg-opacity-75
-    font-semibold rounded-md shadow-md 
-    hover:bg-blue-500 focus:outline-none 
-    focus:ring-2 focus:ring-blue-400 
-    focus:ring-opacity-75
-    drop-shadow-sm;
-  }
-  .btn-light {
-    @apply btn-primary 
-    text-center
-    bg-gray-300 text-gray-500 
-    hover:bg-gray-400 focus:outline-none 
-    focus:ring-gray-300 
-  }
+    /* Button components */
+    .btn-primary {
+        @apply m-1 py-1 px-2 
+        text-center
+        bg-blue-400 text-slate-100 
+        bg-opacity-75
+        font-semibold rounded-md shadow-md 
+        hover:bg-blue-500 focus:outline-none 
+        focus:ring-2 focus:ring-blue-400 
+        focus:ring-opacity-75
+        drop-shadow-sm;
+    }
+    .btn-light {
+        @apply btn-primary 
+        text-center
+        bg-gray-300 text-gray-500 
+        hover:bg-gray-400 focus:outline-none 
+        focus:ring-gray-300 
+    }
 
-  .card {
-    @apply w-full h-auto
-    bg-slate-200
-    rounded-t-md
-    p-0 mt-3 mb-3
-    border-solid border-4 border-b-0 border-slate-200
-    drop-shadow-md;
-  }
-  .card-body { @apply p-0; }
-  .card-title {
-      @apply flex flex-row
-      justify-start items-center
-      bg-slate-200 
-      text-gray-700 font-bold
-      rounded-t-md
-      py-2 px-2 m-0
-      w-full h-auto;
-  }
-  .card-subtitle {
-      @apply text-gray-500
-      my-0 mx-1
-      px-2 py-1;
-  }
-  .card-footer {
-    @apply flex flex-row
-    justify-between items-center
-    px-2 py-2
-    bg-slate-300
-    text-gray-100
-    rounded-md rounded-b-none
-    border-0;
-  }
-  .card-button {
-    @apply flex flex-row
-    justify-center items-end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-    bg-slate-300
-    m-0 p-0;
-  }
+    /* Card components */
+    .card {
+        @apply w-full h-auto
+        bg-slate-200
+        rounded-t-md
+        p-0 mt-3 mb-3
+        border-solid border-4 border-b-0 border-slate-200
+        drop-shadow-md;
+    }
+    .card-body { @apply p-0; }
+    .card-title {
+        @apply flex flex-row
+        justify-start items-center
+        bg-slate-200 
+        text-gray-700 font-bold
+        rounded-t-md
+        py-2 px-2 m-0
+        w-full h-auto;
+    }
+    .card-subtitle { @apply text-gray-500 my-0 mx-1 px-2 py-1; }
+    .card-footer {
+        @apply flex flex-row
+        justify-between items-center
+        px-2 py-2
+        bg-slate-300
+        text-gray-100
+        rounded-md rounded-b-none
+        border-0;
+    }
+    .card-button {
+        @apply flex flex-row
+        justify-center items-end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+        bg-slate-300
+        m-0 p-0;
+    }
 
-  .lecturer-pic {
-    @apply flex flex-col
-    items-center justify-center;
-  }
+    /* Profile picture component */
+    .profile-picture { @apply flex flex-col items-center justify-center; }
+    
+    /* Non important component */
+    .non-important { @apply text-gray-400; }
+
+    /* Text sizes*/
+    .text-2xs {
+        font-size: 0.5rem/* 8px */;
+        line-height: 0.75rem/* 12px */;
+    }
+    .text-3xs {
+        font-size: 0.375rem/* 6px */;
+        line-height: 0.5rem/* 8px */;
+    }
 }
 
+/* Variables */
 :root {
     --ceit-primary: #004080;
     --ceit-secondary: #008049;
     --my-gradient: linear-gradient(45deg, var(--ceit-primary), var(--ceit-secondary));
 }
 
+/* Fonts */
 @font-face {
     font-family: irsans;
     src: url('..\/fonts\/irsans.ttf');
 }
 
+/* Tag styles */
 body {
     @apply bg-gradient-to-t flex flex-col items-center;
     @apply text-gray-700 bg-gray-700 bg-no-repeat bg-fixed;
@@ -95,9 +108,9 @@ p { @apply text-base mx-1 my-3; }
 p a { @apply btn-primary w-52 m-1 p-1 px-3; }
 p img { @apply w-full h-full; }
 ul { @apply text-gray-400 text-sm m-1 mt-3 list-none; }
-
 img { @apply max-w-full h-auto; }
 
+/* Table styles */
 table { @apply text-gray-700 w-full my-7 self-center; }
 th { @apply bg-gray-700 text-gray-100 py-1 px-2; }
 thead { @apply drop-shadow-md; }
@@ -106,44 +119,11 @@ tbody tr { @apply bg-slate-100 even:bg-slate-200; }
 td { @apply w-auto p-2; }
 td a { @apply btn-primary px-2 py-0; }
 
-pre {
-    direction: ltr;
-    @apply drop-shadow-md;
-    @apply bg-none !important;
-}
+/* Code styles */
+pre { direction: ltr; @apply drop-shadow-md; @apply bg-none !important; }
 code { @apply rounded-md; }
 
-footer { @apply flex flex-col w-full self-center; }
-footer p { @apply block text-gray-500 text-center text-xs p-2; }
-footer hr { @apply border-2 border-gray-800 border-opacity-50; }
-
-svg path { @apply fill-slate-200 !important;}
-footer a svg path { @apply fill-gray-400 !important; }
-p svg path { @apply fill-gray-700 !important; }
-a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
-#logo-motion svg { @apply w-60 sm:w-64 md:w-96 h-auto; }
-.navbar-brand svg { @apply w-20 h-auto; }
-.navbar-toggler svg { @apply w-6 h-auto; }
-.navbar svg path { @apply fill-gray-600 !important; }
-.card-title svg { @apply w-6 h-auto ml-2; }
-.card-title svg path { @apply fill-gray-800 !important; }
-.card-footer svg { @apply fill-gray-700 w-6 h-auto; }
-.post-icons svg { @apply w-48 h-auto; }
-.story-icons svg { @apply h-52 w-auto; }
-.lecturer-pic svg { @apply w-8 h-auto; }
-.post-content .lecturer-pic svg { @apply w-12 h-auto; }
-.event-time svg { @apply md:w-6 sm:w-4 h-auto; }
-.post-time svg { @apply w-8 h-auto; }
-.story-time svg { @apply w-12 h-auto; }
-.story-content .lecturer-pic svg { @apply w-20 h-auto; }
-
-.profile-pic {
-    @apply relative flex
-    w-12 h-12
-    right-3 top-3;
-}
-.profile-pic img { @apply rounded-full; }
-
+/* Navbar styles */
 .navbar {
     @apply fixed flex flex-col flex-wrap 
     items-center justify-between
@@ -155,118 +135,153 @@ a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
 .home-navbar .navbar-brand { @apply invisible; }
 .active { @apply bg-slate-300 text-gray-700 rounded-md py-1 px-2; }
 
-.card-button a {
-    @apply btn-primary 
-    rounded-xl rounded-b-none
-    py-0 px-3 mb-0;
-}
+/* Footer styles */
+footer { @apply flex flex-col w-full self-center; }
+footer p { @apply block text-gray-500 text-center text-xs p-2; }
+footer hr { @apply border-2 border-gray-800 border-opacity-50; }
+.social-item { @apply rounded-md px-5 m-1; }
 
-.collection-container { @apply flex flex-col items-center w-full mx-3; }
-
-.non-important { @apply text-gray-400; }
+/* All svg styles */
+svg path { @apply fill-slate-200 !important;}
+p svg path { @apply fill-gray-700 !important; }
+a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
+footer a svg path { @apply fill-gray-400 !important; }
+#logo-motion svg { @apply w-60 sm:w-64 md:w-96 h-auto; }
+.navbar svg path { @apply fill-gray-600 !important; }
+.navbar-brand svg { @apply w-20 h-auto; }
+.navbar-toggler svg { @apply w-6 h-auto; }
+.card-title svg { @apply w-6 h-auto ml-2; }
+.card-title svg path { @apply fill-gray-800 !important; }
+.card-footer svg { @apply fill-gray-700 w-6 h-auto; }
+.post-content .profile-picture svg { @apply w-3 h-auto; }
+.post-time svg { @apply w-2 h-auto; }
+.post-icons svg { @apply w-12 h-auto; }
+.story-content .profile-picture svg { @apply w-5 h-auto; }
+.story-icons svg { @apply h-14 w-auto; }
+.story-time svg { @apply w-3 h-auto; }
+.pdf-content .profile-picture svg { @apply w-12 h-auto; }
+.pdf-time svg { @apply w-8 h-auto; }
+.pdf-icons svg { @apply w-40 h-auto; }
+.profile-picture svg { @apply w-8 h-auto; }
+.event-time svg { @apply md:w-6 sm:w-4 h-auto; }
 .non-important svg path { @apply fill-gray-400 !important; }
 
-.social-item { @apply rounded-md px-5 m-1; }
+/* Services styles */
+.service { @apply flex flex-row justify-center items-center w-full my-3; }
 .service-group { @apply flex flex-col items-center w-full mt-5; }
 
-.service { @apply flex flex-row justify-center items-center w-full my-3; }
 
-#capture-post {
-    @apply absolute flex flex-row flex-wrap;
-    clip-path: circle(0);
-    width: 1080px;
-    height: 1080px;
-}
-
-.post-heading { @apply flex flex-col relative w-full; }
-.post-heading p { @apply text-2xl text-center; }
-
-.event-subject { @apply text-center w-full h-24 p-4 m-0; }
+/* Event styles */
+.event-subject { @apply text-center w-full h-12 p-1 m-0; }
 .event-time { @apply pb-4; }
 
-.post-content { @apply flex flex-col justify-start w-3/4 p-1 pr-5 -mt-4; }
-.post-content p { @apply text-2xl; }
-.post-content h2 { @apply text-5xl; }
-.post-content h3 { @apply text-4xl; }
-.post-content h4 { @apply text-3xl; }
-.post-content h5 { @apply text-2xl; }
-.post-content ul { @apply text-gray-400 text-3xl px-2 py-0; }
-.post-content a { @apply text-2xl text-gray-700; }
-
-.post-bio {
-    @apply flex flex-col
-    items-start justify-start
-    mr-5 mt-10 w-3/4;
+/* Event post image styles */
+#export-post {
+    @apply absolute flex flex-row flex-wrap card border-none;
+    clip-path: circle(0);
+    width: 270px;
+    height: 270px;
 }
-
-.post-topics { @apply w-full h-80 overflow-hidden mt-16; }
-
-.post-time { @apply absolute bottom-5 pb-4; }
-
+.post-heading { @apply flex flex-col relative w-full m-0 p-0; }
+.post-heading p { @apply text-2xs text-center; }
+.post-content { @apply flex flex-col justify-start w-3/4 p-0.5 pr-2 -mt-5; }
+.post-content p { @apply text-3xs; }
+.post-content h2 { @apply text-base m-0 p-0; }
+.post-content h3 { @apply text-2xs; }
+.post-content h4 { @apply text-2xs; }
+.post-content h5 { @apply text-2xs; }
+.post-content h6 { @apply text-2xs; }
+.post-content ul { @apply text-gray-400 text-3xs px-0.5 py-0; }
+.post-content ul li { @apply p-0; }
+.post-bio { @apply flex flex-col items-start justify-start mr-1 mt-2 w-3/4; }
+.post-topics { @apply w-full h-20 overflow-hidden mt-0; }
+.post-time { @apply absolute bottom-1 pb-1; }
+.post-time p { @apply text-3xs; }
 .post-icons {
     @apply flex flex-col items-center justify-end rounded-full rounded-l-none rounded-b-none w-1/4 p-1;
     background-image: var(--my-gradient);
 }
 
-#capture-story {
-    @apply absolute flex flex-col flex-wrap;
-    width: 1080px !important;
-    height: 1920px !important;
+/* Event story image styles */
+#export-story {
+    @apply absolute flex flex-col flex-wrap card border-none;
     clip-path: circle(0);
+    width: 270px;
+    height: 480px;
 }
-
-.story-heading { @apply flex flex-col relative w-full; }
-.story-heading p { @apply text-4xl text-center; }
-
-.story-content { @apply flex flex-col items-start justify-start w-full mt-32 p-1 pr-5; }
-.story-content p { @apply text-4xl; }
-.story-content h2 { @apply text-6xl; }
-.story-content h3 { @apply text-5xl; }
-.story-content h4 { @apply text-5xl; }
-.story-content h5 { @apply text-4xl; }
+.story-heading { @apply flex flex-col relative w-full m-0 p-0; }
+.story-heading p { @apply text-2xs text-center; }
+.story-content { @apply flex flex-col items-start justify-start w-full -mt-4 p-1 pr-2; }
+.story-content p { @apply text-2xs; }
+.story-content h2 { @apply text-base m-0 p-0; }
+.story-content h3 { @apply text-2xs; }
+.story-content h4 { @apply text-2xs; }
+.story-content h5 { @apply text-2xs; }
+.story-content h6 { @apply text-2xs; }
 .story-content hr { @apply mt-20; }
-.story-content ul { @apply text-gray-400 text-4xl px-2 py-0; }
-.story-content a { @apply text-5xl text-gray-100; }
-
-.story-bio {
-    @apply flex flex-col
-    items-start justify-start
-    mr-5 mt-20 w-3/4;
-}
-
-.story-topics { 
-    @apply w-full overflow-hidden mt-10; 
-    height: 392px;
-}
-
-.story-time { 
-    @apply absolute pb-4; 
-    bottom: 400px;
-}
-
+.story-content ul { @apply text-gray-400 text-2xs px-0.5 py-0; }
+.story-content ul li { @apply p-0; }
+.story-bio { @apply flex flex-col items-start justify-start mr-1 mt-6 w-3/4; }
+.story-topics { @apply w-full overflow-hidden h-28 -mt-4; }
+.story-time { @apply absolute bottom-24 pb-4; }
 .story-icons {
     @apply absolute flex flex-row 
     items-center justify-evenly
-    rounded-tl-full
-    right-0 bottom-40 
-    w-full h-52 p-1;
+    right-0 bottom-10 
+    w-full h-14 p-1;
     background-image: var(--my-gradient);
 }
 
-.lecturer-pic img { @apply rounded-full; }
-.lecturer-pic .github-icon {
+/* Event printable pdf styles */
+#export-pdf {
+    @apply absolute flex flex-row justify-center items-center flex-wrap
+    card border-none m-0 p-0;
+    clip-path: circle(0);
+    width: 210mm;
+    height: 297mm;
+}
+.pdf-heading { @apply flex flex-col relative w-full; }
+.pdf-heading p { @apply text-2xl text-center; }
+.pdf-content { @apply flex flex-col justify-start w-3/4 p-1 pr-5 -mt-72; }
+.pdf-content p { @apply text-2xl; }
+.pdf-content h2 { @apply text-5xl; }
+.pdf-content h3 { @apply text-4xl; }
+.pdf-content h4 { @apply text-3xl; }
+.pdf-content h5 { @apply text-2xl; }
+.pdf-content ul { @apply text-gray-400 text-base px-2 py-0; }
+.pdf-content a { @apply text-2xl text-gray-700; }
+.pdf-bio { @apply flex flex-col items-start justify-start mr-5 mt-10 w-3/4; }
+.pdf-topics { @apply w-full h-80 overflow-hidden mt-16; }
+.pdf-time { @apply absolute bottom-5 pb-4; }
+.pdf-icons {
+    @apply flex flex-col items-center justify-end rounded-full rounded-l-none rounded-b-none w-1/4 h-3/4 -mb-1;
+    background-image: var(--my-gradient);
+}
+
+/* Profile image styles */
+.profile-picture img { @apply rounded-full; }
+.profile-picture .github-icon {
     @apply absolute right-0 top-32
     rounded-full border-solid border-2 border-slate-200
     bg-slate-200;
 }
-.post-content .lecturer-pic .github-icon {
+.post-content .profile-picture .github-icon {
+    @apply absolute -top-4 -right-2
+    rounded-full border-solid border-slate-200
+    bg-slate-200;
+    border-width: 1px;
+}
+.story-content .profile-picture .github-icon {
+    @apply absolute -top-5 -right-4
+    rounded-full border-solid border-2 border-slate-200
+    bg-slate-200;
+}
+.pdf-content .profile-picture .github-icon {
     @apply absolute -top-14 -right-4
     rounded-full border-solid border-slate-200
     bg-slate-200;
 }
 
-.story-content .lecturer-pic .github-icon {
-    @apply absolute -top-24 -right-14
-    rounded-full border-solid border-2 border-slate-200
-    bg-slate-200;
-}
+/* Other styles */
+.card-button a { @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0; }
+.collection-container { @apply flex flex-col items-center w-full mx-3; }

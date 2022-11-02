@@ -1,13 +1,13 @@
 <!-- For instagram story -->
-<div id="capture-story" class="card border-none">
+<div id="export-story" subject="{{ page.title }}">
     <!-- Background -->
-    <div class="absolute" style="z-index: -10;">
+    <div class="absolute -z-10">
         <img src="{% link assets/images/background.png %}" alt="Background">
     </div>
     <!-- Heading -->
     <div class="story-heading">
         <!-- Introduction -->
-        <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
+        <p class="p-0 m-0 mt-0.5">انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
         <!-- Subject -->
         <h1 class="event-subject" dir="auto">{{ page.title }}</h1>
     </div>
@@ -18,17 +18,17 @@
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "./" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="lecturer-pic w-1/2">
+            <div class="profile-picture w-1/2">
                 <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
-                <div class="relative w-9/12 h-full">
-                    <p class="github-icon non-important">{% include svgs/github.svg %}</p>
-                    <p class="w-full text-center mt-1 p-0 non-important">{{ page.github_id }}</p>
+                <div class="relative w-7/12 h-full">
+                    <p class="github-icon non-important m-0 p-0">{% include svgs/github.svg %}</p>
+                    <p class="w-full text-center non-important -mt-0.5 mx-0 p-0">{{ page.github_id }}</p>
                 </div>
             </div>
             <!-- Bio -->
             <div class="story-bio w-1/2">
                 <h2>{{ page.lecturer }}</h2>
-                <p>{{ page.bio }}</p>
+                <p class="m-0 mt-0.5">{{ page.bio }}</p>
             </div>
         </div>
         <!-- Topics -->
@@ -41,13 +41,13 @@
             <h3 class="date invisible m-0">{{ page.date | date_to_string }}</h3>
             <!-- Clock -->
             <div class="flex flex-row items-center m-0">
-                <p class="mt-2 -mb-10">{% include svgs/clock.svg %}</p>
-                <h4 class="mt-2 mb-0">ساعت {{ page.date | date: "%H:%M" }}</h4>
+                <p class="mt-0.5 -mb-2 px-0 py-1">{% include svgs/clock.svg %}</p>
+                <p class="my-0 px-0">ساعت {{ page.date | date: "%H:%M" }}</p>
             </div>
             <!-- Location -->
             <div class="flex flex-row items-center m-0">
-                <p class="mt-2 -mb-10">{% include svgs/geo-alt.svg %}</p>
-                <h5 class="mt-2 mb-0">{{ page.location }}</h5>
+                <p class="mt-0.5 -mb-2 px-0 py-1">{% include svgs/geo-alt.svg %}</p>
+                <p class="my-0 px-0">{{ page.location }}</p>
             </div>
         </div>
     </div>
