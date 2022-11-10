@@ -18,14 +18,22 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: انجمن کامپیوتر
-email: your-email@example.com
+title: کامپیوتر صنعتی ارومیه
+email: ceit.uut@gmail.com
+tagline: انجمن علمی کامپیوتر صنعتی ارومیه
 description: >- # this means to ignore newlines until "baseurl:"
   انجمن علمی کامپیوتر و فناوری اطلاعات دانشگاه صنعتی ارومیه
+locale: fa_IR
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ceituut.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username:
 github_username: ceituut
+social:
+  name: انجمن کامپیوتر صنعتی ارومیه
+  links:
+    - https://t.me/ceit_uut
+    - https://www.instagram.com/ceit_uut
+    - https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw
+
 
 # Build settings
 theme: minima
