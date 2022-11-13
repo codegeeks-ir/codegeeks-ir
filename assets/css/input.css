@@ -237,24 +237,25 @@ footer a svg path { @apply fill-gray-400 !important; }
     @apply absolute flex flex-row justify-center items-center flex-wrap
     card border-none m-0 p-0;
     clip-path: circle(0);
-    width: 210mm;
-    height: 297mm;
+    width: 793.3px;
+    height: 1122px;
 }
 .pdf-heading { @apply flex flex-col relative w-full; }
 .pdf-heading p { @apply text-2xl text-center; }
+.pdf-heading .event-subject { @apply w-full h-24 px-5;}
 .pdf-content { @apply flex flex-col justify-start w-3/4 p-1 pr-5 -mt-72; }
 .pdf-content p { @apply text-2xl; }
 .pdf-content h2 { @apply text-5xl; }
 .pdf-content h3 { @apply text-4xl; }
 .pdf-content h4 { @apply text-3xl; }
 .pdf-content h5 { @apply text-2xl; }
-.pdf-content ul { @apply text-gray-400 text-base px-2 py-0; }
+.pdf-content ul { @apply text-gray-400 text-xl px-2 py-0; }
 .pdf-content a { @apply text-2xl text-gray-700; }
 .pdf-bio { @apply flex flex-col items-start justify-start mr-5 mt-10 w-3/4; }
 .pdf-topics { @apply w-full h-80 overflow-hidden mt-16; }
 .pdf-time { @apply absolute bottom-5 pb-4; }
 .pdf-icons {
-    @apply flex flex-col items-center justify-end rounded-full rounded-l-none rounded-b-none w-1/4 h-3/4 -mb-1;
+    @apply flex flex-col items-center justify-end rounded-full rounded-l-none rounded-b-none w-1/4 h-3/4 -mb-11;
     background-image: var(--my-gradient);
 }
 
