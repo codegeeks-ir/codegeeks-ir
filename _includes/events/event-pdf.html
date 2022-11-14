@@ -14,15 +14,14 @@
     <!-- Content -->
     <div class="pdf-content">
         <!-- Lecturer -->
-        <div class="flex flex-row">
+        <div class="flex flex-col items-start">
             {% assign github_link = "https://github.com/" | append: page.github_id %}
             {% assign github_pic = "./" | append: page.github_id | append: ".png" %}
             <!-- Github picture -->
-            <div class="profile-picture w-1/3">
+            <div class="profile-picture w-2/5">
                 <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
                 <div class="relative w-9/12 h-full">
                     <p class="github-icon non-important">{% include svgs/github.svg %}</p>
-                    <p class="w-full text-3xs text-center m-0 p-0 non-important">{{ page.github_id }}</p>
                 </div>
             </div>
             <!-- Bio -->
@@ -31,23 +30,24 @@
                 <p class="m-0 mt-0.5">{{ page.bio }}</p>
             </div>
         </div>
-        <!-- Topics -->
-        <div class="pdf-topics my-0" dir="auto">
-            {{ page.content }}
-        </div>
-        <!-- Time and location -->
-        <div class="pdf-time">
-            <!-- Date -->
-            <h3 class="date invisible m-0">{{ page.date | date_to_string }}</h3>
-            <!-- Clock -->
-            <div class="flex flex-row items-center m-0 p-0">
-                <p class="mt-0 -mb-10">{% include svgs/clock.svg %}</p>
-                <h4 class="mt-0 mb-0">ساعت {{ page.date | date: "%H:%M" }}</h4>
-            </div>
-            <!-- Location -->
-            <div class="flex flex-row items-center m-0 p-0">
-                <p class="mt-0 -mb-10">{% include svgs/geo-alt.svg %}</p>
-                <h5 class="mt-0 mb-0">{{ page.location }}</h5>
+        <!-- Details -->
+        <div class="pdf-time pb-3">
+            <!-- QRcode -->
+            <div id="qrcode" content="{{site.url}}{{page.url}}"></div>
+            <!-- Time and location -->
+            <div class="flex flex-col">
+                <!-- Date -->
+                <p class="date invisible m-0">{{ page.date | date_to_string }}</p>
+                <!-- Clock -->
+                <div class="flex flex-row items-center m-0 p-0">
+                    <p class="mt-0 -mb-10">{% include svgs/clock.svg %}</p>
+                    <p class="mt-0 mb-0">ساعت {{ page.date | date: "%H:%M" }}</p>
+                </div>
+                <!-- Location -->
+                <div class="flex flex-row items-center m-0 p-0">
+                    <p class="mt-0 -mb-10">{% include svgs/geo-alt.svg %}</p>
+                    <p class="mt-0 mb-0">{{ page.location }}</p>
+                </div>
             </div>
         </div>
     </div>

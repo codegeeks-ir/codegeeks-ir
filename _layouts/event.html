@@ -66,6 +66,20 @@
   <script src="{% link assets/js/html2canvas.min.js %}"></script>
   <!-- html2pdf module -->
   <script src="{% link assets/js/html2pdf.bundle.min.js %}"></script>
+  <!-- qrcode module -->
+  <script src="{% link assets/js/qrcode.min.js %}"></script>
+  <!-- generate QRcode -->
+  <script type="text/javascript">
+    const qrcodeContainer = document.getElementById("qrcode");
+    var qrcode = new QRCode(qrcodeContainer, {
+      text: qrcodeContainer.getAttribute("content"),
+      width: 128,
+      height: 128,
+      colorDark : "#004080",
+      colorLight : "#E2E8F0",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+  </script>
   <!-- export event script -->
   <script src="{% link assets/js/export-event.js %}"></script>
 </body>
