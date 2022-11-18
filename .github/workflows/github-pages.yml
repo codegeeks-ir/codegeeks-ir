@@ -42,18 +42,10 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
-      # Get content
+      # Prepare content
       - run: |
-          git clone --depth 1 -b main https://github.com/ceituut/references.git collections/references
-          git clone --depth 1 -b main https://github.com/ceituut/guide.git collections/guide
-          git clone --depth 1 -b main https://github.com/ceituut/faqs.git collections/_faqs
-          git clone --depth 1 -b main https://github.com/ceituut/projects.git collections/projects
-          git clone --depth 1 -b main https://github.com/ceituut/events.git collections/_events
-          git clone --depth 1 -b main https://github.com/ceituut/posts.git collections/_posts
-          git clone --depth 1 -b master https://github.com/ceituut/authors.git collections/_authors
-          git clone --depth 1 -b main https://github.com/ceituut/members.git collections/_members
-          git clone --depth 1 -b master https://github.com/ceituut/code-challenge.git collections/_code-challenge
-          rm -d -f -r collections/_code-challenge/API collections/_code-challenge/solutions
+          chmod +x .github/prepare-content.sh
+          ./.github/prepare-content.sh
         shell: bash
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
