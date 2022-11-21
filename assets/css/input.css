@@ -140,12 +140,18 @@ footer { @apply flex flex-col w-full self-center; }
 footer p { @apply block text-gray-500 text-center text-xs p-2; }
 footer hr { @apply border-2 border-gray-800 border-opacity-50; }
 .social-item { @apply rounded-md px-5 m-1; }
+.sponsor-link { 
+    @apply btn-primary bg-opacity-100 fixed left-0 bottom-16 
+    flex flex-row justify-center w-auto h-16 m-0 px-1 rounded-l-none ;
+}
 
 /* All svg styles */
 svg path { @apply fill-slate-200 !important;}
 p svg path { @apply fill-gray-700 !important; }
 a svg path { @apply fill-blue-400 bg-opacity-75 !important; }
 footer a svg path { @apply fill-gray-400 !important; }
+.btn-primary svg { @apply w-4 h-auto; }
+.btn-primary svg path { @apply fill-slate-200 !important; }
 #logo-motion svg { @apply w-60 sm:w-64 md:w-96 h-auto; }
 .navbar svg path { @apply fill-gray-600 !important; }
 .navbar-brand svg { @apply w-20 h-auto; }
@@ -163,6 +169,7 @@ footer a svg path { @apply fill-gray-400 !important; }
 .pdf-time svg { @apply w-8 h-auto; }
 .pdf-icons svg { @apply w-40 h-auto; }
 .profile-picture svg { @apply w-8 h-auto; }
+.contributors .profile-picture svg { @apply w-6 h-auto; }
 .event-time svg { @apply md:w-6 sm:w-4 h-auto; }
 .non-important svg path { @apply fill-gray-400 !important; }
 
@@ -283,6 +290,7 @@ footer a svg path { @apply fill-gray-400 !important; }
     rounded-full border-solid border-slate-200
     bg-slate-200;
 }
+.contributors .profile-picture .github-icon { @apply top-14; }
 
 /* Other styles */
 .card-button a { @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0; }

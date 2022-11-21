@@ -41,9 +41,13 @@
             </li>
         {% endfor %}
     </ul>
-    <p>
+    <p class="text-2xs">
         تمامی حقوق متعلق به انجمن
         علمی کامپیوتر و فناوری اطلاعات دانشگاه صنعتی ارومیه
         می‌باشد.
     </p>
+    {{ page.title }}
+    <a class="sponsor-link {% if page.permalink == '/sponsor/' %}hidden{% endif %}" href="/sponsor/" dir="ltr">
+        {% include svgs/heart.svg %}
+    </a>
 </footer>

@@ -41,6 +41,7 @@ rm -d -f -r collections/_code-challenge/solutions
 
 rm -d -f -r .git/
 rm -d -f -r .github/ISSUE_TEMPLATE/
+rm .github/FUNDING.yml
 rm _includes/svgs/ceituut/LICENSE
 rm _includes/svgs/uut/LICENSE
 rm assets/css/input.css
