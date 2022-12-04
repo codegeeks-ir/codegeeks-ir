@@ -1,53 +1,93 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% feed_meta %}
-    {% seo %}
+<html lang="fa">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="{% link assets/images/favicon.svg %}">
-    
-    <!-- Syntax highlighter -->
-    <link rel="stylesheet" href="{% link assets/css/highlight.min.css %}">
-    <script src="{% link assets/js/highlight.min.js %}"></script>
-    <link rel="stylesheet" href="{% link assets/css/vs2015.min.css %}">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% feed_meta %}
+  {% seo %}
 
-    <!-- Styles -->
-    <link href="{% link assets/css/output.css %}" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{% link assets/images/favicon.svg %}">
 
-    <!-- Title -->
-    <title>{{ page.title }}</title>
-  </head>
-  <body dir="rtl">
-    {% include navigation.html %}
-    <div class="container mb-36 mt-36 text-justify">
-      <div class="flex flex-row items-center justify-center m-2 mb-14 lg:p-5 md:p-2 sm:p-1">
-        {{ content }}
-      </div>
-    </div> 
-    {% include footer.html %}
-    <!-- Add Listner for mobile main menu button -->
-    <script>
-      const button = document.querySelector("#mobile-button");
-      const menu = document.querySelector("#mobile-menu");
-      button.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-      });
-    </script>
-    <!-- persian-long-date madule -->
-    <script src="{% link assets/js/persian-long-date.js %}"></script>
-    <!-- change date to persian -->
-    <script>
-      let eventDateElements = document.querySelectorAll(".date");
-      eventDateElements.forEach(element => {
-          element.innerHTML = getPersianDate(element.innerHTML);
+  {% if page.layout == 'contest' or page.layout == 'post' %}
+  <!-- Syntax highlighter -->
+  <link rel="stylesheet" href="{% link assets/css/highlight.min.css %}">
+  <script src="{% link assets/js/highlight.min.js %}"></script>
+  <link rel="stylesheet" href="{% link assets/css/vs2015.min.css %}">
+  {% endif %}
+
+  <!-- Styles -->
+  <link href="{% link assets/css/output.css %}" rel="stylesheet">
+
+  <!-- Title -->
+  <title>{{ page.title }}</title>
+</head>
+
+<body dir="rtl">
+  {% include navigation.html %}
+  <div class="container mb-36 mt-36 text-justify">
+    <div class="flex flex-row items-center justify-center m-2 mb-14 lg:p-5 md:p-2 sm:p-1">
+      {{ content }}
+    </div>
+  </div>
+  {% include footer.html %}
+  <!-- Listner for mobile main menu button -->
+  <script>
+    const button = document.querySelector("#mobile-button");
+    const menu = document.querySelector("#mobile-menu");
+    button.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+
+  {% if page.layout == 'contest' or page.layout == 'post' %}
+  <!-- Highlight scripts -->
+  <script>
+    hljs.highlightAll();
+  </script>
+  {% endif %}
+
+  <!-- persian-long-date module -->
+  <script src="{% link assets/js/persian-long-date.js %}"></script>
+  <!-- change date to persian -->
+  <script>
+    let eventDateElements = document.querySelectorAll(".date");
+    eventDateElements.forEach(element => {
+      element.innerHTML = getPersianDate(element.innerHTML);
       element.style.visibility = "visible";
-      });
-      // Highlight scripts
-      hljs.highlightAll();
-    </script>
-  </body>
+    });
+  </script>
+
+  {% if page.layout == 'event' %}
+  <!-- textFit module -->
+  <script src="{% link assets/js/textFit.min.js %}"></script>
+  <!-- Fit text using textFit -->
+  <script>
+    textFit(document.getElementsByClassName('event-subject'));
+  </script>
+  <!-- html2canvas module -->
+  <script src="{% link assets/js/html2canvas.min.js %}"></script>
+  <!-- html2pdf module -->
+  <script src="{% link assets/js/html2pdf.bundle.min.js %}"></script>
+  <!-- qrcode module -->
+  <script src="{% link assets/js/qrcode.min.js %}"></script>
+  <!-- generate QRcode -->
+  <script type="text/javascript">
+    const qrcodeContainer = document.getElementById("qrcode");
+    var qrcode = new QRCode(qrcodeContainer, {
+      text: qrcodeContainer.getAttribute("content"),
+      width: 128,
+      height: 128,
+      colorDark: "#004080",
+      colorLight: "#E2E8F0",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+  <!-- export event script -->
+  <script src="{% link assets/js/export-event.js %}"></script>
+  {% endif %}
+</body>
+
 </html>
