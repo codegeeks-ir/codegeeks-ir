@@ -29,7 +29,7 @@
         @apply w-full h-auto
         bg-slate-200
         rounded-t-md
-        p-0 mt-3 mb-3
+        p-0 mb-6
         border-solid border-4 border-b-0 border-slate-200
         drop-shadow-md;
     }
@@ -294,4 +294,4 @@ footer a svg path { @apply fill-gray-400 !important; }
 
 /* Other styles */
 .card-button a { @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0; }
-.collection-container { @apply flex flex-col items-center w-full mx-3; }
+.collection-container { @apply flex flex-col items-center w-full; }
