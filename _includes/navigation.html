@@ -21,7 +21,7 @@
                         {% for item in site.data.main-navigation %}
                             {% assign item_link = item.link %}
                             <li class="mx-2">
-                                <a aria-current="page" href="{{ item.link }}" 
+                                <a href="{{ item.link }}" 
                                 class="nav-link {% if page_url == item_link %}
                                 active {% endif %}">
                                 {{ item.name }}
@@ -40,7 +40,7 @@
             {% for item in site.data.main-navigation %}
                 {% assign item_link = item.link %}
                 <li class="my-1 w-full">
-                    <a aria-current="page" href="{{ item.link }}" 
+                    <a href="{{ item.link }}" 
                     class="nav-link block w-full {% if page_url == item_link %}
                     active {% endif %}">
                         {{ item.name }}

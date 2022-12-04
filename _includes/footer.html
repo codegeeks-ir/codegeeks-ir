@@ -2,42 +2,18 @@
 <footer>
     <!-- Social links -->
     <ul class="flex flex-row navbar-nav justify-center p-0 m-0 mb-2">
-        <!-- Youtube link -->
+        {% for item in site.data.social-navigation %}
         <li class="social-item">
-            <a href="https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw">
-                {% include svgs/youtube.svg %}
-            </a>
+            <a href="{{ item.link }}">{% include {{ item.svg_path }} %}</a>
         </li>
-        <!-- Instagram link -->
-        <li class="social-item">
-            <a href="https://www.instagram.com/ceit_uut">
-                {% include svgs/instagram.svg %}
-            </a>
-        </li>
-        <!-- Telegram link -->
-        <li class="social-item">
-            <a href="https://t.me/ceit_uut">
-                {% include svgs/telegram.svg %}
-            </a>
-        </li>
-        <!-- Github link -->
-        <li class="social-item">
-            <a href="https://github.com/ceituut">
-                {% include svgs/github.svg %}
-            </a>
-        </li>
+        {% endfor %}
     </ul>
     <hr class="mt-0 visible">
     <!-- Other links -->
     <ul class="flex flex-row justify-center list-none w-full p-0 m-0 mt-2">
-        {% assign page_url = page.url %}
         {% for item in site.data.footer-navigation %}
-            {% assign item_link = item.link %}
             <li class="p-2 pt-0 pb-0">
-                <a aria-current="page" href="{{ item.link }}" 
-                class="non-important">
-                    {{ item.name }}
-                </a>
+                <a href="{{ item.link }}" class="non-important">{{ item.name }}</a>
             </li>
         {% endfor %}
     </ul>
@@ -46,8 +22,9 @@
         علمی کامپیوتر و فناوری اطلاعات دانشگاه صنعتی ارومیه
         می‌باشد.
     </p>
-    {{ page.title }}
-    <a class="sponsor-link {% if page.permalink == '/sponsor/' %}hidden{% endif %}" href="/sponsor/" dir="ltr">
+    <!-- Sponsor link -->
+    {% assign page_title = page.title | split: " " | first %}
+    <a class="sponsor-link {% if page_title == 'حمایت' %}invisible{% endif %}" href="/sponsor/">
         {% include svgs/heart.svg %}
     </a>
 </footer>

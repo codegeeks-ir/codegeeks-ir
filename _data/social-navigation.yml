@@ -1,0 +1,15 @@
+- name: youtube
+  link: https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw
+  svg_path: svgs/social/youtube.svg
+
+- name: instagram
+  link: https://www.instagram.com/ceit_uut
+  svg_path: svgs/social/instagram.svg
+
+- name: telegram
+  link: https://t.me/ceit_uut
+  svg_path: svgs/social/telegram.svg
+
+- name: github
+  link: https://github.com/ceituut
+  svg_path: svgs/social/github.svg
