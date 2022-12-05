@@ -1,5 +1,5 @@
 # Download content repositories into collections directory
-git clone --depth 1 -b main https://github.com/ceituut/references.git collections/references
+git clone --depth 1 -b main https://github.com/ceituut/requirements.git collections/requirements
 git clone --depth 1 -b main https://github.com/ceituut/guide.git collections/guide
 git clone --depth 1 -b main https://github.com/ceituut/faqs.git collections/_faqs
 git clone --depth 1 -b main https://github.com/ceituut/projects.git collections/projects
@@ -9,9 +9,9 @@ git clone --depth 1 -b main https://github.com/ceituut/members.git collections/_
 git clone --depth 1 -b master https://github.com/ceituut/code-challenge.git collections/_code-challenge
 
 # Exclude some files and directories from build process
-rm -d -f -r collections/references/.git
-rm -d -f -r collections/references/.github
-rm -d -f -r collections/references/Computer-Curriculum-Guide-UUT.pdf
+rm -d -f -r collections/requirements/.git
+rm -d -f -r collections/requirements/.github
+rm -d -f -r collections/requirements/Computer-Curriculum-Guide-UUT.pdf
 
 rm -d -f -r collections/guide/.git
 rm -d -f -r collections/guide/.github

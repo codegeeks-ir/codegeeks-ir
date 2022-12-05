@@ -24,7 +24,7 @@ git clone --depth 1 -b main https://github.com/ceituut/events.git collections/_e
 git clone --depth 1 -b main https://github.com/ceituut/posts.git collections/_posts
 git clone --depth 1 -b main https://github.com/ceituut/faqs.git collections/_faqs
 git clone --depth 1 -b main https://github.com/ceituut/members.git collections/_members
-git clone --depth 1 -b main https://github.com/ceituut/references.git collections/references
+git clone --depth 1 -b main https://github.com/ceituut/requirements.git collections/requirements
 git clone --depth 1 -b main https://github.com/ceituut/guide.git collections/guide
 git clone --depth 1 -b main https://github.com/ceituut/projects.git collections/projects
 mv collections/_posts/authors collections/_authors
@@ -34,7 +34,7 @@ mv collections/_posts/authors collections/_authors
 
 Also if You have something valuable to write or give someone else, here are the repos You can fork and improve them :  
 
-[references][]  
+[requirements][]  
 [guide][]  
 [faqs][]  
 [projects][]  
@@ -54,7 +54,7 @@ Any other things like code and docs are under [same MIT license][project-license
 [jekyll]: https://jekyllrb.com/docs/installation/  
 [tailwindcss]: https://tailwindcss.com/  
 
-[references]: https://github.com/ceituut/references  
+[requirements]: https://github.com/ceituut/requirements  
 [guide]: https://github.com/ceituut/guide  
 [faqs]: https://github.com/ceituut/faqs  
 [projects]: https://github.com/ceituut/projects  
