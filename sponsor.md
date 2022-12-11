@@ -53,3 +53,7 @@ contributions:
 | ✅  امور فنی - قابلیت ایجاد رویداد کارگاه و دریافت تصاویر شبکه های اجتماعی و نسخه قابل چاپ |
 | ✅  امور فنی - قابلیت ایجاد مسابقات برنامه نویسی - به صورت آزمایشی |
 | ✅  امور فنی - قابلیت اضافه کردن پروژه های پایانی دانشجویان - به صورت آزمایشی |
+
+{% assign version = site.data.version.version %}
+{% assign version_link = "https://github.com/ceituut/ceituut.github.io/releases/tag/v" | append: version %}
+[نسخه {{ version }}]({{ version_link }})
