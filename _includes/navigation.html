@@ -1,7 +1,9 @@
-<nav class="navbar{% if page.url == '/' %} home-navbar {% endif %}">
+<nav class="navbar{% if page.url == '/' and site.repo == 'ceituut.github.io' %} home-navbar {% endif %}">
     <div class="flex flex-row w-full justify-between">
         <!-- CEITUUT logo -->
-        <a class="navbar-brand mr-4 w-20" href="{{ site.url }}">
+        <a class="navbar-brand mr-4 w-20" 
+        href="{% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}{{ site.url }}
+        {% else %}{{ site.domain }}{% endif %}">
             {% include svgs/ceituut/ceituut-icon.svg %}
         </a>
         <!-- Mobile menu button-->
@@ -19,7 +21,11 @@
                     <ul class="flex flex-row w-full justify-start">
                         {% assign page_url = page.url %}
                         {% for item in site.data.main-navigation %}
-                            {% assign item_link = item.link %}
+                            {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                                {% assign item_link = item.link %}
+                            {% else %}
+                                {% assign item_link = item.link | prepend: {{ site.domain }} %}
+                            {% endif %}
                             <li class="mx-2">
                                 <a href="{{ item.link }}" 
                                 class="nav-link {% if page_url == item_link %}
@@ -38,7 +44,11 @@
         <ul class="flex flex-col items-start w-full px-2 pt-2 pb-3">
             {% assign page_url = page.url %}
             {% for item in site.data.main-navigation %}
-                {% assign item_link = item.link %}
+                {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                    {% assign item_link = item.link %}
+                {% else %}
+                    {% assign item_link = item.link | prepend: {{ site.domain }} %}
+                {% endif %}
                 <li class="my-1 w-full">
                     <a href="{{ item.link }}" 
                     class="nav-link block w-full {% if page_url == item_link %}

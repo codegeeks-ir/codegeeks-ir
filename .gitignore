@@ -12,3 +12,6 @@ node_modules/
 
 # Ignore content
 collections/
+
+# Ignore courses
+outer-pages/courses/

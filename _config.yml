@@ -26,6 +26,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 locale: fa_IR
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ceituut.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+repo: "ceituut.github.io"
 github_username: ceituut
 social:
   name: انجمن کامپیوتر صنعتی ارومیه

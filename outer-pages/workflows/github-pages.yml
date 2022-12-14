@@ -1,17 +1,11 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll site to Pages
+name: Deploy Jekyll site to course Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
   repository_dispatch:
-    types: [update-content]
+    types: [update-course]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -33,6 +27,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      # Prepare content
+      - run: |
+          git clone --depth 1 -b main https://github.com/ceituut/ceituut.github.io.git
+          rm -d -f -r .github/
+          mkdir .github
+          mv -v ceituut.github.io/outer-pages/* .github/
+          chmod +x .github/prepare-content.sh
+          ./.github/prepare-content.sh
+        shell: bash
       - name: Setup Ruby
         uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
         with:
@@ -42,11 +45,6 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
-      # Prepare content
-      - run: |
-          chmod +x .github/prepare-content.sh
-          ./.github/prepare-content.sh
-        shell: bash
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
@@ -67,20 +65,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-
-  triggerUpdate:
-    needs: build
-    strategy:
-      matrix:
-        repo: ['ceituut/networks', 'ceituut/multimedia', 'ceituut/data-mining',
-         'ceituut/data-structures', 'ceituut/artificial-intelligence', 'ceituut/compiler',
-          'ceituut/algorithm-design', 'ceituut/software-engineering', 'ceituut/data-base',
-           'ceituut/laboratory', 'ceituut/object-oriented-development', 'ceituut/computational-intelligence']
-    runs-on: ubuntu-latest
-    steps:
-      - uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.MY_SECRET }}
-          repository: ${{ matrix.repo }}
-          event-type: update-course
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'

@@ -8,9 +8,13 @@ git clone --depth 1 -b main https://github.com/ceituut/posts.git collections/_po
 git clone --depth 1 -b main https://github.com/ceituut/members.git collections/_members
 git clone --depth 1 -b master https://github.com/ceituut/code-challenge.git collections/_code-challenge
 
+# Get data from requirements
+mv -v collections/requirements/_data/* _data/
+
 # Exclude some files and directories from build process
 rm -d -f -r collections/requirements/.git
 rm -d -f -r collections/requirements/.github
+rm -d -f -r collections/requirements/_data
 rm -d -f -r collections/requirements/Computer-Curriculum-Guide-UUT.pdf
 
 rm -d -f -r collections/guide/.git

@@ -13,7 +13,8 @@
     <ul class="flex flex-row justify-center list-none w-full p-0 m-0 mt-2">
         {% for item in site.data.footer-navigation %}
             <li class="p-2 pt-0 pb-0">
-                <a href="{{ item.link }}" class="non-important">{{ item.name }}</a>
+                <a href="{% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                {{ item.link }}{% else %}{{ item.outer_link }}{% endif %}" class="non-important">{{ item.name }}</a>
             </li>
         {% endfor %}
     </ul>
@@ -24,7 +25,9 @@
     </p>
     <!-- Sponsor link -->
     {% assign page_title = page.title | split: " " | first %}
-    <a class="sponsor-link {% if page_title == 'حمایت' %}invisible{% endif %}" href="/sponsor/">
+    <a class="sponsor-link {% if page_title == 'حمایت' %}invisible{% endif %}"
+    href="{% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+    /sponsor{% else %}{{ site.domain }}/sponsor{% endif %}">
         {% include svgs/heart.svg %}
     </a>
 </footer>
