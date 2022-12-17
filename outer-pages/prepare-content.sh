@@ -1,6 +1,4 @@
 # Install requirements
-sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
-sudo chmod +x /usr/bin/yq
 sudo apt install tree
 
 mkdir _data
@@ -10,7 +8,7 @@ mkdir assets
 
 # Create data file for resources explorer
 touch assets/tree.json
-tree resources --dirsfirst -q -h -D -J >> assets/tree.json
+tree resources --dirsfirst -q -h -f -D -J >> assets/tree.json
 
 # Move essential parts
 mv -v ceituut.github.io/_data/* _data
@@ -24,30 +22,19 @@ mv ceituut.github.io/Gemfile.lock Gemfile.lock
 
 mv ceituut.github.io/404.html 404.html
 
-# Update repository name in config
-rootFolderName=$(basename `git rev-parse --show-toplevel`)
-REPONAME=rootFolderName yq -i '.repo = strenv(REPONAME)' _config.yml
-
-# Remove all other parts
-rm -d -f -r ceituut.github.io
-
-rm -d -f -r _includes/events
-rm _includes/authors.html
-rm _includes/developers.html
-rm _includes/members.html
-rm _includes/post.html
-
-rm _layouts/author.html
-rm _layouts/contest.html
-rm _layouts/event.html
-
 # Rename README.md to index.md
 mv README.md index.md
 
-# Exclude other files from build process
-rm -d -f -r resources
-rm -d -f -r .git
-rm _includes/svgs/ceituut/LICENSE
-rm _includes/svgs/uut/LICENSE
-rm assets/css/input.css
-rm assets/images/LICENSE
+# Include file explorer to bottem of index.md
+sed -i -e '$a\' index.md
+echo ""
+echo ""
+echo "{% include file-explorer.html %}" >> index.md
+
+# Add repository name to _config.yml
+sed -i -e '$a\' _config.yml
+echo "repo: $(basename `git rev-parse --show-toplevel`)" >> _config.yml
+
+# Exclude other files
+chmod +x ./.github/exclude.sh
+./.github/exclude.sh

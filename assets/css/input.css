@@ -122,6 +122,24 @@ td a { @apply btn-primary px-2 py-0; }
 pre { direction: ltr; @apply drop-shadow-md; @apply bg-none !important; }
 code { @apply rounded-md; }
 
+/* Details styles */
+details > summary { @apply list-none; }
+details > summary::-webkit-details-marker { @apply hidden; }
+details > summary::before { content: '📁   '; @apply text-2xl; }
+details[open] > summary::before { content: '📂   '; }
+details[open] { @apply bg-slate-400 border-none; }
+details { @apply rounded-sm px-2 py-2 my-2; }
+.file-explorer-header { 
+    @apply card-title bg-slate-400 
+    rounded-tr-2xl drop-shadow-md mr-0 pr-0 -mb-2 w-48; 
+}
+.directory { 
+    @apply flex flex-col w-full 
+    border-solid border-2 border-slate-400 
+    bg-slate-300 rounded-md rounded-tl-none;
+}
+.file { @apply btn-light text-left my-2;}
+
 /* Navbar styles */
 .navbar {
     @apply fixed flex flex-col flex-wrap 
