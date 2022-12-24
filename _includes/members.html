@@ -16,8 +16,7 @@
                 {{ member.date | date_to_string }}
             </button>
             <!-- Collapse -->
-            <div id="{{ collapse_id }}" 
-            class="collapse m-0 -mt-6 
+            <div id="{{ collapse_id }}" class="collapse m-0 -mt-6 
             {% if member.members_id != current.members_id %}hidden{% endif %}" 
             aria-labelledby="{{ header_id }}">
                 {{ member.content }}
@@ -25,17 +24,3 @@
         {% endfor %}
     </div>
 </div>
-<!-- persian-long-date module -->
-<script src="{% link assets/js/persian-long-date.js %}"></script>
-<!-- change date to persian -->
-<script>
-    let dateElement = document.querySelectorAll(".date");
-    dateElement.forEach(element => {
-        let currentYearDate = new Date(element.innerHTML);
-        let nextYearDate = new Date(currentYearDate.getFullYear() + 1, currentYearDate.getMonth(), currentYearDate.getDay());
-        currentYearDate = getPersianDate(currentYearDate.toDateString()).split(" ")[3];
-        nextYearDate = getPersianDate(nextYearDate.toDateString()).split(" ")[3];
-        element.innerHTML = "سال" + " " + nextYearDate + " - " + currentYearDate;
-        element.style.visibility = "visible";
-    });
-</script>

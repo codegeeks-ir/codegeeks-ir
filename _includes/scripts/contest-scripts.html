@@ -1,0 +1,19 @@
+<div>
+    <!-- persian-long-date module -->
+    <script src="{% link assets/js/persian-long-date.js %}"></script>
+    <!-- Change all dates to persian -->
+    <script>convertAllDatesToPersian('.date');</script>
+    
+    <!-- Highlight scripts -->
+    <script>hljs.highlightAll();</script>
+    <!-- Align images center inside paragraphs -->
+    <script>
+        const images = document.getElementsByTagName('img');
+        for (const element of images) {
+            const imageParent = element.parentElement;
+            if (imageParent.tagName == 'P') {
+                imageParent.classList.add('flex', 'flex-row', 'justify-center', 'my-12');
+            }
+        }
+    </script>
+</div>

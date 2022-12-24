@@ -1,0 +1,34 @@
+<div>
+  <!-- persian-long-date module -->
+  <script src="{% link assets/js/persian-long-date.js %}"></script>
+  <!-- Change all dates to persian -->
+  <script>convertAllDatesToPersian('.date');</script>
+
+  <!-- textFit module -->
+  <script src="{% link assets/js/textFit.min.js %}"></script>
+  <!-- Fit text using textFit -->
+  <script>textFit(document.getElementsByClassName('event-subject'));</script>
+
+  <!-- html2canvas module -->
+  <script src="{% link assets/js/html2canvas.min.js %}"></script>
+  <!-- html2pdf module -->
+  <script src="{% link assets/js/html2pdf.bundle.min.js %}"></script>
+
+  <!-- qrcode module -->
+  <script src="{% link assets/js/qrcode.min.js %}"></script>
+  <!-- Generate QRcode -->
+  <script type="text/javascript">
+    const qrcodeContainer = document.getElementById("qrcode");
+    var qrcode = new QRCode(qrcodeContainer, {
+      text: qrcodeContainer.getAttribute("content"),
+      width: 128,
+      height: 128,
+      colorDark: "#004080",
+      colorLight: "#E2E8F0",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+  
+  <!-- Export event -->
+  <script src="{% link assets/js/export-event.js %}"></script>
+</div>

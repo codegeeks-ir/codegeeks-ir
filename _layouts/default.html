@@ -33,66 +33,23 @@
     </div>
   </div>
   {% include footer.html %}
-  <!-- Listner for mobile main menu button -->
-  <script>
-    const button = document.querySelector("#mobile-button");
-    const menu = document.querySelector("#mobile-menu");
-    button.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  </script>
-
-  {% if page.layout == 'contest' or page.layout == 'post' %}
-  <!-- Highlight scripts -->
-  <script>
-    hljs.highlightAll();
-  </script>
-  {% endif %}
   
-  <!-- Create file explorer -->
+  <!-- Create file explorer for outer pages -->
   {% if site.repo != 'ceituut.github.io' %}
   <script type="text/javascript" src="{% link assets/js/create-file-explorer.js %}"></script>
   {% endif %}
 
-  <!-- persian-long-date module -->
-  <script src="{% link assets/js/persian-long-date.js %}"></script>
-  <!-- change date to persian -->
-  <script>
-    let eventDateElements = document.querySelectorAll(".date");
-    eventDateElements.forEach(element => {
-      element.innerHTML = getPersianDate(element.innerHTML);
-      element.style.visibility = "visible";
-    });
-  </script>
-
-  {% if page.layout == 'event' %}
-  <!-- textFit module -->
-  <script src="{% link assets/js/textFit.min.js %}"></script>
-  <!-- Fit text using textFit -->
-  <script>
-    textFit(document.getElementsByClassName('event-subject'));
-  </script>
-  <!-- html2canvas module -->
-  <script src="{% link assets/js/html2canvas.min.js %}"></script>
-  <!-- html2pdf module -->
-  <script src="{% link assets/js/html2pdf.bundle.min.js %}"></script>
-  <!-- qrcode module -->
-  <script src="{% link assets/js/qrcode.min.js %}"></script>
-  <!-- generate QRcode -->
-  <script type="text/javascript">
-    const qrcodeContainer = document.getElementById("qrcode");
-    var qrcode = new QRCode(qrcodeContainer, {
-      text: qrcodeContainer.getAttribute("content"),
-      width: 128,
-      height: 128,
-      colorDark: "#004080",
-      colorLight: "#E2E8F0",
-      correctLevel: QRCode.CorrectLevel.H
-    });
-  </script>
-  <!-- export event script -->
-  <script src="{% link assets/js/export-event.js %}"></script>
-  {% endif %}
+  <!-- Include scripts based on layouts -->
+  {% case page.layout %}
+    {% when 'default' %}
+      {% include scripts/default-scripts.html %}
+    {% when 'post' %}
+      {% include scripts/post-scripts.html %}
+    {% when 'contest' %}
+      {% include scripts/contest-scripts.html %}
+    {% when 'event' %}
+      {% include scripts/event-scripts.html %}
+  {% endcase %}
 </body>
 
 </html>

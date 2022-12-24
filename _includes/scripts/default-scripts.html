@@ -1,0 +1,11 @@
+<div>
+    <!-- persian-long-date module -->
+    <script src="{% link assets/js/persian-long-date.js %}"></script>
+    {% if page.permalink == '/about/' %}
+    <!-- Create persian year string for association main members archive -->
+    <script>createEducationYears('.date');</script>
+    {% else %}
+    <!-- Change all dates to persian -->
+    <script>convertAllDatesToPersian('.date');</script>
+    {% endif %}
+</div>

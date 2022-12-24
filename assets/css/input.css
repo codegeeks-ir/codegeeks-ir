@@ -105,7 +105,7 @@ h5 { @apply text-lg m-1 mt-3; }
 h6 { @apply text-base m-1 mt-3; }
 p { @apply text-base mx-1 my-3; }
 p a { @apply btn-primary w-52 m-1 p-1 px-3; }
-p img { @apply w-full h-full; }
+p img { @apply w-full sm:w-4/5 md:w-3/4 lg:w-2/3 h-full rounded-sm; }
 ul { @apply text-gray-400 text-sm m-1 mt-3 list-none; }
 img { @apply max-w-full h-auto; }
 

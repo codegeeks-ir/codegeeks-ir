@@ -1,22 +1,22 @@
 
-const dayNames = ["یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
+const dayNames = ["یکشنبه", "دوشنبه", "سه‌شنبه", "چهارشنبه", "پنجشنبه", "جمعه", "شنبه"];
 const monthNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 
 function getPersianDate(georgianString) {
-  let georgianDate = new Date(georgianString);
-  let persianString = georgianDate.toLocaleDateString('fa-IR');
-
-  let weekDay = dayNames[georgianDate.getDay()];
-  let day = persianString.split('/')[2];
-  let month = getPersianMonth(persianString);
-  let year = persianString.split('/')[0];
+  const georgianDate = new Date(georgianString);
+  const persianString = georgianDate.toLocaleDateString('fa-IR');
+  
+  const weekDay = dayNames[georgianDate.getDay()];
+  const day = persianString.split('/')[2];
+  const month = getPersianMonth(persianString);
+  const year = persianString.split('/')[0];
   return weekDay + " " + day + " " + month + " " + year;
 }
 
 function getPersianMonth(persianString) {
     const persianNumbers = "۰۱۲۳۴۵۶۷۸۹";
     const latinNumners = "0123456789";
-    let persianDigitMonth = persianString.split('/')[1];
+    const persianDigitMonth = persianString.split('/')[1];
     let monthIndex = "";
     persianDigitMonth.split('').forEach(digit => {
       let digitIndex = persianNumbers.indexOf(digit);
@@ -24,4 +24,24 @@ function getPersianMonth(persianString) {
     });
     monthIndex -= 1;
     return monthNames[monthIndex];
+}
+
+function createEducationYears(elementClassName) {
+  const dateElements = document.querySelectorAll(elementClassName);
+  dateElements.forEach(element => {
+    const currentYearDate = new Date(element.innerHTML);
+    const nextYearDate = new Date(currentYearDate.getFullYear() + 1, currentYearDate.getMonth(), currentYearDate.getDay());
+    const currentYearPersianString = getPersianDate(currentYearDate.toDateString()).split(" ")[3];
+    const nextYearPersianString = getPersianDate(nextYearDate.toDateString()).split(" ")[3];
+    element.innerHTML = "سال" + " " + nextYearPersianString + " - " + currentYearPersianString;
+    element.style.visibility = "visible";
+  });
+}
+
+function convertAllDatesToPersian(elementClassName) {
+  const dateElements = document.querySelectorAll(elementClassName);
+  dateElements.forEach(element => {
+    element.innerHTML = getPersianDate(element.innerHTML);
+    element.style.visibility = "visible";
+  });
 }
