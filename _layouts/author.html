@@ -6,9 +6,10 @@ layout: default
     <div class="card flex flex-col items-center justify-center mb-0 rounded-b-none">
     {% assign github_link = "https://github.com/" | append: page.github_id %}
     {% assign github_pic = github_link | append: ".png" %}
-    <!-- Github avatar -->
-        <div class="profile-picture mt-2 w-36">
-            <img src='{{ github_pic }}' alt="{{ lecturer.name }} profile picture">
+        <!-- Github picture -->
+        <div class="profile-picture relative w-44 my-4">
+            <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
+            <a class="github-icon relative" href="{{ github_link }}">{% include svgs/social/github.svg %}</a>
         </div>
         <!-- Bio -->
         <!-- Author name -->

@@ -1,26 +1,20 @@
-<div class="card flex flex-row flex-wrap justify-start 
-items-center w-full mt-32 p-0 lg:p-5 md:p-4 sm:p-2">
-    <h3 class="w-full">نویسندگان</h3>
-    <hr>
+<div class="flex flex-row flex-wrap justify-start 
+items-center w-full mt-32">
+    <h3 class="w-full text-slate-300 p-2 mb-4">نویسندگان</h3>
     {% for author in site.authors %}
-    <div class="card" style="max-width: 220px;">
-        <!-- Bio -->
-        <div class="card-body">
-            <!-- Author name -->
+    <!-- Bio -->
+    <div class="btn-primary rounded-b-none pb-0" style="max-width: 220px;">
+        <!-- Author name -->
+        <a class="card-body" href="{{ author.url }}">
             <h5 class="card-title justify-center">
-                <a href = "{{ author.url }}">{{ author.name }}</a>
+                <p>{{ author.name }}</p>
             </h5>
-            <!-- Author position -->
+        </a>
+        <!-- Author position -->
+        <div class="card-footer pb-0 justify-center">
             <h6 class="card-subtitle text-center">
                 {{ author.position }}
             </h6>
-        </div>
-        <!-- Github link -->
-        {% assign github_link = "https://github.com/" | append: author.github_id %}
-        <div class="card-footer justify-center">
-            <a href="{{ github_link }}">
-                {% include svgs/social/github.svg %}
-            </a>
         </div>
     </div>
     {% endfor %}
