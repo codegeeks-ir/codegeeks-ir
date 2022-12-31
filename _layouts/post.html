@@ -1,6 +1,29 @@
 ---
 layout: default
 ---
-<div class="card m-0 p-2 lg:p-5 md:p-4 sm:p-2">
-    {{ content }}
+<div class="w-full">
+    <!-- Post content -->
+    <div class="card w-full m-0 p-2 lg:p-5 md:p-4 sm:p-2">
+        {{ content }}
+    </div>
+    <!-- Author -->
+    <div class="flex flex-row flex-wrap justify-end items-center my-0 pl-0 pb-2">
+        {% assign post_author_github_id = page.author %}
+        {% for author in site.authors %}
+            {% if author.github_id == post_author_github_id %}
+                {% assign github_link = "https://github.com/" | append: post_author_github_id %}
+                {% assign github_pic = github_link | append: ".png" %}
+                <!-- Author page link -->
+                <a class="btn-light w-auto flex flex-row items-center 
+                rounded-tl-none py-1 mt-1 mb-0 ml-0 mr-4" href="{{ author.url }}">
+                    <!-- Github picture -->
+                    <div class="profile-picture relative w-8 my-0 py-0">
+                        <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
+                    </div>
+                    <!-- Author name -->
+                    <p class="text-base text-gray-700 py-0 my-0">{{ author.name }}</p>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>
