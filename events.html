@@ -32,13 +32,3 @@ title: "رویدادها"
     </div>
     {% endfor %}
 </div>
-<!-- persian-long-date madule -->
-<script src="{% link assets/js/persian-long-date.js %}"></script>
-<!-- change date to persian -->
-<script>
-    let eventDateElements = document.querySelectorAll(".date");
-    eventDateElements.forEach(element => {
-        element.innerHTML = getPersianDate(element.innerHTML);
-    element.style.visibility = "visible";
-    });
-</script>

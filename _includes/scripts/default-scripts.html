@@ -1,4 +1,9 @@
 <div>
+    <!-- Create file explorer for outer pages -->
+    {% if site.repo != 'ceituut.github.io' %}
+    <script type="text/javascript" src="{% link assets/js/create-file-explorer.js %}"></script>
+    {% endif %}
+    
     <!-- persian-long-date module -->
     <script src="{% link assets/js/persian-long-date.js %}"></script>
     {% if page.permalink == '/about/' %}

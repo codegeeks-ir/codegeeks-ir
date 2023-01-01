@@ -33,16 +33,12 @@
     </div>
   </div>
   {% include footer.html %}
-  
-  <!-- Create file explorer for outer pages -->
-  {% if site.repo != 'ceituut.github.io' %}
-  <script type="text/javascript" src="{% link assets/js/create-file-explorer.js %}"></script>
-  {% endif %}
 
-  <!-- Include scripts based on layouts -->
+  <!-- Include default layout scripts -->
+  {% include scripts/default-scripts.html %}
+
+  <!-- Include scripts for layouts that inherit from default -->
   {% case page.layout %}
-    {% when 'default' %}
-      {% include scripts/default-scripts.html %}
     {% when 'post' %}
       {% include scripts/post-scripts.html %}
     {% when 'contest' %}
