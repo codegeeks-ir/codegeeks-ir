@@ -11,11 +11,13 @@
     <hr class="mt-0 visible">
     <!-- Other links -->
     <ul class="flex flex-row justify-center list-none w-full p-0 m-0 mt-2">
-        {% for item in site.data.footer-navigation %}
-            <li class="p-2 pt-0 pb-0">
-                <a href="{% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
-                {{ item.link }}{% else %}{{ item.outer_link }}{% endif %}" class="non-important">{{ item.name }}</a>
-            </li>
+        {% for item in site.data.navigation %}
+            {% if item.type == "footer-menu" %}
+                <li class="p-2 pt-0 pb-0">
+                    <a href="{% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                    {{ item.link }}{% else %}{{ item.outer_link }}{% endif %}" class="non-important">{{ item.name }}</a>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
     <p class="text-2xs">

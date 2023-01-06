@@ -21,19 +21,21 @@
                 <div class="flex-1 flex w-full items-center justify-start">
                     <ul class="flex flex-row w-full justify-start">
                         {% assign page_url = page.url %}
-                        {% for item in site.data.main-navigation %}
-                            {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
-                                {% assign item_link = item.link %}
-                            {% else %}
-                                {% assign item_link = item.link | prepend: {{ site.domain }} %}
+                        {% for item in site.data.navigation %}
+                            {% if item.type == "main-menu" %}
+                                {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                                    {% assign item_link = item.link %}
+                                {% else %}
+                                    {% assign item_link = item.link | prepend: {{ site.domain }} %}
+                                {% endif %}
+                                <li class="mx-2">
+                                    <a href="{{ item.link }}" 
+                                    class="nav-link {% if page_url == item_link %}
+                                    active {% endif %}">
+                                    {{ item.name }}
+                                    </a>
+                                </li>
                             {% endif %}
-                            <li class="mx-2">
-                                <a href="{{ item.link }}" 
-                                class="nav-link {% if page_url == item_link %}
-                                active {% endif %}">
-                                {{ item.name }}
-                                </a>
-                            </li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -44,19 +46,21 @@
     <div class="hidden w-full" id="mobile-menu">
         <ul class="flex flex-col items-start w-full px-2 pt-2 pb-3">
             {% assign page_url = page.url %}
-            {% for item in site.data.main-navigation %}
-                {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
-                    {% assign item_link = item.link %}
-                {% else %}
-                    {% assign item_link = item.link | prepend: {{ site.domain }} %}
-                {% endif %}
-                <li class="my-1 w-full">
-                    <a href="{{ item.link }}" 
-                    class="nav-link block w-full {% if page_url == item_link %}
-                    active {% endif %}">
+            {% for item in site.data.navigation %}
+                {% if item.type == "main-menu" %}
+                    {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                        {% assign item_link = item.link %}
+                    {% else %}
+                        {% assign item_link = item.link | prepend: {{ site.domain }} %}
+                    {% endif %}
+                    <li class="my-1 w-full">
+                        <a href="{{ item.link }}" 
+                        class="nav-link block w-full {% if page_url == item_link %}
+                        active {% endif %}">
                         {{ item.name }}
-                    </a>
-                </li>
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
     </div>

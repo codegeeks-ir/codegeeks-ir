@@ -2,8 +2,10 @@
 layout: default
 ---
 <div class="w-full">
-    <!-- Post content -->
-    <div class="card w-full m-0 p-2 lg:p-5 md:p-4 sm:p-2">
+    <!-- Page header -->
+    {% include page-header.html %}
+    <div class="page-header">
+        <!-- Post content -->
         {{ content }}
     </div>
     <!-- Author -->

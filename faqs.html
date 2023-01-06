@@ -1,7 +1,12 @@
 ---
 title: "سوالات متداول"
 ---
-<div class="flex flex-col items-center w-full">
+<div class="collection-container">
+    <!-- Page header -->
+    {% include page-header.html %}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+    </div>
     {% for faq in site.faqs %}
     <div class="card">
         <div class="card-body">
@@ -11,13 +16,10 @@ title: "سوالات متداول"
                 {{ faq.question }}
             </h5>
             <!-- FAQ categories -->
-            <h6 class="card-subtitle">
-                {{ faq.categories }}
-            </h6>
+            <h6 class="card-subtitle">{{ faq.categories }}</h6>
         </div>
-        <div class="card-button">
-            <a href="{{ faq.url }}">مشاهده</a>
-        </div>
+        <!-- Link -->
+        <div class="card-button"><a href="{{ faq.url }}">مشاهده</a></div>
     </div>
     {% endfor %}
 </div>

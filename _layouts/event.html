@@ -2,10 +2,15 @@
 layout: default
 ---
 <div class="w-full">
-  {% include events/event.html %}
-  {% include events/event-post.html %}
-  {% include events/event-story.html %}
-  {% include events/event-pdf.html %}
+  <!-- Page header -->
+  {% include page-header.html %}
+  <div class="page-header">
+    <!-- Event -->
+    {% include events/event.html %}
+    {% include events/event-post.html %}
+    {% include events/event-story.html %}
+    {% include events/event-pdf.html %}
+  </div>
   <!-- Share event -->
   <div class="card p-0">
     <h1 class="card-title m-0">

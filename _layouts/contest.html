@@ -1,33 +1,36 @@
 ---
 layout: default
 ---
-<!-- For contest -->
-<div class="card w-full p-0 lg:p-5 md:p-4 sm:p-2">
-  <!-- Subject -->
-  <h1 class="mb-0">
-      {% assign contest_number = page.number %}
-      {{ page.title | append: " " | append: contest_number }}
-  </h1>
-  <!-- Score -->
-  <h5 class="card-subtitle mt-0 mb-2">
-      {{ page.score }}
-      امتیاز      
-  </h5>
-  <!-- Date -->
-  <div class="flex flex-row non-important mt-10 mb-20 p-0">
-      <!-- Start date -->
-      <div class="w-1/2">
-          <h5>زمان شروع</h5>
-          <p class="card-text date invisible my-0">{{ page.start_date | date_to_string }}</p>
-          <p class="card-text my-0"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
-        </div>
-        <!-- End date -->
+<div class="w-full">
+  <!-- Page header -->
+  {% include page-header.html %}
+  <div class="page-header">
+    <!-- Subject -->
+    <h1 class="mb-0">
+        {% assign contest_number = page.number %}
+        {{ page.title | append: " " | append: contest_number }}
+    </h1>
+    <!-- Score -->
+    <h5 class="card-subtitle mt-0 mb-2">
+        {{ page.score }}
+        امتیاز      
+    </h5>
+    <!-- Date -->
+    <div class="flex flex-row non-important mt-10 mb-20 p-0">
+        <!-- Start date -->
         <div class="w-1/2">
-          <h5>زمان پایان</h5>
-          <p class="card-text date invisible my-0">{{ page.end_date | date_to_string }}</p>
-          <p class="card-text my-0"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
-      </div>
+            <h5>زمان شروع</h5>
+            <p class="card-text date invisible my-0">{{ page.start_date | date_to_string }}</p>
+            <p class="card-text my-0"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
+          </div>
+          <!-- End date -->
+          <div class="w-1/2">
+            <h5>زمان پایان</h5>
+            <p class="card-text date invisible my-0">{{ page.end_date | date_to_string }}</p>
+            <p class="card-text my-0"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
+        </div>
+    </div>
+    <!-- Contest content -->
+    {{ content }}
   </div>
-  <!-- Contest content -->
-  {{ content }}
 </div>

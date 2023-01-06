@@ -2,6 +2,11 @@
 title: "انتشارات"
 ---
 <div class="collection-container">
+    <!-- Page header -->
+    {% include page-header.html %}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+    </div>
     {% for post in site.posts %}
         {% include post.html %}
     {% endfor %}

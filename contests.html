@@ -1,8 +1,12 @@
 ---
 title: "مسابقات"
-layout: default
 ---
 <div class="collection-container">
+    <!-- Page header -->
+    {% include page-header.html %}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+    </div>
     {% assign contest_collection = site.code-challenge | reverse %}
     {% for contest in contest_collection %}
     <div class="card">
@@ -14,10 +18,7 @@ layout: default
                 {{ contest.title | append: " " | append: contest_number }}
             </h4>
             <!-- Score -->
-            <h5 class="card-subtitle">
-                امتیاز:                
-                {{ contest.score }}
-            </h5>
+            <h5 class="card-subtitle">امتیاز: {{ contest.score }}</h5>
         </div>
         <!-- Date -->
         <div class="card-footer">
@@ -30,9 +31,7 @@ layout: default
             </p>
         </div>
         <!-- Link -->
-        <div class="card-button">
-            <a href="{{ contest.url }}">مشاهده</a>
-        </div>
+        <div class="card-button"><a href="{{ contest.url }}">مشاهده</a></div>
     </div>
     {% endfor %}
 </div>

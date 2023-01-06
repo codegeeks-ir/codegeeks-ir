@@ -2,6 +2,11 @@
 title: "رویدادها"
 ---
 <div class="collection-container">
+    <!-- Page header -->
+    {% include page-header.html %}
+    <div class="page-header">
+        <h1>{{ page.title }}</h1>
+    </div>
     {% assign event_collection = site.events | reverse %}
     {% for event in event_collection %}
     <div class="card">
@@ -12,9 +17,7 @@ title: "رویدادها"
                 {{ event.title }}
             </h4>
             <!-- Lecturer -->
-            <h5 class="card-subtitle">
-                {{ event.lecturer }}
-            </h5>
+            <h5 class="card-subtitle">{{ event.lecturer }}</h5>
         </div>
         <!-- Date -->
         <div class="card-footer">
@@ -26,9 +29,7 @@ title: "رویدادها"
             </p>
         </div>
         <!-- Link -->
-        <div class="card-button">
-            <a href="{{ site.baseurl }}{{ event.url }}">مشاهده</a>
-        </div>
+        <div class="card-button"><a href="{{ event.url }}">مشاهده</a></div>
     </div>
     {% endfor %}
 </div>
