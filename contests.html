@@ -1,37 +1,28 @@
 ---
 title: "مسابقات"
 ---
-<div class="collection-container">
+<div class="collection-container" x-data="{ contests: [] }" 
+x-init="contests = await (await fetch('/assets/contests-data.json')).json()">
     <!-- Page header -->
     {% include page-header.html %}
-    <div class="page-header">
-        <h1>{{ page.title }}</h1>
-    </div>
-    {% assign contest_collection = site.code-challenge | reverse %}
-    {% for contest in contest_collection %}
-    <div class="card">
-        <div class="card-body">
-            <!-- Contest subject -->
-            <h4 class="card-title">
-                {% include svgs/balloon.svg %}
-                {% assign contest_number = contest.number %}
-                {{ contest.title | append: " " | append: contest_number }}
-            </h4>
-            <!-- Score -->
-            <h5 class="card-subtitle">امتیاز: {{ contest.score }}</h5>
-        </div>
-        <!-- Date -->
-        <div class="card-footer">
-            <!-- Start date -->
-            <p class="card-text m-0 date non-important invisible">
-                {{ contest.start_date | date_to_string }}
-            </p>
-            <p class="card-text m-0 non-important">
-                ساعت {{ contest.start_date | date: "%H:%M" }}                
-            </p>
-        </div>
-        <!-- Link -->
-        <div class="card-button"><a href="{{ contest.url }}">مشاهده</a></div>
-    </div>
-    {% endfor %}
+    <div class="page-header"><h1>{{ page.title }}</h1></div>
+
+    <!-- contests -->
+    <template x-for="contest in contests">
+        <div class="card">
+            <div class="card-body">
+                <!-- Subject -->
+                <h4 class="card-title" x-text="contest.title"></h4>
+                <!-- Score -->
+                <h5 class="card-subtitle" x-text="'امتیاز ' + contest.score"></h5>
+            </div>
+            <!-- Date -->
+            <div class="card-footer non-important">
+                <p class="card-text m-0" x-text="getPersianDate(contest.startDate)"></p>
+                <p class="card-text m-0" x-text="'ساعت ' + contest.startTime"></p>
+            </div>
+            <!-- Link -->
+            <div class="card-button"><a :href="contest.link">مشاهده</a></div>
+        </div>        
+    </template>
 </div>

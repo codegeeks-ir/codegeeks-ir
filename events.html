@@ -1,35 +1,28 @@
 ---
 title: "رویدادها"
 ---
-<div class="collection-container">
+<div class="collection-container" x-data="{ events: [] }" 
+x-init="events = await (await fetch('/assets/events-data.json')).json()">
     <!-- Page header -->
     {% include page-header.html %}
-    <div class="page-header">
-        <h1>{{ page.title }}</h1>
-    </div>
-    {% assign event_collection = site.events | reverse %}
-    {% for event in event_collection %}
-    <div class="card">
-        <div class="card-body">
-            <!-- Event subject -->
-            <h4 class="card-title">
-                {% include svgs/bell.svg %}
-                {{ event.title }}
-            </h4>
-            <!-- Lecturer -->
-            <h5 class="card-subtitle">{{ event.lecturer }}</h5>
-        </div>
-        <!-- Date -->
-        <div class="card-footer">
-            <p class="card-text m-0 date non-important invisible">
-                {{ event.date | date_to_string }}
-            </p>
-            <p class="card-text m-0 non-important">
-                ساعت {{ event.date | date: "%H:%M" }}
-            </p>
-        </div>
-        <!-- Link -->
-        <div class="card-button"><a href="{{ event.url }}">مشاهده</a></div>
-    </div>
-    {% endfor %}
+    <div class="page-header"><h1>{{ page.title }}</h1></div>
+
+    <!-- Events -->
+    <template x-for="event in events">
+        <div class="card">
+            <div class="card-body">
+                <!-- Subject -->
+                <h4 class="card-title" x-text="event.title"></h4>
+                <!-- Lecturer -->
+                <h5 class="card-subtitle" x-text="event.lecturer"></h5>
+            </div>
+            <!-- Date -->
+            <div class="card-footer non-important">
+                <p class="card-text m-0" x-text="getPersianDate(event.date)"></p>
+                <p class="card-text m-0" x-text="'ساعت ' + event.time"></p>
+            </div>
+            <!-- Link -->
+            <div class="card-button"><a :href="event.link">مشاهده</a></div>
+        </div>        
+    </template>
 </div>

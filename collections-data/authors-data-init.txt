@@ -1,0 +1,16 @@
+---
+layout: null
+permalink: assets/authors-data.json
+---
+{% assign author_collection = site.authors | reverse %}
+[
+    {% for author in author_collection %}
+        {
+            "name": "{{ author.name }}",
+            "position": "{{ author.position }}",
+            "githubID": "{{ author.github_id }}",
+            "link": "{{ author.url }}"
+        }
+    {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]

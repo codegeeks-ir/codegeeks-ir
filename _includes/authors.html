@@ -1,21 +1,20 @@
 <div class="flex flex-row flex-wrap justify-start 
-items-center w-full mt-32">
+items-center w-full mt-32" x-data="{ authors: [] }" 
+x-init="authors = await (await fetch('/assets/authors-data.json')).json()">
+    <!-- Title -->
     <h3 class="w-full text-slate-300 p-2 mb-4">نویسندگان</h3>
-    {% for author in site.authors %}
-    <!-- Bio -->
-    <div class="btn-primary rounded-b-none pb-0" style="max-width: 220px;">
-        <!-- Author name -->
-        <a class="card-body" href="{{ author.url }}">
-            <h5 class="card-title justify-center">
-                <p>{{ author.name }}</p>
-            </h5>
-        </a>
-        <!-- Author position -->
-        <div class="card-footer pb-0 justify-center">
-            <h6 class="card-subtitle text-center">
-                {{ author.position }}
-            </h6>
-        </div>
-    </div>
-    {% endfor %}
+
+    <!-- Authors -->
+    <template x-for="author in authors">
+        <div class="btn-primary rounded-b-none pb-0" style="max-width: 220px;">
+            <!-- Author name -->
+            <a class="card-body" :href="author.link">
+                <h5 class="card-title justify-center" x-text="author.name"></h5>
+            </a>
+            <!-- Author position -->
+            <div class="card-footer pb-0 justify-center">
+                <h6 class="card-subtitle text-center" x-text="author.position"></h6>
+            </div>
+        </div>        
+    </template>
 </div>

@@ -9,7 +9,7 @@ layout: default
         {{ content }}
     </div>
     <!-- Author -->
-    <div class="flex flex-row flex-wrap justify-end items-center my-0 pl-0 pb-2">
+    <div class="flex flex-row flex-wrap justify-end items-center -mt-6 pl-0 pb-2">
         {% assign post_author_github_id = page.author %}
         {% for author in site.authors %}
             {% if author.github_id == post_author_github_id %}

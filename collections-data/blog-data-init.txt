@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: assets/blog-data.json
+---
+[
+    {% for post in site.posts %}
+        {
+            "title": "{{ post.title }}",
+            "date": "{{ post.date | date_to_string }}",
+            "categories": "{{ post.categories }}",
+            "description": "{{ post.description }}",
+            "excerpt": "{{ post.content | strip_html | truncatewords: 50 }}",
+            "author": "{{ post.author }}",
+            "link": "{{ post.url }}"
+        }
+    {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]

@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: assets/faqs-data.json
+---
+{% assign faq_collection = site.faqs | reverse %}
+[
+    {% for faq in faq_collection %}
+        {
+            "question": "{{ faq.question }}",
+            "categories": "{{ faq.categories }}",
+            "link": "{{ faq.url }}"
+        }
+    {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]
