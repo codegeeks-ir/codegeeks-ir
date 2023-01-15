@@ -20,14 +20,22 @@ layout: default
         <!-- Start date -->
         <div class="w-1/2">
             <h5>زمان شروع</h5>
-            <p class="card-text date invisible my-0">{{ page.start_date | date_to_string }}</p>
-            <p class="card-text my-0"> ساعت {{ page.start_date | date: "%H:%M" }}</p>
+            <p class="card-text date invisible my-0">
+              {{ page.start_date | date_to_string }}
+            </p>
+            <p class="card-text my-0">
+               ساعت {{ page.start_date | date: "%H:%M" }}
+            </p>
           </div>
           <!-- End date -->
           <div class="w-1/2">
             <h5>زمان پایان</h5>
-            <p class="card-text date invisible my-0">{{ page.end_date | date_to_string }}</p>
-            <p class="card-text my-0"> ساعت {{ page.end_date | date: "%H:%M" }}</p>
+            <p class="card-text date invisible my-0">
+              {{ page.end_date | date_to_string }}
+            </p>
+            <p class="card-text my-0">
+               ساعت {{ page.end_date | date: "%H:%M" }}
+            </p>
         </div>
     </div>
     <!-- Contest content -->

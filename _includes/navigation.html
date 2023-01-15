@@ -1,17 +1,19 @@
 <nav class="navbar{% if page.url == '/' and site.repo == 'ceituut.github.io' %} home-navbar {% endif %}">
+    {% assign local_url = http://localhost:4000 %}
+    {% assign production_url = site.url %}
     <div class="flex flex-row w-full justify-between">
         <!-- CEITUUT logo -->
         <a class="navbar-brand mr-4 w-20" 
-        href="{% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}{{ site.url }}
-        {% else %}{{ site.domain }}{% endif %}">
+        href="{% if site.url == production_url or site.url == local_url %}{{ site.url }}
+            {% else %}{{ site.domain }}{% endif %}">
             {% include svgs/ceituut/ceituut-icon.svg %}
         </a>
         <!-- Mobile menu button-->
         <div class="navbar-toggler flex items-center sm:hidden">
             <button id="mobile-button" type="button" class="inline-flex items-center 
-            justify-center p-2 rounded-md text-gray-400" 
-            aria-controls="mobile-menu" aria-expanded="false"
-            onclick="document.querySelector('#mobile-menu').classList.toggle('hidden')">
+                justify-center p-2 rounded-md text-gray-400" 
+                aria-controls="mobile-menu" aria-expanded="false"
+                onclick="document.querySelector('#mobile-menu').classList.toggle('hidden')">
                 {% include svgs/list.svg %}
             </button>
         </div>
@@ -23,16 +25,15 @@
                         {% assign page_url = page.url %}
                         {% for item in site.data.navigation %}
                             {% if item.type == "main-menu" %}
-                                {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                                {% if site.url == production_url or site.url == local_url %}
                                     {% assign item_link = item.link %}
                                 {% else %}
                                     {% assign item_link = item.link | prepend: {{ site.domain }} %}
                                 {% endif %}
                                 <li class="mx-2">
                                     <a href="{{ item.link }}" 
-                                    class="nav-link {% if page_url == item_link %}
-                                    active {% endif %}">
-                                    {{ item.name }}
+                                        class="nav-link {% if page_url == item_link %} active {% endif %}">
+                                        {{ item.name }}
                                     </a>
                                 </li>
                             {% endif %}
@@ -48,16 +49,15 @@
             {% assign page_url = page.url %}
             {% for item in site.data.navigation %}
                 {% if item.type == "main-menu" %}
-                    {% if site.url == 'https://ceituut.github.io' or site.url == 'http://localhost:4000' %}
+                    {% if site.url == production_url or site.url == local_url %}
                         {% assign item_link = item.link %}
                     {% else %}
                         {% assign item_link = item.link | prepend: {{ site.domain }} %}
                     {% endif %}
                     <li class="my-1 w-full">
                         <a href="{{ item.link }}" 
-                        class="nav-link block w-full {% if page_url == item_link %}
-                        active {% endif %}">
-                        {{ item.name }}
+                            class="nav-link block w-full {% if page_url == item_link %} active {% endif %}">
+                            {{ item.name }}
                         </a>
                     </li>
                 {% endif %}

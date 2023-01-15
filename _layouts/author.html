@@ -12,7 +12,9 @@ layout: default
         <!-- Github picture -->
         <div class="profile-picture relative w-44 my-4">
             <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
-            <a class="github-icon relative" href="{{ github_link }}">{% include svgs/social/github.svg %}</a>
+            <a class="github-icon relative" href="{{ github_link }}">
+                {% include svgs/social/github.svg %}
+            </a>
         </div>
         <!-- Author name -->
         <h2 class="card-title justify-center">{{ page.name }}</h2>
@@ -27,8 +29,9 @@ layout: default
 
     <!-- Posts -->
     <ul class="flex flex-col items-center justify-center w-full m-0 mt-5"
-    x-data="{ posts: [] }" x-init="posts = await (await fetch('/assets/blog-data.json')).json()"
-    data-author="{{ page.github_id }}">
+        x-data="{ posts: [] }" 
+        x-init="posts = await (await fetch('/assets/blog-data.json')).json()"
+        data-author="{{ page.github_id }}">
         <template x-for="post in posts">
             <template x-if="$root.dataset.author == post.author">
                 <div class="card">

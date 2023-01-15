@@ -1,5 +1,7 @@
 <div class="flex flex-col my-16">
     {% for item in site.data.course-navigation %}
-        <a class="btn-light w-1/2 sm:w-48 md:w-48" href="{{ item.link }}">{{ item.name }}</a>
+        <a class="btn-light w-1/2 sm:w-48 md:w-48" href="{{ item.link }}">
+            {{ item.name }}
+        </a>
     {% endfor %}
 </div>

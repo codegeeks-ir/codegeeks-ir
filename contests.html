@@ -2,7 +2,7 @@
 title: "مسابقات"
 ---
 <div class="collection-container" x-data="{ contests: [] }" 
-x-init="contests = await (await fetch('/assets/contests-data.json')).json()">
+    x-init="contests = await (await fetch('/assets/contests-data.json')).json()">
     <!-- Page header -->
     {% include page-header.html %}
     <div class="page-header"><h1>{{ page.title }}</h1></div>

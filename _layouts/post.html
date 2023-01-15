@@ -4,10 +4,8 @@ layout: default
 <div class="w-full">
     <!-- Page header -->
     {% include page-header.html %}
-    <div class="page-header">
-        <!-- Post content -->
-        {{ content }}
-    </div>
+    <!-- Post content -->
+    <div class="page-header">{{ content }}</div>
     <!-- Author -->
     <div class="flex flex-row flex-wrap justify-end items-center -mt-6 pl-0 pb-2">
         {% assign post_author_github_id = page.author %}
@@ -17,7 +15,7 @@ layout: default
                 {% assign github_pic = github_link | append: ".png" %}
                 <!-- Author page link -->
                 <a class="btn-light w-auto flex flex-row items-center 
-                rounded-tl-none py-1 mt-1 mb-0 ml-0 mr-4" href="{{ author.url }}">
+                    rounded-tl-none py-1 mt-1 mb-0 ml-0 mr-4" href="{{ author.url }}">
                     <!-- Github picture -->
                     <div class="profile-picture relative w-8 my-0 py-0">
                         <img src='{{ github_pic }}' alt="{{ page.lecturer }}">
