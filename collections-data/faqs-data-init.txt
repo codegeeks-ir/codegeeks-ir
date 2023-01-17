@@ -6,7 +6,7 @@ permalink: assets/faqs-data.json
 [
     {% for faq in faq_collection %}
         {
-            "question": "{{ faq.question }}",
+            "title": "{{ faq.title }}",
             "categories": "{{ faq.categories }}",
             "link": "{{ faq.url }}"
         }

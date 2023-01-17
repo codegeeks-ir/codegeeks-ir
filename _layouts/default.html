@@ -17,9 +17,15 @@
   <script src="{% link assets/js/highlight.min.js %}"></script>
   <link rel="stylesheet" href="{% link assets/css/vs2015.min.css %}">
   {% endif %}
-
+  
   <!-- alpine.js module -->
   <script defer src="{% link assets/js/alpine.min.js %}"></script>
+  
+  <!-- Collection hook -->
+  {% if page.url == '/blog.html' or page.url == '/contests.html' 
+  or page.url == '/events.html' or page.url == '/faqs.html' %}
+  <script src="{% link assets/js/collection-hook.js %}"></script>
+  {% endif %}
 
   <!-- Styles -->
   <link href="{% link assets/css/output.css %}" rel="stylesheet">

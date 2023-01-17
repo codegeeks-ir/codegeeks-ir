@@ -24,12 +24,26 @@
         focus:outline-none 
         focus:ring-slate-400 
     }
+    .btn-disabled {
+        @apply btn-primary
+        bg-slate-300 text-slate-400 
+        pointer-events-none;
+    }
+
+    /* Search field component */
+    .search-field {
+        @apply block w-full bg-slate-300 text-gray-700
+        focus:outline-none focus:bg-gray-700 
+        focus:shadow focus:text-slate-200 font-bold 
+        drop-shadow-sm rounded-lg px-4 py-1 mx-1;
+    }
 
     /* Card components */
     .card {
         @apply w-full h-auto
         bg-slate-200
         rounded-t-md
+        rounded-b-sm
         p-0 mb-6
         border-solid border-4 border-b-0 border-slate-200
         drop-shadow-md;
@@ -60,6 +74,14 @@
         m-0 p-0;
     }
     
+    /* Pagination component */
+    .pagination {
+        @apply card flex flex-row-reverse w-full 
+        justify-center items-center 
+        bg-slate-300
+        rounded-md p-2;
+    }
+
     /* Profile picture component */
     .profile-picture { @apply flex flex-col items-center justify-center; }
     
@@ -166,7 +188,7 @@ details { @apply rounded-sm px-2 py-2 my-2; }
 .page-header-navbar-button p {
     @apply my-0 mx-1 py-0 text-xs;
 } 
-.page-header { @apply card rounded-none w-full p-2 lg:p-5 md:p-4 sm:p-2; }
+.page-header { @apply card rounded-none w-full my-0 p-2 lg:p-5 md:p-4 sm:p-2; }
 .collection-container { @apply flex flex-col items-center w-full; }
 
 /* Footer styles */

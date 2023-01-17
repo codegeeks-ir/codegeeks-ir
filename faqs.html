@@ -1,23 +1,29 @@
 ---
 title: "سوالات متداول"
 ---
-<div class="collection-container" x-data="{ faqs: [] }" 
-    x-init="faqs = await (await fetch('/assets/faqs-data.json')).json()">
+<div id="#collection" class="collection-container" 
+    x-data="collection" dataPath='/assets/faqs-data.json'>
     <!-- Page header -->
     {% include page-header.html %}
     <div class="page-header"><h1>{{ page.title }}</h1></div>
-
+    
+    <!-- Filter -->
+    {% include collection/filter.html %}
+    
     <!-- FAQs -->
-    <template x-for="faq in faqs">
+    <template x-for="item in filtered">
         <div class="card">
             <div class="card-body">
                 <!-- FAQ question -->
-                <h4 class="card-title" x-text="faq.question"></h4>
+                <h4 class="card-title" x-text="item.title"></h4>
                 <!-- FAQ categories -->
-                <h5 class="card-subtitle" x-text="faq.categories"></h5>
+                <h5 class="card-subtitle" x-text="item.categories"></h5>
             </div>
             <!-- Link -->
-            <div class="card-button"><a :href="faq.link">مشاهده</a></div>
-        </div>        
+            <div class="card-button"><a :href="item.link">مشاهده</a></div>
+        </div>
     </template>
+
+    <!-- Pagination -->
+    {% include collection/pagination.html %}
 </div>

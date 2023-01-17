@@ -1,28 +1,34 @@
 ---
 title: "مسابقات"
 ---
-<div class="collection-container" x-data="{ contests: [] }" 
-    x-init="contests = await (await fetch('/assets/contests-data.json')).json()">
+<div id="#collection" class="collection-container" 
+    x-data="collection" dataPath='/assets/contests-data.json'>
     <!-- Page header -->
     {% include page-header.html %}
     <div class="page-header"><h1>{{ page.title }}</h1></div>
 
+    <!-- Filter -->
+    {% include collection/filter.html %}
+
     <!-- contests -->
-    <template x-for="contest in contests">
+    <template x-for="item in filtered">
         <div class="card">
             <div class="card-body">
                 <!-- Subject -->
-                <h4 class="card-title" x-text="contest.title"></h4>
+                <h4 class="card-title" x-text="item.title"></h4>
                 <!-- Score -->
-                <h5 class="card-subtitle" x-text="'امتیاز ' + contest.score"></h5>
+                <h5 class="card-subtitle" x-text="'امتیاز ' + item.score"></h5>
             </div>
             <!-- Date -->
             <div class="card-footer non-important">
-                <p class="card-text m-0" x-text="getPersianDate(contest.startDate)"></p>
-                <p class="card-text m-0" x-text="'ساعت ' + contest.startTime"></p>
+                <p class="card-text m-0" x-text="getPersianDate(item.startDate)"></p>
+                <p class="card-text m-0" x-text="'ساعت ' + item.startTime"></p>
             </div>
             <!-- Link -->
-            <div class="card-button"><a :href="contest.link">مشاهده</a></div>
+            <div class="card-button"><a :href="item.link">مشاهده</a></div>
         </div>        
     </template>
+
+    <!-- Pagination -->
+    {% include collection/pagination.html %}
 </div>
