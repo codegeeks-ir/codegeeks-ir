@@ -30,12 +30,18 @@
         pointer-events-none;
     }
 
-    /* Search field component */
-    .search-field {
-        @apply block w-full bg-slate-300 text-gray-700
+    /* Form components */
+    .form { 
+        @apply card flex flex-col w-full 
+        justify-start items-start
+        rounded-t-none mt-0 py-3 px-2 
+        lg:px-5 md:px-4 sm:px-2; 
+    }
+    .form-element { 
+        @apply bg-slate-300 text-gray-700
         focus:outline-none focus:bg-gray-700 
         focus:shadow focus:text-slate-200 font-bold 
-        drop-shadow-sm rounded-lg px-4 py-1 mx-1;
+        drop-shadow-sm rounded-lg px-4 py-1 mx-1 my-1; 
     }
 
     /* Card components */

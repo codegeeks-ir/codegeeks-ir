@@ -2,17 +2,56 @@
 layout: null
 permalink: assets/blog-data.json
 ---
-[
-    {% for post in site.posts %}
-        {
-            "title": "{{ post.title }}",
-            "date": "{{ post.date | date_to_string }}",
-            "categories": "{{ post.categories }}",
-            "description": "{{ post.description }}",
-            "excerpt": "{{ post.content | strip_html | truncatewords: 50 }}",
-            "author": "{{ post.author }}",
-            "link": "{{ post.url }}"
+{
+    "properties": {
+        "title": {
+            "enName": "title",
+            "faName": "عنوان",
+            "searchable": true
+        },
+        "date": {
+            "enName": "data",
+            "faName": "تاریخ",
+            "searchable": false
+        },
+        "categories": {
+            "enName": "categories",
+            "faName": "دسته بندی",
+            "searchable": false
+        },
+        "description": {
+            "enName": "description",
+            "faName": "شرح مختصر",
+            "searchable": true
+        },
+        "excerpt": {
+            "enName": "excerpt",
+            "faName": "گزیده",
+            "searchable": true
+        },
+        "githubID": {
+            "enName": "githubID",
+            "faName": "گیتهاب",
+            "searchable": true
+        },
+        "link": {
+            "enName": "link",
+            "faName": "لینک",
+            "searchable": false
         }
-    {% unless forloop.last %},{% endunless %}
-    {% endfor %}
-]
+    },
+    "data": [
+        {% for post in site.posts %}
+            {
+                "title": "{{ post.title }}",
+                "date": "{{ post.date | date_to_string }}",
+                "categories": "{{ post.categories }}",
+                "description": "{{ post.description }}",
+                "excerpt": "{{ post.content | strip_html | truncatewords: 50 }}",
+                "githubID": "{{ post.github_id }}",
+                "link": "{{ post.url }}"
+            }
+        {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

@@ -3,12 +3,26 @@ layout: null
 permalink: assets/members-data.json
 ---
 {% assign member_collection = site.members | reverse %}
-[
-    {% for member in member_collection %}
-        {
-            "membersID": "{{ member.members_id }}",
-            "date": "{{ member.date | date_to_string }}"
+{
+    "properties": {
+        "membersID": {
+            "enName": "membersID",
+            "faName": "شماره اعضا",
+            "searchable": true
+        },
+        "date": {
+            "enName": "date",
+            "faName": "تاریخ",
+            "searchable": false
         }
-    {% unless forloop.last %},{% endunless %}
-    {% endfor %}
-]
+    },
+    "data": [
+        {% for member in member_collection %}
+            {
+                "membersID": "{{ member.members_id }}",
+                "date": "{{ member.date | date_to_string }}"
+            }
+        {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}

@@ -32,8 +32,8 @@ layout: default
         x-data="{ posts: [] }" 
         x-init="posts = await (await fetch('/assets/blog-data.json')).json()"
         data-author="{{ page.github_id }}">
-        <template x-for="post in posts">
-            <template x-if="$root.dataset.author == post.author">
+        <template x-for="post in posts.data">
+            <template x-if="$root.dataset.author == post.githubID">
                 <div class="card">
                     <div class="card-body">
                         <!-- Subject -->

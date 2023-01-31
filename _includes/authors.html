@@ -5,7 +5,7 @@
     <h3 class="w-full text-slate-300 p-2 mb-4">نویسندگان</h3>
 
     <!-- Authors -->
-    <template x-for="author in authors">
+    <template x-for="author in authors.data">
         <div class="btn-primary rounded-b-none pb-0" style="max-width: 220px;">
             <!-- Author name -->
             <a class="card-body" :href="author.link">

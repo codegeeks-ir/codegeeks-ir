@@ -3,17 +3,56 @@ layout: null
 permalink: assets/contests-data.json
 ---
 {% assign contest_collection = site.code-challenge | reverse %}
-[
-    {% for contest in contest_collection %}
-        {
-            "title": "{{ contest.title }}",
-            "score": "{{ contest.score }}",
-            "startDate": "{{ contest.start_date | date_to_string }}",
-            "startTime": "{{ contest.start_date | date: "%H:%M" }}",
-            "endDate": "{{ contest.end_date | date_to_string }}",
-            "endTime": "{{ contest.end_date | date: "%H:%M" }}",
-            "link": "{{ contest.url }}"
+{
+    "properties": {
+        "title": {
+            "enName": "title",
+            "faName": "عنوان",
+            "searchable": true
+        },
+        "score": {
+            "enName": "score",
+            "faName": "امتیاز",
+            "searchable": false
+        },
+        "startDate": {
+            "enName": "startDate",
+            "faName": "تاریخ شروع",
+            "searchable": false
+        },
+        "startTime": {
+            "enName": "startTime",
+            "faName": "ساعت شروع",
+            "searchable": false
+        },
+        "endDate": {
+            "enName": "endDate",
+            "faName": "تاریخ اتمام",
+            "searchable": false
+        },
+        "endTime": {
+            "enName": "endTime",
+            "faName": "ساعت اتمام",
+            "searchable": false
+        },
+        "link": {
+            "enName": "link",
+            "faName": "لینک",
+            "searchable": false
         }
-    {% unless forloop.last %},{% endunless %}
-    {% endfor %}
-]
+    },
+    "data": [
+        {% for contest in contest_collection %}
+            {
+                "title": "{{ contest.title }}",
+                "score": "{{ contest.score }}",
+                "startDate": "{{ contest.start_date | date_to_string }}",
+                "startTime": "{{ contest.start_date | date: "%H:%M" }}",
+                "endDate": "{{ contest.end_date | date_to_string }}",
+                "endTime": "{{ contest.end_date | date: "%H:%M" }}",
+                "link": "{{ contest.url }}"
+            }
+        {% unless forloop.last %},{% endunless %}
+        {% endfor %}
+    ]
+}
