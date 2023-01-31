@@ -8,7 +8,7 @@ layout: default
     <div class="page-header">{{ content }}</div>
     <!-- Author -->
     <div class="flex flex-row flex-wrap justify-end items-center pl-0 pb-2">
-        {% assign post_author_github_id = page.githubID %}
+        {% assign post_author_github_id = page.github_id %}
         {% for author in site.authors %}
             {% if author.github_id == post_author_github_id %}
                 {% assign github_link = "https://github.com/" | append: post_author_github_id %}
