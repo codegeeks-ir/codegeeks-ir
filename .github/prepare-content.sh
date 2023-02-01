@@ -63,7 +63,6 @@ rm tailwind.config.js
 mv collections/_posts/authors collections/_authors
 
 # Update version data
-rm _data/version.yml
-version=$(git ls-remote --tags --refs --sort="refname" https://github.com/ceituut/ceituut.github.io.git | tail -n1 | sed 's/.*\///')
+version=$(git ls-remote --tags --refs --sort="refname" https://github.com/ceituut/ceituut.github.io.git | head -n1 | sed 's/.*\///')
 version="${version:1}"
 echo "version: $version" >> _data/version.yml
