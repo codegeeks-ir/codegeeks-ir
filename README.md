@@ -7,6 +7,14 @@ ceituut blog using jekyll. Any contributions are welcome !
 First of all You should install [jekyll][]. Then take a look at it's documentation to understand how to work with that.
 Now you can Fork the repo, Create your branch from main, Commit your changes and send Pull request.
 
+npm install
+npm run dev
+
+for build: npm run build
+
+make sure you use prettier extension when formatting code, or
+we use prettier code formatter. before commiting changes run npm pretty
+
 ## How to update theme ?
 
 We use [tailwindcss][]. To modify styles, 

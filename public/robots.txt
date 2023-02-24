@@ -1,0 +1,7 @@
+# Block all crawlers for /account
+User-agent: *
+Disallow: /account
+
+# Allow all crawlers
+User-agent: *
+Allow: /

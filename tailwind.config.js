@@ -1,11 +1,11 @@
 module.exports = {
   content: [
-    "./_includes/**/*.{html,js}",
-    "./_layouts/*.{html,js}",
-    "./*.{html,js}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};

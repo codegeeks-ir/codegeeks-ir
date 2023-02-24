@@ -1,0 +1,20 @@
+{
+  "collectionType": "faqs",
+  "properties": {
+    "title": {
+      "enName": "title",
+      "faName": "عنوان",
+      "searchable": true
+    },
+    "categories": {
+      "enName": "categories",
+      "faName": "دسته بندی",
+      "searchable": false
+    },
+    "link": {
+      "enName": "link",
+      "faName": "لینک",
+      "searchable": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionType": "members",
+  "properties": {
+    "membersID": {
+      "enName": "membersID",
+      "faName": "شماره اعضا",
+      "searchable": true
+    },
+    "date": {
+      "enName": "date",
+      "faName": "تاریخ",
+      "searchable": false
+    }
+  }
+}

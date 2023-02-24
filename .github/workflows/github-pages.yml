@@ -36,7 +36,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@0a29871fe2b0200a17a4497bae54fe5df0d973aa # v1.115.3
         with:
-          ruby-version: '3.0' # Not needed with a .ruby-version file
+          ruby-version: "3.0" # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
       - name: Setup Pages
@@ -72,11 +72,22 @@ jobs:
     needs: build
     strategy:
       matrix:
-        repo: ['ceituut/networks', 'ceituut/multimedia', 'ceituut/data-mining',
-         'ceituut/data-structures', 'ceituut/artificial-intelligence', 'ceituut/compiler',
-          'ceituut/algorithm-design', 'ceituut/software-engineering', 'ceituut/data-base',
-           'ceituut/laboratory', 'ceituut/object-oriented-development', 'ceituut/computational-intelligence', 
-           'ceituut/cloud-computing']
+        repo:
+          [
+            "ceituut/networks",
+            "ceituut/multimedia",
+            "ceituut/data-mining",
+            "ceituut/data-structures",
+            "ceituut/artificial-intelligence",
+            "ceituut/compiler",
+            "ceituut/algorithm-design",
+            "ceituut/software-engineering",
+            "ceituut/data-base",
+            "ceituut/laboratory",
+            "ceituut/object-oriented-development",
+            "ceituut/computational-intelligence",
+            "ceituut/cloud-computing",
+          ]
     runs-on: ubuntu-latest
     steps:
       - uses: peter-evans/repository-dispatch@v2
