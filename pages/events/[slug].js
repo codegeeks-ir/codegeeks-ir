@@ -1,4 +1,4 @@
-import { getSlugs, getPropCollection, getItem } from "lib/get-collection";
+import { getSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import Script from "next/script";
@@ -209,7 +209,7 @@ EventPage.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps({ params }) {
-  const data = await getItem(params.slug, "collections/events/events");
+  const data = await getItem(`${params.slug}.md`, "collections/events/events");
   return {
     props: {
       data,

@@ -1,3 +1,4 @@
+import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 
 export default function Custom404() {

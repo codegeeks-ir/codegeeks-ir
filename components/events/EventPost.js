@@ -69,7 +69,7 @@ export default function EventPost({
           </div>
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: data.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: data.content }}
           className="post-topics"
           dir="auto"
         ></div>

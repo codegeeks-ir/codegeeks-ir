@@ -37,7 +37,7 @@ export default function Event({ data }) {
       </div>
       <hr />
       <div
-        dangerouslySetInnerHTML={{ __html: data.contentHtml }}
+        dangerouslySetInnerHTML={{ __html: data.content }}
         className="mt-6"
         dir="auto"
       ></div>

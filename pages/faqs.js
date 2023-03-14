@@ -25,7 +25,7 @@ Faqs.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps() {
-  const propCollection = getPropCollection("collections/faqs/faqs/", "faqs");
+  const propCollection = await getPropCollection("collections/faqs/faqs/", "faqs");
   const collectionType = faqsProperties.collectionType;
   const properties = Object.values(faqsProperties.properties);
   return {

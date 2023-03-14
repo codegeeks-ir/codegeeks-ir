@@ -69,7 +69,7 @@ export default function EventStory({
           </div>
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: data.contentHtml }}
+          dangerouslySetInnerHTML={{ __html: data.content }}
           className="story-topics"
           dir="auto"
         ></div>

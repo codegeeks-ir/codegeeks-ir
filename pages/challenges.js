@@ -30,7 +30,7 @@ Challenges.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps() {
-  const propCollection = getPropCollection(
+  const propCollection = await getPropCollection(
     "collections/challenges/challenges",
     "challenges"
   );

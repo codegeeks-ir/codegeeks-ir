@@ -214,7 +214,7 @@ tbody {
   @apply drop-shadow-md;
 }
 tbody tr {
-  @apply bg-slate-100 even:bg-slate-200;
+  @apply bg-slate-100 even:bg-slate-200 focus:bg-green-300;
 }
 td {
   @apply w-auto p-2;

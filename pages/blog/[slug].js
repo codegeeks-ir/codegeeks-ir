@@ -1,4 +1,4 @@
-import { getSlugs, getPropCollection, getItem } from "lib/get-collection";
+import { getSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import PostAuthor from "components/PostAuthor";
@@ -31,7 +31,7 @@ export default function PostPage({ data, author }) {
   }, []);
   return (
     <>
-      <article dangerouslySetInnerHTML={{ __html: data.contentHtml }}></article>
+      <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
       <PostAuthor name={author.name} githubID={author.githubID} />
     </>
   );
@@ -46,8 +46,8 @@ PostPage.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps({ params }) {
-  const data = await getItem(params.slug, "collections/blog/posts");
-  const author = await getItem(data.githubID, "collections/authors/authors");
+  const data = await getItem(`${params.slug}.md`, "collections/blog/posts");
+  const author = await getItem(`${data.githubID}.md`, "collections/authors/authors");
   return {
     props: {
       data,

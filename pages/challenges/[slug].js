@@ -2,8 +2,13 @@ import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getItem, getSlugs } from "lib/get-collection";
 import { getPersianDate } from "lib/persian-long-date";
+import hljs from "highlight.js";
+import { useEffect } from "react";
 
 export default function ChallengePage({ data }) {
+  useEffect(() => {
+    hljs.highlightAll();
+  }, []);
   return (
     <>
       <h1 className="mb-0">{data.title}</h1>
@@ -17,7 +22,7 @@ export default function ChallengePage({ data }) {
           <p className="card-text my-0">ساعت {data.date.split(" ")[1]}</p>
         </div>
       </div>
-      <article dangerouslySetInnerHTML={{ __html: data.contentHtml }}></article>{" "}
+      <article dangerouslySetInnerHTML={{ __html: data.content }}></article>{" "}
     </>
   );
 }
@@ -31,7 +36,7 @@ ChallengePage.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps({ params }) {
-  const data = await getItem(params.slug, "collections/challenges/challenges");
+  const data = await getItem(`${params.slug}.md`, "collections/challenges/challenges");
   return {
     props: {
       data,

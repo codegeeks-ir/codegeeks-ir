@@ -11,7 +11,7 @@ import Accordion from "components/Accordion";
 export default function About({ propCollection, contentCollection, about }) {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: about.contentHtml }}></div>
+      <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
       <h2>اعضای مرکزی انجمن</h2>
       {propCollection.map((item, index) => (
         <Accordion
@@ -34,15 +34,14 @@ About.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps() {
-  const propCollection = getPropCollection(
+  const propCollection = await getPropCollection(
     "collections/members/members",
     "members"
   );
   const contentCollection = await getContentCollection(
-    "collections/members/members",
-    "members"
+    "collections/members/members"
   );
-  const about = await getItem("about-us", "./");
+  const about = await getItem("about-us.md", "./");
   return {
     props: {
       propCollection,

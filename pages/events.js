@@ -25,7 +25,7 @@ Events.getLayout = function getLayout(event) {
 };
 
 export async function getStaticProps() {
-  const propCollection = getPropCollection(
+  const propCollection = await getPropCollection(
     "collections/events/events/",
     "events"
   );

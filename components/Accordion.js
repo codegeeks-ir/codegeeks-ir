@@ -17,7 +17,7 @@ export default function Accordion({
       </button>
       <div
         className={`m-0 -mt-6 ${showCollapse ? "block" : "hidden"}`}
-        dangerouslySetInnerHTML={{ __html: collapseData.contentHtml }}
+        dangerouslySetInnerHTML={{ __html: collapseData.content }}
       ></div>
     </>
   );

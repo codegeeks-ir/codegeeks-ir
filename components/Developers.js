@@ -49,7 +49,7 @@ export default function Developers({ contributions }) {
         </a>
         <a
           className="btn-primary w-32 flex flex-row items-center justify-center"
-          href="/collections/guide/"
+          href="https://github.com/ceituut/ceituut.github.io/issues"
         >
           <p className="my-0 mx-1 py-0">کمک</p>
           <ActivityIcon className="icon" />

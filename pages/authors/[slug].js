@@ -37,7 +37,7 @@ export default function AuthorPage({ data, myPosts }) {
       </div>
       <div
         className="non-important text-center rounded-t-none m-1 mt-0 p-1"
-        dangerouslySetInnerHTML={{ __html: data.contentHtml }}
+        dangerouslySetInnerHTML={{ __html: data.content }}
       ></div>
       <ul className="flex flex-col items-center justify-center w-full m-0 mt-5">
         {myPosts.map((post) => (
@@ -57,8 +57,8 @@ AuthorPage.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps({ params }) {
-  const data = await getItem(params.slug, "collections/authors/authors");
-  const allPosts = getPropCollection("collections/blog/posts/", "blog");
+  const data = await getItem(`${params.slug}.md`, "collections/authors/authors");
+  const allPosts = await getPropCollection("collections/blog/posts/", "blog");
   const myPosts = allPosts.filter((post) => post.githubID == data.githubID);
   return {
     props: {

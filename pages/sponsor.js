@@ -11,9 +11,9 @@ export default function Sponsor({
 }) {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: sponsor.contentHtml }}></div>
+      <div dangerouslySetInnerHTML={{ __html: sponsor.content }}></div>
       <Developers contributions={sponsor.contributions} />
-      <div dangerouslySetInnerHTML={{ __html: status.contentHtml }}></div>
+      <div dangerouslySetInnerHTML={{ __html: status.content }}></div>
       <a className="btn-primary" href={versionLink}>
         نسخه {versionNumber}
       </a>
@@ -31,8 +31,8 @@ Sponsor.getLayout = function getLayout(sponsor) {
 };
 
 export async function getStaticProps() {
-  const sponsor = await getItem("sponsor", "./");
-  const status = await getItem("project-status", "./");
+  const sponsor = await getItem("sponsor.md", "./");
+  const status = await getItem("project-status.md", "./");
   const versionNumber = require("../package.json").version;
   const githubReleaseLink =
     "https://github.com/ceituut/ceituut.github.io/releases/tag/v";
