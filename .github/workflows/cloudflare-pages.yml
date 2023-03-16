@@ -1,0 +1,35 @@
+name: Deploy site to Cloudflare
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+  repository_dispatch:
+    types: [update-content]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        run: |
+          chmod +x .github/prepare-content.sh
+          ./.github/prepare-content.sh
+          npm install 
+          npm run export
+      - name: Publish
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: "codegeeks"
+          directory: "out"
+          gitHubToken: ${{ secrets.MY_SECRET }}
