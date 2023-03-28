@@ -17,7 +17,11 @@ export default function RequirementsPage({
     <>
       <h2>نیازمندی ها</h2>
       {contactPropCollection.map((item, index) => (
-        <TableFromCsv csvString={contactContentCollection[index].content} comments={item.comments} key={index} />
+        <TableFromCsv
+          csvString={contactContentCollection[index].content}
+          comments={item.comments}
+          key={index}
+        />
       ))}
     </>
   );
@@ -33,10 +37,10 @@ RequirementsPage.getLayout = function getLayout(content) {
 
 export async function getStaticProps() {
   const contactPropCollection = await getPropCollection(
-    "collections/data/data/contact"
+    "collections/requirements/data/contact"
   );
   const contactContentCollection = await getContentCollection(
-    "collections/data/data/contact"
+    "collections/requirements/data/contact"
   );
   return {
     props: {

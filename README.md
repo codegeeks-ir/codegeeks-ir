@@ -1,55 +1,76 @@
-# website
+# About
 
-ceituut blog using jekyll. Any contributions are welcome !
+This jamstack website project is made using [nextjs][] for Computer Association of Urmia University of Technologies; Considering License, You are able to use this project to create website for your Computer Association as well.  
+Components and layouts, all are React based. Any contributions are welcome, specially for React developers with huge community !
 
 ## Requirements
 
-First of all You should install [jekyll][]. Then take a look at it's documentation to understand how to work with that.
-Now you can Fork the repo, Create your branch from main, Commit your changes and send Pull request.
+You can Fork the repo, Create your branch from main, Commit your changes and send Pull request.
 
-npm install
-npm run dev
-
-for build: npm run build
-
-make sure you use prettier extension when formatting code, or
-we use prettier code formatter. before commiting changes run npm pretty
-
-## How to update theme ?
-
-We use [tailwindcss][]. To modify styles, 
-change the rules inside `assets/input.css`. This will be processed to `assets/css/output.css`. Also You can check out html template files inside `_layouts` and `_includes` directories.
-
-## How to see website content locally ?
-
-Maybe You ask I just build the source code and see it on my local; But Where is the content of website ?! How can I improve theme without any content ?!  
-
-Honestly There is no content, text or images inside this source code. If You're trying to improve website source or make a better theme, simply run the commands below inside project directory to bring content on your machine :  
+Install project dependencies:  
 
 ```bash
-git clone --depth 1 -b master https://github.com/ceituut/_code-challenge.git collections/_code-challenge
-git clone --depth 1 -b main https://github.com/ceituut/events.git collections/_events
-git clone --depth 1 -b main https://github.com/ceituut/posts.git collections/_posts
-git clone --depth 1 -b main https://github.com/ceituut/faqs.git collections/_faqs
-git clone --depth 1 -b main https://github.com/ceituut/members.git collections/_members
-git clone --depth 1 -b main https://github.com/ceituut/requirements.git collections/requirements
-git clone --depth 1 -b main https://github.com/ceituut/guide.git collections/guide
-git clone --depth 1 -b main https://github.com/ceituut/projects.git collections/projects
-mv collections/_posts/authors collections/_authors
-```  
+npm install
+```
+
+Run project:  
+
+```bash
+npm run dev
+```
+
+### We use prettier
+
+We formate code, using Prettier. before commiting your changes run format command:  
+
+```bash
+npm run pretty
+```
+
+### We use tailwindcss
+
+We use [tailwindcss][]. To modify styles, change the rules inside `public/css/input.css`. Then run build command:  
+
+```bash
+npm run tailwind
+```
+
+Output will be `public/css/output.css`.
+
+## Contents are seperated from source code
+
+In this project, We've seperated content from this source code; So if You build the project locally, You will not see any content.  
+
+The collections are repositories that make content of website like posts, events, courses and so on; To see them or test your changes locally, First of all You need to clone all the collections.  
+
+We made this clone process a little automation and without being worry about renamed colllections, newly added or removed ones; We just to bring all of them with no other headaches.  
+
+So what You should do is to :  
+1- Create `.env` file inside project root directory, with your Github Personal Access Token provided like so :  
+
+```text
+GITHUB_ACCESS_TOKEN=<Your Github Personal Access Token>
+```
+
+2- Run our clone command inside project directory. If you are on windows run it inside git bash.  
+
+```bash
+npm run clone-collections
+```
+
+Now all contents are available and You see them.
 
 ## Join content team
 
 Also if You have something valuable to write or give someone else, here are the repos You can fork and improve them :  
 
 [requirements][]  
-[guide][]  
 [faqs][]  
 [projects][]  
 [events][]  
-[posts][]  
+[blog][]  
 [members][]  
-[code-challenge][]  
+[challenges][]  
 
 ## License
 
@@ -59,18 +80,17 @@ CEITUUT® and the CEITUUT® logo design, are trademarks of CEITUUT, The associat
 
 Any other things like code and docs are under [same MIT license][project-license].
 
-[jekyll]: https://jekyllrb.com/docs/installation/  
+[nextjs]: https://nextjs.org/  
 [tailwindcss]: https://tailwindcss.com/  
 
 [requirements]: https://github.com/ceituut/requirements  
-[guide]: https://github.com/ceituut/guide  
 [faqs]: https://github.com/ceituut/faqs  
 [projects]: https://github.com/ceituut/projects  
 [events]: https://github.com/ceituut/events  
-[posts]: https://github.com/ceituut/posts  
+[blog]: https://github.com/ceituut/blog  
 [members]: https://github.com/ceituut/members  
-[code-challenge]: https://github.com/ceituut/code-challenge  
+[challenges]: https://github.com/ceituut/challenges  
 
-[UUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/_includes/svgs/uut/LICENSE
-[CEITUUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/_includes/svgs/ceituut/LICENSE
+[UUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/public/icones/uut/LICENSE
+[CEITUUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/public/icones/ceituut/LICENSE
 [project-license]: https://github.com/ceituut/ceituut.github.io/blob/main/LICENSE

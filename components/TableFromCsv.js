@@ -58,7 +58,9 @@ export default function TableFromCsv({ csvString, comments }) {
       <h3>{comments[0]}</h3>
       <div className="overflow-x-scroll">
         <table>
-          <caption className="w-full text-xs text-right non-important bg-slate-300 p-1">{comments.slice(1).join("-")}</caption>
+          <caption className="w-full text-xs text-right non-important bg-slate-300 p-1">
+            {comments.slice(1).join("-")}
+          </caption>
           <thead>
             <tr>
               {getHeaders(csvString).map((header) => (
@@ -70,12 +72,12 @@ export default function TableFromCsv({ csvString, comments }) {
             {getAllRows(csvString).map((row, rowIndex) => (
               <tr key={rowIndex} tabIndex={0}>
                 {getRowData(row).map((dataCell, dataIndex) => (
-                  <td key={dataIndex}>
+                  <td key={dataIndex} className="my-0 py-1">
                     {!isMultiValue(dataCell) ? (
                       <GetDataComponent data={dataCell} />
                     ) : (
-                      getMultiValue(dataCell).map((data, myIndex) => (
-                        <GetDataComponent key={myIndex} data={data} />
+                      getMultiValue(dataCell).map((data, index) => (
+                        <GetDataComponent key={index} data={data} />
                       ))
                     )}
                   </td>

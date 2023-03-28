@@ -1,11 +1,6 @@
 import { getSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
-import PostAuthor from "components/PostAuthor";
-import { hljs } from "highlight.js";
-import Script from "next/script";
-import Head from "next/head";
-import { useEffect } from "react";
 
 export default function FaqPage({ data }) {
   return (

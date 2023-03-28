@@ -25,13 +25,13 @@ coursesLength=${#courses[@]}
 # Clones content repositories
 for (( index=0; index<${contentsLength}; index++));
 do
-    git clone "git@github.com:ceituut/${contents[$index]}.git" \
+    git clone "https://github.com/ceituut/${contents[$index]}.git" \
         "collections/${contents[$index]}" 
 done
 
 # Clones course repositories
 for (( index=0; index<${coursesLength}; index++));
 do
-    git clone "git@github.com:ceituut/${courses[$index]}.git" \
+    git clone "https://github.com/ceituut/${courses[$index]}.git" \
         "collections/courses/${courses[$index]}" 
 done

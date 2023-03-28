@@ -1,6 +1,7 @@
+import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 
-export default function Custom404() {
+export default function Custom500() {
   return (
     <div>
       <h1>500</h1>
@@ -11,7 +12,7 @@ export default function Custom404() {
   );
 }
 
-Custom404.getLayout = function getLayout(content) {
+Custom500.getLayout = function getLayout(content) {
   return (
     <DefaultLayout>
       <PageLayout>{content}</PageLayout>

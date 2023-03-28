@@ -30,7 +30,7 @@ do
     git commit -m 'Update the entire collection'
     git pull --rebase
     git push
-    cd ../../../
+    cd ../../
 done
 
 for (( index=0; index<${coursesLength}; index++));

@@ -17,10 +17,6 @@ module.exports = {
     });
     return config;
   },
-  i18n: {
-    locales: ["fa"],
-    defaultLocale: "fa",
-  },
   env: {
     TITLE: "کامپیوتر صنعتی ارومیه",
     EMAIL: "ceit.uut@gmail.com",

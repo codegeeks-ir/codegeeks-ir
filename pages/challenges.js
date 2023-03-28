@@ -3,7 +3,6 @@ import challengesProperties from "collection-properties/challengesProperties";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageHeader from "components/PageHeader";
 import Collection from "components/collection/Collection";
-import Authors from "components/Authors";
 
 export default function Challenges({
   propCollection,

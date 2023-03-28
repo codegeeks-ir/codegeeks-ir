@@ -12,10 +12,8 @@ function getRepoName() {
   const router = useRouter();
   const mainPath = router.pathname.split("/")[1];
   const currentPage = pages.find((page) => page.path == `/${mainPath}`);
-  if(currentPage != null || currentPage != undefined)
-    return currentPage.repo;
-  else
-    return 'ceituut.github.io'
+  if (currentPage != null || currentPage != undefined) return currentPage.repo;
+  else return "ceituut.github.io";
 }
 
 export default function PageHeader() {

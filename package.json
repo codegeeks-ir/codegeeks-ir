@@ -1,6 +1,6 @@
 {
   "name": "codegeeks",
-  "version": "1.15.9",
+  "version": "1.0.0-Beta",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,8 +9,8 @@
     "tailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch --minify",
     "pretty": "prettier --write \"./{components,layouts,lib,pages}/*.{js,jsx,ts,tsx,json}\"",
     "clone-collections": "bash collection-update/clone.sh",
-    "update-collection-all": "bash collection-update-/update-all.sh",
-    "update-collection-workflows": "bash collection-update-/update-workflows.sh"
+    "update-collection-all": "bash collection-update/update-all.sh",
+    "update-collection-workflows": "bash collection-update/update-workflows.sh"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",

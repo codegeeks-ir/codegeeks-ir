@@ -1,47 +1,101 @@
-const container = document.getElementById("#fileExplorer");
-const repoName = container.getAttribute("repoName");
+import FolderIcon from "public/icones/folder.svg";
+import FileIcon from "public/icones/file.svg";
+import BackIcon from "public/icones/back-folder.svg";
+import { useEffect, useRef, useState } from "react";
 
-fetch("assets/tree.json")
-  .then((response) => response.json())
-  .then((json) => {
-    const treeData = JSON.parse(JSON.stringify(json));
-    const array = Array.from(treeData);
-    FileExplorer(array, container);
-  });
+function Directory({
+  element,
+  setCurrentElement,
+  setCurrentPath,
+  history,
+  setHistory,
+}) {
+  const directoryName = element.name.split("/").pop();
+  return (
+    <button
+      className="file-explorer-element"
+      onClick={() => {
+        setCurrentPath(element.name);
+        setCurrentElement(element);
+        setHistory([...history, element]);
+      }}
+    >
+      <FolderIcon className="w-24 fill-amber-400" />
+      <p className="text-gray-600">{directoryName}</p>
+    </button>
+  );
+}
 
-const repoReferenceLink = document.getElementById("repoReferenceLink");
-const repoDownloadLink = document.getElementById("repoDownloadLink");
+function File({ element, repoName }) {
+  const name = element.name.split("/").pop();
+  const link = `https://github.com/ceituut/${repoName}/raw/main/${element.name}`;
+  return (
+    <a className="file-explorer-element" href={link}>
+      <FileIcon className="w-24 fill-blue-400" />
+      <p className="text-gray-600">{name}</p>
+    </a>
+  );
+}
 
-const downloadLink =
-  "https://github.com/ceituut/" + repoName + "/archive/refs/heads/main.zip";
-const githubLink = "https://github.com/ceituut/" + repoName;
+function Element({
+  element,
+  setCurrentElement,
+  setCurrentPath,
+  history,
+  setHistory,
+  repoName,
+}) {
+  return (
+    <>
+      {element.type == "directory" ? (
+        <Directory
+          element={element}
+          setCurrentElement={setCurrentElement}
+          setCurrentPath={setCurrentPath}
+          history={history}
+          setHistory={setHistory}
+        />
+      ) : (
+        <File element={element} repoName={repoName} />
+      )}
+    </>
+  );
+}
 
-repoReferenceLink.setAttribute("href", githubLink);
-repoDownloadLink.setAttribute("href", downloadLink);
-
-export default function FileExplorer({ resources }) {
-  resources.forEach((element) => {
-    switch (element.type) {
-      case "directory":
-        const directoryName = element.name.split("/").pop();
-        return (
-          <details className="directory">
-            <summary>{directoryName}</summary>
-            {element.resources.length && (
-              <FileExplorer resources={element.resources} />
-            )}
-          </details>
-        );
-      case "file":
-        const fileName = element.name.split("/").pop();
-        const fileLink = `https://github.com/ceituut/${repoName}/raw/main/${element.name}`;
-        return (
-          <a className="file" href={fileLink}>
-            {fileName}
-          </a>
-        );
-      default:
-        break;
-    }
-  });
+export default function FileExplorer({ resources, repoName }) {
+  const [currentPath, setCurrentPath] = useState(resources[0].name);
+  const [currentElement, setCurrentElement] = useState(resources[0]);
+  const [history, setHistory] = useState([resources[0]]);
+  const [content, setContent] = useState(resources[0].contents);
+  useEffect(() => {
+    setContent(currentElement.contents);
+  }, [currentElement]);
+  return (
+    <div className="flex flex-row flex-wrap">
+      <div className="file-explorer-path">{currentPath}</div>
+      {history.length > 1 ? (
+        <button
+          className="file-explorer-element"
+          onClick={() => {
+            setCurrentElement(history[history.length - 2]);
+            setCurrentPath(history[history.length - 2].name);
+            setHistory(history.slice(0, -1));
+          }}
+        >
+          <BackIcon className="w-24 fill-amber-400" />
+        </button>
+      ) : null}
+      {content.map((element, index) => (
+        <Element
+          key={index}
+          element={element}
+          setCurrentElement={setCurrentElement}
+          setCurrentPath={setCurrentPath}
+          history={history}
+          setHistory={setHistory}
+          repoName={repoName}
+        />
+      ))}
+    </div>
+  );
 }

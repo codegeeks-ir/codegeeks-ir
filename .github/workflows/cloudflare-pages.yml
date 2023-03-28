@@ -20,6 +20,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
         run: |
           chmod +x .github/prepare-content.sh
           ./.github/prepare-content.sh

@@ -1,0 +1,8 @@
+### All content markdown files created with members will have 'draft' field;
+#### Draft markdowns will not take a part in build process;
+##### They should be validated by content team;
+###### By adding 'validated' instead of 'draft';
+
+# This workflow will check 'validated' markdown files to be commited by
+# content team.
+## for course repos this validation can be done with masters team also.
