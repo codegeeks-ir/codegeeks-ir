@@ -47,7 +47,7 @@ PostPage.getLayout = function getLayout(content) {
 
 export async function getStaticProps({ params }) {
   const data = await getItem(`${params.slug}.md`, "collections/blog/posts");
-  const author = await getItem(`${data.githubID}.md`, "collections/authors/authors");
+  const author = await getItem(`${data.githubID}.md`, "collections/companions/bios");
   return {
     props: {
       data,

@@ -37,10 +37,10 @@ RequirementsPage.getLayout = function getLayout(content) {
 
 export async function getStaticProps() {
   const contactPropCollection = await getPropCollection(
-    "collections/data/data/contact"
+    "collections/requirements/data/contact"
   );
   const contactContentCollection = await getContentCollection(
-    "collections/data/data/contact"
+    "collections/requirements/data/contact"
   );
   return {
     props: {

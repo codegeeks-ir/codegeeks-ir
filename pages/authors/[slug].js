@@ -57,7 +57,7 @@ AuthorPage.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps({ params }) {
-  const data = await getItem(`${params.slug}.md`, "collections/authors/authors");
+  const data = await getItem(`${params.slug}.md`, "collections/companions/bios");
   const allPosts = await getPropCollection("collections/blog/posts/", "blog");
   const myPosts = allPosts.filter((post) => post.githubID == data.githubID);
   return {
@@ -69,6 +69,6 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getSlugs("collections/authors/authors");
+  const paths = getSlugs("collections/companions/bios");
   return { paths, fallback: false };
 }

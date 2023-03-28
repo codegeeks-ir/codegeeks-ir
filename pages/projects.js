@@ -2,7 +2,6 @@ import DefaultLayout from 'layouts/DefaultLayout'
 import PageHeader from 'components/PageHeader'
 import Filter from 'components/collection/Filter'
 import Pagination from 'components/collection/Pagination'
-import Authors from 'components/Authors'
 import PostItem from 'components/collection/item/PostItem'
 
 export default function Blog({ content }) {

@@ -37,8 +37,8 @@ export async function getStaticProps() {
     "blog"
   );
   const authors = await getPropCollection(
-    "collections/authors/authors/",
-    "authors"
+    "collections/companions/bios/",
+    "companions"
   );
   const collectionType = blogProperties.collectionType;
   const properties = Object.values(blogProperties.properties);
