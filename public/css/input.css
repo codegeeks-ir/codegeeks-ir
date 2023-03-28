@@ -233,37 +233,21 @@ code {
   @apply rounded-md;
 }
 
-/* Details styles */
-details > summary {
-  @apply list-none;
-}
-details > summary::-webkit-details-marker {
-  @apply hidden;
-}
-details > summary::before {
-  content: "📁   ";
-  @apply text-2xl;
-}
-details[open] > summary::before {
-  content: "📂   ";
-}
-details[open] {
-  @apply bg-slate-400 border-none;
-}
-details {
-  @apply rounded-sm px-2 py-2 my-2;
-}
+/* File explorer styles */
 .file-explorer-header {
   @apply card-title bg-slate-400 
-    rounded-tr-2xl drop-shadow-md mr-0 pr-0 -mb-2 w-48;
+    rounded-tr-2xl drop-shadow-md mr-0 pr-0 -mb-2 w-40;
 }
-.directory {
-  @apply flex flex-col w-full 
-    border-solid border-2 border-slate-400 
-    bg-slate-300 rounded-md rounded-tl-none;
+.file-explorer-path {
+  @apply w-full bg-slate-400 text-slate-200 
+  rounded-md rounded-t-none 
+  my-2 p-2;
 }
-.file {
-  @apply btn-light text-left my-2;
+.file-explorer-element {
+  @apply flex flex-col flex-wrap items-center 
+  w-40 mr-1 mt-1 p-1 pl-3 pt-4
+  border-solid border-2 border-slate-200
+  rounded-lg;
 }
 
 #__next {

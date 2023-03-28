@@ -17,7 +17,11 @@ export default function RequirementsPage({
     <>
       <h2>نیازمندی ها</h2>
       {contactPropCollection.map((item, index) => (
-        <TableFromCsv csvString={contactContentCollection[index].content} comments={item.comments} key={index} />
+        <TableFromCsv
+          csvString={contactContentCollection[index].content}
+          comments={item.comments}
+          key={index}
+        />
       ))}
     </>
   );

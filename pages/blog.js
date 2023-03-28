@@ -32,8 +32,14 @@ Blog.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps() {
-  const propCollection = await getPropCollection("collections/blog/posts/", "blog");
-  const authors = await getPropCollection("collections/authors/authors/", "authors");
+  const propCollection = await getPropCollection(
+    "collections/blog/posts/",
+    "blog"
+  );
+  const authors = await getPropCollection(
+    "collections/authors/authors/",
+    "authors"
+  );
   const collectionType = blogProperties.collectionType;
   const properties = Object.values(blogProperties.properties);
   return {
