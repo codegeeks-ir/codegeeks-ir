@@ -1,7 +1,7 @@
 # About
 
-This jamstack website project is made using [nextjs][] for Computer Association of Urmia University of Technologies; Considering License, You are able to use this project to create website for your Computer Association as well.  
-Components and layouts, all are React based. Any contributions are welcome, specially for React developers with huge community !
+This jamstack website project is made using [nextjs][] for Computer Association of Urmia University of Technologies; Considering License, You are able to use this boilerplate project to create website for your Computer Association as well.  
+Components and layouts, all are React based. Any contributions are welcome, specially for React developers that supporting each other in their huge community !
 
 ## Requirements
 
@@ -39,20 +39,11 @@ Output will be `public/css/output.css`.
 
 ## Contents are seperated from source code
 
-In this project, We've seperated content from this source code; So if You build the project locally, You will not see any content.  
+Means this repository only contains source code; So if You build the project locally, You will not see any content.  
 
 The collections are repositories that make content of website like posts, events, courses and so on; To see them or test your changes locally, First of all You need to clone all the collections.  
 
-We made this clone process a little automation and without being worry about renamed colllections, newly added or removed ones; We just to bring all of them with no other headaches.  
-
-So what You should do is to :  
-1- Create `.env` file inside project root directory, with your Github Personal Access Token provided like so :  
-
-```text
-GITHUB_ACCESS_TOKEN=<Your Github Personal Access Token>
-```
-
-2- Run our clone command inside project directory. If you are on windows run it inside git bash.  
+So what You should do is to Run our clone command inside project directory. If you are on windows, run it inside git bash.  
 
 ```bash
 npm run clone-collections
@@ -71,6 +62,7 @@ Also if You have something valuable to write or give someone else, here are the 
 [blog][]  
 [members][]  
 [challenges][]  
+[companions][]  
 
 ## License
 
@@ -90,6 +82,7 @@ Any other things like code and docs are under [same MIT license][project-license
 [blog]: https://github.com/ceituut/blog  
 [members]: https://github.com/ceituut/members  
 [challenges]: https://github.com/ceituut/challenges  
+[companions]: https://github.com/ceituut/companions  
 
 [UUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/public/icones/uut/LICENSE
 [CEITUUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/public/icones/ceituut/LICENSE
