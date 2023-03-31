@@ -47,7 +47,7 @@ export default function EventStory({
         <div className="flex flex-row mt-8">
           <div className="profile-picture relative w-1/2">
             <Image
-              src={`https://github.com/${data.githubID}.png`}
+              src={`/images/${data.githubID}.png`}
               alt={data.githubID}
               width={(50 * 270) / 100}
               height={(50 * 270) / 100}

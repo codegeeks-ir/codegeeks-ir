@@ -47,7 +47,7 @@ export default function EventPost({
         <div className="flex flex-row">
           <div className="profile-picture relative w-1/3">
             <Image
-              src={`https://github.com/${data.githubID}.png`}
+              src={`/images/${data.githubID}.png`}
               alt={data.githubID}
               width={(40 * 270) / 100}
               height={(40 * 270) / 100}

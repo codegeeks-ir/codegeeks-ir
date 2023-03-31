@@ -32,3 +32,6 @@ do
     tree resources --dirsfirst -q -h -f -D -J >> assets/tree.json
     cd ../../../
 done
+
+# Move events images
+mv -v collections/events/images/* public/images/

@@ -21,7 +21,7 @@ export default function Event({ data }) {
       <div className="flex flex-col">
         <div className="profile-picture relative w-44 mb-4">
           <Image
-            src={`https://github.com/${data.githubID}.png`}
+            src={`/images/${data.githubID}.png`}
             width="176"
             height="176"
             alt={data.githubID}

@@ -47,7 +47,7 @@ export default function EventPdf({
         <div className="flex flex-col items-start">
           <div className="profile-picture relative w-2/5">
             <Image
-              src={`https://github.com/${data.githubID}.png`}
+              src={`/images/${data.githubID}.png`}
               alt={data.githubID}
               width={(40 * 1080) / 100}
               height={(40 * 1080) / 100}
