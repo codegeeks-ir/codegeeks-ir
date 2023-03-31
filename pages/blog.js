@@ -4,6 +4,7 @@ import DefaultLayout from "layouts/DefaultLayout";
 import PageHeader from "components/PageHeader";
 import Collection from "components/collection/Collection";
 import Authors from "components/Authors";
+import Head from "next/head";
 
 export default function Blog({
   propCollection,
@@ -12,18 +13,31 @@ export default function Blog({
   authors,
 }) {
   return (
-    <div className="collection-container">
-      <PageHeader />
-      <div className="page-header">
-        <h1>انتشارات</h1>
+    <>
+      <Head>
+        <meta
+          name="keywords"
+          content="انتشارات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content="انتشارات انجمن، جایی برای نشر تجربیات"
+        />
+        <title>انتشارات | انجمن کامپیوتر صنعتی ارومیه</title>
+      </Head>
+      <div className="collection-container">
+        <PageHeader />
+        <div className="page-header">
+          <h1>انتشارات</h1>
+        </div>
+        <Collection
+          propCollection={propCollection}
+          collectionType={collectionType}
+          properties={properties}
+        />
+        <Authors propCollection={authors} />
       </div>
-      <Collection
-        propCollection={propCollection}
-        collectionType={collectionType}
-        properties={properties}
-      />
-      <Authors propCollection={authors} />
-    </div>
+    </>
   );
 }
 

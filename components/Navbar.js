@@ -78,7 +78,7 @@ export default function Navbar({ links }) {
           onClick={() => setShowMobileMenu(!showMobileMenu)}
           className="inline-flex sm:hidden items-center justify-center p-2"
         >
-          <ListIcon className="fill-gray-600 w-6 h-auto" />
+          <ListIcon className="fill-gray-600 w-8 h-auto" />
         </button>
         <DesktopNavbar links={links} />
       </div>

@@ -28,12 +28,13 @@ module.exports = {
     PAGES: [
       { type: "main", name: "مسابقات", path: "/challenges", repo: "challenges" },
       { type: "main", name: "رویدادها", path: "/events", repo: "events" },
-      { type: "main", name: "پروژه ها", path: "/projects", repo: "projects" },
+      { type: "main", name: "پروژه‌ها", path: "/projects", repo: "projects" },
       { type: "main", name: "انتشارات", path: "/blog", repo: "posts" },
-      { type: "footer", name: "نیازمندی ها", path: "/requirements", repo: "challenges"},
-      { type: "footer", name: "سوالات متداول", path: "/faqs", repo: "faqs" },
-      { type: "footer", name: "درباره ما", path: "/about", repo: "members" },
+      { type: "footer", name: "نیازمندی‌ها", path: "/requirements", repo: "requirements"},
+      { type: "footer", name: "سوالات‌متداول", path: "/faqs", repo: "faqs" },
+      { type: "footer", name: "درباره‌ما", path: "/about", repo: "members" },
       { type: "sponsor", name: "حمایت", path: "/sponsor", repo: "ceituut.github.io" },
+      { type: "other", name: "همراهان", path: "/companions", repo: "companions" },
     ],
     SOCIAL: [
       { name: "youtube", link: "https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw"},

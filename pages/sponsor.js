@@ -2,6 +2,7 @@ import { getItem } from "lib/get-collection";
 import PageLayout from "layouts/PageLayout";
 import DefaultLayout from "layouts/DefaultLayout";
 import Developers from "components/Developers";
+import Head from "next/head";
 
 export default function Sponsor({
   sponsor,
@@ -11,6 +12,17 @@ export default function Sponsor({
 }) {
   return (
     <>
+      <Head>
+        <meta
+          name="keywords"
+          content="حمایت, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content="حمایت از پروژه وب سایت انجمن"
+        />
+        <title>حمایت | انجمن کامپیوتر صنعتی ارومیه</title>
+      </Head>
       <div dangerouslySetInnerHTML={{ __html: sponsor.content }}></div>
       <Developers contributions={sponsor.contributions} />
       <div dangerouslySetInnerHTML={{ __html: status.content }}></div>

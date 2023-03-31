@@ -3,20 +3,34 @@ import faqsProperties from "collection-properties/faqsProperties";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageHeader from "components/PageHeader";
 import Collection from "components/collection/Collection";
+import Head from "next/head";
 
 export default function Faqs({ propCollection, collectionType, properties }) {
   return (
-    <div className="collection-container">
-      <PageHeader />
-      <div className="page-header">
-        <h1>سوالات متداول</h1>
+    <>
+      <Head>
+        <meta
+          name="keywords"
+          content="سوالات‌متداول, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
+        />
+        <title>سوالات‌متداول | انجمن کامپیوتر صنعتی ارومیه</title>
+      </Head>
+      <div className="collection-container">
+        <PageHeader />
+        <div className="page-header">
+          <h1>سوالات‌متداول</h1>
+        </div>
+        <Collection
+          propCollection={propCollection}
+          collectionType={collectionType}
+          properties={properties}
+        />
       </div>
-      <Collection
-        propCollection={propCollection}
-        collectionType={collectionType}
-        properties={properties}
-      />
-    </div>
+    </>
   );
 }
 

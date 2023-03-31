@@ -7,10 +7,22 @@ import {
   getPropCollection,
 } from "lib/get-collection";
 import Accordion from "components/Accordion";
+import Head from "next/head";
 
 export default function About({ propCollection, contentCollection, about }) {
   return (
     <>
+      <Head>
+        <meta
+          name="keywords"
+          content="درباره‌ما, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content="درباره فعالیت های انجمن، آشنایی با اعضای مرکزی و اهداف"
+        />
+        <title>درباره‌ما | انجمن کامپیوتر صنعتی ارومیه</title>
+      </Head>
       <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
       <h2>اعضای مرکزی انجمن</h2>
       {propCollection.map((item, index) => (

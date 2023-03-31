@@ -145,8 +145,8 @@
 
 /* Tag styles */
 body {
-  @apply text-gray-700 bg-gradient-to-tr 
-  from-green-900 to-blue-900 bg-no-repeat bg-fixed;
+  @apply text-gray-700 bg-gray-900 h-screen
+  bg-no-repeat bg-fixed;
   font-family: "irsans";
 }
 p,

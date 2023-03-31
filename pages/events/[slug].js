@@ -1,19 +1,14 @@
 import { getSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
-import Script from "next/script";
 import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import Event from "components/events/Event";
 import EventPost from "components/events/EventPost";
 import EventStory from "components/events/EventStory";
 import EventPdf from "components/events/EventPdf";
-import ShareEvent from "components/events/ShareEvent";
 import html2canvas from "html2canvas";
 import ShareIcon from "public/icones/share.svg";
-import { baseUrl } from "pages/_app";
-import { useRouter } from "next/router";
-// import html2pdf from "html2pdf.js";
 
 const postOptions = {
   width: 270,
@@ -136,67 +131,82 @@ export default function EventPage({ data }) {
     if (isReadyForExport.pdf) exportPdf();
   }, [isReadyForExport]);
   return (
-    <div className="w-full">
-      <Event data={data} />
-      <div ref={postRef}>
-        {showExport.post ? (
-          <EventPost
-            data={data}
-            isReadyForExport={isReadyForExport}
-            setIsReadyForExport={setIsReadyForExport}
-          />
-        ) : null}
-      </div>
-      <div ref={storyRef}>
-        {showExport.story ? (
-          <EventStory
-            data={data}
-            isReadyForExport={isReadyForExport}
-            setIsReadyForExport={setIsReadyForExport}
-          />
-        ) : null}
-      </div>
-      <div ref={pdfRef}>
-        {showExport.pdf ? (
-          <EventPdf
-            data={data}
-            isReadyForExport={isReadyForExport}
-            setIsReadyForExport={setIsReadyForExport}
-          />
-        ) : null}
-      </div>
-      <a ref={exportLink}></a>
-      <div className="p-0 mt-8">
-        <h1 className="card-title m-0">
-          <ShareIcon className="fill-gray-700 w-4 md:w-6 sm:w-4 ml-4" />
-          اشتراک گذاری رویداد
-        </h1>
-        <p>
-          شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به اشتراک
-          بگذارید.
-        </p>
-        <div className="card-button pt-3 justify-center">
-          <button
-            className="btn-primary"
-            onClick={async () => setShowExport({ ...showExport, post: true })}
-          >
-            دریافت تصویر پست
-          </button>
-          <button
-            className="btn-primary"
-            onClick={async () => setShowExport({ ...showExport, story: true })}
-          >
-            دریافت تصویر استوری
-          </button>
-          <button
-            className="btn-primary"
-            onClick={async () => setShowExport({ ...showExport, pdf: true })}
-          >
-            دریافت نسخه چاپی
-          </button>
+    <>
+      <Head>
+        <meta
+          name="keywords"
+          content="رویدادها, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content="رویدادها و کارگاه‌های فنی و علمی انجمن"
+        />
+        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+      </Head>
+      <div className="w-full">
+        <Event data={data} />
+        <div ref={postRef}>
+          {showExport.post ? (
+            <EventPost
+              data={data}
+              isReadyForExport={isReadyForExport}
+              setIsReadyForExport={setIsReadyForExport}
+            />
+          ) : null}
+        </div>
+        <div ref={storyRef}>
+          {showExport.story ? (
+            <EventStory
+              data={data}
+              isReadyForExport={isReadyForExport}
+              setIsReadyForExport={setIsReadyForExport}
+            />
+          ) : null}
+        </div>
+        <div ref={pdfRef}>
+          {showExport.pdf ? (
+            <EventPdf
+              data={data}
+              isReadyForExport={isReadyForExport}
+              setIsReadyForExport={setIsReadyForExport}
+            />
+          ) : null}
+        </div>
+        <a ref={exportLink}></a>
+        <div className="p-0 mt-8">
+          <h1 className="card-title m-0">
+            <ShareIcon className="fill-gray-700 w-4 md:w-6 sm:w-4 ml-4" />
+            اشتراک گذاری رویداد
+          </h1>
+          <p>
+            شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به
+            اشتراک بگذارید.
+          </p>
+          <div className="card-button pt-3 justify-center">
+            <button
+              className="btn-primary"
+              onClick={async () => setShowExport({ ...showExport, post: true })}
+            >
+              دریافت تصویر پست
+            </button>
+            <button
+              className="btn-primary"
+              onClick={async () =>
+                setShowExport({ ...showExport, story: true })
+              }
+            >
+              دریافت تصویر استوری
+            </button>
+            <button
+              className="btn-primary"
+              onClick={async () => setShowExport({ ...showExport, pdf: true })}
+            >
+              دریافت نسخه چاپی
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

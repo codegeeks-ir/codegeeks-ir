@@ -3,7 +3,6 @@ import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import PostAuthor from "components/PostAuthor";
 import hljs from "highlight.js";
-import Script from "next/script";
 import Head from "next/head";
 import { useEffect } from "react";
 
@@ -31,6 +30,17 @@ export default function PostPage({ data, author }) {
   }, []);
   return (
     <>
+      <Head>
+        <meta
+          name="keywords"
+          content="انتشارات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content={data.description}
+        />
+        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+      </Head>
       <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
       <PostAuthor name={author.name} githubID={author.githubID} />
     </>
@@ -47,7 +57,10 @@ PostPage.getLayout = function getLayout(content) {
 
 export async function getStaticProps({ params }) {
   const data = await getItem(`${params.slug}.md`, "collections/blog/posts");
-  const author = await getItem(`${data.githubID}.md`, "collections/companions/bios");
+  const author = await getItem(
+    `${data.githubID}.md`,
+    "collections/companions/bios"
+  );
   return {
     props: {
       data,

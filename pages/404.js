@@ -1,14 +1,21 @@
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
+import Head from "next/head";
 
 export default function Custom404() {
   return (
-    <div>
-      <h1>404</h1>
-      <p>
-        <strong>اینجا کجاست ؟ 🙄</strong>
-      </p>
-    </div>
+    <>
+      <Head>
+        <meta name="robots" content="noindex,nofollow" />
+        <title>اینجا کجاست؟</title>
+      </Head>
+      <div>
+        <h1>404</h1>
+        <p>
+          <strong>اینجا کجاست ؟ 🙄</strong>
+        </p>
+      </div>
+    </>
   );
 }
 

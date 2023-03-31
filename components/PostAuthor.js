@@ -7,7 +7,7 @@ export default function PostAuthor({ name, githubID }) {
       <Link
         className="btn-light w-auto flex flex-row items-center 
             rounded-tl-none py-1 mt-1 mb-0 ml-0 mr-4"
-        href={`companions/${githubID}`}
+        href={`../companions/${githubID}`}
       >
         <div className="profile-picture relative w-8 my-0 py-0">
           <Image

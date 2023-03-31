@@ -1,10 +1,24 @@
 import { getSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
+import Head from "next/head";
 
 export default function FaqPage({ data }) {
   return (
-    <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
+    <>
+      <Head>
+        <meta
+          name="keywords"
+          content="سوالات‌متداول, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+        />
+        <meta
+          name="description"
+          content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
+        />
+        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+      </Head>
+      <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
+    </>
   );
 }
 
