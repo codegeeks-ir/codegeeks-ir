@@ -1,10 +1,5 @@
-# Ignore jekyll related things
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.bundle/
-vendor/
+# Ignore collections
+public/css/output.css
 
 # Ignore collections
 collections/

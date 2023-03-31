@@ -13,6 +13,12 @@ Install project dependencies:
 npm install
 ```
 
+Generate styles:  
+
+```bash
+npm run tailwind-dev
+```
+
 Run project:  
 
 ```bash
