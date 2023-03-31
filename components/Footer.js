@@ -48,7 +48,7 @@ export default function Footer({ footerMenu, socialMenu }) {
         ))}
       </ul>
       <p className="text-2xs">
-        تمامی حقوق متعلق به انجمن علمی کامپیوتر و فناوری اطلاعات دانشگاه صنعتی
+        تمامی حقوق متعلق به انجمن علمی کامپیوتر دانشگاه صنعتی
         ارومیه می‌باشد.
       </p>
       <Link

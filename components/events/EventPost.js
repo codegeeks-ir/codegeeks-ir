@@ -22,7 +22,7 @@ export default function EventPost({
     // textFit(lecturerRef.current);
   }, []);
   return (
-    <div id="export-post" className="-right-3.5">
+    <div id="export-post">
       <div className="absolute top-0 right-0">
         <Image
           src="/images/background.png"

@@ -24,7 +24,7 @@ export default function EventPdf({
     // textFit(lecturerRef.current);
   }, []);
   return (
-    <div id="export-pdf" className="relative -right-16">
+    <div id="export-pdf">
       <div className="absolute top-0 right-0">
         <Image
           src="/images/background.png"

@@ -22,7 +22,7 @@ export default function EventStory({
     // textFit(lecturerRef.current);
   }, []);
   return (
-    <div id="export-story" className="-right-3.5">
+    <div id="export-story">
       <div className="absolute top-0 right-0">
         <Image
           src="/images/background.png"

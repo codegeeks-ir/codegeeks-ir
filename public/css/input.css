@@ -252,24 +252,24 @@ code {
 
 #__next {
   @apply flex flex-col flex-wrap w-full 
-  items-center justify-center;
+  items-center justify-center p-2;
 }
 
 .container {
-  @apply flex flex-col items-center justify-center
-  lg:p-5 md:p-2 sm:p-1 m-2 mb-36 mt-36 text-justify;
+  @apply flex flex-col items-center justify-center w-full
+  lg:p-5 md:p-2 sm:p-1 mb-36 mt-36 text-justify;
 }
 
 /* Navbar styles */
 .navbar {
   @apply fixed flex flex-col flex-wrap 
     items-center justify-between
-    w-full p-0 top-0 z-10
+    w-full p-2 top-0 z-10
     drop-shadow-xl
     bg-slate-200;
 }
 .nav-link {
-  @apply text-gray-600 text-base font-bold;
+  @apply flex w-full text-gray-600 text-base font-bold;
 }
 .active {
   @apply bg-slate-300 text-gray-700 rounded-md py-1 px-2;
@@ -343,7 +343,7 @@ a .icon {
 
 /* Event post image styles */
 #export-post {
-  @apply absolute flex flex-row flex-wrap card border-none;
+  @apply absolute flex flex-row flex-wrap card border-none -right-3.5;
   clip-path: circle(0);
   width: 270px;
   height: 270px;
@@ -394,7 +394,7 @@ a .icon {
 
 /* Event story image styles */
 #export-story {
-  @apply absolute flex flex-col flex-wrap card border-none;
+  @apply absolute flex flex-col flex-wrap card border-none -right-3.5;
   clip-path: circle(0);
   width: 270px;
   height: 480px;
@@ -451,8 +451,8 @@ a .icon {
 
 /* Event printable pdf styles */
 #export-pdf {
-  @apply absolute flex flex-row justify-center items-center flex-wrap
-    card border-none m-0 p-0;
+  @apply relative flex flex-row justify-center items-center flex-wrap
+    card border-none m-0 p-0 -right-16;
   clip-path: circle(0);
   width: 793.3px;
   height: 1122px;
