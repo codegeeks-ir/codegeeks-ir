@@ -55,11 +55,10 @@ function GetDataComponent({ data }) {
 export default function TableFromCsv({ csvString, comments }) {
   return (
     <>
-      <h3>{comments[0]}</h3>
       <div className="overflow-x-scroll">
         <table>
-          <caption className="w-full text-xs text-right non-important bg-slate-300 p-1">
-            {comments.slice(1).join("-")}
+          <caption>
+            {comments.join("-")}
           </caption>
           <thead>
             <tr>

@@ -3,16 +3,18 @@ import PageLayout from "layouts/PageLayout";
 import { getPersianEducationYear } from "lib/persian-long-date";
 import {
   getContentCollection,
+  getDirectorySlugs,
   getItem,
   getPropCollection,
 } from "lib/get-collection";
-import Accordion from "components/Accordion";
 import TableFromCsv from "components/TableFromCsv";
 import Head from "next/head";
+import Tabs from "components/Tabs";
 
 export default function RequirementsPage({
   contactPropCollection,
   contactContentCollection,
+  curriculumGuides,
 }) {
   return (
     <>
@@ -28,13 +30,33 @@ export default function RequirementsPage({
         <title>نیازمندی‌ها | انجمن کامپیوتر صنعتی ارومیه</title>
       </Head>
       <h2>نیازمندی‌ها</h2>
-      {contactPropCollection.map((item, index) => (
-        <TableFromCsv
-          csvString={contactContentCollection[index].content}
-          comments={item.comments}
-          key={index}
-        />
-      ))}
+      <Tabs
+        headers={["ارتباط با دانشگاه", "چارت درسی"]}
+        contents={[
+          <div>
+            {contactPropCollection.map((item, index) => (
+              <TableFromCsv
+                csvString={contactContentCollection[index].content}
+                comments={item.comments}
+                key={index}
+              />
+            ))}
+          </div>,
+          <div>
+            {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
+              <div key={curriculumGuideIndex}>
+                {curriculumGuide.props.map((item, index) => (
+                  <TableFromCsv
+                    csvString={curriculumGuide.contents[index].content}
+                    comments={item.comments}
+                    key={index}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>,
+        ]}
+      />
     </>
   );
 }
@@ -54,10 +76,28 @@ export async function getStaticProps() {
   const contactContentCollection = await getContentCollection(
     "collections/requirements/data/contact"
   );
+  const curriculumGuideDirectories = await getDirectorySlugs(
+    "collections/requirements/data/curriculum-guide"
+  );
+  const curriculumGuides = await Promise.all(
+    curriculumGuideDirectories.map(async (curriculumGuide) => {
+      const props = await getPropCollection(
+        `collections/requirements/data/curriculum-guide/${curriculumGuide.params.slug}`
+      );
+      const contents = await getContentCollection(
+        `collections/requirements/data/curriculum-guide/${curriculumGuide.params.slug}`
+      );
+      return {
+        props: props.reverse(),
+        contents: contents.reverse(),
+      };
+    })
+  );
   return {
     props: {
       contactPropCollection,
       contactContentCollection,
+      curriculumGuides,
     },
   };
 }
