@@ -15,7 +15,7 @@ export default function Tabs({ headers, contents }) {
   );
   return (
     <>
-      <div className="flex flex-row flex-wrap">
+      <div className="tab-buttons">
         {headers.map((headerItem, headerIndex) => (
           <button
             key={headerIndex}
@@ -26,7 +26,7 @@ export default function Tabs({ headers, contents }) {
                 });
               })
             }
-            className={`btn-light rounded-b-none m-0 ml-2 focus:ring-0 ${
+            className={`btn-light rounded-b-none focus:ring-0 ${
               showCollapse[headerIndex] ? "bg-slate-400" : null
             }`}
           >

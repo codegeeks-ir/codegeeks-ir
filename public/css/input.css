@@ -538,3 +538,10 @@ a .icon {
 .card-button button {
   @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0;
 }
+
+.tab-buttons {
+  @apply flex flex-row flex-wrap mt-8 mb-8;
+}
+.tab-buttons button {
+  @apply rounded-none first:rounded-r-md last:rounded-l-md m-0;
+} 
