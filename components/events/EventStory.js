@@ -18,8 +18,8 @@ export default function EventStory({
   const lecturerRef = useRef();
   useEffect(() => {
     textFit(subjectRef.current);
+    textFit(lecturerRef.current);
     setIsReadyForExport({ ...isReadyForExport, story: true });
-    // textFit(lecturerRef.current);
   }, []);
   return (
     <div id="export-story">
@@ -49,8 +49,8 @@ export default function EventStory({
             <Image
               src={`/images/${data.githubID}.png`}
               alt={data.githubID}
-              width={(50 * 270) / 100}
-              height={(50 * 270) / 100}
+              width={(40 * 270) / 100}
+              height={(40 * 270) / 100}
             />
             <div className="relative w-7/12 h-full">
               <p className="github-icon non-important m-0 p-0">

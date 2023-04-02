@@ -18,8 +18,8 @@ export default function EventPost({
   const lecturerRef = useRef();
   useEffect(() => {
     textFit(subjectRef.current);
+    textFit(lecturerRef.current);
     setIsReadyForExport({ ...isReadyForExport, post: true });
-    // textFit(lecturerRef.current);
   }, []);
   return (
     <div id="export-post">

@@ -346,7 +346,7 @@ a .icon {
 
 /* Event post image styles */
 #export-post {
-  @apply absolute flex flex-row flex-wrap card border-none -right-3.5;
+  @apply absolute flex flex-row flex-wrap card border-none -right-8;
   clip-path: circle(0);
   width: 270px;
   height: 270px;
@@ -397,7 +397,7 @@ a .icon {
 
 /* Event story image styles */
 #export-story {
-  @apply absolute flex flex-col flex-wrap card border-none -right-3.5;
+  @apply absolute flex flex-col flex-wrap card border-none -right-8;
   clip-path: circle(0);
   width: 270px;
   height: 480px;
@@ -455,10 +455,11 @@ a .icon {
 /* Event printable pdf styles */
 #export-pdf {
   @apply relative flex flex-row justify-center items-center flex-wrap
-    card border-none m-0 p-0 -right-16;
+    card border-none m-0 p-0;
   clip-path: circle(0);
   width: 793.3px;
   height: 1122px;
+  right: -72px;
 }
 .pdf-heading {
   @apply flex flex-col relative w-full;
