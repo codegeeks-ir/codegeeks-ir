@@ -1,3 +1,7 @@
+import PhoneIcon from "public/icones/phone.svg";
+import EmailIcon from "public/icones/email.svg";
+import LinkIcon from "public/icones/link.svg";
+
 const multivalueSeparator = "%%%";
 
 function getRowData(row) {
@@ -36,6 +40,10 @@ function dataIsEmail(data) {
   return data.includes("@");
 }
 
+function dataIsWebsite(data) {
+  return data.startsWith("https://") || data.startsWith("www.");
+}
+
 function dataIsPhone(data) {
   return (
     data.startsWith("04") || data.startsWith("09") || data.startsWith("+98")
@@ -45,9 +53,33 @@ function dataIsPhone(data) {
 function GetDataComponent({ data }) {
   return (
     <>
-      {dataIsEmail(data) ? <a href={`mailto:${data}`}>📨</a> : null}
-      {dataIsPhone(data) ? <a href={`tel:${data}`}>📞</a> : null}
-      {!dataIsEmail(data) && !dataIsPhone(data) ? data : null}
+      {dataIsEmail(data) ? (
+        <a
+          className="btn-primary flex flex-row flex-wrap justify-center items-center w-8 my-0"
+          href={`mailto:${data}`}
+        >
+          <EmailIcon className="fill-slate-200 w-6 h-auto" />
+        </a>
+      ) : null}
+      {dataIsPhone(data) ? (
+        <a
+          className="btn-primary flex flex-row flex-wrap justify-center items-center w-8 my-0"
+          href={`tel:${data}`}
+        >
+          <PhoneIcon className="fill-slate-200 w-6 h-auto" />
+        </a>
+      ) : null}
+      {dataIsWebsite(data) ? (
+        <a
+          className="btn-primary flex flex-row flex-wrap justify-center items-center w-8 my-0"
+          href={data}
+        >
+          <LinkIcon className="fill-slate-200 w-6 h-auto" />
+        </a>
+      ) : null}
+      {!dataIsEmail(data) && !dataIsPhone(data) && !dataIsWebsite(data)
+        ? data
+        : null}
     </>
   );
 }
@@ -57,9 +89,7 @@ export default function TableFromCsv({ csvString, comments }) {
     <>
       <div className="overflow-x-scroll">
         <table className="horizontal-table">
-          <caption>
-            {comments.join("-")}
-          </caption>
+          <caption>{comments.join("-")}</caption>
           <thead>
             <tr>
               {getHeaders(csvString).map((header) => (
@@ -75,9 +105,11 @@ export default function TableFromCsv({ csvString, comments }) {
                     {!isMultiValue(dataCell) ? (
                       <GetDataComponent data={dataCell} />
                     ) : (
-                      getMultiValue(dataCell).map((data, index) => (
-                        <GetDataComponent key={index} data={data} />
-                      ))
+                      <div className="flex flex-row flex-wrap">
+                        {getMultiValue(dataCell).map((data, index) => (
+                          <GetDataComponent key={index} data={data} />
+                        ))}
+                      </div>
                     )}
                   </td>
                 ))}
