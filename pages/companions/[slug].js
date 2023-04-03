@@ -1,12 +1,19 @@
 import PostItem from "components/collection/item/PostItem";
+import hljs from "highlight.js";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getItem, getPropCollection, getSlugs } from "lib/get-collection";
+import { centerImage } from "lib/manipulate-html";
 import Head from "next/head";
 import Image from "next/image";
 import GithubIcon from "public/icones/social/github.svg";
+import { useEffect } from "react";
 
 export default function AuthorPage({ data, myPosts }) {
+  useEffect(() => {
+    hljs.highlightAll();
+    centerImage();
+  }, []);
   return (
     <>
       <Head>

@@ -1,13 +1,20 @@
 import FileExplorer from "components/FileExplorer";
+import hljs from "highlight.js";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getDirectorySlugs, getItem } from "lib/get-collection";
+import { centerImage } from "lib/manipulate-html";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export default function CoursePage({ data, repoName, resources }) {
   const organizationLink = "https://github.com/ceituut";
   const repoLink = `${organizationLink}/${repoName}`;
   const download = `${repoLink}/archive/refs/heads/main.zip`;
+  useEffect(() => {
+    hljs.highlightAll();
+    centerImage();
+  }, []);
   return (
     <>
       <Head>

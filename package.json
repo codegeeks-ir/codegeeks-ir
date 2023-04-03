@@ -1,6 +1,6 @@
 {
   "name": "codegeeks",
-  "version": "1.0.0-Beta",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

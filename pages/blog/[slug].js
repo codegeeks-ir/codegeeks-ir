@@ -5,28 +5,12 @@ import PostAuthor from "components/PostAuthor";
 import hljs from "highlight.js";
 import Head from "next/head";
 import { useEffect } from "react";
-
-function centerImage() {
-  const images = document.getElementsByTagName("img");
-  if (images.length == 0 || images == null || images == undefined) return;
-  // console.log(images);
-  Object.values(images).foreach((image) => {
-    let imageParent = image.parentElement;
-    if (imageParent.tagName == "P") {
-      imageParent.classNameList.add(
-        "flex",
-        "flex-row",
-        "justify-center",
-        "my-12"
-      );
-    }
-  });
-}
+import { centerImage } from "lib/manipulate-html";
 
 export default function PostPage({ data, author }) {
   useEffect(() => {
     hljs.highlightAll();
-    // centerImage();
+    centerImage();
   }, []);
   return (
     <>

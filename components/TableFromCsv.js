@@ -56,7 +56,7 @@ export default function TableFromCsv({ csvString, comments }) {
   return (
     <>
       <div className="overflow-x-scroll">
-        <table>
+        <table className="horizontal-table">
           <caption>
             {comments.join("-")}
           </caption>

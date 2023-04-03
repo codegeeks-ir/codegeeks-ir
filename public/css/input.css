@@ -220,7 +220,10 @@ tbody tr {
   @apply bg-slate-100 even:bg-slate-200 focus:bg-green-300;
 }
 td {
-  @apply w-auto p-2 text-right whitespace-nowrap;
+  @apply w-auto p-2 text-right;
+}
+.horizontal-table td {
+  @apply whitespace-nowrap;
 }
 td a {
   @apply btn-primary px-2 py-0;

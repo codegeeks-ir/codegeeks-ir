@@ -3,6 +3,9 @@ import PageLayout from "layouts/PageLayout";
 import DefaultLayout from "layouts/DefaultLayout";
 import Developers from "components/Developers";
 import Head from "next/head";
+import { useEffect } from "react";
+import hljs from "highlight.js";
+import { centerImage } from "lib/manipulate-html";
 
 export default function Sponsor({
   sponsor,
@@ -10,6 +13,10 @@ export default function Sponsor({
   versionNumber,
   versionLink,
 }) {
+  useEffect(() => {
+    hljs.highlightAll();
+    centerImage();
+  }, []);
   return (
     <>
       <Head>

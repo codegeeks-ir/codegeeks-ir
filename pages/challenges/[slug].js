@@ -5,10 +5,12 @@ import { getPersianDate } from "lib/persian-long-date";
 import hljs from "highlight.js";
 import { useEffect } from "react";
 import Head from "next/head";
+import { centerImage } from "lib/manipulate-html";
 
 export default function ChallengePage({ data }) {
   useEffect(() => {
     hljs.highlightAll();
+    centerImage();
   }, []);
   return (
     <>
@@ -17,10 +19,7 @@ export default function ChallengePage({ data }) {
           name="keywords"
           content="مسابقات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
-        <meta
-          name="description"
-          content="مسابقات برنامه نویسی انجمن"
-        />
+        <meta name="description" content="مسابقات برنامه نویسی انجمن" />
         <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
       </Head>
       <h1 className="mb-0">{data.title}</h1>
