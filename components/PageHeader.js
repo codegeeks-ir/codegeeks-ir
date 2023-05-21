@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { repoMap } from "utils/config";
+import BackIcon from "public/icones/back.svg";
+import ForkIcon from "public/icones/fork.svg";
+import HeartIcon from "public/icones/heart.svg";
 import Icon from "./Icon";
 
 function getBackLink() {
@@ -24,10 +27,13 @@ export default function PageHeader() {
   return (
     <div className="page-header-navbar">
       <Link className="page-header-navbar-button" href={back}>
-        <p>بازگشت</p>
+        <BackIcon className="w-full fill-gray-600" />
+      </Link>
+      <Link className="page-header-navbar-button" href="/sponsor">
+        <HeartIcon className="w-full fill-gray-600" />
       </Link>
       <a className="page-header-navbar-button" href={contributionLink}>
-        <p>مشارکت</p>
+        <ForkIcon className="w-full fill-gray-600" />
       </a>
       <Icon />
     </div>

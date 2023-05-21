@@ -2,7 +2,7 @@ import Image from "next/image";
 import GithubIcon from "public/icones/social/github.svg";
 import StarIcon from "public/icones/star.svg";
 import CupIcon from "public/icones/cup.svg";
-import ActivityIcon from "public/icones/activity.svg";
+import ForkIcon from "public/icones/fork.svg";
 
 function Contributor({ githubID }) {
   const githubLink = `https://github.com/${githubID}`;
@@ -52,7 +52,7 @@ export default function Developers({ contributions }) {
           href="https://github.com/ceituut/ceituut.github.io/issues"
         >
           <p className="my-0 mx-1 py-0">کمک</p>
-          <ActivityIcon className="icon" />
+          <ForkIcon className="icon" />
         </a>
       </div>
     </div>

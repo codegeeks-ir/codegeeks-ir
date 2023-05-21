@@ -285,11 +285,10 @@ code {
 .page-header-navbar {
   @apply flex flex-row flex-grow card items-center
     w-full h-auto m-0 py-1 px-2 lg:px-5 md:px-4 sm:px-2 rounded-b-none 
-    bg-gradient-to-r
-    from-gray-200 to-gray-400;
+    bg-teal-500;
 }
 .page-header-navbar-button {
-  @apply btn-light flex flex-row h-8 items-center justify-center;
+  @apply btn-light flex flex-row w-8 h-8 items-center justify-center;
 }
 .page-header-navbar-button p {
   @apply my-0 mx-1 py-0 text-xs;

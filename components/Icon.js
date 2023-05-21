@@ -9,9 +9,11 @@ const isHomePage = () => {
 
 const Icon = () => {
   return (
-    <Link href="/" className={`logo ${isHomePage() ? "invisible" : ""}`}>
-      <CeituutIcon className="fill-gray-400 w-16" />
-    </Link>
+    <div className={`logo ${isHomePage() ? "invisible" : ""}`}>
+      <Link href="/">
+        <CeituutIcon className="fill-slate-200 w-16" />
+      </Link>
+    </div>
   );
 };
 
