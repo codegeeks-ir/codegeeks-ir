@@ -9,7 +9,7 @@ import { QRCodeSVG } from "qrcode.react";
 import textFit from "textfit";
 import { getPersianDate } from "lib/persian-long-date";
 import { useEffect, useRef } from "react";
-import { baseUrl } from "pages/_app";
+import { config } from "utils/config";
 
 export default function EventPdf({
   data,
@@ -18,6 +18,7 @@ export default function EventPdf({
 }) {
   const subjectRef = useRef();
   const lecturerRef = useRef();
+  const baseUrl = config.url;
   useEffect(() => {
     textFit(subjectRef.current, { widthOnly: true });
     setIsReadyForExport({ ...isReadyForExport, pdf: true });

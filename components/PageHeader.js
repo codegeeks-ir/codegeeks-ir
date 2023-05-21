@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { pages } from "pages/_app";
+import { repoMap } from "utils/config";
+import Icon from "./Icon";
 
 function getBackLink() {
   const router = useRouter();
@@ -11,7 +12,7 @@ function getBackLink() {
 function getRepoName() {
   const router = useRouter();
   const mainPath = router.pathname.split("/")[1];
-  const currentPage = pages.find((page) => page.path == `/${mainPath}`);
+  const currentPage = repoMap.find((page) => page.path == `/${mainPath}`);
   if (currentPage != null || currentPage != undefined) return currentPage.repo;
   else return "ceituut.github.io";
 }
@@ -28,6 +29,7 @@ export default function PageHeader() {
       <a className="page-header-navbar-button" href={contributionLink}>
         <p>مشارکت</p>
       </a>
+      <Icon />
     </div>
   );
 }

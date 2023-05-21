@@ -7,7 +7,7 @@ export default function Custom404() {
     <>
       <Head>
         <meta name="robots" content="noindex,nofollow" />
-        <title>اینجا کجاست؟</title>
+        <title>۴۰۴ | اینجا کجاست؟</title>
       </Head>
       <div>
         <h1>404</h1>

@@ -256,40 +256,40 @@ code {
   rounded-lg;
 }
 
+/* Template styles */
 #__next {
-  @apply flex flex-col flex-wrap w-full 
+  @apply flex flex-row flex-wrap w-full 
   items-center justify-center p-2;
 }
-
 .container {
-  @apply flex flex-col items-center justify-center w-full
-  lg:p-5 md:p-2 sm:p-1 mb-36 mt-36 text-justify;
+  @apply flex flex-col items-center justify-center grow-0 w-full
+  py-2 px-2 lg:px-5 md:px-4 md:mr-24 sm:p-2 m-0 mb-36 text-justify;
 }
 
 /* Navbar styles */
 .navbar {
-  @apply fixed flex flex-col flex-wrap 
-    items-center justify-between
-    w-full p-2 top-0 z-10
-    drop-shadow-xl
-    bg-slate-200;
+  @apply fixed flex bg-slate-200 list-none z-20 p-4 m-0 
+  flex-row items-center justify-evenly w-full h-auto bottom-0 right-0 mt-2 
+  md:flex-col md:justify-center md:items-center 
+  md:grow-0 md:w-24 md:h-full md:top-0 md:mt-0 
+  drop-shadow-[0_-10px_8px_rgba(0,0,0,0.10)];
 }
-.nav-link {
-  @apply flex w-full text-gray-600 text-base font-bold;
+.navbar-item {
+  @apply flex flex-col items-center px-2 py-1 md:my-4;
 }
 .active {
-  @apply bg-slate-300 text-gray-700 rounded-md py-1 px-2;
+  @apply bg-slate-300 text-gray-700 rounded-md;
 }
 
 /* Page header styles */
 .page-header-navbar {
-  @apply flex flex-row flex-grow card 
+  @apply flex flex-row flex-grow card items-center
     w-full h-auto m-0 py-1 px-2 lg:px-5 md:px-4 sm:px-2 rounded-b-none 
     bg-gradient-to-r
     from-gray-200 to-gray-400;
 }
 .page-header-navbar-button {
-  @apply btn-light flex flex-row items-center justify-center;
+  @apply btn-light flex flex-row h-8 items-center justify-center;
 }
 .page-header-navbar-button p {
   @apply my-0 mx-1 py-0 text-xs;
@@ -297,13 +297,16 @@ code {
 .page-header {
   @apply card rounded-none w-full my-0 p-2 lg:p-5 md:p-4 sm:p-2;
 }
+.logo {
+  @apply flex flex-row justify-end w-full;
+}
 .collection-container {
   @apply flex flex-col items-center w-full;
 }
 
 /* Footer styles */
 footer {
-  @apply flex flex-col w-full self-center;
+  @apply flex flex-col w-full self-center md:mr-24;
 }
 footer p {
   @apply block text-gray-500 text-center text-xs p-2;
