@@ -1,10 +1,12 @@
 import LogoType from "components/LogoType";
+import Sections from "components/Sections";
 import DefaultLayout from "layouts/DefaultLayout";
 
-const Index = ({ content }) => {
+const Index = () => {
   return (
-    <div className="flex flex-col flex-wrap items-center w-full my-24">
+    <div className="flex flex-col items-center w-full h-full max-h-screen mt-4">
       <LogoType />
+      <Sections />
     </div>
   );
 };
