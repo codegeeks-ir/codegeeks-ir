@@ -17,7 +17,7 @@ const Navbar = () => {
           isActiveLink("/requirements") ? "active" : ""
         }`}
       >
-        <Link href="requirements">
+        <Link href="/requirements">
           <RequirementsIcon className="w-8 h-auto" />
         </Link>
       </li>
@@ -27,7 +27,7 @@ const Navbar = () => {
         </Link>
       </li>
       <li className={`navbar-item ${isActiveLink("/account") ? "active" : ""}`}>
-        <Link href="account">
+        <Link href="/account">
           <ProfileIcon className="w-8 h-auto" />
         </Link>
       </li>
