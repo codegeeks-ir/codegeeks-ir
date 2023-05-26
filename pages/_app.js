@@ -28,6 +28,6 @@ const MyApp = ({ Component, pageProps }) => {
       {getLayout(<Component {...pageProps} />)}
     </>
   );
-}
+};
 
 export default MyApp;

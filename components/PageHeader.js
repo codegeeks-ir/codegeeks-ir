@@ -15,7 +15,9 @@ function getBackLink() {
 function getRepoName() {
   const router = useRouter();
   const mainPath = router.pathname.split("/")[1];
-  const currentPage = linkProperties.find((page) => page.path == `/${mainPath}`);
+  const currentPage = linkProperties.find(
+    (page) => page.path == `/${mainPath}`
+  );
   if (currentPage != null || currentPage != undefined) return currentPage.repo;
   else return "ceituut.github.io";
 }

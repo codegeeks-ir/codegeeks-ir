@@ -24,10 +24,7 @@ export default function Sponsor({
           name="keywords"
           content="حمایت, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
-        <meta
-          name="description"
-          content="حمایت از پروژه وب سایت انجمن"
-        />
+        <meta name="description" content="حمایت از پروژه وب سایت انجمن" />
         <title>حمایت | انجمن کامپیوتر صنعتی ارومیه</title>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: sponsor.content }}></div>

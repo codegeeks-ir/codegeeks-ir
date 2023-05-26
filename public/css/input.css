@@ -317,16 +317,13 @@ code {
 
 /* Footer styles */
 footer {
-  @apply flex flex-col w-full self-center md:mr-24;
+  @apply flex flex-col w-full self-center md:mr-24 mb-16 md:mb-0;
 }
 footer p {
   @apply block text-gray-500 text-center text-xs p-2;
 }
-footer hr {
-  @apply border-2 border-gray-800 border-opacity-50;
-}
 .social-item {
-  @apply rounded-md px-5 m-1;
+  @apply rounded-md px-5 mx-1;
 }
 .sponsor-link {
   @apply btn-primary bg-opacity-100 fixed left-0 bottom-16 
