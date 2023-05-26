@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { repoMap } from "utils/config";
+import { linkProperties } from "utils/config";
 import BackIcon from "public/icones/back.svg";
 import ForkIcon from "public/icones/fork.svg";
 import HeartIcon from "public/icones/heart.svg";
@@ -15,7 +15,7 @@ function getBackLink() {
 function getRepoName() {
   const router = useRouter();
   const mainPath = router.pathname.split("/")[1];
-  const currentPage = repoMap.find((page) => page.path == `/${mainPath}`);
+  const currentPage = linkProperties.find((page) => page.path == `/${mainPath}`);
   if (currentPage != null || currentPage != undefined) return currentPage.repo;
   else return "ceituut.github.io";
 }

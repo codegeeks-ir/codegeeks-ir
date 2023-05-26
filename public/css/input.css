@@ -305,8 +305,8 @@ code {
 
 /* Section styles */
 .sections {
-  @apply flex flex-row flex-wrap items-center justify-center w-full h-auto 
-  list-none rounded-md py-2;
+  @apply flex flex-row flex-wrap items-center justify-center list-none 
+  w-full h-auto py-2;
 }
 .section-item {
   @apply flex flex-col justify-center items-center;
@@ -314,7 +314,6 @@ code {
 .section-link {
   @apply btn-light flex flex-col justify-center items-center w-24 py-2;
 }
-
 
 /* Footer styles */
 footer {

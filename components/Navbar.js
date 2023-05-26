@@ -18,17 +18,17 @@ const Navbar = () => {
         }`}
       >
         <Link href="/requirements">
-          <RequirementsIcon className="w-8 h-auto" />
+          <RequirementsIcon className="fill-gray-900 w-8 h-auto" />
         </Link>
       </li>
       <li className={`navbar-item ${isActiveLink("/") ? "active" : ""}`}>
         <Link href="/">
-          <HomeIcon className="w-8 h-auto" />
+          <HomeIcon className="fill-gray-900 w-8 h-auto" />
         </Link>
       </li>
       <li className={`navbar-item ${isActiveLink("/account") ? "active" : ""}`}>
         <Link href="/account">
-          <ProfileIcon className="w-8 h-auto" />
+          <ProfileIcon className="fill-gray-900 w-8 h-auto" />
         </Link>
       </li>
     </ul>
