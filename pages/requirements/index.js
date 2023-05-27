@@ -2,6 +2,7 @@ import LinkSection from "components/LinkSection";
 import LogoType from "components/LogoType";
 import DefaultLayout from "layouts/DefaultLayout";
 import Head from "next/head";
+import requirementsNavItem from "utils/requirements-nav-items";
 
 export default function RequirementsPage({}) {
   return (
@@ -21,7 +22,7 @@ export default function RequirementsPage({}) {
         <LogoType />
         <div className="flex flex-col items-center justify-evenly w-full h-full grow-1 my-4">
           <div className="bg-emerald-600 w-full h-auto rounded-md my-2">
-            <LinkSection category="requirements" />
+            <LinkSection items={requirementsNavItem} />
           </div>
         </div>
       </div>

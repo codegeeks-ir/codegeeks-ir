@@ -1,6 +1,8 @@
 import LogoType from "components/LogoType";
 import LinkSection from "components/LinkSection";
 import DefaultLayout from "layouts/DefaultLayout";
+import mainNavItems from "utils/main-nav-items";
+import sideNavItems from "utils/side-nav-items";
 
 const Index = () => {
   return (
@@ -8,10 +10,10 @@ const Index = () => {
       <LogoType />
       <div className="flex flex-col items-center justify-evenly w-full h-full grow-1 my-4">
         <div className="bg-indigo-500 w-full h-auto rounded-md my-2">
-          <LinkSection category="main" />
+          <LinkSection items={mainNavItems} />
         </div>
         <div className="bg-violet-500 w-full h-auto rounded-md my-2">
-          <LinkSection category="side" />
+          <LinkSection items={sideNavItems} />
         </div>
       </div>
     </div>

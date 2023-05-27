@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import HomeIcon from "public/icones/home.svg";
-import RequirementsIcon from "public/icones/requirements.svg";
-import ProfileIcon from "public/icones/profile.svg";
+import navbarItems from "utils/navbar-items";
 
 const isActiveLink = (path) => {
   const router = useRouter();
@@ -12,25 +10,14 @@ const isActiveLink = (path) => {
 const Navbar = () => {
   return (
     <ul className="navbar">
-      <li
-        className={`navbar-item ${
-          isActiveLink("/requirements") ? "active" : ""
-        }`}
-      >
-        <Link href="/requirements">
-          <RequirementsIcon className="fill-gray-900 w-8 h-auto" />
-        </Link>
-      </li>
-      <li className={`navbar-item ${isActiveLink("/") ? "active" : ""}`}>
-        <Link href="/">
-          <HomeIcon className="fill-gray-900 w-8 h-auto" />
-        </Link>
-      </li>
-      <li className={`navbar-item ${isActiveLink("/account") ? "active" : ""}`}>
-        <Link href="/account">
-          <ProfileIcon className="fill-gray-900 w-8 h-auto" />
-        </Link>
-      </li>
+      {navbarItems
+        .map((item) => (
+          <li
+            className={`navbar-item ${isActiveLink(item.path) ? "active" : ""}`}
+          >
+            <Link href={item.path}>{item.icon}</Link>
+          </li>
+        ))}
     </ul>
   );
 };

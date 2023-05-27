@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { linkProperties } from "utils/config";
 
-const LinkSection = ({ category }) => {
+const LinkSection = ({ items }) => {
   return (
     <ul className="sections">
-      {linkProperties
-        .filter((item) => item.category == category)
+      {items
         .map((item) => (
           <li className="section-item" key={item.path}>
             <Link className="section-link" href={item.path}>
