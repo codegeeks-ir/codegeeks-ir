@@ -27,6 +27,7 @@ jobs:
           ./.github/prepare-content.sh
           npm install 
           npm run tailwind 
+          npm run sitemap
           npm run export
       - name: Publish
         uses: cloudflare/pages-action@1

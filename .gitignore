@@ -4,6 +4,9 @@ public/css/output.css
 # Ignore collections
 collections/
 
+# Ignore sitemap
+public/sitemap.xml
+
 # Ignore local env files
 .env
 .env.local
