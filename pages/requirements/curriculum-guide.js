@@ -14,12 +14,12 @@ const CurriculumGuide = ({ curriculumGuides }) => {
       <Head>
         <meta
           name="keywords"
-          content="چارت درسی, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+          content="چارت, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
         <meta name="description" content="چارت درسی گروه کامپیوتر" />
         <title>چارت درسی | انجمن کامپیوتر صنعتی ارومیه</title>
       </Head>
-      <h2>چارت درسی</h2>
+      <h2>چارت</h2>
       {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
         <div key={curriculumGuideIndex}>
           {curriculumGuide.props.map((item, index) => (

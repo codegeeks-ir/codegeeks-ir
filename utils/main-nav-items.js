@@ -6,25 +6,25 @@ import BlogIcon from "public/icones/blog.svg";
 const mainNavItems = [
   {
     name: "رویدادها",
-    path: "/events",
+    link: "/events",
     repo: "events",
     icon: <EventsIcon className="w-8 fill-gray-600" />,
   },
   {
     name: "مسابقات",
-    path: "/challenges",
+    link: "/challenges",
     repo: "challenges",
     icon: <ChallengesIcon className="w-8 fill-gray-600" />,
   },
   {
     name: "پروژه‌ها",
-    path: "/projects",
+    link: "/projects",
     repo: "projects",
     icon: <ProjectsIcon className="w-8 fill-gray-600" />,
   },
   {
     name: "انتشارات",
-    path: "/blog",
+    link: "/blog",
     repo: "posts",
     icon: <BlogIcon className="w-8 fill-gray-600" />,
   },

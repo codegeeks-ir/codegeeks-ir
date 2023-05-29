@@ -28,7 +28,7 @@ const getPaths = async () => {
     (slugs) => slugs.map((slug) => `companions/${slug}`)
   );
   const coursePaths = await getDirectorySlugs("collections/courses").then(
-    (slugs) => slugs.map((slug) => `courses/${slug}`)
+    (slugs) => slugs.map((slug) => `requirements/courses/${slug}`)
   );
   const eventsPaths = await getSlugs("collections/events/events").then(
     (slugs) => slugs.map((slug) => `events/${slug}`)
@@ -49,6 +49,7 @@ const getPaths = async () => {
     "requirements",
     "requirements/contacts",
     "requirements/curriculum-guide",
+    "requirements/courses",
     "sponsor",
   ];
   return [

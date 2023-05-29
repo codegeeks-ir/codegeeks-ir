@@ -6,20 +6,28 @@ import BackIcon from "public/icones/back.svg";
 import ForkIcon from "public/icones/fork.svg";
 import HeartIcon from "public/icones/heart.svg";
 import Icon from "./Icon";
+import requirementsNavItem from "utils/requirements-nav-items";
+import courseNavItems from "utils/course-nav-items";
 
-const getBackLink = () => {
-  const router = useRouter();
-  const lastSlashIndex = router.pathname.lastIndexOf("/");
-  return router.pathname.substring(0, lastSlashIndex + 1);
-};
+const getBackLink = () =>
+  useRouter().pathname.split("/").slice(0, -1).join("/") + "/";
 
 const getRepoName = () => {
   const router = useRouter();
   const mainPath = router.pathname.split("/")[1];
-  const allLinks = [...mainNavItems, ...sideNavItems];
-  const currentPage = allLinks.find((page) => page.path == `/${mainPath}`);
-  if (currentPage != null || currentPage != undefined) return currentPage.repo;
-  else return "ceituut.github.io";
+  const allLinks = [
+    ...courseNavItems,
+    ...requirementsNavItem,
+    ...sideNavItems,
+    ...mainNavItems,
+  ];
+  let page = allLinks.find((item) => item.link == router.pathname);
+  if (page != null || page != undefined) return page.repo;
+  else {
+    page = allLinks.find((item) => item.link == `/${mainPath}`);
+    if (page != null || page != undefined) return page.repo;
+    else return "ceituut.github.io";
+  }
 };
 
 const PageHeader = () => {

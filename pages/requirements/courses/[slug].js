@@ -61,7 +61,7 @@ CoursePage.getLayout = function getLayout(content) {
 export async function getStaticProps({ params }) {
   const data = await getItem("README.md", `collections/courses/${params.slug}`);
   const repoName = params.slug;
-  const resources = require(`../../collections/courses/${params.slug}/assets/tree.json`);
+  const resources = require(`../../../collections/courses/${params.slug}/assets/tree.json`);
   return {
     props: {
       data,

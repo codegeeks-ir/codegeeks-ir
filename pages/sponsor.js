@@ -38,7 +38,6 @@ export default function Sponsor({
 }
 
 Sponsor.getLayout = function getLayout(sponsor) {
-  const pages = process.env.PAGES;
   return (
     <DefaultLayout>
       <PageLayout>{sponsor}</PageLayout>
