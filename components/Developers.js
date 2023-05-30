@@ -1,7 +1,6 @@
 import Image from "next/image";
 import GithubIcon from "public/icones/social/github.svg";
 import StarIcon from "public/icones/star.svg";
-import CupIcon from "public/icones/cup.svg";
 import ForkIcon from "public/icones/fork.svg";
 
 function Contributor({ githubID }) {
@@ -39,13 +38,6 @@ export default function Developers({ contributions }) {
         >
           <p className="my-0 mx-1 py-0">ستاره</p>
           <StarIcon className="icon" />
-        </a>
-        <a
-          className="btn-primary w-32 flex flex-row items-center justify-center"
-          href="https://www.coffeete.ir/amirihusayn"
-        >
-          <p className="my-0 mx-1 py-0">قهوه</p>
-          <CupIcon className="icon" />
         </a>
         <a
           className="btn-primary w-32 flex flex-row items-center justify-center"

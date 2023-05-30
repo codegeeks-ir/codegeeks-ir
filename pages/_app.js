@@ -22,6 +22,9 @@ const MyApp = ({ Component, pageProps }) => {
           name="description"
           content="انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
         />
+        <link rel="manifest" href="../manifest.json" />
+        <link rel="apple-touch-icon" type="image/svg+xml" href="/icones/ceituut/ceituut-icon.svg"></link>
+        <meta name="theme-color" content="#fff" />
         <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
         <title>انجمن کامپیوتر صنعتی ارومیه</title>
       </Head>

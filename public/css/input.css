@@ -558,4 +558,4 @@ a .icon {
 }
 .tab-buttons button {
   @apply rounded-none first:rounded-r-md last:rounded-l-md m-0;
-} 
+}

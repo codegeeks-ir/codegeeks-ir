@@ -1,0 +1,17 @@
+{
+  "name": "codegeeks",
+  "short_name": "codegeeks",
+  "icons": [
+    {
+      "src": "/icons/ceituut/ceituut-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

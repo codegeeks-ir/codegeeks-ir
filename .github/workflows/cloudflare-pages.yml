@@ -28,7 +28,7 @@ jobs:
           npm install 
           npm run tailwind 
           npm run sitemap
-          npm run export
+          NODE_ENV=production npm run export
       - name: Publish
         uses: cloudflare/pages-action@1
         with:
