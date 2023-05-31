@@ -1,8 +1,9 @@
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getContentCollection, getPropCollection } from "lib/get-collection";
-import TableFromCsv from "components/TableFromCsv";
+import TableFromArray from "components/TableFromArray";
 import Head from "next/head";
+import csvToArrayOfObjects from "lib/csv-to-array";
 
 const Contacts = ({ contactPropCollection, contactContentCollection }) => {
   return (
@@ -20,8 +21,8 @@ const Contacts = ({ contactPropCollection, contactContentCollection }) => {
       </Head>
       <h2>دفترچه تماس</h2>
       {contactPropCollection.map((item, index) => (
-        <TableFromCsv
-          csvString={contactContentCollection[index].content}
+        <TableFromArray
+          array={contactContentCollection[index]}
           comments={item.comments}
           key={index}
         />
@@ -42,8 +43,11 @@ export async function getStaticProps() {
   const contactPropCollection = await getPropCollection(
     "collections/requirements/data/contact"
   );
-  const contactContentCollection = await getContentCollection(
+  let contactContentCollection = await getContentCollection(
     "collections/requirements/data/contact"
+  );
+  contactContentCollection = contactContentCollection.map((item) =>
+    csvToArrayOfObjects(item.content)
   );
   return {
     props: {

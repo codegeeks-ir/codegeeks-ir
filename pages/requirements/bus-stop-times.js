@@ -1,11 +1,12 @@
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getContentCollection, getPropCollection } from "lib/get-collection";
-import TableFromCsv from "components/TableFromCsv";
+import TableFromArray from "components/TableFromArray";
 import Head from "next/head";
 import Tabs from "components/Tabs";
+import csvToArrayOfObjects from "lib/csv-to-array";
 
-const BusStopTimes = ({ contactPropCollection, contactContentCollection }) => {
+const BusStopTimes = ({ busStopPropCollection, busStopContentCollection }) => {
   return (
     <>
       <Head>
@@ -22,9 +23,9 @@ const BusStopTimes = ({ contactPropCollection, contactContentCollection }) => {
       <h2>زمان سرویس‌ها</h2>
       <Tabs
         headers={["دانشکده", "دانشگاه", "ایثار", "برگشت ایثار"]}
-        contents={contactPropCollection.map((item, index) => (
-          <TableFromCsv
-            csvString={contactContentCollection[index].content}
+        contents={busStopPropCollection.map((item, index) => (
+          <TableFromArray
+            array={busStopContentCollection[index]}
             comments={item.comments}
             key={index}
           />
@@ -43,14 +44,23 @@ BusStopTimes.getLayout = function getLayout(content) {
 };
 
 export async function getStaticProps() {
-  const contactPropCollection = await getPropCollection(
-    "collections/requirements/data/bus-stop-times",null, false);
-  const contactContentCollection = await getContentCollection(
-    "collections/requirements/data/bus-stop-times", null, false);
+  const busStopPropCollection = await getPropCollection(
+    "collections/requirements/data/bus-stop-times",
+    null,
+    false
+  );
+  let busStopContentCollection = await getContentCollection(
+    "collections/requirements/data/bus-stop-times",
+    null,
+    false
+  );
+  busStopContentCollection = busStopContentCollection.map((item) =>
+    csvToArrayOfObjects(item.content)
+  );
   return {
     props: {
-      contactPropCollection,
-      contactContentCollection,
+      busStopPropCollection,
+      busStopContentCollection,
     },
   };
 }

@@ -5,8 +5,9 @@ import {
   getDirectorySlugs,
   getPropCollection,
 } from "lib/get-collection";
-import TableFromCsv from "components/TableFromCsv";
+import TableFromArray from "components/TableFromArray";
 import Head from "next/head";
+import csvToArrayOfObjects from "lib/csv-to-array";
 
 const CurriculumGuide = ({ curriculumGuides }) => {
   return (
@@ -23,8 +24,8 @@ const CurriculumGuide = ({ curriculumGuides }) => {
       {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
         <div key={curriculumGuideIndex}>
           {curriculumGuide.props.map((item, index) => (
-            <TableFromCsv
-              csvString={curriculumGuide.contents[index].content}
+            <TableFromArray
+              array={curriculumGuide.contents[index]}
               comments={item.comments}
               key={index}
             />
@@ -52,9 +53,10 @@ export async function getStaticProps() {
       const props = await getPropCollection(
         `collections/requirements/data/curriculum-guide/${curriculumGuide.params.slug}`
       );
-      const contents = await getContentCollection(
+      let contents = await getContentCollection(
         `collections/requirements/data/curriculum-guide/${curriculumGuide.params.slug}`
       );
+      contents = contents.map((item) => csvToArrayOfObjects(item.content));
       return {
         props: props.reverse(),
         contents: contents.reverse(),

@@ -2,7 +2,8 @@ import { getContentCollection, getPropCollection } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import Head from "next/head";
 import PageLayout from "layouts/PageLayout";
-import TableFromCsv from "components/TableFromCsv";
+import TableFromArray from "components/TableFromArray";
+import csvToArrayOfObjects from "lib/csv-to-array";
 
 export default function Projects({
   projectPropCollection,
@@ -24,8 +25,8 @@ export default function Projects({
       <h1>پروژه‌ها</h1>
       <div>
         {projectPropCollection.map((item, index) => (
-          <TableFromCsv
-            csvString={projectContentCollection[index].content}
+          <TableFromArray
+            array={projectContentCollection[index]}
             comments={item.comments}
             key={index}
           />
@@ -47,8 +48,11 @@ export async function getStaticProps() {
   const projectPropCollection = await getPropCollection(
     "collections/projects/projects/"
   );
-  const projectContentCollection = await getContentCollection(
+  let projectContentCollection = await getContentCollection(
     "collections/projects/projects/"
+  );
+  projectContentCollection = projectContentCollection.map((item) =>
+    csvToArrayOfObjects(item.content)
   );
   return {
     props: {
