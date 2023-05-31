@@ -205,7 +205,7 @@ table {
   @apply text-gray-700 w-full my-7 self-center;
 }
 table caption {
-  @apply w-full text-xs text-right non-important bg-slate-300 p-1;
+  @apply w-full text-xs text-right text-slate-600 bg-teal-400 py-1 px-2;
 }
 th {
   @apply bg-gray-700 text-gray-100 py-1 px-2;
@@ -220,7 +220,7 @@ tbody tr {
   @apply bg-slate-100 even:bg-slate-200 focus:bg-green-300;
 }
 td {
-  @apply w-auto p-2 text-right;
+  @apply w-auto text-right py-1 px-2;
 }
 .horizontal-table td {
   @apply whitespace-nowrap;
