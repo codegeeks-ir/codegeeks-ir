@@ -2,6 +2,7 @@ import Image from "next/image";
 import GithubIcon from "public/icones/social/github.svg";
 import StarIcon from "public/icones/star.svg";
 import ForkIcon from "public/icones/fork.svg";
+import PrayIcon from "public/icones/pray.svg";
 
 function Contributor({ githubID }) {
   const githubLink = `https://github.com/${githubID}`;
@@ -47,6 +48,14 @@ export default function Developers({ contributions }) {
           <ForkIcon className="icon" />
         </a>
       </div>
+        <button
+          className="btn-primary w-72 flex flex-row items-center justify-center p-2
+          focus:bg-green-500 focus:scale-x-105 focus:scale-105 transition ease-in-out duration-500"
+          href="#"
+        >
+          <p className="text-xs my-0 mx-1 py-0">اللَهم صلی علی محمَد و آل محمَد و عجَل فرجهم</p>
+          <PrayIcon className="icon" />
+        </button>
     </div>
   );
 }
