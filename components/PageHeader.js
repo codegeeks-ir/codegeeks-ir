@@ -10,18 +10,18 @@ import requirementsNavItem from "utils/requirements-nav-items";
 import courseNavItems from "utils/course-nav-items";
 
 const getBackLink = () =>
-  useRouter().pathname.split("/").slice(0, -1).join("/") + "/";
+  useRouter().asPath.split("/").slice(0, -1).join("/") + "/";
 
 const getRepoName = () => {
   const router = useRouter();
-  const mainPath = router.pathname.split("/")[1];
+  const mainPath = router.asPath.split("/")[1];
   const allLinks = [
     ...courseNavItems,
     ...requirementsNavItem,
     ...sideNavItems,
     ...mainNavItems,
   ];
-  let page = allLinks.find((item) => item.link == router.pathname);
+  let page = allLinks.find((item) => item.link == router.asPath);
   if (page != null || page != undefined) return page.repo;
   else {
     page = allLinks.find((item) => item.link == `/${mainPath}`);
