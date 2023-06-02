@@ -8,8 +8,14 @@ import {
 import TableFromArray from "components/TableFromArray";
 import Head from "next/head";
 import csvToArrayOfObjects from "lib/csv-to-array";
+import Tabs from "components/Tabs";
 
 const CurriculumGuide = ({ curriculumGuides }) => {
+  let { props, contents } = curriculumGuides[0]
+  delete contents["0"]
+ Object.keys(contents).map((item,index) => {
+    contents[index]=contents[item]
+  })
   return (
     <>
       <Head>
@@ -21,17 +27,17 @@ const CurriculumGuide = ({ curriculumGuides }) => {
         <title>چارت درسی | انجمن کامپیوتر صنعتی ارومیه</title>
       </Head>
       <h2>چارت</h2>
-      {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
-        <div key={curriculumGuideIndex}>
-          {curriculumGuide.props.map((item, index) => (
-            <TableFromArray
-              array={curriculumGuide.contents[index]}
-              comments={item.comments}
-              key={index}
-            />
-          ))}
-        </div>
-      ))}
+      {props[0].comments}
+      <Tabs
+        headers={props.slice(1).map(tab => { return tab.comments })}
+        contents={props.slice(1).map((item, index) => (
+          <TableFromArray
+            array={contents[index]}
+            comments={item.comments}
+            key={index}
+          />
+        ))}
+      />
     </>
   );
 };
