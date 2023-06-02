@@ -22,7 +22,7 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
-    "file-system": "^2.2.2",
+    "file-system": "^1.2.2",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.7.0",
     "html2canvas": "^1.4.1",
