@@ -11,11 +11,6 @@ import csvToArrayOfObjects from "lib/csv-to-array";
 import Tabs from "components/Tabs";
 
 const CurriculumGuide = ({ curriculumGuides }) => {
-  let { props, contents } = curriculumGuides[0]
-  delete contents["0"]
- Object.keys(contents).map((item,index) => {
-    contents[index]=contents[item]
-  })
   return (
     <>
       <Head>
@@ -27,17 +22,17 @@ const CurriculumGuide = ({ curriculumGuides }) => {
         <title>چارت درسی | انجمن کامپیوتر صنعتی ارومیه</title>
       </Head>
       <h2>چارت</h2>
-      {props[0].comments}
-      <Tabs
-        headers={props.slice(1).map(tab => { return tab.comments })}
-        contents={props.slice(1).map((item, index) => (
+      {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
+        <div key={curriculumGuideIndex}>
           <TableFromArray
-            array={contents[index]}
-            comments={item.comments}
-            key={index}
+            array={curriculumGuide.contents[0]}
+            comments={curriculumGuide.props[0].comments}
           />
-        ))}
-      />
+          <Tabs headers={curriculumGuide.props.slice(1).map(prop => prop.comments[0])}
+            contents={curriculumGuide.contents.slice(1).map((semester, semesterIndex) =>
+              (<TableFromArray array={semester} comments={curriculumGuide.props.slice(1)[semesterIndex].comments} key={semesterIndex} />))} />
+        </div>
+      ))}
     </>
   );
 };
