@@ -71,31 +71,38 @@ export default function FileExplorer({ resources, repoName }) {
     setContent(currentElement.contents);
   }, [currentElement]);
   return (
-    <div className="flex flex-row flex-wrap">
-      <div className="file-explorer-path">{currentPath}</div>
-      {history.length > 1 ? (
-        <button
-          className="file-explorer-element"
-          onClick={() => {
-            setCurrentElement(history[history.length - 2]);
-            setCurrentPath(history[history.length - 2].name);
-            setHistory(history.slice(0, -1));
-          }}
-        >
-          <BackIcon className="w-24 fill-amber-400" />
-        </button>
-      ) : null}
-      {content.map((element, index) => (
-        <Element
-          key={index}
-          element={element}
-          setCurrentElement={setCurrentElement}
-          setCurrentPath={setCurrentPath}
-          history={history}
-          setHistory={setHistory}
-          repoName={repoName}
-        />
-      ))}
-    </div>
+    <>
+      <div className="file-explorer-path">
+        <div className="flex items-center pl-2">
+          {history.length > 1 && <button
+            className="mr-4"
+            onClick={() => {
+              setCurrentElement(history[history.length - 2]);
+              setCurrentPath(history[history.length - 2].name);
+              setHistory(history.slice(0, -1));
+            }}
+          >
+            <BackIcon className="w-6 fill-amber-400" />
+          </button>}
+          <div className="flex flex-wrap">
+          {currentPath.split('/').map((item, index) => {
+            return <span key={index}>/{item }</span>
+          })}</div>
+        </div>
+      </div>
+      <div className="flex justify-center flex-wrap">
+        {content.map((element, index) => (
+          <Element
+            key={index}
+            element={element}
+            setCurrentElement={setCurrentElement}
+            setCurrentPath={setCurrentPath}
+            history={history}
+            setHistory={setHistory}
+            repoName={repoName}
+          />
+        ))}
+      </div>
+    </>
   );
 }
