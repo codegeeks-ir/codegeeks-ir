@@ -39,7 +39,7 @@ export default function Projects({
 Projects.getLayout = function getLayout(content) {
   return (
     <DefaultLayout>
-      <PageLayout>{content}</PageLayout>;
+      <PageLayout>{content}</PageLayout>
     </DefaultLayout>
   );
 };

@@ -8,9 +8,6 @@ import Head from "next/head";
 import { useEffect } from "react";
 
 export default function CoursePage({ data, repoName, resources }) {
-  const organizationLink = "https://github.com/ceituut";
-  const repoLink = `${organizationLink}/${repoName}`;
-  const download = `${repoLink}/archive/refs/heads/main.zip`;
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -22,29 +19,12 @@ export default function CoursePage({ data, repoName, resources }) {
           name="keywords"
           content="دروس, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
-        <meta
-          name="description"
-          content="منابع درسی گروه کامپیوتر"
-        />
+        <meta name="description" content="منابع درسی گروه کامپیوتر" />
         <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
       </Head>
       <div>
         <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
-        <h4>منبع</h4>
-        <p>
-          شما می تونید منابع رو به صورت تکی یا یکجا دریافت و حتی برای بهبودش
-          مشارکت کنید.
-        </p>
-        <a className="btn-primary" href={download}>
-          دریافت کل منبع
-        </a>
-        <a className="btn-primary" href={repoLink}>
-          مشارکت
-        </a>
-        <div className="h-auto p-2 mt-8" dir="ltr">
-          <h5 className="file-explorer-header">File Explorer</h5>
-          <FileExplorer resources={resources} repoName={repoName} />
-        </div>
+        <FileExplorer resources={resources} repoName={repoName} />
       </div>
     </>
   );
@@ -53,7 +33,7 @@ export default function CoursePage({ data, repoName, resources }) {
 CoursePage.getLayout = function getLayout(content) {
   return (
     <DefaultLayout>
-      <PageLayout>{content}</PageLayout>;
+      <PageLayout>{content}</PageLayout>
     </DefaultLayout>
   );
 };
