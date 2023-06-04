@@ -558,5 +558,12 @@ a .icon {
   @apply flex flex-row flex-wrap mt-8 mb-8;
 }
 .tab-buttons button {
-  @apply rounded-none first:rounded-r-md last:rounded-l-md m-0;
+  @apply rounded-none first:rounded-tr-md last:rounded-bl-md odd:w-1/2 even:w-1/2 
+  md:first:rounded-r-md md:last:rounded-l-md odd:md:w-auto even:md:w-auto m-0;
+}
+.tab-buttons button:nth-child(2) {
+  @apply rounded-tl-md md:rounded-none;
+}
+.tab-buttons button:nth-last-child(2) {
+  @apply rounded-br-md md:rounded-none;
 }
