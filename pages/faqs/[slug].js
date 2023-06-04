@@ -32,7 +32,7 @@ export default function FaqPage({ data }) {
 FaqPage.getLayout = function getLayout(content) {
   return (
     <DefaultLayout>
-      <PageLayout>{content}</PageLayout>;
+      <PageLayout>{content}</PageLayout>
     </DefaultLayout>
   );
 };

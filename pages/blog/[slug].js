@@ -34,7 +34,7 @@ export default function PostPage({ data, author }) {
 PostPage.getLayout = function getLayout(content) {
   return (
     <DefaultLayout>
-      <PageLayout>{content}</PageLayout>;
+      <PageLayout>{content}</PageLayout>
     </DefaultLayout>
   );
 };

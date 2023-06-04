@@ -8,6 +8,7 @@ import {
 import TableFromArray from "components/TableFromArray";
 import Head from "next/head";
 import csvToArrayOfObjects from "lib/csv-to-array";
+import Tabs from "components/Tabs";
 
 const CurriculumGuide = ({ curriculumGuides }) => {
   return (
@@ -23,13 +24,13 @@ const CurriculumGuide = ({ curriculumGuides }) => {
       <h2>چارت</h2>
       {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
         <div key={curriculumGuideIndex}>
-          {curriculumGuide.props.map((item, index) => (
-            <TableFromArray
-              array={curriculumGuide.contents[index]}
-              comments={item.comments}
-              key={index}
-            />
-          ))}
+          <TableFromArray
+            array={curriculumGuide.contents[0]}
+            comments={curriculumGuide.props[0].comments}
+          />
+          <Tabs headers={curriculumGuide.props.slice(1).map(prop => prop.comments[0])}
+            contents={curriculumGuide.contents.slice(1).map((semester, semesterIndex) =>
+              (<TableFromArray array={semester} comments={curriculumGuide.props.slice(1)[semesterIndex].comments} key={semesterIndex} />))} />
         </div>
       ))}
     </>

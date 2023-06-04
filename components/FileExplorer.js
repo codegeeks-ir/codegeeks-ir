@@ -1,50 +1,48 @@
 import FolderIcon from "public/icones/folder.svg";
 import FileIcon from "public/icones/file.svg";
 import BackIcon from "public/icones/back-folder.svg";
+import CloudIcon from "public/icones/cloud.svg";
+import DownloadIcon from "public/icones/download.svg";
 import { useEffect, useRef, useState } from "react";
 
-function Directory({
+const Directory = ({
   element,
   setCurrentElement,
   setCurrentPath,
   history,
   setHistory,
-}) {
-  const directoryName = element.name.split("/").pop();
-  return (
-    <button
-      className="file-explorer-element"
-      onClick={() => {
-        setCurrentPath(element.name);
-        setCurrentElement(element);
-        setHistory([...history, element]);
-      }}
-    >
-      <FolderIcon className="w-24 fill-amber-400" />
-      <p className="text-gray-600">{directoryName}</p>
-    </button>
-  );
-}
+}) => (
+  <button
+    className="file-explorer-element"
+    onClick={() => {
+      setCurrentPath(element.name);
+      setCurrentElement(element);
+      setHistory([...history, element]);
+    }}
+  >
+    <FolderIcon className="w-12 fill-amber-400" />
+    <p>{element.name.split("/").pop()}</p>
+  </button>
+);
 
-function File({ element, repoName }) {
-  const name = element.name.split("/").pop();
-  const link = `https://github.com/ceituut/${repoName}/raw/main/${element.name}`;
-  return (
-    <a className="file-explorer-element" href={link}>
-      <FileIcon className="w-24 fill-blue-400" />
-      <p className="text-gray-600">{name}</p>
-    </a>
-  );
-}
+const File = ({ element, repoName }) => (
+  <a
+    className="file-explorer-element"
+    href={`https://github.com/ceituut/${repoName}/raw/main/${element.name}`}
+  >
+    <FileIcon className="w-12 fill-blue-400" />
+    <p>{element.name.split("/").pop()}</p>
+  </a>
+);
 
-function Element({
+const Element = ({
   element,
   setCurrentElement,
   setCurrentPath,
   history,
   setHistory,
   repoName,
-}) {
+}) => {
   return (
     <>
       {element.type == "directory" ? (
@@ -60,9 +58,58 @@ function Element({
       )}
     </>
   );
-}
+};
 
-export default function FileExplorer({ resources, repoName }) {
+const Path = ({ path }) => (
+  <div className="flex flex-wrap pl-2 grow">
+    {path.length > 24 ? (
+      <span className="text-sm">../{path.split("/").pop()}</span>
+    ) : (
+      <>
+        {path.split("/").map((item, index) => (
+          <span className="text-sm" key={index}>
+            {item}/
+          </span>
+        ))}
+      </>
+    )}
+  </div>
+);
+
+const DownloadLink = ({ repoName }) => {
+  const repoLink = `https://github.com/ceituut/${repoName}`;
+  const download = `${repoLink}/archive/refs/heads/main.zip`;
+  return (
+    <a className="grow-0" href={download}>
+      <DownloadIcon className="w-8 fill-slate-300" />
+    </a>
+  );
+};
+
+const BackButton = ({
+  setCurrentElement,
+  setCurrentPath,
+  history,
+  setHistory,
+}) => (
+  <button
+    className="mr-2"
+    onClick={() => {
+      if (history.length < 1) return;
+      setCurrentElement(history[history.length - 2]);
+      setCurrentPath(history[history.length - 2].name);
+      setHistory(history.slice(0, -1));
+    }}
+  >
+    <BackIcon
+      className={`w-12 fill-amber-400 ${
+        history.length > 1 ? "visible" : "invisible"
+      }`}
+    />
+  </button>
+);
+
+const FileExplorer = ({ resources, repoName }) => {
   const [currentPath, setCurrentPath] = useState(resources[0].name);
   const [currentElement, setCurrentElement] = useState(resources[0]);
   const [history, setHistory] = useState([resources[0]]);
@@ -71,31 +118,33 @@ export default function FileExplorer({ resources, repoName }) {
     setContent(currentElement.contents);
   }, [currentElement]);
   return (
-    <div className="flex flex-row flex-wrap">
-      <div className="file-explorer-path">{currentPath}</div>
-      {history.length > 1 ? (
-        <button
-          className="file-explorer-element"
-          onClick={() => {
-            setCurrentElement(history[history.length - 2]);
-            setCurrentPath(history[history.length - 2].name);
-            setHistory(history.slice(0, -1));
-          }}
-        >
-          <BackIcon className="w-24 fill-amber-400" />
-        </button>
-      ) : null}
-      {content.map((element, index) => (
-        <Element
-          key={index}
-          element={element}
-          setCurrentElement={setCurrentElement}
-          setCurrentPath={setCurrentPath}
+    <div className="flex flex-col flex-wrap my-4" dir="ltr">
+      <div className="file-explorer-header">
+        <CloudIcon className="w-6 fill-slate-300 grow-0" />
+        <Path path={currentPath} />
+        <DownloadLink repoName={repoName} />
+      </div>
+      <div className="file-explorer-content">
+        <BackButton
           history={history}
           setHistory={setHistory}
-          repoName={repoName}
+          setCurrentElement={setCurrentElement}
+          setCurrentPath={setCurrentPath}
         />
-      ))}
+        {content.map((element, index) => (
+          <Element
+            key={index}
+            element={element}
+            setCurrentElement={setCurrentElement}
+            setCurrentPath={setCurrentPath}
+            history={history}
+            setHistory={setHistory}
+            repoName={repoName}
+          />
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default FileExplorer;
