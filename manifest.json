@@ -1,9 +1,9 @@
 {
-  "name": "codegeeks",
-  "short_name": "codegeeks",
+  "name": "codegeeks-ir",
+  "short_name": "codegeeks-ir",
   "icons": [
     {
-      "src": "/icons/codegeeks/codegeeks-icon.svg",
+      "src": "/icons/codegeeks-ir/codegeeks-ir-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

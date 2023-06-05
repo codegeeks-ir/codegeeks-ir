@@ -74,22 +74,22 @@ Also if You have something valuable to write or give someone else, here are the 
 
 UUT®, the UUT® logo design, UUT Cultural Affairs® and the UUT Cultural Affairs® logo are trademarks of UUT, The Urmia University of Technologies. No adaptation or use of any kind of any of our registered trademarks, is allowed without the express written permission of UUT. Checkout the relevant license [here][UUT-logo-license]. For more information regarding the authorized uses of these items, please [contact us](mailto:info@uut.ac.ir).  
 
-codegeeks® and the codegeeks® logo design, are trademarks of codegeeks, The association of Computer Engineering and Information of Technologies - Urmia University of Technologies. No adaptation or use of any kind of any of our registered trademarks, is allowed without the express written permission of codegeeks. Checkout the relevant license [here][codegeeks-logo-license]. For more information regarding the authorized uses of these items, please [contact us](mailto:amirgoodarzi75@gmail.com).  
+codegeeks-ir® and the codegeeks-ir® logo design, are trademarks of codegeeks-ir, The association of Computer Engineering and Information of Technologies - Urmia University of Technologies. No adaptation or use of any kind of any of our registered trademarks, is allowed without the express written permission of codegeeks-ir. Checkout the relevant license [here][codegeeks-ir-logo-license]. For more information regarding the authorized uses of these items, please [contact us](mailto:amirgoodarzi75@gmail.com).  
 
 Any other things like code and docs are under [same MIT license][project-license].
 
 [nextjs]: https://nextjs.org/  
 [tailwindcss]: https://tailwindcss.com/  
 
-[requirements]: https://github.com/codegeeks/requirements  
-[faqs]: https://github.com/codegeeks/faqs  
-[projects]: https://github.com/codegeeks/projects  
-[events]: https://github.com/codegeeks/events  
-[blog]: https://github.com/codegeeks/blog  
-[members]: https://github.com/codegeeks/members  
-[challenges]: https://github.com/codegeeks/challenges  
-[companions]: https://github.com/codegeeks/companions  
+[requirements]: https://github.com/codegeeks-ir/requirements  
+[faqs]: https://github.com/codegeeks-ir/faqs  
+[projects]: https://github.com/codegeeks-ir/projects  
+[events]: https://github.com/codegeeks-ir/events  
+[blog]: https://github.com/codegeeks-ir/blog  
+[members]: https://github.com/codegeeks-ir/members  
+[challenges]: https://github.com/codegeeks-ir/challenges  
+[companions]: https://github.com/codegeeks-ir/companions  
 
-[UUT-logo-license]: https://github.com/codegeeks/codegeeks/blob/main/public/icones/uut/LICENSE
-[codegeeks-logo-license]: https://github.com/codegeeks/codegeeks/blob/main/public/icones/codegeeks/LICENSE
-[project-license]: https://github.com/codegeeks/codegeeks/blob/main/LICENSE
+[UUT-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/uut/LICENSE
+[codegeeks-ir-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/codegeeks-ir/LICENSE
+[project-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/LICENSE

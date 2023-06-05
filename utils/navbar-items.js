@@ -12,13 +12,13 @@ const navbarItems = [
   {
     category: "navbar",
     link: "/",
-    repo: "codegeeks",
+    repo: "codegeeks-ir",
     icon: <HomeIcon className="fill-gray-900 w-8 h-auto" />,
   },
   {
     category: "navbar",
     link: "/account",
-    repo: "codegeeks",
+    repo: "codegeeks-ir",
     icon: <ProfileIcon className="fill-gray-900 w-8 h-auto" />,
   },
 ];

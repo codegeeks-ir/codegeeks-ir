@@ -50,7 +50,7 @@ export async function getStaticProps() {
   const status = await getItem("project-status.md", "./");
   const versionNumber = require("../package.json").version;
   const githubReleaseLink =
-    "https://github.com/codegeeks/codegeeks/releases/tag/v";
+    "https://github.com/codegeeks-ir/codegeeks-ir/releases/tag/v";
   const versionLink = githubReleaseLink + versionNumber;
   return {
     props: {

@@ -35,27 +35,29 @@ export default function Developers({ contributions }) {
       <div className="flex flex-row">
         <a
           className="btn-primary w-32 flex flex-row items-center justify-center"
-          href="https://github.com/codegeeks/codegeeks/stargazers"
+          href="https://github.com/codegeeks-ir/codegeeks-ir/stargazers"
         >
           <p className="my-0 mx-1 py-0">ستاره</p>
           <StarIcon className="icon" />
         </a>
         <a
           className="btn-primary w-32 flex flex-row items-center justify-center"
-          href="https://github.com/codegeeks/codegeeks/issues"
+          href="https://github.com/codegeeks-ir/codegeeks-ir/issues"
         >
           <p className="my-0 mx-1 py-0">کمک</p>
           <ForkIcon className="icon" />
         </a>
       </div>
-        <button
-          className="btn-primary w-72 flex flex-row items-center justify-center p-2
+      <button
+        className="btn-primary w-72 flex flex-row items-center justify-center p-2
           focus:bg-green-500 focus:scale-x-105 focus:scale-105 transition ease-in-out duration-500"
-          href="#"
-        >
-          <p className="text-xs my-0 mx-1 py-0">اللَهم صلی علی محمَد و آل محمَد و عجَل فرجهم</p>
-          <PrayIcon className="icon" />
-        </button>
+        href="#"
+      >
+        <p className="text-xs my-0 mx-1 py-0">
+          اللَهم صلی علی محمَد و آل محمَد و عجَل فرجهم
+        </p>
+        <PrayIcon className="icon" />
+      </button>
     </div>
   );
 }

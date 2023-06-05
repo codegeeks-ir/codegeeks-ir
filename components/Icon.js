@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import codegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
+import codegeeksIcon from "public/icones/codegeeks-ir/codegeeks-ir-icon.svg";
 
 const isHomePage = () => {
   const router = useRouter();

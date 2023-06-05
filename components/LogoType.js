@@ -1,4 +1,4 @@
-import codegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
+import codegeeksIcon from "public/icones/codegeeks-ir/codegeeks-ir-icon.svg";
 
 const LogoType = () => (
   <div className="flex flex-col items-center justify-center">

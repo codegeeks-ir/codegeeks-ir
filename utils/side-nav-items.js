@@ -12,7 +12,7 @@ const sideNavItems = [
   {
     name: "حمایت",
     link: "/sponsor",
-    repo: "codegeeks",
+    repo: "codegeeks-ir",
     icon: <HeartIcon className="w-8 fill-gray-600" />,
   },
   {
