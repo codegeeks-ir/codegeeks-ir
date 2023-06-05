@@ -1,7 +1,7 @@
 import GithubIcon from "public/icones/social/github.svg";
 import ClockIcon from "public/icones/clock.svg";
 import LocationIcon from "public/icones/location.svg";
-import codegeeksIcon from "public/icones/codegeeks-ir/codegeeks-ir-icon.svg";
+import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
 import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
 import UutIcon from "public/icones/uut/uut-icon.svg";
 import Image from "next/image";
@@ -91,7 +91,7 @@ export default function EventPdf({
         </div>
       </div>
       <div className="pdf-icons">
-        <codegeeksIcon className="fill-slate-200 w-40 h-auto" />
+        <CodegeeksIcon className="fill-slate-200 w-40 h-auto" />
         <CulturalIcon className="fill-slate-200 w-40 h-auto" />
         <UutIcon className="fill-slate-200 w-40 h-auto" />
       </div>

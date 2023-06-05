@@ -3,7 +3,7 @@
   "short_name": "codegeeks-ir",
   "icons": [
     {
-      "src": "/icons/codegeeks-ir/codegeeks-ir-icon.svg",
+      "src": "/icons/codegeeks/codegeeks-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

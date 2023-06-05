@@ -91,5 +91,5 @@ Any other things like code and docs are under [same MIT license][project-license
 [companions]: https://github.com/codegeeks-ir/companions  
 
 [UUT-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/uut/LICENSE
-[codegeeks-ir-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/codegeeks-ir/LICENSE
+[codegeeks-ir-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/codegeeks/LICENSE
 [project-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/LICENSE

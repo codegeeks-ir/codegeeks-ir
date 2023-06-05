@@ -26,7 +26,7 @@ const MyApp = ({ Component, pageProps }) => {
         <link
           rel="apple-touch-icon"
           type="image/svg+xml"
-          href="/icones/codegeeks-ir/codegeeks-ir-icon.svg"
+          href="/icones/codegeeks/codegeeks-icon.svg"
         ></link>
         <meta name="theme-color" content="#fff" />
         <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />

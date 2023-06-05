@@ -12,13 +12,13 @@
    viewBox="0 0 507.99998 285.75001"
    version="1.1"
    id="svg8"
-   sodipodi:docname="Icon-With-Title.svg"
+   sodipodi:docname="codegeeks-logo.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    inkscape:export-filename="/home/amirihusayn/Documents/blue.png"
    inkscape:export-xdpi="96.209999"
    inkscape:export-ydpi="96.209999">
   <title
-     id="title13">ceit-uut-icon-title</title>
+     id="title13">codegeeks-logo</title>
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -63,7 +63,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title>ceit-uut-icon-title</dc:title>
+        <dc:title>codegeeks-logo</dc:title>
         <dc:creator>
           <cc:Agent>
             <dc:title>amirihusayn</dc:title>
@@ -71,12 +71,12 @@
         </dc:creator>
         <dc:rights>
           <cc:Agent>
-            <dc:title>ceit-uut</dc:title>
+            <dc:title>codegeeks-logo</dc:title>
           </cc:Agent>
         </dc:rights>
         <dc:publisher>
           <cc:Agent>
-            <dc:title>ceit-uut</dc:title>
+            <dc:title>codegeeks-logo</dc:title>
           </cc:Agent>
         </dc:publisher>
         <dc:contributor>
@@ -84,7 +84,7 @@
             <dc:title>amirihusayn</dc:title>
           </cc:Agent>
         </dc:contributor>
-        <dc:description>This is ceituut icon with title.</dc:description>
+        <dc:description>This is codegeeks logo</dc:description>
       </cc:Work>
     </rdf:RDF>
   </metadata>

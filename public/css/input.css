@@ -127,12 +127,12 @@
 
 /* Variables */
 :root {
-  --ceit-primary: #004080;
-  --ceit-secondary: #008049;
+  --codegeeks-primary: #004080;
+  --codegeeks-secondary: #008049;
   --my-gradient: linear-gradient(
     45deg,
-    var(--ceit-primary),
-    var(--ceit-secondary)
+    var(--codegeeks-primary),
+    var(--codegeeks-secondary)
   );
   direction: rtl;
 }
