@@ -3,7 +3,7 @@
   "short_name": "codegeeks",
   "icons": [
     {
-      "src": "/icons/ceituut/ceituut-icon.svg",
+      "src": "/icons/codegeeks/codegeeks-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

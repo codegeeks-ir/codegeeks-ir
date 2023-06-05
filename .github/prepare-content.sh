@@ -16,7 +16,7 @@ coursesLength=${#courses[@]}
 # Clone content repositories
 for (( index=0; index<${contentsLength}; index++));
 do
-    git clone --depth 1 -b main "https://github.com/ceituut/${contents[$index]}.git" \
+    git clone --depth 1 -b main "https://github.com/codegeeks/${contents[$index]}.git" \
         "collections/${contents[$index]}"
 done
 
@@ -24,7 +24,7 @@ done
 # Then generate a json tree file structure that is used for file explorer
 for (( index=0; index<${coursesLength}; index++));
 do
-    git clone --depth 1 -b main "https://github.com/ceituut/${courses[$index]}.git" \
+    git clone --depth 1 -b main "https://github.com/codegeeks/${courses[$index]}.git" \
         "collections/courses/${courses[$index]}"
     cd "collections/courses/${courses[$index]}" 
     mkdir assets

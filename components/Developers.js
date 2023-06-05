@@ -35,14 +35,14 @@ export default function Developers({ contributions }) {
       <div className="flex flex-row">
         <a
           className="btn-primary w-32 flex flex-row items-center justify-center"
-          href="https://github.com/ceituut/ceituut.github.io/stargazers"
+          href="https://github.com/codegeeks/codegeeks/stargazers"
         >
           <p className="my-0 mx-1 py-0">ستاره</p>
           <StarIcon className="icon" />
         </a>
         <a
           className="btn-primary w-32 flex flex-row items-center justify-center"
-          href="https://github.com/ceituut/ceituut.github.io/issues"
+          href="https://github.com/codegeeks/codegeeks/issues"
         >
           <p className="my-0 mx-1 py-0">کمک</p>
           <ForkIcon className="icon" />

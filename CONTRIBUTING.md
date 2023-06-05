@@ -22,16 +22,16 @@ We Use [Fork Flow](https://docs.github.com/en/pull-requests); All code changes h
 
 ## Report bugs using Github's issues
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/ceituut/ceituut.github.io/issues/new/choose); it's that easy!
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/codegeeks/codegeeks/issues/new/choose); it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 
-Check out ![bug report](https://github.com/ceituut/ceituut.github.io/blob/main/.github/ISSUE_TEMPLATE/bug_report.md) and ![feature request](https://github.com/ceituut/ceituut.github.io/blob/main/.github/ISSUE_TEMPLATE/feature_request.md) templates.
+Check out ![bug report](https://github.com/codegeeks/codegeeks/blob/main/.github/ISSUE_TEMPLATE/bug_report.md) and ![feature request](https://github.com/codegeeks/codegeeks/blob/main/.github/ISSUE_TEMPLATE/feature_request.md) templates.
 
 ## Code of conduct
 
-We use ![this code of conduct](https://github.com/ceituut/ceituut.github.io/blob/main/CODE_OF_CONDUCT.md).  
+We use ![this code of conduct](https://github.com/codegeeks/codegeeks/blob/main/CODE_OF_CONDUCT.md).  
 
 ## License
 
-Checkout [README](https://github.com/ceituut/ceituut.github.io/blob/main/README.md) for license.  
+Checkout [README](https://github.com/codegeeks/codegeeks/blob/main/README.md) for license.  

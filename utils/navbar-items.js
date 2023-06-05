@@ -12,13 +12,13 @@ const navbarItems = [
   {
     category: "navbar",
     link: "/",
-    repo: "ceituut.github.io",
+    repo: "codegeeks",
     icon: <HomeIcon className="fill-gray-900 w-8 h-auto" />,
   },
   {
     category: "navbar",
     link: "/account",
-    repo: "ceituut.github.io",
+    repo: "codegeeks",
     icon: <ProfileIcon className="fill-gray-900 w-8 h-auto" />,
   },
 ];

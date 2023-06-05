@@ -74,22 +74,22 @@ Also if You have something valuable to write or give someone else, here are the 
 
 UUT®, the UUT® logo design, UUT Cultural Affairs® and the UUT Cultural Affairs® logo are trademarks of UUT, The Urmia University of Technologies. No adaptation or use of any kind of any of our registered trademarks, is allowed without the express written permission of UUT. Checkout the relevant license [here][UUT-logo-license]. For more information regarding the authorized uses of these items, please [contact us](mailto:info@uut.ac.ir).  
 
-CEITUUT® and the CEITUUT® logo design, are trademarks of CEITUUT, The association of Computer Engineering and Information of Technologies - Urmia University of Technologies. No adaptation or use of any kind of any of our registered trademarks, is allowed without the express written permission of CEITUUT. Checkout the relevant license [here][CEITUUT-logo-license]. For more information regarding the authorized uses of these items, please [contact us](mailto:amirgoodarzi75@gmail.com).  
+codegeeks® and the codegeeks® logo design, are trademarks of codegeeks, The association of Computer Engineering and Information of Technologies - Urmia University of Technologies. No adaptation or use of any kind of any of our registered trademarks, is allowed without the express written permission of codegeeks. Checkout the relevant license [here][codegeeks-logo-license]. For more information regarding the authorized uses of these items, please [contact us](mailto:amirgoodarzi75@gmail.com).  
 
 Any other things like code and docs are under [same MIT license][project-license].
 
 [nextjs]: https://nextjs.org/  
 [tailwindcss]: https://tailwindcss.com/  
 
-[requirements]: https://github.com/ceituut/requirements  
-[faqs]: https://github.com/ceituut/faqs  
-[projects]: https://github.com/ceituut/projects  
-[events]: https://github.com/ceituut/events  
-[blog]: https://github.com/ceituut/blog  
-[members]: https://github.com/ceituut/members  
-[challenges]: https://github.com/ceituut/challenges  
-[companions]: https://github.com/ceituut/companions  
+[requirements]: https://github.com/codegeeks/requirements  
+[faqs]: https://github.com/codegeeks/faqs  
+[projects]: https://github.com/codegeeks/projects  
+[events]: https://github.com/codegeeks/events  
+[blog]: https://github.com/codegeeks/blog  
+[members]: https://github.com/codegeeks/members  
+[challenges]: https://github.com/codegeeks/challenges  
+[companions]: https://github.com/codegeeks/companions  
 
-[UUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/public/icones/uut/LICENSE
-[CEITUUT-logo-license]: https://github.com/ceituut/ceituut.github.io/blob/main/public/icones/ceituut/LICENSE
-[project-license]: https://github.com/ceituut/ceituut.github.io/blob/main/LICENSE
+[UUT-logo-license]: https://github.com/codegeeks/codegeeks/blob/main/public/icones/uut/LICENSE
+[codegeeks-logo-license]: https://github.com/codegeeks/codegeeks/blob/main/public/icones/codegeeks/LICENSE
+[project-license]: https://github.com/codegeeks/codegeeks/blob/main/LICENSE

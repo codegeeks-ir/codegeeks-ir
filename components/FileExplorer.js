@@ -28,7 +28,7 @@ const Directory = ({
 const File = ({ element, repoName }) => (
   <a
     className="file-explorer-element"
-    href={`https://github.com/ceituut/${repoName}/raw/main/${element.name}`}
+    href={`https://github.com/codegeeks/${repoName}/raw/main/${element.name}`}
   >
     <FileIcon className="w-12 fill-blue-400" />
     <p>{element.name.split("/").pop()}</p>
@@ -77,7 +77,7 @@ const Path = ({ path }) => (
 );
 
 const DownloadLink = ({ repoName }) => {
-  const repoLink = `https://github.com/ceituut/${repoName}`;
+  const repoLink = `https://github.com/codegeeks/${repoName}`;
   const download = `${repoLink}/archive/refs/heads/main.zip`;
   return (
     <a className="grow-0" href={download}>

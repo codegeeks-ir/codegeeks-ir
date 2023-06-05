@@ -4,7 +4,7 @@ const config = {
   url: "https://codegeeks.ir",
   api: "https://api.codegeeks.ir/",
   testApi: "https://test.codegeeks.ir/",
-  github: "ceituut",
+  github: "codegeeks",
 };
 
 export default config;

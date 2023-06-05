@@ -26,14 +26,14 @@ const getRepoName = () => {
   else {
     page = allLinks.find((item) => item.link == `/${mainPath}`);
     if (page != null || page != undefined) return page.repo;
-    else return "ceituut.github.io";
+    else return "codegeeks";
   }
 };
 
 const PageHeader = () => {
   const back = getBackLink();
   const repo = getRepoName();
-  const contributionLink = `https://github.com/ceituut/${repo}`;
+  const contributionLink = `https://github.com/codegeeks/${repo}`;
   return (
     <div className="page-header-navbar">
       <Link className="page-header-navbar-button" href={back}>

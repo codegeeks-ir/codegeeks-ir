@@ -21,7 +21,7 @@ const socialItems = [
   },
   {
     name: "github",
-    link: "https://github.com/ceituut",
+    link: "https://github.com/codegeeks",
     icon: <GithubIcon className="fill-gray-400 w-4 h-auto" />,
   },
 ];
