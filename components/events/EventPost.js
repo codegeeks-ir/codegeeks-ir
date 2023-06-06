@@ -9,11 +9,7 @@ import Image from "next/image";
 import { getPersianDate } from "lib/persian-long-date";
 import { useEffect, useRef } from "react";
 
-export default function EventPost({
-  data,
-  isReadyForExport,
-  setIsReadyForExport,
-}) {
+const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
   useEffect(() => {
@@ -96,4 +92,6 @@ export default function EventPost({
       </div>
     </div>
   );
-}
+};
+
+export default EventPost;

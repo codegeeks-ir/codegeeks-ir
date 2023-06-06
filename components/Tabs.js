@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 
-export default function Tabs({ headers, contents }) {
+const Tabs = ({ headers, contents }) => {
   const [showCollapse, setShowCollapse] = useState(
     Array(headers.length).fill(false)
   );
   useEffect(
     () =>
-      setShowCollapse((currentShowCollapse) => {
-        return currentShowCollapse.map((item, index) => {
-          return index == 0 ? true : false;
-        });
-      }),
+      setShowCollapse((currentShowCollapse) =>
+        currentShowCollapse.map((item, index) => (index == 0 ? true : false))
+      ),
     []
   );
   return (
@@ -46,4 +44,6 @@ export default function Tabs({ headers, contents }) {
       ))}
     </>
   );
-}
+};
+
+export default Tabs;

@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Accordion({
-  collapseData,
-  headerData,
-  isShowByDefault,
-}) {
+const Accordion = ({ collapseData, headerData, isShowByDefault }) => {
   const [showCollapse, setShowCollapse] = useState(false);
   useEffect(() => setShowCollapse(isShowByDefault), []);
   return (
@@ -21,4 +17,6 @@ export default function Accordion({
       ></div>
     </>
   );
-}
+};
+
+export default Accordion;

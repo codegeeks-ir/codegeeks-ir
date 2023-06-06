@@ -1,6 +1,6 @@
 import ShareIcon from "public/icones/share.svg";
 
-export default function ShareEvent({ exportLink, subject }) {
+const ShareEvent = ({ exportLink, subject }) => {
   return (
     <div className="p-0 mt-8">
       <h1 className="card-title m-0">
@@ -36,4 +36,6 @@ export default function ShareEvent({ exportLink, subject }) {
       </div>
     </div>
   );
-}
+};
+
+export default ShareEvent;

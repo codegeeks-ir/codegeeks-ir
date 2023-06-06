@@ -3,11 +3,7 @@ import Results from "components/collection/Results";
 import Pagination from "components/collection/Pagination";
 import { useState } from "react";
 
-export default function propCollection({
-  propCollection,
-  collectionType,
-  properties,
-}) {
+const Collection = ({ propCollection, collectionType, properties }) => {
   const [mySearch, setMySearch] = useState({
     searchInput: "",
     properties: properties,
@@ -35,4 +31,6 @@ export default function propCollection({
       <Pagination myPage={myPage} setMyPage={setMyPage} mySearch={mySearch} />
     </>
   );
-}
+};
+
+export default Collection;

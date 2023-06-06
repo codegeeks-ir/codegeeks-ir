@@ -2,10 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import navbarItems from "utils/navbar-items";
 
-const isActiveLink = (link) => {
-  const router = useRouter();
-  return router.pathname == link;
-};
+const isActiveLink = (link) => useRouter().pathname == link;
 
 const Navbar = () => {
   return (

@@ -6,7 +6,7 @@ import { getPersianDate } from "lib/persian-long-date";
 import textFit from "textfit";
 import { useEffect, useRef } from "react";
 
-export default function Event({ data }) {
+const Event = ({ data }) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
   useEffect(() => {
@@ -26,12 +26,17 @@ export default function Event({ data }) {
             height="176"
             alt={data.githubID}
           />
-          <a className="github-icon relative" href={`https://github.com/${data.githubID}`}>
+          <a
+            className="github-icon relative"
+            href={`https://github.com/${data.githubID}`}
+          >
             <GithubIcon className="icon w-8" />
           </a>
         </div>
         <div className="flex flex-col justify-end">
-          <h2 className="my-0" ref={lecturerRef}>{data.lecturer}</h2>
+          <h2 className="my-0" ref={lecturerRef}>
+            {data.lecturer}
+          </h2>
           <p className="my-0">{data.bio}</p>
         </div>
       </div>
@@ -61,4 +66,6 @@ export default function Event({ data }) {
       </div>
     </div>
   );
-}
+};
+
+export default Event;

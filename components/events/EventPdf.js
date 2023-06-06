@@ -11,11 +11,7 @@ import { getPersianDate } from "lib/persian-long-date";
 import { useEffect, useRef } from "react";
 import config from "utils/config";
 
-export default function EventPdf({
-  data,
-  isReadyForExport,
-  setIsReadyForExport,
-}) {
+const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
   const baseUrl = config.url;
@@ -97,4 +93,6 @@ export default function EventPdf({
       </div>
     </div>
   );
-}
+};
+
+export default EventPdf;
