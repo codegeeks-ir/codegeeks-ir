@@ -75,7 +75,7 @@ const getLocation = async (pathCollection, mainUrl) =>
     .join("");
 
 const getSiteMapContent = async () => {
-  const mainUrl = "https://codegeeks-ir.ir";
+  const mainUrl = "https://codegeeks.ir";
   const allPathCollections = await getPaths();
   const allLocations = await Promise.all(
     allPathCollections.map(
