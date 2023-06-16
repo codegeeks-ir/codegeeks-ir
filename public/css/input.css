@@ -5,6 +5,11 @@
 /* Reusable components */
 @layer components {
   /* Button components */
+  .btn {
+    @apply text-center
+        bg-none text-slate-700 
+        font-semibold;
+  }
   .btn-primary {
     @apply m-1 py-1 px-2 
         text-center
@@ -331,6 +336,45 @@ footer p {
     flex flex-row justify-center w-auto h-16 m-0 px-1 rounded-l-none;
 }
 
+/* Calendar styles */
+.calendar {
+  @apply w-full text-xs md:w-1/2 md:text-sm rounded-lg 
+  px-0 pt-8 bg-slate-300;
+}
+.calendar-day-names {
+  @apply grid grid-cols-7 gap-1 pb-4 pt-2
+  border-b-4 border-solid border-slate-400 border-opacity-20;
+}
+.calendar-day-list {
+  @apply grid grid-cols-7 gap-1 py-8 text-center;
+}
+.current-day {
+  @apply btn bg-slate-700 text-slate-300;
+}
+.selected-day {
+  @apply ring-1 ring-slate-700;
+}
+.calendar-header {
+  @apply flex flex-row flex-wrap justify-between items-center 
+  w-full rounded-md rounded-t-none px-4 py-2
+  bg-slate-400 bg-opacity-20;
+}
+
+/* Tab styles */
+.tab-buttons {
+  @apply flex flex-row flex-wrap mt-8 mb-8;
+}
+.tab-buttons button {
+  @apply rounded-none first:rounded-tr-md last:rounded-bl-md odd:w-1/2 even:w-1/2 
+  md:first:rounded-r-md md:last:rounded-l-md odd:md:w-auto even:md:w-auto m-0;
+}
+.tab-buttons button:nth-child(2) {
+  @apply rounded-tl-md md:rounded-none;
+}
+.tab-buttons button:nth-last-child(2) {
+  @apply rounded-br-md md:rounded-none;
+}
+
 /* Icon styles */
 .icon {
   @apply fill-slate-200 w-4 h-auto;
@@ -552,18 +596,4 @@ a .icon {
 }
 .card-button button {
   @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0;
-}
-
-.tab-buttons {
-  @apply flex flex-row flex-wrap mt-8 mb-8;
-}
-.tab-buttons button {
-  @apply rounded-none first:rounded-tr-md last:rounded-bl-md odd:w-1/2 even:w-1/2 
-  md:first:rounded-r-md md:last:rounded-l-md odd:md:w-auto even:md:w-auto m-0;
-}
-.tab-buttons button:nth-child(2) {
-  @apply rounded-tl-md md:rounded-none;
-}
-.tab-buttons button:nth-last-child(2) {
-  @apply rounded-br-md md:rounded-none;
 }

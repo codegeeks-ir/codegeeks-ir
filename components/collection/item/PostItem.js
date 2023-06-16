@@ -1,4 +1,4 @@
-import { getPersianDate } from "lib/persian-long-date";
+import { getPersianLongDate } from "lib/persian-long-date";
 import Link from "next/link";
 
 const PostItem = ({ item }) => (
@@ -9,7 +9,7 @@ const PostItem = ({ item }) => (
       {/* <p className="card-text">{item.excerpt}</p> */}
     </div>
     <div className="card-footer non-important justify-end" dir="ltr">
-      <p className="m-0">{getPersianDate(item.date)}</p>
+      <p className="m-0">{getPersianLongDate(item.date)}</p>
     </div>
     <div className="card-button">
       <Link href={item.link}>مطالعه</Link>

@@ -2,7 +2,7 @@ import GithubIcon from "public/icones/social/github.svg";
 import ClockIcon from "public/icones/clock.svg";
 import LocationIcon from "public/icones/location.svg";
 import Image from "next/image";
-import { getPersianDate } from "lib/persian-long-date";
+import { getPersianLongDate } from "lib/persian-long-date";
 import textFit from "textfit";
 import { useEffect, useRef } from "react";
 
@@ -49,7 +49,7 @@ const Event = ({ data }) => {
       <hr />
       <div className="pb-4 mt-6">
         <p className="date invisible m-0">
-          {getPersianDate(data.date.split(" ")[0])}
+          {getPersianLongDate(data.date.split(" ")[0])}
         </p>
         <div className="flex flex-row items-center m-0 p-0">
           <p className="mt-0 mb-0">

@@ -7,7 +7,7 @@ import UutIcon from "public/icones/uut/uut-icon.svg";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import textFit from "textfit";
-import { getPersianDate } from "lib/persian-long-date";
+import { getPersianLongDate } from "lib/persian-long-date";
 import { useEffect, useRef } from "react";
 import config from "utils/config";
 
@@ -70,7 +70,7 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
             className="ml-4"
           />
           <div className="flex flex-col">
-            <p className="m-0">{getPersianDate(data.date.split(" ")[0])}</p>
+            <p className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</p>
             <div className="flex flex-row items-center m-0 p-0">
               <p className="mt-0 -mb-10">
                 <ClockIcon className="fill-gray-700 w-8 h-auto" />

@@ -3,7 +3,7 @@ import FileIcon from "public/icones/file.svg";
 import BackIcon from "public/icones/back-folder.svg";
 import CloudIcon from "public/icones/cloud.svg";
 import DownloadIcon from "public/icones/download.svg";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Directory = ({
   element,

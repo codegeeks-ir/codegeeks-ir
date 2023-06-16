@@ -1,7 +1,7 @@
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getItem, getSlugs } from "lib/get-collection";
-import { getPersianDate } from "lib/persian-long-date";
+import { getPersianLongDate } from "lib/persian-long-date";
 import hljs from "highlight.js";
 import { useEffect } from "react";
 import Head from "next/head";
@@ -27,7 +27,7 @@ export default function ChallengePage({ data }) {
       <div className="flex flex-row non-important mt-10 mb-20 p-0">
         <div className="w-1/2">
           <h5>زمان</h5>
-          <p className="card-text my-0">{getPersianDate(data.date)}</p>
+          <p className="card-text my-0">{getPersianLongDate(data.date)}</p>
           <p className="card-text my-0">ساعت {data.date.split(" ")[1]}</p>
         </div>
       </div>

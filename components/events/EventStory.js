@@ -6,7 +6,7 @@ import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
 import UutIcon from "public/icones/uut/uut-icon.svg";
 import textFit from "textfit";
 import Image from "next/image";
-import { getPersianDate } from "lib/persian-long-date";
+import { getPersianLongDate } from "lib/persian-long-date";
 import { useEffect, useRef } from "react";
 
 const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
@@ -70,7 +70,7 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
           dir="auto"
         ></div>
         <div className="absolute bottom-24 pb-4">
-          <h3 className="m-0">{getPersianDate(data.date.split(" ")[0])}</h3>
+          <h3 className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</h3>
           <div className="flex flex-row items-center m-0">
             <p className="mt-0.5 -mb-2 px-0 py-1">
               <ClockIcon className="fill-gray-700 w-3 h-auto" />
