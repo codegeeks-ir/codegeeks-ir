@@ -17,7 +17,7 @@ const Contacts = ({ contactPropCollection, contactContentCollection }) => {
           name="description"
           content="ارتباط با اساتید و کارکنان گروه کامپیوتر"
         />
-        <title>دفترچه تماس | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>دفترچه تماس | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <h2>دفترچه تماس</h2>
       {contactPropCollection.map((item, index) => (

@@ -16,10 +16,10 @@ const CurriculumGuide = ({ curriculumGuides }) => {
       <Head>
         <meta
           name="keywords"
-          content="چارت, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+          content="چارت, چارت درسی‌‌‌‌, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
         <meta name="description" content="چارت درسی گروه کامپیوتر" />
-        <title>چارت درسی | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>چارت درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <h2>چارت</h2>
       {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (

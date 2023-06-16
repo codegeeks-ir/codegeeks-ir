@@ -12,18 +12,18 @@ export default function Courses({ propCollection, collectionType, properties }) 
       <Head>
         <meta
           name="keywords"
-          content="دروس, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+          content="مستندات درسی, جزوه, اسلاید, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
         <meta
           name="description"
-          content="مستندات و منابع درسی"
+          content="منابع و مستندات درسی گروه کامپیوتر"
         />
-        <title>دروس | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>منابع و مستندات درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div className="collection-container">
         <PageHeader />
         <div className="page-header">
-          <h1>دروس</h1>
+          <h1>مستندات درسی</h1>
         <LinkSection items={courseNavItems} />
         </div>
       </div>

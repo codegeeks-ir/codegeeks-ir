@@ -25,7 +25,7 @@ export default function AuthorPage({ data, myPosts }) {
           name="description"
           content="همراهان و فعالان انجمن"
         />
-        <title>{`${data.name} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+        <title>{`${data.name} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <div className="flex flex-col items-center justify-center mb-0 rounded-none">
         <div className="profile-picture relative w-44 my-4">

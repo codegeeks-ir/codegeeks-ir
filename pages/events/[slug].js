@@ -141,7 +141,7 @@ export default function EventPage({ data }) {
           name="description"
           content="رویدادها و کارگاه‌های فنی و علمی انجمن"
         />
-        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+        <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <div className="w-full">
         <Event data={data} />

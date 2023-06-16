@@ -17,7 +17,7 @@ export default function Events({ propCollection, collectionType, properties }) {
           name="description"
           content="رویدادها و کارگاه‌های فنی و علمی انجمن"
         />
-        <title>رویداد‌ها | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>رویداد‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div className="collection-container">
         <PageHeader />

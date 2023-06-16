@@ -23,7 +23,7 @@ export default function PostPage({ data, author }) {
           name="description"
           content={data.description}
         />
-        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+        <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
       <PostAuthor name={author.name} githubID={author.githubID} />

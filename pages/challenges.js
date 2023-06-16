@@ -18,7 +18,7 @@ export default function Challenges({
           content="مسابقات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
         <meta name="description" content="مسابقات برنامه نویسی انجمن" />
-        <title>مسابقات | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>مسابقات | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div className="collection-container">
         <PageHeader />

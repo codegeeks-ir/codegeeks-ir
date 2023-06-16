@@ -20,7 +20,7 @@ export default function ChallengePage({ data }) {
           content="مسابقات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
         <meta name="description" content="مسابقات برنامه نویسی انجمن" />
-        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+        <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <h1 className="mb-0">{data.title}</h1>
       <h5 className="card-subtitle mt-0 mb-2">{data.score}</h5>

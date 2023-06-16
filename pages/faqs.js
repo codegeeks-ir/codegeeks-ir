@@ -17,7 +17,7 @@ export default function Faqs({ propCollection, collectionType, properties }) {
           name="description"
           content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
         />
-        <title>سوالات‌متداول | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>سوالات‌متداول | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div className="collection-container">
         <PageHeader />

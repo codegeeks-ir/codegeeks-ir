@@ -17,10 +17,10 @@ export default function CoursePage({ data, repoName, resources }) {
       <Head>
         <meta
           name="keywords"
-          content="دروس, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+          content="مستندات درسی, جزوه, اسلاید, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
-        <meta name="description" content="منابع درسی گروه کامپیوتر" />
-        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+        <meta name="description" content="منابع و مستندات درسی گروه کامپیوتر" />
+        <title>{`مستندات درس ${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <div>
         <article dangerouslySetInnerHTML={{ __html: data.content }}></article>

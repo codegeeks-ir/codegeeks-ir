@@ -21,7 +21,7 @@ export default function About({ propCollection, contentCollection, about }) {
           name="description"
           content="درباره فعالیت های انجمن، آشنایی با اعضای مرکزی و اهداف"
         />
-        <title>درباره‌ما | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>درباره‌ما | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
       <h2>اعضای مرکزی انجمن</h2>

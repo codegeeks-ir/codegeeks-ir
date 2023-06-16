@@ -20,7 +20,7 @@ export default function Projects({
           name="description"
           content="پروژه‌های پایانی دانشجویان و پروژه‌های تیمی انجمن"
         />
-        <title>پروژه‌ها | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>پروژه‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <h1>پروژه‌ها</h1>
       <div>

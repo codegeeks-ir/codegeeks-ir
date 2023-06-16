@@ -25,7 +25,7 @@ export default function Sponsor({
           content="حمایت, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
         <meta name="description" content="حمایت از پروژه وب سایت انجمن" />
-        <title>حمایت | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>حمایت | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div dangerouslySetInnerHTML={{ __html: sponsor.content }}></div>
       <Developers contributions={sponsor.contributions} />

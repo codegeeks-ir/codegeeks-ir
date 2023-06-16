@@ -14,9 +14,9 @@ export default function RequirementsPage({}) {
         />
         <meta
           name="description"
-          content="ارتباط با اساتید، چارت درسی گروه کامپیوتر، دروس رشته، ساعت حرکت سرویس ها و ..."
+          content="ارتباط با اساتید، چارت درسی گروه کامپیوتر، مستندات درسی رشته، ساعت حرکت سرویس ها و ..."
         />
-        <title>نیازمندی‌ها | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>نیازمندی‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div className="flex flex-col items-center w-full h-full max-h-screen mt-4">
         <LogoType />

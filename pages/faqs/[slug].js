@@ -22,7 +22,7 @@ export default function FaqPage({ data }) {
           name="description"
           content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
         />
-        <title>{`${data.title} | انجمن کامپیوتر صنعتی ارومیه`}</title>
+        <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
     </>

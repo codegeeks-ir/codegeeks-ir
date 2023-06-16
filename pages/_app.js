@@ -30,7 +30,7 @@ const MyApp = ({ Component, pageProps }) => {
         ></link>
         <meta name="theme-color" content="#fff" />
         <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-        <title>انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       {getLayout(<Component {...pageProps} />)}
     </>

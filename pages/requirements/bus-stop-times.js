@@ -18,7 +18,7 @@ const BusStopTimes = ({ busStopPropCollection, busStopContentCollection }) => {
           name="description"
           content="زمان حرکت سرویس‌های دانشگاه صنعتی ارومیه"
         />
-        <title>زمان سرویس‌ها | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>زمان سرویس‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <h2>زمان سرویس‌ها</h2>
       <Tabs

@@ -23,7 +23,7 @@ export default function Blog({
           name="description"
           content="انتشارات انجمن، جایی برای نشر تجربیات"
         />
-        <title>انتشارات | انجمن کامپیوتر صنعتی ارومیه</title>
+        <title>انتشارات | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       </Head>
       <div className="collection-container">
         <PageHeader />
