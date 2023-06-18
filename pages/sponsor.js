@@ -7,12 +7,7 @@ import { useEffect } from "react";
 import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 
-export default function Sponsor({
-  sponsor,
-  status,
-  versionNumber,
-  versionLink,
-}) {
+const Sponsor = ({ sponsor, status, version, versionLink }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -31,33 +26,33 @@ export default function Sponsor({
       <Developers contributions={sponsor.contributions} />
       <div dangerouslySetInnerHTML={{ __html: status.content }}></div>
       <a className="btn-primary" href={versionLink}>
-        نسخه {versionNumber}
+        نسخه {version}
       </a>
     </>
   );
-}
-
-Sponsor.getLayout = function getLayout(sponsor) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{sponsor}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps() {
+Sponsor.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async () => {
   const sponsor = await getItem("sponsor.md", "./");
   const status = await getItem("project-status.md", "./");
-  const versionNumber = require("../package.json").version;
+  const version = require("../package.json").version;
   const githubReleaseLink =
     "https://github.com/codegeeks-ir/codegeeks-ir/releases/tag/v";
-  const versionLink = githubReleaseLink + versionNumber;
+  const versionLink = githubReleaseLink + version;
   return {
     props: {
       sponsor,
       status,
-      versionNumber,
+      version,
       versionLink,
     },
   };
-}
+};
+
+export default Sponsor;

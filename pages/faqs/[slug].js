@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 
-export default function FaqPage({ data }) {
+const FaqPage = ({ data }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -27,26 +27,26 @@ export default function FaqPage({ data }) {
       <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
     </>
   );
-}
-
-FaqPage.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps({ params }) {
+FaqPage.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async ({ params }) => {
   const data = await getItem(`${params.slug}.md`, "collections/faqs/faqs");
   return {
     props: {
       data,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getSlugs("collections/faqs/faqs");
   return { paths, fallback: false };
-}
+};
+
+export default FaqPage;

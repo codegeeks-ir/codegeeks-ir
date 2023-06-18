@@ -14,11 +14,13 @@ import config from "utils/config";
 const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
+  const bioRef = useRef();
   const baseUrl = config.url;
   useEffect(() => {
     textFit(subjectRef.current, { widthOnly: true });
+    // textFit(lecturerRef.current, { widthOnly: true });
+    // textFit(bioRef.current);
     setIsReadyForExport({ ...isReadyForExport, pdf: true });
-    // textFit(lecturerRef.current);
   }, []);
   return (
     <div id="export-pdf">
@@ -51,7 +53,7 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
             />
             <div className="relative w-9/12 h-full">
               <p className="github-icon non-important">
-                <GithubIcon className="fill-gray-700 w-12 h-auto" />
+                <GithubIcon className="fill-slate-700 w-12 h-auto" />
               </p>
             </div>
           </div>
@@ -59,7 +61,7 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
             <h2 className="w-full h-12" ref={lecturerRef}>
               {data.lecturer}
             </h2>
-            <p className="m-0 mt-0.5">{data.bio}</p>
+            <p className="m-0 mt-4" ref={bioRef}>{data.bio}</p>
           </div>
         </div>
         <div className="flex flex-row absolute bottom-5 pb-3">
@@ -73,13 +75,13 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
             <p className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</p>
             <div className="flex flex-row items-center m-0 p-0">
               <p className="mt-0 -mb-10">
-                <ClockIcon className="fill-gray-700 w-8 h-auto" />
+                <ClockIcon className="fill-slate-700 w-8 h-auto" />
               </p>
               <p className="mt-0 mb-0">ساعت {data.date.split(" ")[1]}</p>
             </div>
             <div className="flex flex-row items-center m-0 p-0">
               <p className="mt-0 -mb-10">
-                <LocationIcon className="fill-gray-700 w-8 h-auto" />
+                <LocationIcon className="fill-slate-700 w-8 h-auto" />
               </p>
               <p className="mt-0 mb-0">{data.location}</p>
             </div>
@@ -87,9 +89,9 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
         </div>
       </div>
       <div className="pdf-icons">
-        <CodegeeksIcon className="fill-slate-200 w-40 h-auto" />
-        <CulturalIcon className="fill-slate-200 w-40 h-auto" />
-        <UutIcon className="fill-slate-200 w-40 h-auto" />
+        <CodegeeksIcon className="fill-slate-300 w-40 h-auto" />
+        <CulturalIcon className="fill-slate-300 w-40 h-auto" />
+        <UutIcon className="fill-slate-300 w-40 h-auto" />
       </div>
     </div>
   );

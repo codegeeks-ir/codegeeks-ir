@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import Head from "next/head";
 import { centerImage } from "lib/manipulate-html";
 
-export default function ChallengePage({ data }) {
+const ChallengePage = ({ data }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -27,24 +27,22 @@ export default function ChallengePage({ data }) {
       <div className="flex flex-row non-important mt-10 mb-20 p-0">
         <div className="w-1/2">
           <h5>زمان</h5>
-          <p className="card-text my-0">{getPersianLongDate(data.date)}</p>
-          <p className="card-text my-0">ساعت {data.date.split(" ")[1]}</p>
+          <p className="my-0">{getPersianLongDate(data.date)}</p>
+          <p className="my-0">ساعت {data.date.split(" ")[1]}</p>
         </div>
       </div>
       <article dangerouslySetInnerHTML={{ __html: data.content }}></article>{" "}
     </>
   );
-}
-
-ChallengePage.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps({ params }) {
+ChallengePage.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async ({ params }) => {
   const data = await getItem(
     `${params.slug}.md`,
     "collections/challenges/challenges"
@@ -54,9 +52,11 @@ export async function getStaticProps({ params }) {
       data,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getSlugs("collections/challenges/challenges");
   return { paths, fallback: false };
-}
+};
+
+export default ChallengePage;

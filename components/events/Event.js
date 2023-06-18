@@ -40,13 +40,11 @@ const Event = ({ data }) => {
           <p className="my-0">{data.bio}</p>
         </div>
       </div>
-      <hr />
       <div
         dangerouslySetInnerHTML={{ __html: data.content }}
         className="mt-6"
         dir="auto"
       ></div>
-      <hr />
       <div className="pb-4 mt-6">
         <p className="date invisible m-0">
           {getPersianLongDate(data.date.split(" ")[0])}

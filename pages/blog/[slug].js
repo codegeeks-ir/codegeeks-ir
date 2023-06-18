@@ -7,7 +7,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { centerImage } from "lib/manipulate-html";
 
-export default function PostPage({ data, author }) {
+const PostPage = ({ data, author }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -19,27 +19,22 @@ export default function PostPage({ data, author }) {
           name="keywords"
           content="انتشارات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
-        <meta
-          name="description"
-          content={data.description}
-        />
+        <meta name="description" content={data.description} />
         <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
       <PostAuthor name={author.name} githubID={author.githubID} />
     </>
   );
-}
-
-PostPage.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps({ params }) {
+PostPage.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async ({ params }) => {
   const data = await getItem(`${params.slug}.md`, "collections/blog/posts");
   const author = await getItem(
     `${data.githubID}.md`,
@@ -51,9 +46,11 @@ export async function getStaticProps({ params }) {
       author,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getSlugs("collections/blog/posts");
   return { paths, fallback: false };
-}
+};
+
+export default PostPage;

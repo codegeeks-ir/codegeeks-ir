@@ -7,7 +7,7 @@ import { centerImage } from "lib/manipulate-html";
 import Head from "next/head";
 import { useEffect } from "react";
 
-export default function CoursePage({ data, repoName, resources }) {
+const CoursePage = ({ data, repoName, resources }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -28,17 +28,15 @@ export default function CoursePage({ data, repoName, resources }) {
       </div>
     </>
   );
-}
-
-CoursePage.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps({ params }) {
+CoursePage.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async ({ params }) => {
   const data = await getItem("README.md", `collections/courses/${params.slug}`);
   const repoName = params.slug;
   const resources = require(`../../../collections/courses/${params.slug}/assets/tree.json`);
@@ -49,9 +47,11 @@ export async function getStaticProps({ params }) {
       resources,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = await getDirectorySlugs("collections/courses");
   return { paths, fallback: false };
-}
+};
+
+export default CoursePage;

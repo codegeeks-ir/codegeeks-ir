@@ -35,7 +35,7 @@ const Tabs = ({ headers, contents }) => {
       {contents.map((contentItem, contentIndex) => (
         <div
           key={contentIndex}
-          className={`m-0 -mt-6 ${
+          className={`w-full m-0 -mt-6 ${
             showCollapse[contentIndex] ? "block" : "hidden"
           }`}
         >

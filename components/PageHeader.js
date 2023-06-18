@@ -37,13 +37,13 @@ const PageHeader = () => {
   return (
     <div className="page-header-navbar">
       <Link className="page-header-navbar-button" href={back}>
-        <BackIcon className="w-full fill-gray-600" />
+        <BackIcon className="w-full fill-slate-600" />
       </Link>
       <Link className="page-header-navbar-button" href="/sponsor">
-        <HeartIcon className="w-full fill-gray-600" />
+        <HeartIcon className="w-full fill-slate-600" />
       </Link>
       <a className="page-header-navbar-button" href={contributionLink}>
-        <ForkIcon className="w-full fill-gray-600" />
+        <ForkIcon className="w-full fill-slate-600" />
       </a>
       <Icon />
     </div>

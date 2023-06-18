@@ -5,40 +5,36 @@ import PageHeader from "components/PageHeader";
 import Collection from "components/collection/Collection";
 import Head from "next/head";
 
-export default function Faqs({ propCollection, collectionType, properties }) {
-  return (
-    <>
-      <Head>
-        <meta
-          name="keywords"
-          content="سوالات‌متداول, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
-        <meta
-          name="description"
-          content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
-        />
-        <title>سوالات‌متداول | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      </Head>
-      <div className="collection-container">
-        <PageHeader />
-        <div className="page-header">
-          <h1>سوالات‌متداول</h1>
-        </div>
-        <Collection
-          propCollection={propCollection}
-          collectionType={collectionType}
-          properties={properties}
-        />
+const Faqs = ({ propCollection, collectionType, properties }) => (
+  <>
+    <Head>
+      <meta
+        name="keywords"
+        content="سوالات‌متداول, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+      />
+      <meta
+        name="description"
+        content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
+      />
+      <title>سوالات‌متداول | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+    </Head>
+    <div className="collection-container">
+      <PageHeader />
+      <div className="page-header">
+        <h1>سوالات‌متداول</h1>
       </div>
-    </>
-  );
-}
+      <Collection
+        propCollection={propCollection}
+        collectionType={collectionType}
+        properties={properties}
+      />
+    </div>
+  </>
+);
 
-Faqs.getLayout = function getLayout(content) {
-  return <DefaultLayout>{content}</DefaultLayout>;
-};
+Faqs.getLayout = (content) => <DefaultLayout>{content}</DefaultLayout>;
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const propCollection = await getPropCollection(
     "collections/faqs/faqs/",
     "faqs"
@@ -52,4 +48,6 @@ export async function getStaticProps() {
       propCollection,
     },
   };
-}
+};
+
+export default Faqs;

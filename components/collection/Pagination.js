@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import RightIcon from "public/icones/right.svg";
+import LeftIcon from "public/icones/left.svg";
 
 const getNumberOfPages = (pageSize, collectionLength) =>
   collectionLength % pageSize == 0
@@ -48,7 +50,7 @@ const Pagination = ({ myPage, setMyPage, mySearch }) => {
         }
         href="#top"
       >
-        صفحه قبل
+        <LeftIcon className="fill-slate-300 w-6" />
       </a>
       {[...Array(myPage.pageCount + 1).keys()].slice(1).map((pageIndex) => (
         <a
@@ -73,7 +75,7 @@ const Pagination = ({ myPage, setMyPage, mySearch }) => {
         }
         href="#top"
       >
-        صفحه بعد
+        <RightIcon className="fill-slate-300 w-6" />
       </a>
     </div>
   );

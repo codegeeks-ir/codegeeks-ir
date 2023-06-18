@@ -41,7 +41,7 @@ const html2pdfOptions = {
   jsPDF: { unit: "in", format: "A4", orientation: "portrait" },
 };
 
-async function exportAsImage(element, options, luncherLink, fileName) {
+const exportAsImage = async (element, options, luncherLink, fileName) => {
   await html2canvas(element, options).then((canvas) => {
     const downloadLink = canvas
       .toDataURL("image/png")
@@ -51,15 +51,15 @@ async function exportAsImage(element, options, luncherLink, fileName) {
     luncherLink.setAttribute("download", fileName);
     luncherLink.click();
   });
-}
+};
 
-async function exportAsPdf(
+const exportAsPdf = async (
   element,
   html2canvasOptions,
   html2pdfOptions,
   luncherLink,
   fileName
-) {
+) => {
   await html2canvas(element, html2canvasOptions).then((canvas) => {
     require("html2pdf.js")()
       .set(html2pdfOptions)
@@ -74,9 +74,9 @@ async function exportAsPdf(
       });
     canvas.remove();
   });
-}
+};
 
-export default function EventPage({ data }) {
+const EventPage = ({ data }) => {
   const exportLink = useRef();
   const postRef = useRef();
   const storyRef = useRef();
@@ -91,7 +91,7 @@ export default function EventPage({ data }) {
     story: false,
     pdf: false,
   });
-  async function exportPost() {
+  const exportPost = async () => {
     await exportAsImage(
       postRef.current,
       postOptions,
@@ -101,8 +101,8 @@ export default function EventPage({ data }) {
       setShowExport({ ...showExport, post: false });
       setIsReadyForExport({ ...isReadyForExport, post: false });
     });
-  }
-  async function exportStory() {
+  };
+  const exportStory = async () => {
     await exportAsImage(
       storyRef.current,
       storyOptions,
@@ -112,8 +112,8 @@ export default function EventPage({ data }) {
       setShowExport({ ...showExport, story: false });
       setIsReadyForExport({ ...isReadyForExport, story: false });
     });
-  }
-  async function exportPdf() {
+  };
+  const exportPdf = async () => {
     await exportAsPdf(
       pdfRef.current,
       pdfOptions,
@@ -124,7 +124,7 @@ export default function EventPage({ data }) {
       setShowExport({ ...showExport, pdf: false });
       setIsReadyForExport({ ...isReadyForExport, pdf: false });
     });
-  }
+  };
   useEffect(() => {
     if (isReadyForExport.post) exportPost();
     if (isReadyForExport.story) exportStory();
@@ -175,22 +175,22 @@ export default function EventPage({ data }) {
         <a ref={exportLink}></a>
         <div className="p-0 mt-8">
           <h1 className="card-title m-0">
-            <ShareIcon className="fill-gray-700 w-4 md:w-6 sm:w-4 ml-4" />
+            <ShareIcon className="fill-slate-700 w-4 md:w-6 sm:w-4 ml-4" />
             اشتراک گذاری رویداد
           </h1>
           <p>
             شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به
             اشتراک بگذارید.
           </p>
-          <div className="card-button pt-3 justify-center">
+          <div className="card-footer flex-nowrap rounded-md">
             <button
-              className="btn-primary"
+              className="btn-primary my-0 rounded-b-none"
               onClick={async () => setShowExport({ ...showExport, post: true })}
             >
               دریافت تصویر پست
             </button>
             <button
-              className="btn-primary"
+              className="btn-primary my-0 rounded-b-none"
               onClick={async () =>
                 setShowExport({ ...showExport, story: true })
               }
@@ -198,7 +198,7 @@ export default function EventPage({ data }) {
               دریافت تصویر استوری
             </button>
             <button
-              className="btn-primary"
+              className="btn-primary my-0 rounded-b-none"
               onClick={async () => setShowExport({ ...showExport, pdf: true })}
             >
               دریافت نسخه چاپی
@@ -208,26 +208,26 @@ export default function EventPage({ data }) {
       </div>
     </>
   );
-}
-
-EventPage.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps({ params }) {
+EventPage.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async ({ params }) => {
   const data = await getItem(`${params.slug}.md`, "collections/events/events");
   return {
     props: {
       data,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getSlugs("collections/events/events");
   return { paths, fallback: false };
-}
+};
+
+export default EventPage;

@@ -12,21 +12,21 @@ import { useState } from "react";
 const Day = ({
   persianDay,
   isCurrentDay,
-  initialDate,
-  setInitialDate,
+  selectedDate,
+  setSelectedDate,
   date,
 }) => (
   <>
     {persianDay != undefined ? (
       <div
         className="flex flex-row items-center justify-center w-auto"
-        onClick={() => setInitialDate(date)}
+        onClick={() => setSelectedDate(date)}
       >
         <span
           className={
             `w-10 px-2 py-1 rounded-md ${
               isCurrentDay ? "current-day" : "btn"
-            } ` + `${isSameDate(initialDate, date) ? "selected-day" : ""}`
+            } ` + `${isSameDate(selectedDate, date) ? "selected-day" : ""}`
           }
         >
           {persianDay}
@@ -40,7 +40,7 @@ const Day = ({
 
 const Calendar = () => {
   const [todayDate, setTodayDate] = useState(new Date());
-  const [initialDate, setInitialDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [dayOffset, setDayOffset] = useState(0);
   const [monthOffset, setMonthOffset] = useState(0);
   const [yearOffset, setYearOffset] = useState(0);
@@ -60,8 +60,8 @@ const Calendar = () => {
               persianDay={day.persianDay}
               isCurrentDay={day.isCurrentDay}
               date={day.georgianDate}
-              initialDate={initialDate}
-              setInitialDate={setInitialDate}
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
               key={index}
             />
           )
@@ -69,12 +69,12 @@ const Calendar = () => {
       </div>
       <div className="calendar-header">
         <button className="btn" onClick={() => setMonthOffset(monthOffset - 1)}>
-          <PreviousIcon className="w-8 fill-slate-700" />
+          <PreviousIcon className="w-6 fill-slate-700" />
         </button>
         <p className="text-slate-500 text-center text-lg p-1">
           {getPersianShortDate(
             shiftGeorgianDate(
-              initialDate,
+              selectedDate,
               dayOffset,
               monthOffset,
               yearOffset,
@@ -83,7 +83,7 @@ const Calendar = () => {
           )}
         </p>
         <button className="btn" onClick={() => setMonthOffset(monthOffset + 1)}>
-          <NextIcon className="w-8 fill-slate-700" />
+          <NextIcon className="w-6 fill-slate-700" />
         </button>
       </div>
     </div>

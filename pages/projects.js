@@ -5,46 +5,39 @@ import PageLayout from "layouts/PageLayout";
 import TableFromArray from "components/TableFromArray";
 import csvToArrayOfObjects from "lib/csv-to-array";
 
-export default function Projects({
-  projectPropCollection,
-  projectContentCollection,
-}) {
-  return (
-    <>
-      <Head>
-        <meta
-          name="keywords"
-          content="پروژه‌ها, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+const Projects = ({ projectPropCollection, projectContentCollection }) => (
+  <>
+    <Head>
+      <meta
+        name="keywords"
+        content="پروژه‌ها, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+      />
+      <meta
+        name="description"
+        content="پروژه‌های پایانی دانشجویان و پروژه‌های تیمی انجمن"
+      />
+      <title>پروژه‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+    </Head>
+    <h1>پروژه‌ها</h1>
+    <div>
+      {projectPropCollection.map((item, index) => (
+        <TableFromArray
+          array={projectContentCollection[index]}
+          comments={item.comments}
+          key={index}
         />
-        <meta
-          name="description"
-          content="پروژه‌های پایانی دانشجویان و پروژه‌های تیمی انجمن"
-        />
-        <title>پروژه‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      </Head>
-      <h1>پروژه‌ها</h1>
-      <div>
-        {projectPropCollection.map((item, index) => (
-          <TableFromArray
-            array={projectContentCollection[index]}
-            comments={item.comments}
-            key={index}
-          />
-        ))}
-      </div>
-    </>
-  );
-}
+      ))}
+    </div>
+  </>
+);
 
-Projects.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
-};
+Projects.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const projectPropCollection = await getPropCollection(
     "collections/projects/projects/"
   );
@@ -60,4 +53,6 @@ export async function getStaticProps() {
       projectContentCollection,
     },
   };
-}
+};
+
+export default Projects;

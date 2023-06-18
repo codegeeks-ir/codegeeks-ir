@@ -1,20 +1,54 @@
-import ChallengeItem from "components/collection/item/ChallengeItem";
-import EventItem from "components/collection/item/EventItem";
-import PostItem from "components/collection/item/PostItem";
-import FaqItem from "components/collection/item/FaqItem";
+import { getPersianLongDate } from "lib/persian-long-date";
+import Item from "./Item";
 
 const Results = ({ currentPageResults, collectionType }) => (
   <>
     {currentPageResults.map((item) => {
       switch (collectionType) {
         case "challenges":
-          return <ChallengeItem item={item} key={item.slug} />;
+          return (
+            <Item
+              title={item.title}
+              subtitle={`امتیاز ${item.score}`}
+              footerRightData={getPersianLongDate(item.date)}
+              footerLeftData={`ساعت ${item.date.split(" ")[1]}`}
+              link={item.link}
+              key={item.slug}
+            />
+          );
         case "events":
-          return <EventItem item={item} key={item.slug} />;
+          return (
+            <Item
+              title={item.title}
+              subtitle={item.lecturer}
+              footerRightData={getPersianLongDate(item.date)}
+              footerLeftData={`ساعت ${item.date.split(" ")[1]}`}
+              link={item.link}
+              key={item.slug}
+            />
+          );
         case "faqs":
-          return <FaqItem item={item} key={item.slug} />;
+          return (
+            <Item
+              title={item.title}
+              subtitle={item.categories}
+              footerRightData={""}
+              footerLeftData={""}
+              link={item.link}
+              key={item.slug}
+            />
+          );
         case "posts":
-          return <PostItem item={item} key={item.slug} />;
+          return (
+            <Item
+              title={item.title}
+              subtitle={item.categories}
+              footerRightData={getPersianLongDate(item.date)}
+              footerLeftData={""}
+              link={item.link}
+              key={item.slug}
+            />
+          );
         default:
           break;
       }

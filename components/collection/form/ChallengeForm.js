@@ -2,11 +2,9 @@ import { createEvent } from "lib/github-oauth/event-operations";
 import { useRef } from "react";
 import config from "utils/config";
 
-const EventForm = ({}) => {
+const ChallengeForm = ({}) => {
   const faTitle = useRef(null);
   const enTitle = useRef(null);
-  const lecturer = useRef(null);
-  const bio = useRef(null);
   const date = useRef(null);
   const time = useRef(null);
   const location = useRef(null);
@@ -27,20 +25,6 @@ const EventForm = ({}) => {
             type="text"
             ref={enTitle}
             placeholder="عنوان انگلیسی"
-            required
-          />
-          <input
-            className="form-element"
-            type="text"
-            model={lecturer}
-            placeholder="مدرس"
-            required
-          />
-          <input
-            className="form-element"
-            type="text"
-            ref={bio}
-            placeholder="بیو"
             required
           />
           <input
@@ -78,10 +62,10 @@ const EventForm = ({}) => {
         href={`${config.login}`}
         onClick={() => createEvent({})}
       >
-        افزودن رویداد
+        افزودن مسابقه
       </button>
     </form>
   );
 };
 
-export default EventForm;
+export default ChallengeForm;

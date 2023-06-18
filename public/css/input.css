@@ -13,20 +13,19 @@
   .btn-primary {
     @apply m-1 py-1 px-2 
         text-center
-        bg-blue-400 text-slate-100 
+        bg-teal-500 text-slate-200 
         bg-opacity-75
-        font-semibold rounded-md shadow-md 
-        hover:bg-blue-500 focus:outline-none 
-        focus:ring-2 focus:ring-blue-400 
+        font-semibold rounded-md
+        hover:bg-teal-600 focus:outline-none 
+        focus:ring-2 focus:ring-teal-500 
         focus:ring-opacity-75
-        drop-shadow-sm;
+        drop-shadow shadow-sm;
   }
   .btn-light {
     @apply btn-primary 
-        text-center
-        bg-slate-300 text-gray-600 
+        bg-slate-300 text-slate-500  
         hover:bg-slate-400
-        focus:outline-none 
+        focus:bg-slate-400
         focus:ring-slate-400;
   }
   .btn-green {
@@ -50,26 +49,25 @@
   /* Form components */
   .form {
     @apply flex flex-col w-full h-auto 
-        justify-center items-center
-        rounded-t-none mt-0 py-3 px-2 
-        lg:px-5 md:px-4 sm:px-2;
+        justify-center items-start
+        rounded-t-none mt-0 py-3;
   }
   .form-element {
-    @apply bg-slate-300 text-gray-700
-        focus:outline-none focus:bg-gray-700 
+    @apply bg-slate-300 text-slate-700
+        focus:outline-none focus:bg-slate-700 
         focus:shadow focus:text-slate-200 font-bold 
-        drop-shadow-sm rounded-lg px-4 py-1 mx-1 my-1 w-full md:w-48;
+        drop-shadow-sm rounded-lg px-4 py-1 mx-0 my-1 w-full md:w-48;
+  }
+  .form-content {
+    @apply form-element overflow-y-scroll grow self-stretch mr-1.5;
   }
 
   /* Card components */
   .card {
-    @apply w-full h-auto
+    @apply w-full
         bg-slate-200
-        rounded-t-md
-        rounded-b-sm
-        p-0 mb-6
-        border-solid border-4 border-b-0 border-slate-200
-        drop-shadow-md;
+        rounded-t-md rounded-b-sm
+        p-0 mb-6;
   }
   .card-body {
     @apply p-0;
@@ -77,28 +75,17 @@
   .card-title {
     @apply flex flex-row
         justify-start items-center
-        text-gray-700 font-bold
-        rounded-t-md
-        py-2 px-2 m-0
-        w-full h-auto;
+        text-slate-700 font-bold
+        rounded-t-md px-2 pt-2 mx-2 w-full;
   }
   .card-subtitle {
-    @apply text-gray-500 my-0 mx-1 px-2 py-1;
+    @apply text-slate-400 text-sm my-0 mx-3 px-2;
   }
   .card-footer {
-    @apply flex flex-row
-        justify-between items-center
-        px-2 py-2
-        bg-slate-300
-        text-gray-100
-        rounded-md rounded-b-none
-        border-0;
-  }
-  .card-button {
-    @apply flex flex-row
-        justify-center items-end                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-        bg-slate-300
-        m-0 p-0;
+    @apply flex flex-row flex-wrap relative
+        justify-center items-start
+        pt-4 mx-2 bg-slate-300 text-slate-400
+        rounded-t-md;
   }
 
   /* Pagination component */
@@ -116,7 +103,7 @@
 
   /* Non important component */
   .non-important {
-    @apply text-gray-400;
+    @apply text-slate-400;
   }
 
   /* Text sizes*/
@@ -150,7 +137,7 @@
 
 /* Tag styles */
 body {
-  @apply text-gray-700 bg-gray-900 h-screen
+  @apply text-slate-600 bg-slate-900 h-screen
   bg-no-repeat bg-fixed;
   font-family: "irsans";
 }
@@ -190,7 +177,7 @@ h6 {
   @apply text-base m-1 mt-3;
 }
 p {
-  @apply text-base mx-1 my-3;
+  @apply mx-1 my-3;
 }
 p a {
   @apply btn-primary w-52 m-1 p-1 px-3;
@@ -199,7 +186,7 @@ p img {
   @apply w-full sm:w-4/5 md:w-3/4 lg:w-2/3 h-full rounded-sm;
 }
 ul {
-  @apply text-gray-400 text-sm m-1 mt-3 list-none;
+  @apply text-slate-400 text-sm m-1 mt-3 list-none;
 }
 img {
   @apply max-w-full h-auto;
@@ -207,22 +194,25 @@ img {
 
 /* Table styles */
 table {
-  @apply text-gray-700 w-full my-7 self-center;
+  @apply text-slate-700 text-sm w-full my-7 self-center
+  border border-solid border-slate-300 border-t-0;
 }
 table caption {
-  @apply w-full text-xs text-right text-slate-600 bg-teal-400 py-1 px-2;
+  @apply w-full text-xs text-right text-slate-200 bg-teal-500 
+  pt-2 pb-1 px-2 rounded-t-md
+  border border-solid border-slate-300 border-b-0;
 }
 th {
-  @apply bg-gray-700 text-gray-100 py-1 px-2;
+  @apply py-1 px-2;
 }
 thead {
-  @apply drop-shadow-md;
-}
-tbody {
-  @apply drop-shadow-md;
+  @apply bg-teal-700 text-slate-300 
+  border border-solid border-slate-300 border-t-0;
 }
 tbody tr {
-  @apply bg-slate-100 even:bg-slate-200 focus:bg-green-300;
+  @apply bg-slate-200 text-slate-600
+  even:bg-slate-300 focus:bg-teal-400
+  border border-solid border-slate-300;
 }
 td {
   @apply w-auto text-right py-1 px-2;
@@ -254,7 +244,7 @@ code {
   mr-4 mt-1 font-mono md:flex-col md:items-start;
 }
 .file-explorer-element p {
-  @apply text-gray-500 text-sm m-0;
+  @apply text-slate-500 text-sm m-0;
 }
 .file-explorer-content {
   @apply flex flex-col justify-start items-start flex-wrap p-4 
@@ -274,7 +264,7 @@ code {
 
 /* Navbar styles */
 .navbar {
-  @apply fixed flex bg-slate-200 list-none z-20 p-4 m-0 
+  @apply fixed flex bg-slate-300 list-none z-20 p-4 m-0 
   flex-row items-center justify-evenly w-full h-auto bottom-0 right-0 mt-2 
   md:flex-col md:justify-center md:items-center 
   md:grow-0 md:w-24 md:h-full md:top-0 md:mt-0 
@@ -284,13 +274,13 @@ code {
   @apply flex flex-col items-center px-2 py-1 md:my-4;
 }
 .active {
-  @apply bg-slate-300 text-gray-700 rounded-md;
+  @apply bg-slate-400 bg-opacity-50 rounded-md;
 }
 
 /* Page header styles */
 .page-header-navbar {
-  @apply flex flex-row flex-grow card items-center
-    w-full h-auto m-0 py-1 px-2 lg:px-5 md:px-4 sm:px-2 rounded-b-none 
+  @apply flex flex-row flex-grow rounded-t-md items-center
+    w-full m-0 py-1 px-2 lg:px-5 md:px-4 sm:px-2 rounded-b-none 
     bg-teal-500;
 }
 .page-header-navbar-button {
@@ -326,7 +316,7 @@ footer {
   @apply flex flex-col w-full self-center md:mr-24 mb-16 md:mb-0;
 }
 footer p {
-  @apply block text-gray-500 text-center text-xs p-2;
+  @apply block text-slate-500 text-center text-xs p-2;
 }
 .social-item {
   @apply rounded-md px-5 mx-1;
@@ -343,7 +333,7 @@ footer p {
 }
 .calendar-day-names {
   @apply grid grid-cols-7 gap-1 pb-4 pt-2
-  border-b-4 border-solid border-slate-400 border-opacity-20;
+  border-b-4 border-solid border-slate-300 border-opacity-20;
 }
 .calendar-day-list {
   @apply grid grid-cols-7 gap-1 py-8 text-center;
@@ -357,12 +347,12 @@ footer p {
 .calendar-header {
   @apply flex flex-row flex-wrap justify-between items-center 
   w-full rounded-md rounded-t-none px-4 py-2
-  bg-slate-400 bg-opacity-20;
+  bg-slate-300 bg-opacity-20;
 }
 
 /* Tab styles */
 .tab-buttons {
-  @apply flex flex-row flex-wrap mt-8 mb-8;
+  @apply flex flex-row flex-wrap mt-8 mb-8 w-full;
 }
 .tab-buttons button {
   @apply rounded-none first:rounded-tr-md last:rounded-bl-md odd:w-1/2 even:w-1/2 
@@ -377,10 +367,10 @@ footer p {
 
 /* Icon styles */
 .icon {
-  @apply fill-slate-200 w-4 h-auto;
+  @apply fill-slate-300 w-4 h-auto;
 }
 p .icon {
-  @apply fill-gray-700;
+  @apply fill-slate-700;
 }
 a .icon {
   @apply fill-blue-400 bg-opacity-75;
@@ -389,10 +379,10 @@ a .icon {
   @apply w-6;
 }
 .btn-light .icon {
-  @apply fill-gray-600;
+  @apply fill-slate-600;
 }
 .card-title .icon {
-  @apply fill-gray-800;
+  @apply fill-slate-800;
 }
 
 /* Services styles */
@@ -405,7 +395,7 @@ a .icon {
 
 /* Event post image styles */
 #export-post {
-  @apply absolute flex flex-row flex-wrap card border-none -right-12;
+  @apply absolute flex flex-row flex-wrap card border-none -right-6;
   clip-path: circle(0);
   width: 270px;
   height: 270px;
@@ -438,7 +428,7 @@ a .icon {
   @apply text-2xs;
 }
 .post-content ul {
-  @apply text-gray-400 text-3xs px-0.5 py-0;
+  @apply text-slate-400 text-3xs px-0.5 py-0;
 }
 .post-content ul li {
   @apply p-0;
@@ -456,7 +446,7 @@ a .icon {
 
 /* Event story image styles */
 #export-story {
-  @apply absolute flex flex-col flex-wrap card border-none -right-12;
+  @apply absolute flex flex-col flex-wrap card border-none -right-6;
   clip-path: circle(0);
   width: 270px;
   height: 480px;
@@ -492,7 +482,7 @@ a .icon {
   @apply mt-20;
 }
 .story-content ul {
-  @apply text-gray-400 text-2xs px-0.5 py-0;
+  @apply text-slate-400 text-2xs px-0.5 py-0;
 }
 .story-content ul li {
   @apply p-0;
@@ -513,12 +503,11 @@ a .icon {
 
 /* Event printable pdf styles */
 #export-pdf {
-  @apply relative flex flex-row justify-center items-center flex-wrap
+  @apply relative flex flex-row justify-center items-center flex-wrap -right-20
     card border-none m-0 p-0;
   clip-path: circle(0);
   width: 793.3px;
   height: 1122px;
-  right: -86px;
 }
 .pdf-heading {
   @apply flex flex-col relative w-full;
@@ -548,10 +537,10 @@ a .icon {
   @apply text-2xl;
 }
 .pdf-content ul {
-  @apply text-gray-400 text-xl px-2 py-0;
+  @apply text-slate-400 text-xl px-2 py-0;
 }
 .pdf-content a {
-  @apply text-2xl text-gray-700;
+  @apply text-2xl text-slate-700;
 }
 .pdf-bio {
   @apply flex flex-col items-start justify-start mr-5 mt-0 w-3/4;
@@ -588,12 +577,4 @@ a .icon {
 }
 .contributors .profile-picture .github-icon {
   @apply top-14;
-}
-
-/* Other styles */
-.card-button a {
-  @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0;
-}
-.card-button button {
-  @apply btn-primary rounded-xl rounded-b-none py-0 px-3 mb-0;
 }

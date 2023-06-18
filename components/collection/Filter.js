@@ -80,7 +80,7 @@ const Filter = ({ propCollection, mySearch, setMySearch }) => {
           className="btn-primary flex w-full md:w-9 h-9 items-center justify-center"
           onClick={() => setShowFilters(!showFilters)}
         >
-          <FilterIcon className="fill-slate-200 w-6" />
+          <FilterIcon className="fill-slate-300 w-6" />
         </button>
       </div>
     </div>

@@ -16,7 +16,7 @@ const PostAuthor = ({ name, githubID }) => (
           alt={githubID}
         />
       </div>
-      <p className="text-base text-gray-700 py-0 my-0">{name}</p>
+      <p className="text-base text-slate-700 py-0 my-0">{name}</p>
     </Link>
   </div>
 );

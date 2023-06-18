@@ -9,43 +9,39 @@ import {
 import Accordion from "components/Accordion";
 import Head from "next/head";
 
-export default function About({ propCollection, contentCollection, about }) {
-  return (
-    <>
-      <Head>
-        <meta
-          name="keywords"
-          content="درباره‌ما, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
-        <meta
-          name="description"
-          content="درباره فعالیت های انجمن، آشنایی با اعضای مرکزی و اهداف"
-        />
-        <title>درباره‌ما | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      </Head>
-      <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
-      <h2>اعضای مرکزی انجمن</h2>
-      {propCollection.map((item, index) => (
-        <Accordion
-          key={index}
-          collapseData={contentCollection[index]}
-          headerData={getPersianEducationYear(item.date)}
-          isShowByDefault={item.membersID == propCollection[0].membersID}
-        />
-      ))}
-    </>
-  );
-}
+const About = ({ propCollection, contentCollection, about }) => (
+  <>
+    <Head>
+      <meta
+        name="keywords"
+        content="درباره‌ما, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+      />
+      <meta
+        name="description"
+        content="درباره فعالیت های انجمن، آشنایی با اعضای مرکزی و اهداف"
+      />
+      <title>درباره‌ما | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+    </Head>
+    <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
+    <h2>اعضای مرکزی انجمن</h2>
+    {propCollection.map((item, index) => (
+      <Accordion
+        key={index}
+        collapseData={contentCollection[index]}
+        headerData={getPersianEducationYear(item.date)}
+        isShowByDefault={item.membersID == propCollection[0].membersID}
+      />
+    ))}
+  </>
+);
 
-About.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
-};
+About.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const propCollection = await getPropCollection(
     "collections/members/members",
     "members"
@@ -61,4 +57,6 @@ export async function getStaticProps() {
       about,
     },
   };
-}
+};
+
+export default About;

@@ -12,9 +12,11 @@ import { useEffect, useRef } from "react";
 const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
+  const bioRef = useRef();
   useEffect(() => {
     textFit(subjectRef.current);
     textFit(lecturerRef.current);
+    textFit(bioRef.current);
     setIsReadyForExport({ ...isReadyForExport, story: true });
   }, []);
   return (
@@ -50,7 +52,7 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
             />
             <div className="relative w-7/12 h-full">
               <p className="github-icon non-important m-0 p-0">
-                <GithubIcon className="fill-gray-700 w-5 h-auto" />
+                <GithubIcon className="fill-slate-700 w-5 h-auto" />
               </p>
               <p className="w-full text-center non-important -mt-0.5 mx-0 p-0">
                 {data.githubID}
@@ -61,7 +63,7 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
             <h2 className="w-full h-6" ref={lecturerRef}>
               {data.lecturer}
             </h2>
-            <p className="m-0 mt-0.5">{data.bio}</p>
+            <p className="m-0 mt-1" ref={bioRef}>{data.bio}</p>
           </div>
         </div>
         <div
@@ -73,22 +75,22 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
           <h3 className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</h3>
           <div className="flex flex-row items-center m-0">
             <p className="mt-0.5 -mb-2 px-0 py-1">
-              <ClockIcon className="fill-gray-700 w-3 h-auto" />
+              <ClockIcon className="fill-slate-700 w-3 h-auto" />
             </p>
             <p className="my-0 px-0">ساعت {data.date.split(" ")[1]}</p>
           </div>
           <div className="flex flex-row items-center m-0">
             <p className="mt-0.5 -mb-2 px-0 py-1">
-              <LocationIcon className="fill-gray-700 w-3 h-auto" />
+              <LocationIcon className="fill-slate-700 w-3 h-auto" />
             </p>
             <p className="my-0 px-0">{data.location}</p>
           </div>
         </div>
       </div>
       <div className="story-icons">
-        <UutIcon className="fill-slate-200 h-12 w-auto" />
-        <CulturalIcon className="fill-slate-200 h-12 w-auto" />
-        <CodegeeksIcon className="fill-slate-200 h-10 w-auto" />
+        <UutIcon className="fill-slate-300 h-10 w-auto" />
+        <CulturalIcon className="fill-slate-300 h-10 w-auto" />
+        <CodegeeksIcon className="fill-slate-300 h-8 w-auto" />
       </div>
     </div>
   );

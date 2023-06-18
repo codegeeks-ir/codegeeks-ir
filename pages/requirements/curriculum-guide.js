@@ -10,42 +10,51 @@ import Head from "next/head";
 import csvToArrayOfObjects from "lib/csv-to-array";
 import Tabs from "components/Tabs";
 
-const CurriculumGuide = ({ curriculumGuides }) => {
-  return (
-    <>
-      <Head>
-        <meta
-          name="keywords"
-          content="چارت, چارت درسی‌‌‌‌, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+const CurriculumGuide = ({ curriculumGuides }) => (
+  <>
+    <Head>
+      <meta
+        name="keywords"
+        content="چارت, چارت درسی‌‌‌‌, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
+      />
+      <meta name="description" content="چارت درسی گروه کامپیوتر" />
+      <title>چارت درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+    </Head>
+    <h2>چارت</h2>
+    {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
+      <div key={curriculumGuideIndex}>
+        <TableFromArray
+          array={curriculumGuide.contents[0]}
+          comments={curriculumGuide.props[0].comments}
         />
-        <meta name="description" content="چارت درسی گروه کامپیوتر" />
-        <title>چارت درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      </Head>
-      <h2>چارت</h2>
-      {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
-        <div key={curriculumGuideIndex}>
-          <TableFromArray
-            array={curriculumGuide.contents[0]}
-            comments={curriculumGuide.props[0].comments}
-          />
-          <Tabs headers={curriculumGuide.props.slice(1).map(prop => prop.comments[0])}
-            contents={curriculumGuide.contents.slice(1).map((semester, semesterIndex) =>
-              (<TableFromArray array={semester} comments={curriculumGuide.props.slice(1)[semesterIndex].comments} key={semesterIndex} />))} />
-        </div>
-      ))}
-    </>
-  );
-};
+        <Tabs
+          headers={curriculumGuide.props
+            .slice(1)
+            .map((prop) => prop.comments[0])}
+          contents={curriculumGuide.contents
+            .slice(1)
+            .map((semester, semesterIndex) => (
+              <TableFromArray
+                array={semester}
+                comments={
+                  curriculumGuide.props.slice(1)[semesterIndex].comments
+                }
+                key={semesterIndex}
+              />
+            ))}
+        />
+      </div>
+    ))}
+  </>
+);
 
-CurriculumGuide.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
-};
+CurriculumGuide.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const curriculumGuideDirectories = await getDirectorySlugs(
     "collections/requirements/data/curriculum-guide"
   );
@@ -69,6 +78,6 @@ export async function getStaticProps() {
       curriculumGuides,
     },
   };
-}
+};
 
 export default CurriculumGuide;

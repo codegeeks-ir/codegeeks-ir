@@ -2,14 +2,11 @@ import { createEvent } from "lib/github-oauth/event-operations";
 import { useRef } from "react";
 import config from "utils/config";
 
-const EventForm = ({}) => {
+const BlogForm = ({}) => {
   const faTitle = useRef(null);
   const enTitle = useRef(null);
-  const lecturer = useRef(null);
-  const bio = useRef(null);
+  const category = useRef(null);
   const date = useRef(null);
-  const time = useRef(null);
-  const location = useRef(null);
   const details = useRef(null);
   return (
     <form className="form">
@@ -32,15 +29,8 @@ const EventForm = ({}) => {
           <input
             className="form-element"
             type="text"
-            model={lecturer}
-            placeholder="مدرس"
-            required
-          />
-          <input
-            className="form-element"
-            type="text"
-            ref={bio}
-            placeholder="بیو"
+            ref={category}
+            placeholder="دسته بندی"
             required
           />
           <input
@@ -48,21 +38,6 @@ const EventForm = ({}) => {
             type="date"
             ref={date}
             placeholder="تاریخ"
-            required
-          />
-          <input
-            className="form-element"
-            type="time"
-            ref={time}
-            placeholder="ساعت"
-            dir="ltr"
-            required
-          />
-          <input
-            className="form-element"
-            type="text"
-            ref={location}
-            placeholder="مکان"
             required
           />
         </div>
@@ -78,10 +53,10 @@ const EventForm = ({}) => {
         href={`${config.login}`}
         onClick={() => createEvent({})}
       >
-        افزودن رویداد
+        افزودن مطلب
       </button>
     </form>
   );
 };
 
-export default EventForm;
+export default BlogForm;

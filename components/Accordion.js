@@ -7,12 +7,14 @@ const Accordion = ({ collapseData, headerData, isShowByDefault }) => {
     <>
       <button
         onClick={() => setShowCollapse(!showCollapse)}
-        className="btn-light w-full rounded-b-none m-0 mt-2"
+        className={`btn-primary text-sm text-right focus:ring-0 w-full mx-0 ${
+          showCollapse ? "rounded-b-none mt-2" : "rounded-none mt-0 my-0.5"
+        }`}
       >
         {headerData}
       </button>
       <div
-        className={`m-0 -mt-6 ${showCollapse ? "block" : "hidden"}`}
+        className={`m-0 -mt-8 ${showCollapse ? "block" : "hidden"}`}
         dangerouslySetInnerHTML={{ __html: collapseData.content }}
       ></div>
     </>

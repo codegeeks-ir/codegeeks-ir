@@ -1,15 +1,16 @@
-import PostItem from "components/collection/item/PostItem";
+import Item from "components/collection/Item";
 import hljs from "highlight.js";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import { getItem, getPropCollection, getSlugs } from "lib/get-collection";
 import { centerImage } from "lib/manipulate-html";
+import { getPersianLongDate } from "lib/persian-long-date";
 import Head from "next/head";
 import Image from "next/image";
 import GithubIcon from "public/icones/social/github.svg";
 import { useEffect } from "react";
 
-export default function AuthorPage({ data, myPosts }) {
+const CompanionPage = ({ data, myPosts }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -21,10 +22,7 @@ export default function AuthorPage({ data, myPosts }) {
           name="keywords"
           content="همراهان انجمن, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
         />
-        <meta
-          name="description"
-          content="همراهان و فعالان انجمن"
-        />
+        <meta name="description" content="همراهان و فعالان انجمن" />
         <title>{`${data.name} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
       <div className="flex flex-col items-center justify-center mb-0 rounded-none">
@@ -49,25 +47,36 @@ export default function AuthorPage({ data, myPosts }) {
         className="non-important text-center rounded-t-none m-1 mt-0 p-1"
         dangerouslySetInnerHTML={{ __html: data.content }}
       ></div>
-      <ul className="flex flex-col items-center justify-center w-full m-0 mt-5">
+      <ul
+        className="flex flex-col flex-wrap items-center justify-center 
+      w-full p-4 m-0 mt-5 bg-slate-300 rounded-md"
+      >
         {myPosts.map((post) => (
-          <PostItem item={post} key={post.slug} />
+          <Item
+            title={post.title}
+            subtitle={post.categories}
+            footerRightData={getPersianLongDate(post.date)}
+            footerLeftData={""}
+            link={post.link}
+            key={post.slug}
+          />
         ))}
       </ul>
     </>
   );
-}
-
-AuthorPage.getLayout = function getLayout(content) {
-  return (
-    <DefaultLayout>
-      <PageLayout>{content}</PageLayout>
-    </DefaultLayout>
-  );
 };
 
-export async function getStaticProps({ params }) {
-  const data = await getItem(`${params.slug}.md`, "collections/companions/bios");
+CompanionPage.getLayout = (content) => (
+  <DefaultLayout>
+    <PageLayout>{content}</PageLayout>
+  </DefaultLayout>
+);
+
+export const getStaticProps = async ({ params }) => {
+  const data = await getItem(
+    `${params.slug}.md`,
+    "collections/companions/bios"
+  );
   const allPosts = await getPropCollection("collections/blog/posts/", "blog");
   const myPosts = allPosts.filter((post) => post.githubID == data.githubID);
   return {
@@ -76,9 +85,11 @@ export async function getStaticProps({ params }) {
       myPosts,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getSlugs("collections/companions/bios");
   return { paths, fallback: false };
-}
+};
+
+export default CompanionPage;

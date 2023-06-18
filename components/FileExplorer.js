@@ -61,7 +61,7 @@ const Element = ({
 };
 
 const Path = ({ path }) => (
-  <div className="flex flex-wrap pl-2 grow">
+  <div className="flex flex-wrap pl-2 grow mt-1">
     {path.length > 24 ? (
       <span className="text-sm">../{path.split("/").pop()}</span>
     ) : (
@@ -81,7 +81,7 @@ const DownloadLink = ({ repoName }) => {
   const download = `${repoLink}/archive/refs/heads/main.zip`;
   return (
     <a className="grow-0" href={download}>
-      <DownloadIcon className="w-8 fill-slate-300" />
+      <DownloadIcon className="w-6 fill-slate-300" />
     </a>
   );
 };
