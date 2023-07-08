@@ -22,6 +22,12 @@ const Events = ({ propCollection, collectionType, properties }) => (
       <PageHeader />
       <div className="page-header">
         <h1>رویدادها</h1>
+        <p>
+          با ارائه رویدادهای متنوع و گسترده، انجمن علمی کامپیوتر دانشگاه صنعتی
+          ارومیه به دانشجویان و علاقه‌مندان به علوم کامپیوتر فرصتی عالی برای
+          گسترش دانش، برقراری ارتباطات مفید و بهبود مهارت‌های فنی و عملی ارائه
+          می‌دهد.
+        </p>
       </div>
       <Collection
         propCollection={propCollection}
