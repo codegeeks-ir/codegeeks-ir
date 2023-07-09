@@ -19,6 +19,25 @@ const CurriculumGuide = ({ curriculumGuides }) => (
       />
       <meta name="description" content="چارت درسی گروه کامپیوتر" />
       <title>چارت درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+      <meta
+        property="og:title"
+        content="چارت درسی گروه کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="با دنبال کردن این چارت انتخاب واحد دانشگاه صنعتی ارومیه ،دانشجویان
+        می‌توانند به تدریج مهارت‌ها و دانش مورد نیاز برای تحقق موفقیت در حوزه
+        کامپیوتر را کسب کنند."
+      />
+      <meta
+        property="og:url"
+        content="https://codegeeks.ir/requirements/curriculum-guide"
+      />
     </Head>
     <h2>چارت</h2>
     <p>

@@ -20,6 +20,25 @@ const Challenges = ({ propCollection, collectionType, properties }) => (
           کامپیوتری و تفکر خلاقانه را می‌دهد."
       />
       <title>مسابقات | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+      <meta
+        property="og:title"
+        content="مسابقات انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="به عنوان انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه، با افتخار به ارائه
+        قسمتی مهم و هیجان انگیز در رویدادهای ما می‌پردازیم: مسابقات چالش
+        کدنویسی. در این قسمت شما با چالش‌هایی پیش‌رو مواجه خواهید شد که تمامی
+        مهارت‌های تخصصی و ذهنیت شما را در زمینه کدنویسی به چالش می‌کشند. این
+        مسابقات به شما فرصتی عالی برای نمایش دانش و توانایی‌هایتان در حل مسائل
+        کامپیوتری و تفکر خلاقانه را می‌دهد."
+      />
+      <meta property="og:url" content="https://codegeeks.ir/challenges" />
     </Head>
     <div className="collection-container">
       <PageHeader />

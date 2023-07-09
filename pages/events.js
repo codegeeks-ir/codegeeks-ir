@@ -17,6 +17,23 @@ const Events = ({ propCollection, collectionType, properties }) => (
         content="رویدادها و کارگاه‌های فنی و علمی انجمن"
       />
       <title>رویداد‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+      <meta
+        property="og:title"
+        content="رویداد های انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/images/background.png"
+      /> */}
+      <meta
+        property="og:description"
+        content="با ارائه رویدادهای متنوع و گسترده، انجمن علمی کامپیوتر دانشگاه صنعتی
+        ارومیه به دانشجویان و علاقه‌مندان به علوم کامپیوتر فرصتی عالی برای
+        گسترش دانش، برقراری ارتباطات مفید و بهبود مهارت‌های فنی و عملی ارائه
+        می‌دهد."
+      />
+      <meta property="og:url" content="https://codegeeks.ir/events" />
     </Head>
     <div className="collection-container">
       <PageHeader />

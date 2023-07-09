@@ -15,6 +15,25 @@ const CoursesPage = () => (
       <title>
         منابع و مستندات درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه
       </title>
+      <meta
+        property="og:title"
+        content="منابع و مستندات درسی گروه کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="میتوانید با استفاده از مستندات درسی که در صفحه انجمن علمی کامپیوتر
+        وجود دارد به دانش و مهارت خود در دروس تخصصی مهندسی کامپیوتر که در
+        دانشگاه ارائه میشوند اضافه کنید"
+      />
+      <meta
+        property="og:url"
+        content="https://codegeeks.ir/requirements/courses"
+      />
     </Head>
     <div className="collection-container">
       <PageHeader />

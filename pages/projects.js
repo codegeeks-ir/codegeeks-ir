@@ -17,6 +17,22 @@ const Projects = ({ projectPropCollection, projectContentCollection }) => (
         content="پروژه‌های پایانی دانشجویان دانشگاه صنعتی ارومیه و پروژه‌های تیمی انجمن"
       />
       <title>پروژه‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+      <meta
+        property="og:title"
+        content="پروژه های انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="در صفحه پروژه‌های پایانی دوره کارشناسی دانشجویان دانشگاه صنعتی ارومیه، شما
+        با نمونه‌های برجسته از پروژه‌هایی که توسط دانشجویان در زمینه‌های مختلف
+        علوم کامپیوتر انجام شده است، آشنا خواهید شد."
+      />
+      <meta property="og:url" content="https://codegeeks.ir/projects" />
     </Head>
     <h1>پروژه‌ها</h1>
     <p>

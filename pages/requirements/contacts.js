@@ -17,6 +17,25 @@ const Contacts = ({ contactPropCollection, contactContentCollection }) => (
         content="ارتباط با اساتید و کارکنان گروه کامپیوتر دانشگاه صنعتی ارومیه"
       />
       <title>دفترچه تماس | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+      <meta
+        property="og:title"
+        content="ارتباط با اساتید و کارکنان گروه کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="شما می‌توانید با تماس با اساتید دانشگاه صنعتی ارومیه و ارسال ایمیل به
+        آدرس‌های فوق، از تجربیات آن‌ها بهره‌مند شوید، سوالات خود را مطرح کنید و در
+        مورد موضوعات مختلف در رشته مهندسی کامپیوتر مشورت بگیرید."
+      />
+      <meta
+        property="og:url"
+        content="https://codegeeks.ir/requirements/contacts"
+      />
     </Head>
     <h2>دفترچه تماس</h2>
     <p>

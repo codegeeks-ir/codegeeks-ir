@@ -18,6 +18,26 @@ const Blog = ({ propCollection, collectionType, properties, authors }) => (
         content="انتشارات انجمن، جایی برای نشر تجربیات"
       />
       <title>انتشارات | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+      <meta
+        property="og:title"
+        content="انتشارات انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="به عنوان انتشارات رسمی انجمن علمی کامپیوتر، ما با افتخار دانشجویان را
+        تشویق به انتشار مطالب و نتایج پژوهشی خود در حوزه کامپیوتر می‌کنیم.
+        انتشارات انجمن علمی کامپیوتر، فرصتی برای دانشجویان دانشگاه صنعتی
+        ارومیه است تا دانش خود را به اشتراک بگذارند و مشارکت در افزایش دانش
+        علمی کامپیوتر داشته باشند. با انتشارات ما، دانشجویان می‌توانند نتایج
+        پژوهش‌ها، پروژه‌های پایانی و مقالات علمی خود را به دسترس جامعه علمی
+        قرار دهند و به اشتراک بگذارند."
+      />
+      <meta property="og:url" content="https://codegeeks.ir/blog" />
     </Head>
     <div className="collection-container">
       <PageHeader />
