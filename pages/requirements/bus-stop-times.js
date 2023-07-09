@@ -20,10 +20,10 @@ const BusStopTimes = ({ busStopPropCollection, busStopContentCollection }) => (
       <title>زمان سرویس‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
       <meta property="og:title" content="زمان سرویس‌های دانشگاه صنعتی ارومیه" />
       <meta property="og:type" content="website" />
-      {/* <meta
+      <meta
         property="og:image"
-        content="public/icones/codegeeks/codegeeks-icon.svg"
-      /> */}
+        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
+      />
       <meta
         property="og:description"
         content="شما میتوانید با استفاده از این صفحه زمان رفت و آمد سرویس اتوبوس دانشگاه

@@ -26,10 +26,10 @@ const About = ({ propCollection, contentCollection, about }) => (
         content="درباره انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
       />
       <meta property="og:type" content="website" />
-      {/* <meta
+      <meta
         property="og:image"
-        content="public/icones/codegeeks/codegeeks-icon.svg"
-      /> */}
+        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
+      />
       <meta
         property="og:description"
         content="انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه به عنوان یک سازمان دانشجویی پویا
