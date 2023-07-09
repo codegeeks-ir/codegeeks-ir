@@ -21,15 +21,27 @@ const About = ({ propCollection, contentCollection, about }) => (
         content="درباره فعالیت های انجمن، آشنایی با اعضای مرکزی و اهداف"
       />
       <title>درباره‌ما | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-    </Head>
-    <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
-    <p>
-      انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه به عنوان یک سازمان دانشجویی پویا
+      <meta
+        property="og:title"
+        content="درباره انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
+      />
+      <meta property="og:type" content="website" />
+      {/* <meta
+        property="og:image"
+        content="public/icones/codegeeks/codegeeks-icon.svg"
+      /> */}
+      <meta
+        property="og:description"
+        content="انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه به عنوان یک سازمان دانشجویی پویا
       و فعال، با هدف ایجاد ارتباط و تبادل دانش و تجربیات در حوزه فناوری و علوم
       کامپیوتر فعالیت می‌کند. با برگزاری رویدادها، مسابقات، پروژه‌ها و انتشارات،
       انجمن علمی کامپیوتر سعی دارد دانشجویان را در مسیر توسعه و یادگیری عمیق تر
-      همراهی کند.
-    </p>
+      همراهی کند."
+      />
+      <meta property="og:url" content="https://codegeeks.ir/about" />
+    </Head>
+    <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
+
     <h2>اعضای مرکزی انجمن</h2>
     {propCollection.map((item, index) => (
       <Accordion
