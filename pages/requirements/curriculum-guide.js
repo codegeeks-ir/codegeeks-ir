@@ -24,10 +24,10 @@ const CurriculumGuide = ({ curriculumGuides }) => (
         content="چارت درسی گروه کامپیوتر دانشگاه صنعتی ارومیه"
       />
       <meta property="og:type" content="website" />
-      {/* <meta
+      <meta
         property="og:image"
-        content="public/icones/codegeeks/codegeeks-icon.svg"
-      /> */}
+        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
+      />
       <meta
         property="og:description"
         content="با دنبال کردن این چارت انتخاب واحد دانشگاه صنعتی ارومیه ،دانشجویان

@@ -23,10 +23,10 @@ const Blog = ({ propCollection, collectionType, properties, authors }) => (
         content="انتشارات انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
       />
       <meta property="og:type" content="website" />
-      {/* <meta
+      <meta
         property="og:image"
-        content="public/icones/codegeeks/codegeeks-icon.svg"
-      /> */}
+        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
+      />
       <meta
         property="og:description"
         content="به عنوان انتشارات رسمی انجمن علمی کامپیوتر، ما با افتخار دانشجویان را
