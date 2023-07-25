@@ -8,10 +8,6 @@ const RequirementsPage = () => (
   <>
     <Head>
       <meta
-        name="keywords"
-        content="نیازمندی‌ها, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-      />
-      <meta
         name="description"
         content="ارتباط با اساتید، چارت درسی گروه کامپیوتر، مستندات درسی رشته، ساعت حرکت سرویس ها و ..."
       />

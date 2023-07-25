@@ -1,4 +1,4 @@
-import { getSlugs, getItem } from "lib/get-collection";
+import { getFileSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import Head from "next/head";
@@ -14,10 +14,6 @@ const FaqPage = ({ data }) => {
   return (
     <>
       <Head>
-        <meta
-          name="keywords"
-          content="سوالات‌متداول, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
         <meta
           name="description"
           content="سوالات‌متداول در رابطه با فعالیت‌های انجمن"
@@ -36,7 +32,7 @@ FaqPage.getLayout = (content) => (
 );
 
 export const getStaticProps = async ({ params }) => {
-  const data = await getItem(`${params.slug}.md`, "collections/faqs/faqs");
+  const data = await getItem(`${params.slug}.md`, "docs/collections/faqs");
   return {
     props: {
       data,
@@ -45,7 +41,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = getSlugs("collections/faqs/faqs");
+  const paths = getFileSlugs("docs/collections/faqs");
   return { paths, fallback: false };
 };
 

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 
-const Sponsor = ({ sponsor, status, version, versionLink }) => {
+const Sponsor = ({ data, status, version, versionLink }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -15,15 +15,16 @@ const Sponsor = ({ sponsor, status, version, versionLink }) => {
   return (
     <>
       <Head>
-        <meta
-          name="keywords"
-          content="حمایت, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
-        <meta name="description" content="حمایت از پروژه وب سایت انجمن" />
-        <title>حمایت | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
+        <meta name="description" content={data.description} />
+        <title>{data.title}</title>
+        <meta property="og:title" content={data.title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={data.image} />
+        <meta property="og:description" content={data.description} />
+        <meta property="og:url" content={data.url} />
       </Head>
-      <div dangerouslySetInnerHTML={{ __html: sponsor.content }}></div>
-      <Developers contributions={sponsor.contributions} />
+      <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
+      <Developers contributions={data.contributions} />
       <div dangerouslySetInnerHTML={{ __html: status.content }}></div>
       <a className="btn-primary" href={versionLink}>
         نسخه {version}
@@ -39,15 +40,15 @@ Sponsor.getLayout = (content) => (
 );
 
 export const getStaticProps = async () => {
-  const sponsor = await getItem("sponsor.md", "./");
-  const status = await getItem("project-status.md", "./");
+  const data = await getItem("sponsor.md", "docs/pages/");
+  const status = await getItem("project-status.md", "docs/pages/");
   const version = require("../package.json").version;
   const githubReleaseLink =
     "https://github.com/codegeeks-ir/codegeeks-ir/releases/tag/v";
   const versionLink = githubReleaseLink + version;
   return {
     props: {
-      sponsor,
+      data,
       status,
       version,
       versionLink,

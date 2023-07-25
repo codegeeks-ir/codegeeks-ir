@@ -2,7 +2,7 @@ import Item from "components/collection/Item";
 import hljs from "highlight.js";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
-import { getItem, getPropCollection, getSlugs } from "lib/get-collection";
+import { getItem, getPropCollection, getFileSlugs } from "lib/get-collection";
 import { centerImage } from "lib/manipulate-html";
 import { getPersianLongDate } from "lib/persian-long-date";
 import Head from "next/head";
@@ -18,10 +18,6 @@ const CompanionPage = ({ data, myPosts }) => {
   return (
     <>
       <Head>
-        <meta
-          name="keywords"
-          content="همراهان انجمن, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
         <meta name="description" content="همراهان و فعالان انجمن" />
         <title>{`${data.name} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
@@ -75,9 +71,9 @@ CompanionPage.getLayout = (content) => (
 export const getStaticProps = async ({ params }) => {
   const data = await getItem(
     `${params.slug}.md`,
-    "collections/companions/bios"
+    "docs/collections/companions"
   );
-  const allPosts = await getPropCollection("collections/blog/posts/", "blog");
+  const allPosts = await getPropCollection("docs/collections/blog", "blog");
   const myPosts = allPosts.filter((post) => post.githubID == data.githubID);
   return {
     props: {
@@ -88,7 +84,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = getSlugs("collections/companions/bios");
+  const paths = getFileSlugs("docs/collections/companions");
   return { paths, fallback: false };
 };
 

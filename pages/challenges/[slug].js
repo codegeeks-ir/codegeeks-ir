@@ -1,6 +1,6 @@
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
-import { getItem, getSlugs } from "lib/get-collection";
+import { getItem, getFileSlugs } from "lib/get-collection";
 import { getPersianLongDate } from "lib/persian-long-date";
 import hljs from "highlight.js";
 import { useEffect } from "react";
@@ -15,10 +15,6 @@ const ChallengePage = ({ data }) => {
   return (
     <>
       <Head>
-        <meta
-          name="keywords"
-          content="مسابقات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
         <meta name="description" content="مسابقات برنامه نویسی انجمن" />
         <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
@@ -45,7 +41,7 @@ ChallengePage.getLayout = (content) => (
 export const getStaticProps = async ({ params }) => {
   const data = await getItem(
     `${params.slug}.md`,
-    "collections/challenges/challenges"
+    "docs/collections/challenges"
   );
   return {
     props: {
@@ -55,7 +51,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = getSlugs("collections/challenges/challenges");
+  const paths = getFileSlugs("docs/collections/challenges");
   return { paths, fallback: false };
 };
 

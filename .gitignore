@@ -1,8 +1,9 @@
-# Ignore collections
+# Ignore tailwind generated styles
 public/css/output.css
 
-# Ignore collections
-collections/
+# Ignore content repositories
+/docs/
+/courses/
 
 # Ignore sitemap
 public/sitemap.xml

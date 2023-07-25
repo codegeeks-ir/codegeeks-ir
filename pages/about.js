@@ -9,39 +9,19 @@ import {
 import Accordion from "components/Accordion";
 import Head from "next/head";
 
-const About = ({ propCollection, contentCollection, about }) => (
+const About = ({ propCollection, contentCollection, data }) => (
   <>
     <Head>
-      <meta
-        name="keywords"
-        content="درباره‌ما, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-      />
-      <meta
-        name="description"
-        content="درباره فعالیت های انجمن، آشنایی با اعضای مرکزی و اهداف"
-      />
-      <title>درباره‌ما | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      <meta
-        property="og:title"
-        content="درباره انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه"
-      />
+      <meta name="description" content={data.description} />
+      <title>{data.title}</title>
+      <meta property="og:title" content={data.title} />
       <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
-      />
-      <meta
-        property="og:description"
-        content="انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه به عنوان یک سازمان دانشجویی پویا
-      و فعال، با هدف ایجاد ارتباط و تبادل دانش و تجربیات در حوزه فناوری و علوم
-      کامپیوتر فعالیت می‌کند. با برگزاری رویدادها، مسابقات، پروژه‌ها و انتشارات،
-      انجمن علمی کامپیوتر سعی دارد دانشجویان را در مسیر توسعه و یادگیری عمیق تر
-      همراهی کند."
-      />
-      <meta property="og:url" content="https://codegeeks.ir/about" />
+      <meta property="og:image" content={data.image} />
+      <meta property="og:description" content={data.description} />
+      <meta property="og:url" content={data.url} />
     </Head>
-    <div dangerouslySetInnerHTML={{ __html: about.content }}></div>
-
+    <h1>{data.heading}</h1>
+    <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
     <h2>اعضای مرکزی انجمن</h2>
     {propCollection.map((item, index) => (
       <Accordion
@@ -62,18 +42,18 @@ About.getLayout = (content) => (
 
 export const getStaticProps = async () => {
   const propCollection = await getPropCollection(
-    "collections/members/members",
+    "docs/collections/members",
     "members"
   );
   const contentCollection = await getContentCollection(
-    "collections/members/members"
+    "docs/collections/members"
   );
-  const about = await getItem("about-us.md", "./");
+  const data = await getItem("about.md", "docs/pages");
   return {
     props: {
       propCollection,
       contentCollection,
-      about,
+      data,
     },
   };
 };

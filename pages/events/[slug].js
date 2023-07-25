@@ -1,4 +1,4 @@
-import { getSlugs, getItem } from "lib/get-collection";
+import { getFileSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import Head from "next/head";
@@ -134,10 +134,6 @@ const EventPage = ({ data }) => {
     <>
       <Head>
         <meta
-          name="keywords"
-          content="رویدادها, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
-        <meta
           name="description"
           content="رویدادها و کارگاه‌های فنی و علمی انجمن"
         />
@@ -217,7 +213,7 @@ EventPage.getLayout = (content) => (
 );
 
 export const getStaticProps = async ({ params }) => {
-  const data = await getItem(`${params.slug}.md`, "collections/events/events");
+  const data = await getItem(`${params.slug}.md`, "docs/collections/events");
   return {
     props: {
       data,
@@ -226,7 +222,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = getSlugs("collections/events/events");
+  const paths = getFileSlugs("docs/collections/events");
   return { paths, fallback: false };
 };
 

@@ -15,10 +15,6 @@ const CoursePage = ({ data, repoName, resources }) => {
   return (
     <>
       <Head>
-        <meta
-          name="keywords"
-          content="مستندات درسی, جزوه, اسلاید, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
         <meta name="description" content="منابع و مستندات درسی گروه کامپیوتر" />
         <title>{`مستندات درس ${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
@@ -37,9 +33,9 @@ CoursePage.getLayout = (content) => (
 );
 
 export const getStaticProps = async ({ params }) => {
-  const data = await getItem("README.md", `collections/courses/${params.slug}`);
+  const data = await getItem("README.md", `courses/${params.slug}`);
   const repoName = params.slug;
-  const resources = require(`../../../collections/courses/${params.slug}/assets/tree.json`);
+  const resources = require(`../../../courses/${params.slug}/assets/tree.json`);
   return {
     props: {
       data,
@@ -50,7 +46,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = await getDirectorySlugs("collections/courses");
+  const paths = await getDirectorySlugs("courses");
   return { paths, fallback: false };
 };
 

@@ -5,6 +5,17 @@ const Results = ({ currentPageResults, collectionType }) => (
   <>
     {currentPageResults.map((item) => {
       switch (collectionType) {
+        case "companions":
+          return (
+            <Item
+              title={item.name}
+              subtitle={item.position}
+              footerRightData={item.githubID}
+              footerLeftData={""}
+              link={item.link}
+              key={item.slug}
+            />
+          );
         case "challenges":
           return (
             <Item
@@ -38,7 +49,7 @@ const Results = ({ currentPageResults, collectionType }) => (
               key={item.slug}
             />
           );
-        case "posts":
+        case "blog":
           return (
             <Item
               title={item.title}

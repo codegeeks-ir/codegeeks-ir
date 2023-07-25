@@ -1,4 +1,4 @@
-import { getSlugs, getItem } from "lib/get-collection";
+import { getFileSlugs, getItem } from "lib/get-collection";
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
 import PostAuthor from "components/PostAuthor";
@@ -7,7 +7,7 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { centerImage } from "lib/manipulate-html";
 
-const PostPage = ({ data, author }) => {
+const Article = ({ data, author }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -15,10 +15,6 @@ const PostPage = ({ data, author }) => {
   return (
     <>
       <Head>
-        <meta
-          name="keywords"
-          content="انتشارات, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-        />
         <meta name="description" content={data.description} />
         <title>{`${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
       </Head>
@@ -28,17 +24,17 @@ const PostPage = ({ data, author }) => {
   );
 };
 
-PostPage.getLayout = (content) => (
+Article.getLayout = (content) => (
   <DefaultLayout>
     <PageLayout>{content}</PageLayout>
   </DefaultLayout>
 );
 
 export const getStaticProps = async ({ params }) => {
-  const data = await getItem(`${params.slug}.md`, "collections/blog/posts");
+  const data = await getItem(`${params.slug}.md`, "docs/collections/blog");
   const author = await getItem(
     `${data.githubID}.md`,
-    "collections/companions/bios"
+    "docs/collections/companions"
   );
   return {
     props: {
@@ -49,8 +45,8 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = getSlugs("collections/blog/posts");
+  const paths = getFileSlugs("docs/collections/blog");
   return { paths, fallback: false };
 };
 
-export default PostPage;
+export default Article;

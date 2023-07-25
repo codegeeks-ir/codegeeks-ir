@@ -1,44 +1,24 @@
 import DefaultLayout from "layouts/DefaultLayout";
 import PageLayout from "layouts/PageLayout";
-import { getContentCollection, getPropCollection } from "lib/get-collection";
+import { getContentCollection, getItem, getPropCollection } from "lib/get-collection";
 import TableFromArray from "components/TableFromArray";
 import Head from "next/head";
 import Tabs from "components/Tabs";
 import csvToArrayOfObjects from "lib/csv-to-array";
 
-const BusStopTimes = ({ busStopPropCollection, busStopContentCollection }) => (
+const BusStopTimes = ({ busStopPropCollection, busStopContentCollection, data }) => (
   <>
     <Head>
-      <meta
-        name="keywords"
-        content="زمان سرویس‌ها, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-      />
-      <meta
-        name="description"
-        content="زمان حرکت سرویس‌های دانشگاه صنعتی ارومیه"
-      />
-      <title>زمان سرویس‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      <meta property="og:title" content="زمان سرویس‌های دانشگاه صنعتی ارومیه" />
+      <meta name="description" content={data.description} />
+      <title>{data.title}</title>
+      <meta property="og:title" content={data.title} />
       <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
-      />
-      <meta
-        property="og:description"
-        content="شما میتوانید با استفاده از این صفحه زمان رفت و آمد سرویس اتوبوس دانشگاه
-        صنعتی ارومیه واقع در جاده بند با دانشکده و خوابگاه ایثار مشاهده نمایید."
-      />
-      <meta
-        property="og:url"
-        content="https://codegeeks.ir/requirements/bus-stop-times"
-      />
+      <meta property="og:image" content={data.image} />
+      <meta property="og:description" content={data.description} />
+      <meta property="og:url" content={data.url} />
     </Head>
-    <h2>زمان سرویس‌ها</h2>
-    <p>
-      شما میتوانید با استفاده از این صفحه زمان رفت و آمد سرویس اتوبوس دانشگاه
-      صنعتی ارومیه واقع در جاده بند با دانشکده و خوابگاه ایثار مشاهده نمایید.
-    </p>
+    <h1>{data.heading}</h1>
+    <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
     <Tabs
       headers={["دانشکده", "دانشگاه", "ایثار", "برگشت ایثار"]}
       contents={busStopPropCollection.map((item, index) => (
@@ -60,22 +40,24 @@ BusStopTimes.getLayout = (content) => (
 
 export const getStaticProps = async () => {
   const busStopPropCollection = await getPropCollection(
-    "collections/requirements/data/bus-stop-times",
+    "docs/data/bus-stop-times",
     null,
     false
   );
   let busStopContentCollection = await getContentCollection(
-    "collections/requirements/data/bus-stop-times",
+    "docs/data/bus-stop-times",
     null,
     false
   );
   busStopContentCollection = busStopContentCollection.map((item) =>
     csvToArrayOfObjects(item.content)
   );
+  const data = await getItem("bus-stop-times.md", "docs/pages/requirements");
   return {
     props: {
       busStopPropCollection,
       busStopContentCollection,
+      data
     },
   };
 };

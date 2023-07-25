@@ -3,6 +3,7 @@ import PageLayout from "layouts/PageLayout";
 import {
   getContentCollection,
   getDirectorySlugs,
+  getItem,
   getPropCollection,
 } from "lib/get-collection";
 import TableFromArray from "components/TableFromArray";
@@ -10,43 +11,19 @@ import Head from "next/head";
 import csvToArrayOfObjects from "lib/csv-to-array";
 import Tabs from "components/Tabs";
 
-const CurriculumGuide = ({ curriculumGuides }) => (
+const CurriculumGuide = ({ curriculumGuides, data }) => (
   <>
     <Head>
-      <meta
-        name="keywords"
-        content="چارت, چارت درسی‌‌‌‌, انجمن علمی کامپیوتر, دانشگاه صنعتی ارومیه"
-      />
-      <meta name="description" content="چارت درسی گروه کامپیوتر" />
-      <title>چارت درسی | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
-      <meta
-        property="og:title"
-        content="چارت درسی گروه کامپیوتر دانشگاه صنعتی ارومیه"
-      />
+      <meta name="description" content={data.description} />
+      <title>{data.title}</title>
+      <meta property="og:title" content={data.title} />
       <meta property="og:type" content="website" />
-      <meta
-        property="og:image"
-        content="https://codegeeks.ir/icones/codegeeks/codegeeks-icon.svg"
-      />
-      <meta
-        property="og:description"
-        content="با دنبال کردن این چارت انتخاب واحد دانشگاه صنعتی ارومیه ،دانشجویان
-        می‌توانند به تدریج مهارت‌ها و دانش مورد نیاز برای تحقق موفقیت در حوزه
-        کامپیوتر را کسب کنند."
-      />
-      <meta
-        property="og:url"
-        content="https://codegeeks.ir/requirements/curriculum-guide"
-      />
+      <meta property="og:image" content={data.image} />
+      <meta property="og:description" content={data.description} />
+      <meta property="og:url" content={data.url} />
     </Head>
-    <h2>چارت</h2>
-    <p>
-      با دنبال کردن این چارت انتخاب واحد دانشگاه صنعتی ارومیه ،دانشجویان
-      می‌توانند به تدریج مهارت‌ها و دانش مورد نیاز برای تحقق موفقیت در حوزه
-      کامپیوتر را کسب کنند. همچنین، این چارت به دانشجویان این امکان را می‌دهد تا
-      با موضوعات مختلف در زمینه کامپیوتر آشنا شوند و علاقه‌مندی‌های خود را در
-      این حوزه پیدا کنند.
-    </p>
+    <h1>{data.heading}</h1>
+    <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
     {curriculumGuides.map((curriculumGuide, curriculumGuideIndex) => (
       <div key={curriculumGuideIndex}>
         <TableFromArray
@@ -82,15 +59,15 @@ CurriculumGuide.getLayout = (content) => (
 
 export const getStaticProps = async () => {
   const curriculumGuideDirectories = await getDirectorySlugs(
-    "collections/requirements/data/curriculum-guide"
+    "docs/data/curriculum-guide"
   );
   const curriculumGuides = await Promise.all(
     curriculumGuideDirectories.map(async (curriculumGuide) => {
       const props = await getPropCollection(
-        `collections/requirements/data/curriculum-guide/${curriculumGuide.params.slug}`
+        `docs/data/curriculum-guide/${curriculumGuide.params.slug}`
       );
       let contents = await getContentCollection(
-        `collections/requirements/data/curriculum-guide/${curriculumGuide.params.slug}`
+        `docs/data/curriculum-guide/${curriculumGuide.params.slug}`
       );
       contents = contents.map((item) => csvToArrayOfObjects(item.content));
       return {
@@ -99,9 +76,11 @@ export const getStaticProps = async () => {
       };
     })
   );
+  const data = await getItem("curriculum-guide.md", "docs/pages/requirements");
   return {
     props: {
       curriculumGuides,
+      data,
     },
   };
 };
