@@ -6,7 +6,7 @@ const navbarItems = [
   {
     category: "navbar",
     link: "/requirements",
-    repo: "requirements",
+    repo: "codegeeks-ir",
     icon: <RequirementsIcon className="h-auto w-8 fill-slate-900" />,
   },
   {

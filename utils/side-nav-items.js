@@ -6,7 +6,7 @@ const sideNavItems = [
   {
     name: "سوالات متداول",
     link: "/faqs",
-    repo: "faqs",
+    repo: "docs",
     icon: <FaqsIcon className="w-8 fill-slate-600" />,
   },
   {
@@ -18,7 +18,7 @@ const sideNavItems = [
   {
     name: "انجمن",
     link: "/about",
-    repo: "members",
+    repo: "docs",
     icon: <AboutIcon className="w-8 fill-slate-600" />,
   },
 ];

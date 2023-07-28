@@ -7,25 +7,25 @@ const mainNavItems = [
   {
     name: "رویدادها",
     link: "/events",
-    repo: "events",
+    repo: "docs",
     icon: <EventsIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "مسابقات",
     link: "/challenges",
-    repo: "challenges",
+    repo: "docs",
     icon: <ChallengesIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "پروژه‌ها",
     link: "/projects",
-    repo: "projects",
+    repo: "docs",
     icon: <ProjectsIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "انتشارات",
     link: "/blog",
-    repo: "posts",
+    repo: "docs",
     icon: <BlogIcon className="w-8 fill-slate-600" />,
   },
 ];

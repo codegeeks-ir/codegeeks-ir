@@ -7,7 +7,7 @@ import { centerImage } from "lib/manipulate-html";
 import Head from "next/head";
 import { useEffect } from "react";
 
-const CoursePage = ({ data, repoName, resources }) => {
+const CoursePage = ({ data, repoName, rootDirectory, resources }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -20,7 +20,7 @@ const CoursePage = ({ data, repoName, resources }) => {
       </Head>
       <div>
         <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
-        <FileExplorer resources={resources} repoName={repoName} />
+        <FileExplorer resources={resources} repoName={repoName} rootDirectory={rootDirectory} />
       </div>
     </>
   );
@@ -34,12 +34,14 @@ CoursePage.getLayout = (content) => (
 
 export const getStaticProps = async ({ params }) => {
   const data = await getItem("README.md", `courses/${params.slug}`);
-  const repoName = params.slug;
+  const repoName = "courses";
+  const rootDirectory = params.slug;
   const resources = require(`../../../courses/${params.slug}/assets/tree.json`);
   return {
     props: {
       data,
       repoName,
+      rootDirectory,
       resources,
     },
   };

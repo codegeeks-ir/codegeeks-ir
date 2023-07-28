@@ -25,10 +25,10 @@ const Directory = ({
   </button>
 );
 
-const File = ({ element, repoName }) => (
+const File = ({ element, repoName, rootDirectory }) => (
   <a
     className="file-explorer-element"
-    href={`https://github.com/codegeeks-ir/${repoName}/raw/main/${element.name}`}
+    href={`https://github.com/codegeeks-ir/${repoName}/raw/main/${rootDirectory}/${element.name}`}
   >
     <FileIcon className="w-12 fill-blue-400" />
     <p>{element.name.split("/").pop()}</p>
@@ -42,6 +42,7 @@ const Element = ({
   history,
   setHistory,
   repoName,
+  rootDirectory
 }) => {
   return (
     <>
@@ -54,7 +55,7 @@ const Element = ({
           setHistory={setHistory}
         />
       ) : (
-        <File element={element} repoName={repoName} />
+        <File element={element} repoName={repoName} rootDirectory={rootDirectory} />
       )}
     </>
   );
@@ -109,7 +110,7 @@ const BackButton = ({
   </button>
 );
 
-const FileExplorer = ({ resources, repoName }) => {
+const FileExplorer = ({ resources, repoName, rootDirectory }) => {
   const [currentPath, setCurrentPath] = useState(resources[0].name);
   const [currentElement, setCurrentElement] = useState(resources[0]);
   const [history, setHistory] = useState([resources[0]]);
@@ -140,6 +141,7 @@ const FileExplorer = ({ resources, repoName }) => {
             history={history}
             setHistory={setHistory}
             repoName={repoName}
+            rootDirectory={rootDirectory}
           />
         ))}
       </div>

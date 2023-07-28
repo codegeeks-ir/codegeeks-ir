@@ -7,25 +7,25 @@ const requirementsNavItem = [
   {
     name: "دفترچه تماس",
     link: "/requirements/contacts",
-    repo: "requirements",
+    repo: "docs",
     icon: <ContactsIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "چارت",
     link: "/requirements/curriculum-guide",
-    repo: "requirements",
+    repo: "docs",
     icon: <CurriculumGuideIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "دروس",
     link: "/requirements/courses",
-    repo: "requirements",
+    repo: "docs",
     icon: <CoursesIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "سرویس‌",
     link: "/requirements/bus-stop-times",
-    repo: "requirements",
+    repo: "docs",
     icon: <BusStopTimesIcon className="w-8 fill-slate-600" />,
   },
 ];
