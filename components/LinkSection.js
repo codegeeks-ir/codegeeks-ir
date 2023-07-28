@@ -6,7 +6,7 @@ const LinkSection = ({ items }) => (
       <li className="section-item" key={item.link}>
         <Link className="section-link" href={item.link}>
           {item.icon}
-          <span className="text-xs pt-1">{item.name}</span>
+          <span className="pt-1 text-xs">{item.name}</span>
         </Link>
       </li>
     ))}

@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 const PostAuthor = ({ name, githubID }) => (
-  <div className="flex flex-row flex-wrap justify-end items-center pl-0 pb-2">
+  <div className="flex flex-row flex-wrap items-center justify-end pl-0 pb-2">
     <Link
-      className="btn-light w-auto flex flex-row items-center 
-            rounded-tl-none py-1 mt-1 mb-0 ml-0 mr-4"
+      className="btn-light mt-1 mb-0 ml-0 mr-4 
+            flex w-auto flex-row items-center rounded-tl-none py-1"
       href={`../companions/${githubID}`}
     >
-      <div className="profile-picture relative w-8 my-0 py-0">
+      <div className="profile-picture relative my-0 w-8 py-0">
         <Image
           src={`https://github.com/${githubID}.png`}
           width="100"
@@ -16,7 +16,7 @@ const PostAuthor = ({ name, githubID }) => (
           alt={githubID}
         />
       </div>
-      <p className="text-base text-slate-700 py-0 my-0">{name}</p>
+      <p className="my-0 py-0 text-base text-slate-700">{name}</p>
     </Link>
   </div>
 );

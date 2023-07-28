@@ -7,8 +7,8 @@ const Accordion = ({ collapseData, headerData, isShowByDefault }) => {
     <>
       <button
         onClick={() => setShowCollapse(!showCollapse)}
-        className={`btn-primary text-sm text-right focus:ring-0 w-full mx-0 ${
-          showCollapse ? "rounded-b-none mt-2" : "rounded-none mt-0 my-0.5"
+        className={`btn-primary mx-0 w-full text-right text-sm focus:ring-0 ${
+          showCollapse ? "mt-2 rounded-b-none" : "my-0.5 mt-0 rounded-none"
         }`}
       >
         {headerData}

@@ -5,13 +5,13 @@ import mainNavItems from "utils/main-nav-items";
 import sideNavItems from "utils/side-nav-items";
 
 const Index = () => (
-  <div className="flex flex-col items-center w-full h-full max-h-screen mt-4">
+  <div className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
     <LogoType />
-    <div className="flex flex-col items-center justify-evenly w-full h-full grow-1 my-4">
-      <div className="bg-sky-600 w-full h-auto rounded-t-md">
+    <div className="grow-1 my-4 flex h-full w-full flex-col items-center justify-evenly">
+      <div className="h-auto w-full rounded-t-md bg-sky-600">
         <LinkSection items={mainNavItems} />
       </div>
-      <div className="bg-slate-700 w-full h-auto rounded-b-md">
+      <div className="h-auto w-full rounded-b-md bg-slate-700">
         <LinkSection items={sideNavItems} />
       </div>
     </div>

@@ -61,7 +61,7 @@ const Element = ({
 };
 
 const Path = ({ path }) => (
-  <div className="flex flex-wrap pl-2 grow mt-1">
+  <div className="mt-1 flex grow flex-wrap pl-2">
     {path.length > 24 ? (
       <span className="text-sm">../{path.split("/").pop()}</span>
     ) : (
@@ -118,9 +118,9 @@ const FileExplorer = ({ resources, repoName }) => {
     setContent(currentElement.contents);
   }, [currentElement]);
   return (
-    <div className="flex flex-col flex-wrap my-4" dir="ltr">
+    <div className="my-4 flex flex-col flex-wrap" dir="ltr">
       <div className="file-explorer-header">
-        <CloudIcon className="w-6 fill-slate-300 grow-0" />
+        <CloudIcon className="w-6 grow-0 fill-slate-300" />
         <Path path={currentPath} />
         <DownloadLink repoName={repoName} />
       </div>

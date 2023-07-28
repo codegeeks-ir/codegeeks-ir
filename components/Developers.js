@@ -5,7 +5,7 @@ import ForkIcon from "public/icones/fork.svg";
 import PrayIcon from "public/icones/pray.svg";
 
 const Contributor = ({ githubID }) => (
-  <div className="profile-picture relative w-20 mr-4 mb-4">
+  <div className="profile-picture relative mr-4 mb-4 w-20">
     <Image
       src={`https://github.com/${githubID}.png`}
       alt={githubID}
@@ -24,7 +24,7 @@ const Developers = ({ contributions }) => (
     {contributions.map((item) => (
       <div key={item.section}>
         <h5>{item.section}</h5>
-        <div className="contributors flex flex-row flex-wrap mb-8">
+        <div className="contributors mb-8 flex flex-row flex-wrap">
           {item.githubID.map((githubID) => (
             <Contributor key={githubID} githubID={githubID} />
           ))}
@@ -34,14 +34,14 @@ const Developers = ({ contributions }) => (
     <h2>دلگرمی مون باشید</h2>
     <div className="flex flex-row">
       <a
-        className="btn-primary w-32 flex flex-row items-center justify-center"
+        className="btn-primary flex w-32 flex-row items-center justify-center"
         href="https://github.com/codegeeks-ir/codegeeks-ir/stargazers"
       >
         <p className="my-0 mx-1 py-0">ستاره</p>
         <StarIcon className="icon" />
       </a>
       <a
-        className="btn-primary w-32 flex flex-row items-center justify-center"
+        className="btn-primary flex w-32 flex-row items-center justify-center"
         href="https://github.com/codegeeks-ir/codegeeks-ir/issues"
       >
         <p className="my-0 mx-1 py-0">کمک</p>
@@ -49,11 +49,11 @@ const Developers = ({ contributions }) => (
       </a>
     </div>
     <button
-      className="btn-primary w-72 flex flex-row items-center justify-center p-2
-          focus:bg-green-500 focus:scale-x-105 focus:scale-105 transition ease-in-out duration-500"
+      className="btn-primary flex w-72 flex-row items-center justify-center p-2
+          transition duration-500 ease-in-out focus:scale-105 focus:scale-x-105 focus:bg-green-500"
       href="#"
     >
-      <p className="text-xs my-0 mx-1 py-0">
+      <p className="my-0 mx-1 py-0 text-xs">
         اللَهم صلی علی محمَد و آل محمَد و عجَل فرجهم
       </p>
       <PrayIcon className="icon" />

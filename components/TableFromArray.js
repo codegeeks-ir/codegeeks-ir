@@ -13,26 +13,26 @@ const GetDataComponent = ({ data }) => {
     <>
       {dataIsEmail(data) ? (
         <a
-          className="btn-primary flex flex-row flex-wrap justify-center items-center w-8 my-0"
+          className="btn-primary my-0 flex w-8 flex-row flex-wrap items-center justify-center"
           href={`mailto:${data}`}
         >
-          <EmailIcon className="fill-slate-200 w-6 h-auto" />
+          <EmailIcon className="h-auto w-6 fill-slate-200" />
         </a>
       ) : null}
       {dataIsPhone(data) ? (
         <a
-          className="btn-primary flex flex-row flex-wrap justify-center items-center w-8 my-0"
+          className="btn-primary my-0 flex w-8 flex-row flex-wrap items-center justify-center"
           href={`tel:${data}`}
         >
-          <PhoneIcon className="fill-slate-200 w-6 h-auto" />
+          <PhoneIcon className="h-auto w-6 fill-slate-200" />
         </a>
       ) : null}
       {dataIsWebsite(data) ? (
         <a
-          className="btn-primary flex flex-row flex-wrap justify-center items-center w-8 my-0"
+          className="btn-primary my-0 flex w-8 flex-row flex-wrap items-center justify-center"
           href={data}
         >
-          <LinkIcon className="fill-slate-200 w-6 h-auto" />
+          <LinkIcon className="h-auto w-6 fill-slate-200" />
         </a>
       ) : null}
       {!dataIsEmail(data) && !dataIsPhone(data) && !dataIsWebsite(data)

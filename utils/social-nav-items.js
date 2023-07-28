@@ -7,22 +7,22 @@ const socialItems = [
   {
     name: "youtube",
     link: "https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw",
-    icon: <YoutubeIcon className="fill-slate-400 w-4 h-auto" />,
+    icon: <YoutubeIcon className="h-auto w-4 fill-slate-400" />,
   },
   {
     name: "instagram",
     link: "https://www.instagram.com/ceit_uut",
-    icon: <InstagramIcon className="fill-slate-400 w-4 h-auto" />,
+    icon: <InstagramIcon className="h-auto w-4 fill-slate-400" />,
   },
   {
     name: "telegram",
     link: "https://t.me/ceit_uut",
-    icon: <TelegramIcon className="fill-slate-400 w-4 h-auto" />,
+    icon: <TelegramIcon className="h-auto w-4 fill-slate-400" />,
   },
   {
     name: "github",
     link: "https://github.com/codegeeks-ir",
-    icon: <GithubIcon className="fill-slate-400 w-4 h-auto" />,
+    icon: <GithubIcon className="h-auto w-4 fill-slate-400" />,
   },
 ];
 

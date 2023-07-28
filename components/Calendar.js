@@ -19,12 +19,12 @@ const Day = ({
   <>
     {persianDay != undefined ? (
       <div
-        className="flex flex-row items-center justify-center w-auto"
+        className="flex w-auto flex-row items-center justify-center"
         onClick={() => setSelectedDate(date)}
       >
         <span
           className={
-            `w-10 px-2 py-1 rounded-md ${
+            `w-10 rounded-md px-2 py-1 ${
               isCurrentDay ? "current-day" : "btn"
             } ` + `${isSameDate(selectedDate, date) ? "selected-day" : ""}`
           }
@@ -71,7 +71,7 @@ const Calendar = () => {
         <button className="btn" onClick={() => setMonthOffset(monthOffset - 1)}>
           <PreviousIcon className="w-6 fill-slate-700" />
         </button>
-        <p className="text-slate-500 text-center text-lg p-1">
+        <p className="p-1 text-center text-lg text-slate-500">
           {getPersianShortDate(
             shiftGeorgianDate(
               selectedDate,

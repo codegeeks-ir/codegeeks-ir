@@ -2,7 +2,7 @@ import socialItems from "utils/social-nav-items";
 
 const Footer = () => (
   <footer>
-    <ul className="flex flex-row navbar-nav justify-center p-0 m-0">
+    <ul className="navbar-nav m-0 flex flex-row justify-center p-0">
       {socialItems.map((item) => (
         <li className="social-item" key={item.name}>
           <a href={item.link}>{item.icon}</a>

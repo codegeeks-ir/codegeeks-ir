@@ -4,7 +4,7 @@ import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
 const Icon = () => (
   <div className="logo">
     <Link href="/">
-      <CodegeeksIcon className="fill-slate-200 w-16" />
+      <CodegeeksIcon className="w-16 fill-slate-200" />
     </Link>
   </div>
 );
