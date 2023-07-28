@@ -15,10 +15,12 @@
     "update-collection-workflows": "bash collection-update/update-workflows.sh"
   },
   "devDependencies": {
+    "@octokit/core": "^4.2.4",
     "@svgr/webpack": "^6.5.1",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
