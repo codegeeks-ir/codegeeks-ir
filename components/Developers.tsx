@@ -4,7 +4,11 @@ import StarIcon from "public/icones/star.svg";
 import ForkIcon from "public/icones/fork.svg";
 import PrayIcon from "public/icones/pray.svg";
 
-const Contributor = ({ githubID }) => (
+interface ContributorProps {
+  githubID: string;
+}
+
+const Contributor = ({ githubID }: ContributorProps) => (
   <div className="profile-picture relative mr-4 mb-4 w-20">
     <Image
       src={`https://github.com/${githubID}.png`}
@@ -17,6 +21,8 @@ const Contributor = ({ githubID }) => (
     </a>
   </div>
 );
+
+interface DevelopersProps {}
 
 const Developers = ({ contributions }) => (
   <div className="my-16">

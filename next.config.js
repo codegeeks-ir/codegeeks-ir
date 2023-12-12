@@ -17,6 +17,7 @@ module.exports = withPWA({
     ],
     unoptimized: true,
   },
+  output: 'export',
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.fallback = { fs: false, path: false };
     config.module.rules.push({

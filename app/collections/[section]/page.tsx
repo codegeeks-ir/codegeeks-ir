@@ -1,56 +1,47 @@
-import { getItem, getPropCollection, getFileSlugs } from "lib/get-collection";
-import DefaultLayout from "layouts/DefaultLayout";
 import PageHeader from "components/PageHeader";
 import Collection from "components/collection/Collection";
-import Head from "next/head";
+import IPageData from "utils/schema/collections/page/page-data";
+import { getDataCollection } from "utils/get-data/get-collection";
+import { getDirectorySlugs } from "utils/get-data/get-slugs";
+import { getItem } from "utils/schema/collections/view-type";
+import { referenceFactory } from "utils/schema/collections/reference-type";
+import { SlugType } from "utils/schema/collections/data-type";
 
-const CollectionPage = ({ data, propCollection }) => (
-  <>
-    <Head>
-      <meta name="description" content={data.description} />
-      <title>{data.title}</title>
-      <meta property="og:title" content={data.title} />
-      <meta property="og:type" content="website" />
-      <meta property="og:image" content={data.image} />
-      <meta property="og:description" content={data.description} />
-      <meta property="og:url" content={data.url} />
-    </Head>
-    <div className="collection-container">
-      <PageHeader />
-      <div className="page-header">
-        <h1>{data.heading}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
-      </div>
-      <Collection
-        propCollection={propCollection}
-        collectionType={data.collectionType}
-        properties={data.properties}
-      />
-    </div>
-  </>
-);
+interface IParams {
+  section: SlugType;
+}
 
-CollectionPage.getLayout = (content) => (
-  <DefaultLayout>{content}</DefaultLayout>
-);
-
-export const getStaticProps = async ({ params }) => {
-  const data = await getItem(`${params.slug}.md`, "docs/pages/collections");
-  const propCollection = await getPropCollection(
-    `docs/collections/${params.slug}`,
-    params.slug
+export const generateStaticParams = async (): Promise<IParams[]> => {
+  return await getDirectorySlugs("docs/collections").then((slugs) =>
+    slugs.map((slug: SlugType) => ({ section: slug }))
   );
+};
+
+const getData = async (params: IParams) => {
+  const page = await getItem(
+    "README.md",
+    `docs/collections/${params.section}`
+  );
+  const data = await getDataCollection(`docs/collections/${params.section}`);
+  for (const item of data) item.reference = await referenceFactory(item);
   return {
-    props: {
-      data,
-      propCollection,
-    },
+    page,
+    data,
   };
 };
 
-export const getStaticPaths = async () => {
-  const paths = getFileSlugs("docs/pages/collections");
-  return { paths, fallback: false };
+const Page = async ({ params }: { params: IParams }) => {
+  const { page, data } = await getData(params);
+  return (
+    <section className="collection-container">
+      <PageHeader />
+      <section className="page-header">
+        <h1>{(page.data as IPageData).heading}</h1>
+        <section dangerouslySetInnerHTML={{ __html: page.content as string }}></section>
+      </section>
+      <Collection data={data} />
+    </section>
+  );
 };
 
-export default CollectionPage;
+export default Page;

@@ -1,25 +1,28 @@
 const addClassesToParentOfElements = (
-  elementsTagName,
-  classNames,
-  parentTagName = null
-) => {
-  const elements = document.getElementsByTagName(elementsTagName);
+  target: string,
+  classNames: string[],
+  parentName?: string,
+): void => {
+  const elements = document.getElementsByTagName(target);
   if (elements.length == 0 || elements == null || elements == undefined) return;
-  const classList = classNames.split(" ").map((className) => className.trim());
+  const classList = classNames.map((className) => className.trim());
   Object.values(elements).forEach((element) => {
-    let parent = element.parentElement;
-    if (parentTagName == null)
-      classList.forEach((className) => parent.classList.add(className));
-    else if (parent.tagName == parentTagName)
-      classList.forEach((className) => parent.classList.add(className));
+    if (parentName == null)
+      classList.forEach(
+        (className) => element.parentElement?.classList.add(className),
+      );
+    else if (element.parentElement?.tagName == parentName)
+      classList.forEach(
+        (className) => element.parentElement?.classList.add(className),
+      );
   });
 };
 
 const centerImage = () => {
   addClassesToParentOfElements(
     "img",
-    "flex flex-row justify-center my-12",
-    "P"
+    ["flex", "flex-row", "justify-center", "my-12"],
+    "P",
   );
 };
 

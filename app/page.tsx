@@ -1,10 +1,9 @@
 import LogoType from "components/LogoType";
 import LinkSection from "components/LinkSection";
-import DefaultLayout from "layouts/DefaultLayout";
-import mainNavItems from "utils/main-nav-items";
-import sideNavItems from "utils/side-nav-items";
+import mainNavItems from "utils/schema/navigation/main-navigation";
+import sideNavItems from "utils/schema/navigation/side-navigation";
 
-const Index = () => (
+const Page = () => (
   <div className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
     <LogoType />
     <div className="grow-1 my-4 flex h-full w-full flex-col items-center justify-evenly">
@@ -18,6 +17,4 @@ const Index = () => (
   </div>
 );
 
-Index.getLayout = (index) => <DefaultLayout>{index}</DefaultLayout>;
-
-export default Index;
+export default Page;

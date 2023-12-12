@@ -1,31 +1,32 @@
+"use client";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import mainNavItems from "utils/main-nav-items";
-import sideNavItems from "utils/side-nav-items";
+import { usePathname } from "next/navigation";
 import BackIcon from "public/icones/back.svg";
 import ForkIcon from "public/icones/fork.svg";
 import HeartIcon from "public/icones/heart.svg";
 import Icon from "./Icon";
-import requirementsNavItem from "utils/requirements-nav-items";
-import courseNavItems from "utils/course-nav-items";
+import Navigation from "utils/schema/navigation/navigation-type";
+import courseNavItems from "utils/schema/navigation/course-navigation";
+import requirementsNavItem from "utils/schema/navigation/requirements-navigation";
+import mainNavItems from "utils/schema/navigation/main-navigation";
+import sideNavItems from "utils/schema/navigation/side-navigation";
 
-const getBackLink = () =>
-  useRouter().asPath.split("/").slice(0, -1).join("/") + "/";
+const getBackLink = (): string =>
+  usePathname().split("/").slice(0, -1).join("/") + "/";
 
-const getRepoName = () => {
-  const router = useRouter();
-  const mainPath = router.asPath.split("/")[1];
-  const allLinks = [
+const getRepoName = (): string => {
+  const mainPath = usePathname().split("/")[1];
+  const allLinks: Navigation = [
     ...courseNavItems,
     ...requirementsNavItem,
     ...sideNavItems,
     ...mainNavItems,
   ];
-  let page = allLinks.find((item) => item.link == router.asPath);
-  if (page != null || page != undefined) return page.repo;
+  let page = allLinks.find((item) => item.link == usePathname());
+  if (page?.repo) return page.repo;
   else {
     page = allLinks.find((item) => item.link == `/${mainPath}`);
-    if (page != null || page != undefined) return page.repo;
+    if (page?.repo) return page.repo;
     else return "codegeeks-ir";
   }
 };

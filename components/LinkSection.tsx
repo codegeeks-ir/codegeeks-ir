@@ -1,6 +1,7 @@
 import Link from "next/link";
+import Navigation from "utils/schema/navigation/navigation-type";
 
-const LinkSection = ({ items }) => (
+const LinkSection = ({ items }: { items: Navigation }) => (
   <ul className="sections">
     {items.map((item) => (
       <li className="section-item" key={item.link}>

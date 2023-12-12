@@ -1,6 +1,5 @@
 import Tabs from "components/Tabs.js";
 import EventForm from "components/collection/form/EventForm";
-import DefaultLayout from "layouts/DefaultLayout";
 import ChallengeForm from "components/collection/form/ChallengeForm";
 import ProjectForm from "components/collection/form/ProjectForm";
 import BlogForm from "components/collection/form/BlogForm";
@@ -22,7 +21,5 @@ const Account = () => (
     />
   </div>
 );
-
-Account.getLayout = (content) => <DefaultLayout>{content}</DefaultLayout>;
 
 export default Account;

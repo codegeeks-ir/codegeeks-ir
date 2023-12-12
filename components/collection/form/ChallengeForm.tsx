@@ -11,7 +11,7 @@ const ChallengeForm = ({}) => {
   const details = useRef(null);
   return (
     <form className="form">
-      <div className="flex flex-row flex-wrap w-full">
+      <div className="flex w-full flex-row flex-wrap">
         <div className="flex flex-col flex-wrap">
           <input
             className="form-element"
@@ -58,7 +58,7 @@ const ChallengeForm = ({}) => {
         />
       </div>
       <button
-        className="btn-primary w-full md:w-48 mx-0"
+        className="btn-primary mx-0 w-full md:w-48"
         href={`${config.login}`}
         onClick={() => createEvent({})}
       >

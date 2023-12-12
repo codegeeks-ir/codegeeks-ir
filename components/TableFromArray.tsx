@@ -1,14 +1,16 @@
+"use client";
 import PhoneIcon from "public/icones/phone.svg";
 import EmailIcon from "public/icones/email.svg";
 import LinkIcon from "public/icones/link.svg";
+import { CsvRow } from "lib/csv-to-array";
 
-const dataIsEmail = (data) => data.includes("@");
-const dataIsWebsite = (data) =>
+const dataIsEmail = (data: string) => data.includes("@");
+const dataIsWebsite = (data: string) =>
   data.startsWith("https://") || data.startsWith("www.");
-const dataIsPhone = (data) =>
+const dataIsPhone = (data: string) =>
   data.startsWith("04") || data.startsWith("09") || data.startsWith("+98");
 
-const GetDataComponent = ({ data }) => {
+const GetDataComponent = ({ data }: { data: string }) => {
   return (
     <>
       {dataIsEmail(data) ? (
@@ -42,40 +44,44 @@ const GetDataComponent = ({ data }) => {
   );
 };
 
-const TableFormArray = ({ array, comments }) => {
+const TableFormArray = ({
+  array,
+  description,
+}: {
+  array: CsvRow[];
+  description: string;
+}) => {
   const isArrayEmpty = array.length == 0 || array == null || array == undefined;
   return (
-    <>
-      <div className="overflow-x-scroll">
-        <table className="horizontal-table">
-          <caption>{comments.join("-")}</caption>
-          <thead>
-            <tr>
-              {isArrayEmpty
-                ? ""
-                : Object.keys(array[0]).map((header) => (
-                    <th key={header}>{header}</th>
-                  ))}
-            </tr>
-          </thead>
-          <tbody>
-            {array.map((row, rowIndex) => (
-              <tr key={rowIndex} tabIndex={0}>
-                {Object.values(row).map((dataCell, dataIndex) => (
-                  <td key={dataIndex} className="my-0 py-1">
-                    <div className="flex flex-row flex-wrap">
-                      {dataCell.map((item) => (
-                        <GetDataComponent key={dataIndex} data={item} />
-                      ))}
-                    </div>
-                  </td>
+    <section className="overflow-x-scroll">
+      <table className="horizontal-table">
+        <caption>{description}</caption>
+        <thead>
+          <tr>
+            {isArrayEmpty
+              ? ""
+              : Object.keys(array[0]).map((header) => (
+                  <th key={header}>{header}</th>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </>
+          </tr>
+        </thead>
+        <tbody>
+          {array.map((row, rowIndex) => (
+            <tr key={rowIndex} tabIndex={0}>
+              {Object.values(row).map((dataCell, dataIndex) => (
+                <td key={dataIndex} className="my-0 py-1">
+                  <section className="flex flex-row flex-wrap">
+                    {dataCell.map((item) => (
+                      <GetDataComponent key={dataIndex} data={item} />
+                    ))}
+                  </section>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
   );
 };
 

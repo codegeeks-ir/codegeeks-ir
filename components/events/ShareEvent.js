@@ -2,16 +2,16 @@ import ShareIcon from "public/icones/share.svg";
 
 const ShareEvent = ({ exportLink, subject }) => {
   return (
-    <div className="p-0 mt-8">
+    <div className="mt-8 p-0">
       <h1 className="card-title m-0">
-        <ShareIcon className="fill-slate-700 md:w-6 sm:w-4 ml-4" />
+        <ShareIcon className="ml-4 fill-slate-700 sm:w-4 md:w-6" />
         اشتراک گذاری رویداد
       </h1>
       <p>
         شما می توانید تصاویر مناسب شبکه های اجتماعی را ذخیره کرده و به اشتراک
         بگذارید.
       </p>
-      <div className="card-footer pt-3 justify-center">
+      <div className="card-footer justify-center pt-3">
         <a
           className="btn-primary"
           href={exportLink.postImage}

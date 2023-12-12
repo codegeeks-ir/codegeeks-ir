@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const PostAuthor = ({ name, githubID }) => (
+const PostAuthor = ({ name, githubID }: { name: string; githubID: string }) => (
   <div className="flex flex-row flex-wrap items-center justify-end pl-0 pb-2">
     <Link
       className="btn-light mt-1 mb-0 ml-0 mr-4 

@@ -1,4 +1,4 @@
-const dayNames = [
+const dayNames: string[] = [
   "یکشنبه",
   "دوشنبه",
   "سه‌شنبه",
@@ -8,7 +8,7 @@ const dayNames = [
   "شنبه",
 ];
 
-const dayNamesInPersianOrder = [
+const dayNamesInPersianOrder: string[] = [
   "شنبه",
   "یکشنبه",
   "دوشنبه",
@@ -18,7 +18,7 @@ const dayNamesInPersianOrder = [
   "جمعه",
 ];
 
-const monthNames = [
+const monthNames: string[] = [
   "فروردین",
   "اردیبهشت",
   "خرداد",
@@ -33,48 +33,49 @@ const monthNames = [
   "اسفند",
 ];
 
-const digitsToLatin = (persianNumber) =>
+const digitsToLatin = (persianNumber: string) =>
   persianNumber
     .split("")
     .map((digit) => "۰۱۲۳۴۵۶۷۸۹".indexOf(digit))
     .join("");
 
-const toNumber = (persianNumber) => Number(digitsToLatin(persianNumber));
+const toNumber = (persianNumber: string) =>
+  Number(digitsToLatin(persianNumber));
 
-const getPersianYear = (date) =>
+const getPersianYear = (date: Date) =>
   date.toLocaleDateString("fa-IR").split(",")[0].split("/")[0];
 
-const getPersianMonth = (date) =>
+const getPersianMonth = (date: Date) =>
   date.toLocaleDateString("fa-IR").split(",")[0].split("/")[1];
 
-const getPersianDay = (date) =>
+const getPersianDay = (date: Date) =>
   date.toLocaleDateString("fa-IR").split(",")[0].split("/")[2];
 
 const shiftGeorgianDate = (
-  date,
-  dayOffset = 0,
-  monthOffset = 0,
-  yearOffset = 0,
-  multiplier = 1
+  date: Date,
+  dayOffset: number = 0,
+  monthOffset: number = 0,
+  yearOffset: number = 0,
+  multiplier: number = 1,
 ) =>
   new Date(
     date.getFullYear() + yearOffset * multiplier,
     date.getMonth() + monthOffset * multiplier,
-    date.getDate() + dayOffset * multiplier
+    date.getDate() + dayOffset * multiplier,
   );
 
-const firstDayInMonth = (date) =>
+const firstDayInMonth = (date: Date) =>
   shiftGeorgianDate(date, toNumber(getPersianDay(date)) - 1, 0, 0, -1);
 
-const isSameDate = (firstDate, secondDate) =>
+const isSameDate = (firstDate: Date, secondDate: Date) =>
   firstDate.getFullYear() === secondDate.getFullYear() &&
   firstDate.getMonth() === secondDate.getMonth() &&
   firstDate.getDate() === secondDate.getDate();
 
-const getPersianShortDate = (date) =>
+const getPersianShortDate = (date: Date) =>
   monthNames[toNumber(getPersianMonth(date)) - 1] + " " + getPersianYear(date);
 
-const getPersianLongDate = (georgianString) => {
+const getPersianLongDate = (georgianString: string) => {
   const georgianDate = new Date(georgianString);
   const persianString = georgianDate.toLocaleDateString("fa-IR");
   const weekDay = dayNames[georgianDate.getDay()];
@@ -84,35 +85,42 @@ const getPersianLongDate = (georgianString) => {
   return weekDay + " " + day + " " + month + " " + year;
 };
 
-const getPersianMonthName = (persianString) => {
+const getPersianMonthName = (persianString: string) => {
   const persianStringNumbers = "۰۱۲۳۴۵۶۷۸۹";
   const persianDigitMonth = persianString.split("/")[1];
-  let monthNumber = persianDigitMonth
-    .split("")
-    .map((digit) => persianStringNumbers.indexOf(digit))
-    .join("");
-  monthNumber = Number(monthNumber) - 1;
+  let monthNumber: number =
+    Number(
+      persianDigitMonth
+        .split("")
+        .map((digit) => persianStringNumbers.indexOf(digit))
+        .join(""),
+    ) - 1;
   return monthNames[monthNumber];
 };
 
-const getPersianEducationYear = (dateString) => {
+const getPersianEducationYear = (dateString: string) => {
   const currentYearDate = new Date(dateString);
   const nextYearDate = shiftGeorgianDate(currentYearDate, 0, 0, 1);
   const currentYearPersianString = getPersianLongDate(
-    currentYearDate.toDateString()
+    currentYearDate.toDateString(),
   ).split(" ")[3];
   const nextYearPersianString = getPersianLongDate(
-    nextYearDate.toDateString()
+    nextYearDate.toDateString(),
   ).split(" ")[3];
   return "سال" + " " + nextYearPersianString + " - " + currentYearPersianString;
 };
 
-const getFullMonth = (todayDate, dayOffset, monthOffset, yearOffset) => {
+const getFullMonth = (
+  todayDate: Date,
+  dayOffset: number,
+  monthOffset: number,
+  yearOffset: number,
+) => {
   const initialDate = shiftGeorgianDate(
     todayDate,
     dayOffset,
     monthOffset,
-    yearOffset
+    yearOffset,
   );
   const firstDay = firstDayInMonth(initialDate);
   const monthArray = [];

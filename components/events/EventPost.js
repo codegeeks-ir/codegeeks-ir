@@ -30,12 +30,12 @@ const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
         />
       </div>
       <div className="post-heading">
-        <p className="p-0 m-0 mt-0.5">
+        <p className="m-0 mt-0.5 p-0">
           انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند
         </p>
         <h1
           ref={subjectRef}
-          className="text-center w-full h-12 p-1 m-0"
+          className="m-0 h-12 w-full p-1 text-center"
           dir="auto"
         >
           {data.title}
@@ -50,20 +50,22 @@ const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
               width={(40 * 270) / 100}
               height={(40 * 270) / 100}
             />
-            <div className="relative w-9/12 h-full">
+            <div className="relative h-full w-9/12">
               <p className="github-icon non-important m-0 p-0">
-                <GithubIcon className="fill-slate-700 w-3 h-auto" />
+                <GithubIcon className="h-auto w-3 fill-slate-700" />
               </p>
-              <p className="w-full text-center non-important -mt-0.5 mx-0 p-0">
+              <p className="non-important mx-0 -mt-0.5 w-full p-0 text-center">
                 {data.githubID}
               </p>
             </div>
           </div>
           <div className="post-bio">
-            <h2 className="w-full h-6" ref={lecturerRef}>
+            <h2 className="h-6 w-full" ref={lecturerRef}>
               {data.lecturer}
             </h2>
-            <p className="m-0 mt-1" ref={bioRef}>{data.bio}</p>
+            <p className="m-0 mt-1" ref={bioRef}>
+              {data.bio}
+            </p>
           </div>
         </div>
         <div
@@ -73,24 +75,24 @@ const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
         ></div>
         <div className="absolute bottom-1 pb-1">
           <h3 className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</h3>
-          <div className="flex flex-row items-center m-0 p-0">
+          <div className="m-0 flex flex-row items-center p-0">
             <p className="text-3xs mt-0.5 -mb-2 px-0 py-1">
-              <ClockIcon className="fill-slate-700 w-2 h-auto" />
+              <ClockIcon className="h-auto w-2 fill-slate-700" />
             </p>
             <p className="text-3xs my-0 px-0">ساعت {data.date.split(" ")[1]}</p>
           </div>
-          <div className="flex flex-row items-center m-0 p-0">
+          <div className="m-0 flex flex-row items-center p-0">
             <p className="text-3xs mt-0.5 -mb-2 px-0 py-1">
-              <LocationIcon className="fill-slate-700 w-2 h-auto" />
+              <LocationIcon className="h-auto w-2 fill-slate-700" />
             </p>
             <p className="text-3xs my-0 px-0">{data.location}</p>
           </div>
         </div>
       </div>
       <div className="post-icons">
-        <CodegeeksIcon className="fill-slate-300 w-12 h-auto" />
-        <CulturalIcon className="fill-slate-300 w-12 h-auto" />
-        <UutIcon className="fill-slate-300 w-12 h-auto" />
+        <CodegeeksIcon className="h-auto w-12 fill-slate-300" />
+        <CulturalIcon className="h-auto w-12 fill-slate-300" />
+        <UutIcon className="h-auto w-12 fill-slate-300" />
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 import LinkSection from "components/LinkSection";
 import LogoType from "components/LogoType";
-import DefaultLayout from "layouts/DefaultLayout";
 import Head from "next/head";
-import requirementsNavItem from "utils/requirements-nav-items";
+import requirementsNavItem from "utils/schema/navigation/requirements-navigation";
 
-const RequirementsPage = () => (
+const Page = () => (
   <>
     <Head>
       <meta
@@ -13,10 +12,10 @@ const RequirementsPage = () => (
       />
       <title>نیازمندی‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
     </Head>
-    <div className="flex flex-col items-center w-full h-full max-h-screen mt-4">
+    <div className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
       <LogoType />
-      <div className="flex flex-col items-center justify-evenly w-full h-full grow-1 my-4">
-        <div className="bg-violet-600 w-full h-auto rounded-md">
+      <div className="grow-1 my-4 flex h-full w-full flex-col items-center justify-evenly">
+        <div className="h-auto w-full rounded-md bg-violet-600">
           <LinkSection items={requirementsNavItem} />
         </div>
       </div>
@@ -24,8 +23,4 @@ const RequirementsPage = () => (
   </>
 );
 
-RequirementsPage.getLayout = (content) => (
-  <DefaultLayout>{content}</DefaultLayout>
-);
-
-export default RequirementsPage;
+export default Page;

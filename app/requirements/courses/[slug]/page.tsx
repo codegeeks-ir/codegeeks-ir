@@ -1,13 +1,11 @@
-import FileExplorer from "components/FileExplorer";
+import FileExplorer, { IElement, IReport } from "components/FileExplorer";
 import hljs from "highlight.js";
-import DefaultLayout from "layouts/DefaultLayout";
-import PageLayout from "layouts/PageLayout";
 import { getDirectorySlugs, getItem } from "lib/get-collection";
 import { centerImage } from "lib/manipulate-html";
 import Head from "next/head";
 import { useEffect } from "react";
 
-const CoursePage = ({ data, repoName, rootDirectory, resources }) => {
+const CoursePage = ({ data, repoName, rootDirectory, root, report }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -20,29 +18,26 @@ const CoursePage = ({ data, repoName, rootDirectory, resources }) => {
       </Head>
       <div>
         <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
-        <FileExplorer resources={resources} repoName={repoName} rootDirectory={rootDirectory} />
+        <FileExplorer root={root} report={report} repoName={repoName} rootDirectory={rootDirectory} />
       </div>
     </>
   );
 };
 
-CoursePage.getLayout = (content) => (
-  <DefaultLayout>
-    <PageLayout>{content}</PageLayout>
-  </DefaultLayout>
-);
-
 export const getStaticProps = async ({ params }) => {
   const data = await getItem("README.md", `courses/${params.slug}`);
   const repoName = "courses";
   const rootDirectory = params.slug;
-  const resources = require(`../../../courses/${params.slug}/assets/tree.json`);
+  const tree = require(`../../../courses/${params.slug}/assets/tree.json`);
+  const root: IElement = tree[0];
+  const report: IReport = tree[1];
   return {
     props: {
       data,
       repoName,
       rootDirectory,
-      resources,
+      root,
+      report
     },
   };
 };

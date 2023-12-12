@@ -36,7 +36,7 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
         <h1
           ref={subjectRef}
-          className="text-center w-full h-24 p-1 m-0"
+          className="m-0 h-24 w-full p-1 text-center"
           dir="auto"
         >
           {data.title}
@@ -51,20 +51,22 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
               width={(40 * 1080) / 100}
               height={(40 * 1080) / 100}
             />
-            <div className="relative w-9/12 h-full">
+            <div className="relative h-full w-9/12">
               <p className="github-icon non-important">
-                <GithubIcon className="fill-slate-700 w-12 h-auto" />
+                <GithubIcon className="h-auto w-12 fill-slate-700" />
               </p>
             </div>
           </div>
           <div className="pdf-bio">
-            <h2 className="w-full h-12" ref={lecturerRef}>
+            <h2 className="h-12 w-full" ref={lecturerRef}>
               {data.lecturer}
             </h2>
-            <p className="m-0 mt-4" ref={bioRef}>{data.bio}</p>
+            <p className="m-0 mt-4" ref={bioRef}>
+              {data.bio}
+            </p>
           </div>
         </div>
-        <div className="flex flex-row absolute bottom-5 pb-3">
+        <div className="absolute bottom-5 flex flex-row pb-3">
           <QRCodeSVG
             value={`${baseUrl}/events/${data.slug}`}
             bgColor="#e2e8f0"
@@ -73,15 +75,15 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
           />
           <div className="flex flex-col">
             <p className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</p>
-            <div className="flex flex-row items-center m-0 p-0">
+            <div className="m-0 flex flex-row items-center p-0">
               <p className="mt-0 -mb-10">
-                <ClockIcon className="fill-slate-700 w-8 h-auto" />
+                <ClockIcon className="h-auto w-8 fill-slate-700" />
               </p>
               <p className="mt-0 mb-0">ساعت {data.date.split(" ")[1]}</p>
             </div>
-            <div className="flex flex-row items-center m-0 p-0">
+            <div className="m-0 flex flex-row items-center p-0">
               <p className="mt-0 -mb-10">
-                <LocationIcon className="fill-slate-700 w-8 h-auto" />
+                <LocationIcon className="h-auto w-8 fill-slate-700" />
               </p>
               <p className="mt-0 mb-0">{data.location}</p>
             </div>
@@ -89,9 +91,9 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
         </div>
       </div>
       <div className="pdf-icons">
-        <CodegeeksIcon className="fill-slate-300 w-40 h-auto" />
-        <CulturalIcon className="fill-slate-300 w-40 h-auto" />
-        <UutIcon className="fill-slate-300 w-40 h-auto" />
+        <CodegeeksIcon className="h-auto w-40 fill-slate-300" />
+        <CulturalIcon className="h-auto w-40 fill-slate-300" />
+        <UutIcon className="h-auto w-40 fill-slate-300" />
       </div>
     </div>
   );

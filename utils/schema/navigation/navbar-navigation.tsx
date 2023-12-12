@@ -1,24 +1,22 @@
 import HomeIcon from "public/icones/home.svg";
 import RequirementsIcon from "public/icones/requirements.svg";
 import ProfileIcon from "public/icones/profile.svg";
+import Navigation from "./navigation-type";
 
-const navbarItems = [
+const navbarItems: Navigation = [
   {
-    category: "navbar",
+    name: "نیازمندیها",
     link: "/requirements",
-    repo: "codegeeks-ir",
     icon: <RequirementsIcon className="h-auto w-8 fill-slate-900" />,
   },
   {
-    category: "navbar",
+    name: "صفحه‌اصلی",
     link: "/",
-    repo: "codegeeks-ir",
     icon: <HomeIcon className="h-auto w-8 fill-slate-900" />,
   },
   {
-    category: "navbar",
-    link: "/account",
-    repo: "codegeeks-ir",
+    name: "داشبورد",
+    link: "/dashboard",
     icon: <ProfileIcon className="h-auto w-8 fill-slate-900" />,
   },
 ];

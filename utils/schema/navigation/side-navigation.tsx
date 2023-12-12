@@ -1,11 +1,12 @@
 import FaqsIcon from "public/icones/faqs.svg";
 import HeartIcon from "public/icones/heart.svg";
 import AboutIcon from "public/icones/about.svg";
+import Navigation from "./navigation-type";
 
-const sideNavItems = [
+const sideNavItems: Navigation = [
   {
     name: "سوالات متداول",
-    link: "/faqs",
+    link: "collections/faqs",
     repo: "docs",
     icon: <FaqsIcon className="w-8 fill-slate-600" />,
   },

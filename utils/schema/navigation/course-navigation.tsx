@@ -1,4 +1,6 @@
-const courseNavItems = [
+import Navigation from "./navigation-type";
+
+const courseNavItems: Navigation = [
   {
     name: "ساختمان داده",
     link: "/requirements/courses/data-structures",

@@ -1,17 +1,19 @@
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import RightIcon from "public/icones/right.svg";
 import LeftIcon from "public/icones/left.svg";
+import { IPage, ISearch } from "./Collection";
+import { DataType } from "utils/schema/collections/data-type";
 
-const getNumberOfPages = (pageSize, collectionLength) =>
-  collectionLength % pageSize == 0
-    ? collectionLength / pageSize
-    : Math.floor(collectionLength / pageSize) + 1;
+const getNumberOfPages = (capacity: number, collectionLength: number) =>
+  collectionLength % capacity == 0
+    ? collectionLength / capacity
+    : Math.floor(collectionLength / capacity) + 1;
 
-const paginate = (propCollection, currentPage, pageSize) => {
-  if (propCollection) {
-    const paged = propCollection.filter((item, index) => {
-      let startIndex = (currentPage - 1) * pageSize;
-      let endIndex = currentPage * pageSize;
+const paginate = (data: DataType[], pageIndex: number, capacity: number) => {
+  if (data) {
+    const paged = data.filter((item, index) => {
+      let startIndex = (pageIndex - 1) * capacity;
+      let endIndex = pageIndex * capacity;
       let isItemInsidePage = startIndex <= index && index < endIndex;
       if (isItemInsidePage) return true;
     });
@@ -19,63 +21,57 @@ const paginate = (propCollection, currentPage, pageSize) => {
   } else return [];
 };
 
-const viewPage = (pageIndex, mySearch, myPage, setMyPage) => {
-  const numberOfPages = getNumberOfPages(
-    myPage.pageSize,
-    mySearch.results.length
-  );
-  const pageResults = paginate(mySearch.results, pageIndex, myPage.pageSize);
-  setMyPage({
-    ...myPage,
-    currentPage: pageIndex,
-    pageCount: numberOfPages,
-    currentPageResults: pageResults,
+const viewPage = (
+  pageIndex: number,
+  search: ISearch,
+  page: IPage,
+  setPage: Dispatch<SetStateAction<IPage>>,
+) => {
+  const numberOfPages = getNumberOfPages(page.capacity, search.results.length);
+  const pageResults = paginate(search.results, pageIndex, page.capacity);
+  setPage({
+    ...page,
+    index: pageIndex,
+    count: numberOfPages,
+    content: pageResults,
   });
 };
 
-const Pagination = ({ myPage, setMyPage, mySearch }) => {
-  useEffect(() => viewPage(1, mySearch, myPage, setMyPage), [mySearch]);
+const Pagination = ({
+  page,
+  setPage,
+  search,
+}: {
+  page: IPage;
+  setPage: Dispatch<SetStateAction<IPage>>;
+  search: ISearch;
+}) => {
+  useEffect(() => viewPage(1, search, page, setPage), [search]);
   return (
-    <div
-      className={
-        (myPage.pageCount == 0) | (myPage.pageCount == 1)
-          ? "hidden"
-          : "pagination"
-      }
-    >
+    <div className={page.count < 2 ? "hidden" : "pagination"}>
       <a
-        className={myPage.currentPage == 1 ? "btn-disabled" : "btn-primary"}
-        onClick={() =>
-          viewPage(myPage.currentPage - 1, mySearch, myPage, setMyPage)
-        }
+        className={page.index == 1 ? "btn-disabled" : "btn-primary"}
+        onClick={() => viewPage(page.index - 1, search, page, setPage)}
         href="#top"
       >
-        <LeftIcon className="fill-slate-300 w-6" />
+        <LeftIcon className="w-6 fill-slate-300" />
       </a>
-      {[...Array(myPage.pageCount + 1).keys()].slice(1).map((pageIndex) => (
+      {[...Array(page.count + 1).keys()].slice(1).map((pageIndex) => (
         <a
           key={pageIndex}
-          className={
-            myPage.currentPage == pageIndex ? "btn-disabled" : "btn-primary"
-          }
-          onClick={() => viewPage(pageIndex, mySearch, myPage, setMyPage)}
+          className={page.index == pageIndex ? "btn-disabled" : "btn-primary"}
+          onClick={() => viewPage(pageIndex, search, page, setPage)}
           href="#top"
         >
           {pageIndex}
         </a>
       ))}
       <a
-        className={
-          myPage.currentPage == myPage.pageCount
-            ? "btn-disabled"
-            : "btn-primary"
-        }
-        onClick={() =>
-          viewPage(myPage.currentPage + 1, mySearch, myPage, setMyPage)
-        }
+        className={page.index == page.count ? "btn-disabled" : "btn-primary"}
+        onClick={() => viewPage(page.index + 1, search, page, setPage)}
         href="#top"
       >
-        <RightIcon className="fill-slate-300 w-6" />
+        <RightIcon className="w-6 fill-slate-300" />
       </a>
     </div>
   );

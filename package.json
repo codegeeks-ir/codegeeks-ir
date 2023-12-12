@@ -4,24 +4,30 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "debug": "NODE_OPTIONS='--inspect[127.0.0.1:3001]' next dev",
     "build": "next build",
-    "export": "next build && next export",
     "tailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
     "tailwind-dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
-    "pretty": "prettier --write \"./{components,layouts,lib,pages,utils}/*.{js,jsx,ts,tsx,json}\"",
+    "pretty": "prettier --write \"./{components,layouts,lib,pages,utils}/**/*.{js,jsx,ts,tsx,json}\"",
     "sitemap": "node utils/sitemap-generator.mjs",
     "clone-collections": "bash collection-update/clone.sh",
     "update-collection-all": "bash collection-update/update-all.sh",
     "update-collection-workflows": "bash collection-update/update-workflows.sh"
   },
   "devDependencies": {
-    "@octokit/core": "^4.2.4",
-    "@svgr/webpack": "^6.5.1",
+    "@octokit/core": "^5.0.2",
+    "@svgr/webpack": "^8.1.0",
+    "@types/react": "^18.2.43",
     "autoprefixer": "^10.4.13",
+    "eslint-config-next": "^14.0.4",
+    "next": "^14.0.4",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.4.1",
-    "tailwindcss": "^3.2.7"
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "file-system": "^2.2.2",
@@ -29,15 +35,12 @@
     "highlight.js": "^11.7.0",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
-    "next": "^13.1.6",
     "next-pwa": "^5.6.0",
     "path": "^0.12.7",
     "qrcode.react": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "remark": "^14.0.2",
-    "remark-gfm": "^3.0.1",
-    "remark-html": "^15.0.2",
+    "remark-gfm": "^4.0.0",
+    "remark-html": "^16.0.1",
     "textfit": "^2.4.0"
   }
 }

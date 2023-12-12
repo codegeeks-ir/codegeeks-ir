@@ -19,7 +19,7 @@ const Event = ({ data }) => {
         {data.title}
       </h1>
       <div className="flex flex-col">
-        <div className="profile-picture relative w-44 mb-4">
+        <div className="profile-picture relative mb-4 w-44">
           <Image
             src={`/images/${data.githubID}.png`}
             width="176"
@@ -45,19 +45,19 @@ const Event = ({ data }) => {
         className="mt-6"
         dir="auto"
       ></div>
-      <div className="pb-4 mt-6">
+      <div className="mt-6 pb-4">
         <p className="date invisible m-0">
           {getPersianLongDate(data.date.split(" ")[0])}
         </p>
-        <div className="flex flex-row items-center m-0 p-0">
+        <div className="m-0 flex flex-row items-center p-0">
           <p className="mt-0 mb-0">
-            <ClockIcon className="icon md:w-6 sm:w-4" />
+            <ClockIcon className="icon sm:w-4 md:w-6" />
           </p>
           <p className="mt-0 mb-0">ساعت {data.date.split(" ")[1]}</p>
         </div>
-        <div className="flex flex-row items-center m-0 p-0">
+        <div className="m-0 flex flex-row items-center p-0">
           <p className="mt-0 mb-0">
-            <LocationIcon className="icon md:w-6 sm:w-4" />
+            <LocationIcon className="icon sm:w-4 md:w-6" />
           </p>
           <p className="mt-0 mb-0">{data.location}</p>
         </div>

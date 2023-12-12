@@ -1,8 +1,9 @@
-import { useRouter } from "next/router";
+"use client";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
-import navbarItems from "utils/navbar-items";
+import navbarItems from "utils/schema/navigation/navbar-navigation";
 
-const isActiveLink = (link) => useRouter().pathname == link;
+const isActiveLink = (link: string) => usePathname() == link;
 
 const Navbar = () => (
   <ul className="navbar">

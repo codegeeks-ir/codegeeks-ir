@@ -2,8 +2,9 @@ import GithubIcon from "public/icones/social/github.svg";
 import InstagramIcon from "public/icones/social/instagram.svg";
 import TelegramIcon from "public/icones/social/telegram.svg";
 import YoutubeIcon from "public/icones/social/youtube.svg";
+import Navigation from "./navigation-type";
 
-const socialItems = [
+const socialItems: Navigation = [
   {
     name: "youtube",
     link: "https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw",

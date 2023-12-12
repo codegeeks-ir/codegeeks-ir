@@ -30,19 +30,19 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
         />
       </div>
       <div className="story-heading">
-        <p className="p-0 m-0 mt-0.5">
+        <p className="m-0 mt-0.5 p-0">
           انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند
         </p>
         <h1
           ref={subjectRef}
-          className="text-center w-full h-12 p-1 m-0"
+          className="m-0 h-12 w-full p-1 text-center"
           dir="auto"
         >
           {data.title}
         </h1>
       </div>
       <div className="story-content">
-        <div className="flex flex-row mt-8">
+        <div className="mt-8 flex flex-row">
           <div className="profile-picture relative w-1/2">
             <Image
               src={`/images/${data.githubID}.png`}
@@ -50,20 +50,22 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
               width={(40 * 270) / 100}
               height={(40 * 270) / 100}
             />
-            <div className="relative w-7/12 h-full">
+            <div className="relative h-full w-7/12">
               <p className="github-icon non-important m-0 p-0">
-                <GithubIcon className="fill-slate-700 w-5 h-auto" />
+                <GithubIcon className="h-auto w-5 fill-slate-700" />
               </p>
-              <p className="w-full text-center non-important -mt-0.5 mx-0 p-0">
+              <p className="non-important mx-0 -mt-0.5 w-full p-0 text-center">
                 {data.githubID}
               </p>
             </div>
           </div>
           <div className="story-bio">
-            <h2 className="w-full h-6" ref={lecturerRef}>
+            <h2 className="h-6 w-full" ref={lecturerRef}>
               {data.lecturer}
             </h2>
-            <p className="m-0 mt-1" ref={bioRef}>{data.bio}</p>
+            <p className="m-0 mt-1" ref={bioRef}>
+              {data.bio}
+            </p>
           </div>
         </div>
         <div
@@ -73,24 +75,24 @@ const EventStory = ({ data, isReadyForExport, setIsReadyForExport }) => {
         ></div>
         <div className="absolute bottom-24 pb-4">
           <h3 className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</h3>
-          <div className="flex flex-row items-center m-0">
+          <div className="m-0 flex flex-row items-center">
             <p className="mt-0.5 -mb-2 px-0 py-1">
-              <ClockIcon className="fill-slate-700 w-3 h-auto" />
+              <ClockIcon className="h-auto w-3 fill-slate-700" />
             </p>
             <p className="my-0 px-0">ساعت {data.date.split(" ")[1]}</p>
           </div>
-          <div className="flex flex-row items-center m-0">
+          <div className="m-0 flex flex-row items-center">
             <p className="mt-0.5 -mb-2 px-0 py-1">
-              <LocationIcon className="fill-slate-700 w-3 h-auto" />
+              <LocationIcon className="h-auto w-3 fill-slate-700" />
             </p>
             <p className="my-0 px-0">{data.location}</p>
           </div>
         </div>
       </div>
       <div className="story-icons">
-        <UutIcon className="fill-slate-300 h-10 w-auto" />
-        <CulturalIcon className="fill-slate-300 h-10 w-auto" />
-        <CodegeeksIcon className="fill-slate-300 h-8 w-auto" />
+        <UutIcon className="h-10 w-auto fill-slate-300" />
+        <CulturalIcon className="h-10 w-auto fill-slate-300" />
+        <CodegeeksIcon className="h-8 w-auto fill-slate-300" />
       </div>
     </div>
   );

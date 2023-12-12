@@ -1,9 +1,16 @@
 import FilterIcon from "public/icones/filter.svg";
-import { useMemo, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+import { ISearch } from "./Collection";
+import { DataType } from "utils/schema/collections/data-type";
+import { getSearchables } from "utils/schema/collections/meta-type";
 
-const filterSearch = (propCollection, searchProperty, search) => {
-  if (propCollection) {
-    const resultsByProperty = propCollection.filter((item) => {
+const filterSearch = (
+  data: DataType[],
+  searchProperty: keyof DataType,
+  search: string,
+) => {
+  if (data) {
+    const resultsByProperty = data.filter((item: DataType) => {
       let isFound = item[searchProperty]
         .toLowerCase()
         .includes(search.toLowerCase());
@@ -14,73 +21,77 @@ const filterSearch = (propCollection, searchProperty, search) => {
 };
 
 const FilterOptions = ({
-  propCollection,
-  mySearch,
-  setMySearch,
-  showFilters,
+  data,
+  search,
+  setSearch,
+  show,
+}: {
+  data: DataType[];
+  search: ISearch;
+  setSearch: Dispatch<SetStateAction<ISearch>>;
+  show: boolean;
 }) => (
   <div
-    className={`flex flex-row flex-wrap items-center grow 
-    ${showFilters ? "visible" : "invisible"}`}
+    className={`flex grow flex-row flex-wrap items-center 
+    ${show ? "visible" : "invisible"}`}
   >
     <input
       type="search"
       placeholder="جستجو"
       className="form-element"
       onChange={(e) =>
-        setMySearch({
-          ...mySearch,
-          searchInput: e.target.value,
-          results: filterSearch(
-            propCollection,
-            mySearch.searchProperty,
-            e.target.value
-          ),
+        setSearch({
+          ...search,
+          input: e.target.value,
+          results: filterSearch(data, search.searchProperty, e.target.value),
         })
       }
     />
-    <div className="flex flex-row flex-wrap items-center grow">
-      {mySearch.properties.map((property) => {
-        if (property.searchable)
-          return (
-            <button
-              className={`mx-0.5 grow md:grow-0 ${
-                mySearch.searchProperty == property.enName
-                  ? "btn-primary"
-                  : "btn-light"
-              }`}
-              onClick={() =>
-                setMySearch({ ...mySearch, searchProperty: property.enName })
-              }
-              key={property.enName}
-            >
-              {property.faName}
-            </button>
-          );
+    <div className="flex grow flex-row flex-wrap items-center">
+      {getSearchables(data[0].format).map((property) => {
+        return (
+          <button
+            className={`mx-0.5 grow md:grow-0 ${
+              search.searchProperty == property ? "btn-primary" : "btn-light"
+            }`}
+            onClick={() => setSearch({ ...search, searchProperty: property })}
+            key={property}
+          >
+            {search.meta[property].localName}
+          </button>
+        );
       })}
     </div>
   </div>
 );
 
-const Filter = ({ propCollection, mySearch, setMySearch }) => {
-  const [showFilters, setShowFilters] = useState(true);
+const Filter = ({
+  data,
+  search,
+  setSearch,
+}: {
+  data: DataType[];
+  search: ISearch;
+  setSearch: Dispatch<SetStateAction<ISearch>>;
+}) => {
+  const [show, setShow] = useState<boolean>(true);
   return (
     <div
-      className="card flex flex-col w-full justify-start items-start
-            rounded-t-none mt-0 py-3 px-2 lg:px-5 md:px-4 sm:px-2"
+      className="card mt-0 flex w-full flex-col items-start
+            justify-start rounded-t-none py-3 px-2 sm:px-2 md:px-4 lg:px-5"
     >
-      <div className="flex flex-row md:flex-row-reverse flex-wrap w-full">
+      <div className="flex w-full flex-row flex-wrap md:flex-row-reverse">
         <FilterOptions
-          propCollection={propCollection}
-          mySearch={mySearch}
-          setMySearch={setMySearch}
-          showFilters={showFilters}
+          data={data}
+          search={search}
+          setSearch={setSearch}
+          show={show}
         />
         <button
-          className="btn-primary flex w-full md:w-9 h-9 items-center justify-center"
-          onClick={() => setShowFilters(!showFilters)}
+          className="btn-primary flex h-9 w-full items-center justify-center md:w-9"
+          onClick={() => setShow(!show)}
         >
-          <FilterIcon className="fill-slate-300 w-6" />
+          <FilterIcon className="w-6 fill-slate-300" />
         </button>
       </div>
     </div>
