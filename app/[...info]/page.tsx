@@ -47,7 +47,7 @@ const Page = async ({ params }: { params: IParams }) => {
         headers={data.map((item) => item.title)}
         contents={data.map((item, index) => (
           <TableFormArray
-            array={item.csv}
+            array={item.list}
             description={item.description}
             key={index}
           />

@@ -11,7 +11,7 @@ interface ICsvData {
   show: boolean[];
   version: string;
   description: string;
-  csv: CsvRow[];
+  list: CsvRow[];
   reference?: ReferenceType;
   format: Format.Csv;
   path: string;

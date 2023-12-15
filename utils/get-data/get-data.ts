@@ -65,7 +65,7 @@ const getCsvData = async (
     show,
     version,
     description,
-    csv: csvToArrayOfObjects(fileContent),
+    list: csvToArrayOfObjects(fileContent),
     format: Format.Csv,
     path: `${directory}/${fileName}`,
   };

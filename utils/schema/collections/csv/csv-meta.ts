@@ -41,7 +41,7 @@ const csvMeta: Properties<ICsvData> = {
     type: PropertyType.Date,
     form: undefined,
   },
-  csv: {
+  list: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
