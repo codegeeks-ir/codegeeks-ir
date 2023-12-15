@@ -1,4 +1,7 @@
-import { Properties, PropertyType } from "utils/schema/properties/property-type";
+import {
+  Properties,
+  PropertyType,
+} from "utils/schema/properties/property-type";
 import IChallengeData from "./challenge-data";
 
 const challengeMeta: Properties<IChallengeData> = {
@@ -6,44 +9,44 @@ const challengeMeta: Properties<IChallengeData> = {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   title: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   score: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   date: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   reference: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   format: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   path: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
-  }
+    form: undefined,
+  },
 };
 
 export default challengeMeta;

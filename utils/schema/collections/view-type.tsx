@@ -11,38 +11,43 @@ import getContent from "utils/get-data/get-content";
 
 type ContentType = string;
 
-type ItemType = {
+type ProviderType = {
   data: DataType;
   content: ContentType;
 };
 
-const getItem = async (
+const getProvider = async (
   fileName: string,
-  directory: string,
-): Promise<ItemType> => {
+  directory: string
+): Promise<ProviderType> => {
   const data = (await getFileData(fileName, directory)) as DataType;
   data.reference = await referenceFactory(data);
   const content = (await getContent(fileName, directory)) as ContentType;
   return { data, content };
 };
 
-const ViewFactory = ({ item }: { item: ItemType }) => {
-  switch (item?.data.format) {
+const ViewFactory = ({ provider }: { provider: ProviderType }) => {
+  switch (provider?.data.format) {
     case Format.Blog:
-      return <BlogView item={item} />;
+      return <BlogView provider={provider} />;
     case Format.Challenges:
-      return <ChallengeView item={item} />;
+      return <ChallengeView provider={provider} />;
     case Format.Page:
-      return <PageView item={item} />;
+      return <PageView provider={provider} />;
     case Format.Companions:
-      return <CompanionView item={item} />;
+      return <CompanionView provider={provider} />;
     case Format.Csv:
-      return <FaqView item={item} />;
+      return <FaqView provider={provider} />;
     case Format.Events:
-      return <FaqView item={item} />;
+      return <FaqView provider={provider} />;
     case Format.Faqs:
-      return <FaqView item={item} />;
+      return <FaqView provider={provider} />;
   }
 };
 
-export { type ContentType, type ItemType, getItem, ViewFactory };
+export {
+  type ContentType,
+  type ProviderType,
+  getProvider,
+  ViewFactory,
+};

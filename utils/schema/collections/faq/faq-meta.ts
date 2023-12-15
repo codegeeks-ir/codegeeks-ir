@@ -9,38 +9,38 @@ const faqMeta: Properties<IFaqData> = {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   title: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   categories: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   reference: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   format: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   path: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
-  }
+    form: undefined,
+  },
 };
 
 export default faqMeta;

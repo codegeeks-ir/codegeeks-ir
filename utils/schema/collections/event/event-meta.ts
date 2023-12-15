@@ -1,4 +1,7 @@
-import { Properties, PropertyType } from "utils/schema/properties/property-type";
+import {
+  Properties,
+  PropertyType,
+} from "utils/schema/properties/property-type";
 import IEventData from "./event-data";
 
 const eventMeta: Properties<IEventData> = {
@@ -6,50 +9,50 @@ const eventMeta: Properties<IEventData> = {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   title: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   lecturer: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   date: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   location: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   reference: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   format: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   path: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
-  }
+    form: undefined,
+  },
 };
 
 export default eventMeta;

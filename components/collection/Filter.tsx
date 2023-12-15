@@ -5,12 +5,12 @@ import { DataType } from "utils/schema/collections/data-type";
 import { getSearchables } from "utils/schema/collections/meta-type";
 
 const filterSearch = (
-  data: DataType[],
+  collection: DataType[],
   searchProperty: keyof DataType,
   search: string,
 ) => {
-  if (data) {
-    const resultsByProperty = data.filter((item: DataType) => {
+  if (collection) {
+    const resultsByProperty = collection.filter((item: DataType) => {
       let isFound = item[searchProperty]
         .toLowerCase()
         .includes(search.toLowerCase());
@@ -21,12 +21,12 @@ const filterSearch = (
 };
 
 const FilterOptions = ({
-  data,
+  collection,
   search,
   setSearch,
   show,
 }: {
-  data: DataType[];
+  collection: DataType[];
   search: ISearch;
   setSearch: Dispatch<SetStateAction<ISearch>>;
   show: boolean;
@@ -43,12 +43,12 @@ const FilterOptions = ({
         setSearch({
           ...search,
           input: e.target.value,
-          results: filterSearch(data, search.searchProperty, e.target.value),
+          results: filterSearch(collection, search.searchProperty, e.target.value),
         })
       }
     />
     <div className="flex grow flex-row flex-wrap items-center">
-      {getSearchables(data[0].format).map((property) => {
+      {getSearchables(collection[0].format).map((property) => {
         return (
           <button
             className={`mx-0.5 grow md:grow-0 ${
@@ -66,11 +66,11 @@ const FilterOptions = ({
 );
 
 const Filter = ({
-  data,
+  collection,
   search,
   setSearch,
 }: {
-  data: DataType[];
+  collection: DataType[];
   search: ISearch;
   setSearch: Dispatch<SetStateAction<ISearch>>;
 }) => {
@@ -82,7 +82,7 @@ const Filter = ({
     >
       <div className="flex w-full flex-row flex-wrap md:flex-row-reverse">
         <FilterOptions
-          data={data}
+          collection={collection}
           search={search}
           setSearch={setSearch}
           show={show}

@@ -1,4 +1,7 @@
-import { Properties, PropertyType } from "utils/schema/properties/property-type";
+import {
+  Properties,
+  PropertyType,
+} from "utils/schema/properties/property-type";
 import ICompanionData from "./companion-data";
 
 const companionMeta: Properties<ICompanionData> = {
@@ -6,44 +9,44 @@ const companionMeta: Properties<ICompanionData> = {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   name: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   position: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   githubID: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   reference: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   format: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
+    form: undefined,
   },
   path: {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
-  }
+    form: undefined,
+  },
 };
 
 export default companionMeta;

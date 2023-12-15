@@ -17,7 +17,7 @@ export const getContent = async (fileName: string, directory: string) => {
 };
 
 const getMarkdownContent = async (
-  fileContent: string
+  fileContent: string,
 ): Promise<ContentType> => {
   const matterResult = matter(fileContent);
   const processedContent = await unified()

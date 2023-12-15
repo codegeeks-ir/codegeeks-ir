@@ -2,16 +2,16 @@
 import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 import { useEffect } from "react";
-import { ItemType } from "../view-type";
+import { ProviderType } from "../view-type";
 
-const PageView = ({ item }: { item: ItemType }) => {
+const PageView = ({ provider }: { provider: ProviderType }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
   }, []);
   return (
     <article
-      dangerouslySetInnerHTML={{ __html: item?.content as string }}
+      dangerouslySetInnerHTML={{ __html: provider?.content as string }}
     ></article>
   );
 };

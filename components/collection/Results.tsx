@@ -1,6 +1,4 @@
-import {
-  getPersianLongDate,
-} from "lib/persian-long-date";
+import { getPersianLongDate } from "lib/persian-long-date";
 import Item from "./Item";
 import { DataType, Format } from "utils/schema/collections/data-type";
 import ICompanionData from "utils/schema/collections/companion/companion-data";

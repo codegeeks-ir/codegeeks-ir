@@ -1,7 +1,7 @@
 import { readdirSync } from "fs";
 import path from "path";
 import { DataType } from "../schema/collections/data-type";
-import { ContentType } from "utils/schema/collections/item-type";
+import { ContentType } from "utils/schema/collections/view-type";
 import getFileData from "./get-data";
 import getContent from "./get-content";
 

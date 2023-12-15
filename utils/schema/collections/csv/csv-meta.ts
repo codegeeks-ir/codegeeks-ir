@@ -69,8 +69,8 @@ const csvMeta: Properties<ICsvData> = {
     isSearchable: false,
     localName: "",
     type: PropertyType.Date,
-    form: undefined
-  }
+    form: undefined,
+  },
 };
 
 export default csvMeta;

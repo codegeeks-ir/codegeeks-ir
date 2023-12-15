@@ -4,9 +4,9 @@ import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 import { useEffect } from "react";
 import ICompanionData from "../companion/companion-data";
-import { ItemType } from "../view-type";
+import { ProviderType } from "../view-type";
 
-const BlogView = ({ item }: { item: ItemType }) => {
+const BlogView = ({ provider }: { provider: ProviderType }) => {
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -14,11 +14,11 @@ const BlogView = ({ item }: { item: ItemType }) => {
   return (
     <>
       <article
-        dangerouslySetInnerHTML={{ __html: item?.content as string }}
+        dangerouslySetInnerHTML={{ __html: provider?.content as string }}
       ></article>
       <PostAuthor
-        name={(item.data.reference as ICompanionData).name}
-        githubID={(item.data.reference as ICompanionData).githubID}
+        name={(provider.data.reference as ICompanionData).name}
+        githubID={(provider.data.reference as ICompanionData).githubID}
       />
     </>
   );

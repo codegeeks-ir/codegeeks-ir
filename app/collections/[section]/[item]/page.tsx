@@ -1,7 +1,7 @@
 import { getDirectorySlugs, getFileSlugs } from "utils/get-data/get-slugs";
 import { SlugType } from "utils/schema/collections/data-type";
-import { ItemType } from "utils/schema/collections/view-type";
-import { getItem } from "utils/schema/collections/view-type";
+import { ProviderType } from "utils/schema/collections/view-type";
+import { getProvider } from "utils/schema/collections/view-type";
 import { ViewFactory } from "utils/schema/collections/view-type";
 
 interface IParams {
@@ -27,11 +27,11 @@ export const generateStaticParams = async (): Promise<IParams[]> => {
 };
 
 const getData = async (params: IParams) =>
-  await getItem(`${params.item}.md`, `docs/collections/${params.section}`);
+  await getProvider(`${params.item}.md`, `docs/collections/${params.section}`);
 
 const Page = async ({ params }: { params: IParams }) => {
-  const item = await getData(params);
-  return <ViewFactory item={item as ItemType} />;
+  const provider = await getData(params);
+  return <ViewFactory provider={provider as ProviderType} />;
 };
 
 export default Page;

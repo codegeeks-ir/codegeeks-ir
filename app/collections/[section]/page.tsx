@@ -3,7 +3,7 @@ import Collection from "components/collection/Collection";
 import IPageData from "utils/schema/collections/page/page-data";
 import { getDataCollection } from "utils/get-data/get-collection";
 import { getDirectorySlugs } from "utils/get-data/get-slugs";
-import { getItem } from "utils/schema/collections/view-type";
+import { getProvider } from "utils/schema/collections/view-type";
 import { referenceFactory } from "utils/schema/collections/reference-type";
 import { SlugType } from "utils/schema/collections/data-type";
 
@@ -18,28 +18,32 @@ export const generateStaticParams = async (): Promise<IParams[]> => {
 };
 
 const getData = async (params: IParams) => {
-  const page = await getItem(
+  const provider = await getProvider(
     "README.md",
     `docs/collections/${params.section}`
   );
-  const data = await getDataCollection(`docs/collections/${params.section}`);
-  for (const item of data) item.reference = await referenceFactory(item);
+  const collection = await getDataCollection(
+    `docs/collections/${params.section}`
+  );
+  for (const item of collection) item.reference = await referenceFactory(item);
   return {
-    page,
-    data,
+    provider,
+    collection,
   };
 };
 
 const Page = async ({ params }: { params: IParams }) => {
-  const { page, data } = await getData(params);
+  const { provider, collection } = await getData(params);
   return (
     <section className="collection-container">
       <PageHeader />
       <section className="page-header">
-        <h1>{(page.data as IPageData).heading}</h1>
-        <section dangerouslySetInnerHTML={{ __html: page.content as string }}></section>
+        <h1>{(provider.data as IPageData).heading}</h1>
+        <article
+          dangerouslySetInnerHTML={{ __html: provider.content as string }}
+        ></article>
       </section>
-      <Collection data={data} />
+      <Collection collection={collection} />
     </section>
   );
 };

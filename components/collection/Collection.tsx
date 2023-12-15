@@ -11,7 +11,7 @@ import {
 } from "utils/schema/collections/meta-type";
 
 interface ICollectionProps {
-  data: DataType[];
+  collection: DataType[];
 }
 
 interface ISearch {
@@ -28,12 +28,12 @@ interface IPage {
   content: DataType[];
 }
 
-const Collection = ({ data }: ICollectionProps) => {
+const Collection = ({ collection }: ICollectionProps) => {
   const [search, setSearch] = useState<ISearch>({
     input: "",
-    meta: metaFactory(data[0].format),
-    searchProperty: getSearchables(data[0].format)[0],
-    results: data,
+    meta: metaFactory(collection[0].format),
+    searchProperty: getSearchables(collection[0].format)[0],
+    results: collection,
   });
 
   const [page, setPage] = useState<IPage>({
@@ -44,7 +44,7 @@ const Collection = ({ data }: ICollectionProps) => {
   });
   return (
     <>
-      <Filter data={data} search={search} setSearch={setSearch} />
+      <Filter collection={collection} search={search} setSearch={setSearch} />
       <Results results={page.content} />
       <Pagination page={page} setPage={setPage} search={search} />
     </>
