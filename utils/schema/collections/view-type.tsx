@@ -18,7 +18,7 @@ type ProviderType = {
 
 const getProvider = async (
   fileName: string,
-  directory: string
+  directory: string,
 ): Promise<ProviderType> => {
   const data = (await getFileData(fileName, directory)) as DataType;
   data.reference = await referenceFactory(data);
@@ -45,9 +45,4 @@ const ViewFactory = ({ provider }: { provider: ProviderType }) => {
   }
 };
 
-export {
-  type ContentType,
-  type ProviderType,
-  getProvider,
-  ViewFactory,
-};
+export { type ContentType, type ProviderType, getProvider, ViewFactory };
