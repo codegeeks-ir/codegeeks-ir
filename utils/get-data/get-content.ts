@@ -1,10 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
 import gfm from "remark-gfm";
-import { ContentType } from "utils/schema/collections/item-type";
+import { ContentType } from "utils/schema/collections/view-type";
 
 export const getContent = async (fileName: string, directory: string) => {
   const directoryFullPath = path.join(process.cwd(), directory);
@@ -15,12 +17,14 @@ export const getContent = async (fileName: string, directory: string) => {
 };
 
 const getMarkdownContent = async (
-  fileContent: string,
+  fileContent: string
 ): Promise<ContentType> => {
   const matterResult = matter(fileContent);
-  const processedContent = await remark()
+  const processedContent = await unified()
+    .use(remarkParse)
     .use(gfm)
-    .use(html)
+    .use(remarkRehype)
+    .use(rehypeStringify)
     .process(matterResult.content);
   let contentHtml = processedContent.toString();
   contentHtml = contentHtml ? contentHtml : "";

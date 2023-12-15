@@ -38,9 +38,11 @@
     "next-pwa": "^5.6.0",
     "path": "^0.12.7",
     "qrcode.react": "^3.1.0",
-    "remark": "^14.0.2",
+    "rehype-stringify": "^10.0.0",
     "remark-gfm": "^4.0.0",
-    "remark-html": "^16.0.1",
-    "textfit": "^2.4.0"
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.0.0",
+    "textfit": "^2.4.0",
+    "unified": "^11.0.4"
   }
 }
