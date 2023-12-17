@@ -4,7 +4,7 @@ import { getDirectorySlugs } from "utils/get-data/get-slugs";
 import IPageData from "utils/schema/collections/page/page-data";
 import ICsvData from "utils/schema/collections/csv/csv-data";
 import { SlugType } from "utils/schema/collections/data-type";
-import { getItem } from "utils/schema/collections/view-type";
+import { getProvider } from "utils/schema/collections/view-type";
 import TableFormArray from "components/TableFromArray";
 import getFileData from "utils/get-data/get-data";
 
@@ -29,23 +29,23 @@ export const generateStaticParams = async (): Promise<IParams[]> => {
 
 const getData = async (params: IParams) => {
   const section = params.info.at(-1);
-  const data = (await getDataCollection(
+  const collection = (await getDataCollection(
     `docs/info/${section}`,
     false
   )) as ICsvData[];
-  const page = await getItem("README.md", `docs/info/${section}`);
-  return { data, page };
+  const provider = await getProvider("README.md", `docs/info/${section}`);
+  return { collection, provider };
 };
 
 const Page = async ({ params }: { params: IParams }) => {
-  const { data, page } = await getData(params);
+  const { collection, provider } = await getData(params);
   return (
     <>
-      <h1>{(page.data as IPageData).heading}</h1>
-      <div dangerouslySetInnerHTML={{ __html: page.content }}></div>
+      <h1>{(provider.data as IPageData).heading}</h1>
+      <div dangerouslySetInnerHTML={{ __html: provider.content }}></div>
       <Tabs
-        headers={data.map((item) => item.title)}
-        contents={data.map((item, index) => (
+        headers={collection.map((item) => item.title)}
+        contents={collection.map((item, index) => (
           <TableFormArray
             array={item.list}
             description={item.description}

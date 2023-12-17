@@ -1,5 +1,5 @@
 "use client";
-import Item from "components/collection/Item";
+import Card from "components/collection/Card";
 import { Format } from "../data-type";
 import IFaqData from "./faq-data";
 
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const FaqElement = ({ data }: IProps) => (
-  <Item
+  <Card
     title={data.title}
     subtitle={data.categories}
     excerpt={data.excerpt}

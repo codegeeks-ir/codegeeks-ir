@@ -2,7 +2,7 @@ import { DataType } from "utils/schema/collections/data-type";
 import { Format } from "./data-type";
 import blogMeta from "./blog/blog-meta";
 import challengeMeta from "./challenge/challenge-meta";
-import collectionMeta from "./page/page-meta";
+import pageMeta from "./page/page-meta";
 import companionMeta from "./companion/companion-meta";
 import csvMeta from "./csv/csv-meta";
 import eventMeta from "./event/event-meta";
@@ -15,7 +15,7 @@ const metaFactory = (format: Format) => {
     case Format.Challenges:
       return challengeMeta;
     case Format.Page:
-      return collectionMeta;
+      return pageMeta;
     case Format.Companions:
       return companionMeta;
     case Format.Csv:

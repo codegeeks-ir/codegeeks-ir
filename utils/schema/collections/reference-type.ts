@@ -1,6 +1,6 @@
 import getBlogReference from "./blog/blog-reference";
 import getChallengeReference from "./challenge/challenge-reference";
-import getCollectionReference from "./page/page-reference";
+import getPageReference from "./page/page-reference";
 import getCompanionReference from "./companion/companion-reference";
 import getCsvReference from "./csv/csv-reference";
 import { DataType, Format } from "./data-type";
@@ -18,7 +18,7 @@ const referenceFactory = async (data: DataType) => {
     case Format.Challenges:
       return await getChallengeReference(data);
     case Format.Page:
-      return await getCollectionReference(data);
+      return await getPageReference(data);
     case Format.Companions:
       return await getCompanionReference(data);
     case Format.Csv:

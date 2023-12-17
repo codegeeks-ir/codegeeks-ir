@@ -1,6 +1,6 @@
 "use client";
 import ICompanionData from "../companion/companion-data";
-import Item from "components/collection/Item";
+import Card from "components/collection/Card";
 import { Format } from "../data-type";
 
 interface IProps {
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const CompanionElement = ({ data }: IProps) => (
-  <Item
+  <Card
     title={data.name}
     subtitle={data.position}
     excerpt={data.excerpt}

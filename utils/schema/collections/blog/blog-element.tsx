@@ -1,26 +1,21 @@
 "use client";
 import ICompanionData from "../companion/companion-data";
 import IBlogData from "./blog-data";
-import { ReferenceType } from "../reference-type";
-import Item from "components/collection/Item";
+import Card from "components/collection/Card";
 import { getPersianLongDate } from "lib/persian-long-date";
 import { Format } from "../data-type";
 
 interface IProps {
   data: IBlogData;
-  reference: ReferenceType;
 }
 
-const BlogElement = ({ data, reference }: IProps) => (
-  <Item
+const BlogElement = ({ data }: IProps) => (
+  <Card
     title={data.title}
     subtitle={data.categories}
     excerpt={data.excerpt}
     footerRightData={
-      (reference
-        ? (reference as ICompanionData)
-        : (data.reference as ICompanionData)
-      ).name
+      data.reference ? (data.reference as ICompanionData).name : ""
     }
     footerLeftData={getPersianLongDate(data.date)}
     link={`${Format.Blog}/${data.slug}`}

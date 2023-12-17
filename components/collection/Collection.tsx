@@ -1,6 +1,5 @@
 "use client";
 import Filter from "components/collection/Filter";
-import Results from "components/collection/Results";
 import Pagination from "components/collection/Pagination";
 import { useState } from "react";
 import { DataType } from "utils/schema/collections/data-type";
@@ -9,6 +8,7 @@ import {
   getSearchables,
   metaFactory,
 } from "utils/schema/collections/meta-type";
+import { ElementFactory } from "utils/schema/collections/element-type";
 
 interface ICollectionProps {
   collection: DataType[];
@@ -45,7 +45,9 @@ const Collection = ({ collection }: ICollectionProps) => {
   return (
     <>
       <Filter collection={collection} search={search} setSearch={setSearch} />
-      <Results results={page.content} />
+      {page.content.map((data) => (
+        <ElementFactory data={data} />
+      ))}
       <Pagination page={page} setPage={setPage} search={search} />
     </>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MoreIcon from "public/icones/more.svg";
 
-interface IItemProps {
+interface IProps {
   title: string;
   subtitle: string;
   excerpt: string;
@@ -11,7 +11,7 @@ interface IItemProps {
   isHot: boolean;
 }
 
-const Item = ({
+const Card = ({
   title,
   subtitle,
   excerpt,
@@ -19,7 +19,7 @@ const Item = ({
   footerLeftData,
   link,
   isHot,
-}: IItemProps) => (
+}: IProps) => (
   <section className={`card ${isHot && "bg-teal-500"}`}>
     <h4 className="card-title">{title}</h4>
     <section className="card-body">
@@ -42,4 +42,4 @@ const Item = ({
   </section>
 );
 
-export default Item;
+export default Card;

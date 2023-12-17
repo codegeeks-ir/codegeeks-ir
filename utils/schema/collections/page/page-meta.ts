@@ -1,31 +1,58 @@
-import { Properties } from "utils/schema/properties/property-type";
+import {
+  Properties,
+  PropertyType,
+} from "utils/schema/properties/property-type";
 import IPageData from "./page-data";
 
-const collectionMeta: Properties<IPageData> = {
+const pageMeta: Properties<IPageData> = {
   slug: {
     isSearchable: false,
-    localName: "عنوان",
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
   },
   title: {
-    isSearchable: true,
-    localName: "نام مجموعه",
+    isSearchable: false,
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
   },
   description: {
-    isSearchable: true,
-    localName: "شرح مختصر",
+    isSearchable: false,
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
   },
   heading: {
-    isSearchable: true,
-    localName: "عبارت سربرگ",
-  },
-  format: {
     isSearchable: false,
-    localName: "فرمت",
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
   },
   reference: {
     isSearchable: false,
     localName: "",
+    type: PropertyType.Date,
+    form: undefined,
+  },
+  format: {
+    isSearchable: false,
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
+  },
+  mainRoute: {
+    isSearchable: false,
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
+  },
+  path: {
+    isSearchable: false,
+    localName: "",
+    type: PropertyType.Date,
+    form: undefined,
   },
 };
 
-export default collectionMeta;
+export default pageMeta;

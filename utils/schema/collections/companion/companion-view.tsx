@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import ICompanionData from "./companion-data";
 import { DataType } from "../data-type";
 import { ProviderType } from "../view-type";
-import Results from "components/collection/Results";
+import { ElementFactory } from "../element-type";
 
 const CompanionView = ({ provider }: { provider: ProviderType }) => {
   useEffect(() => {
@@ -50,10 +50,9 @@ const CompanionView = ({ provider }: { provider: ProviderType }) => {
         className="m-0 mt-5 flex w-full flex-col 
       flex-wrap items-center justify-center rounded-md bg-slate-300 p-4"
       >
-        <Results
-          results={provider.data.reference as DataType[]}
-          reference={provider.data}
-        />
+        {(provider.data.reference as DataType[]).map((data) => (
+          <ElementFactory data={data} />
+        ))}
       </ul>
     </>
   );

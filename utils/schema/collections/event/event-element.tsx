@@ -1,25 +1,18 @@
 "use client";
 import ICompanionData from "../companion/companion-data";
-import { ReferenceType } from "../reference-type";
-import Item from "components/collection/Item";
+import Card from "components/collection/Card";
 import { getPersianLongDate } from "lib/persian-long-date";
 import { Format } from "../data-type";
 import IEventData from "./event-data";
 
 interface IProps {
   data: IEventData;
-  reference: ReferenceType;
 }
 
-const EventElement = ({ data, reference }: IProps) => (
-  <Item
+const EventElement = ({ data }: IProps) => (
+  <Card
     title={data.title}
-    subtitle={
-      (reference
-        ? (reference as ICompanionData)
-        : (data.reference as ICompanionData)
-      ).name
-    }
+    subtitle={data.reference ? (data.reference as ICompanionData).name : ""}
     excerpt={data.excerpt}
     footerRightData={getPersianLongDate(data.date)}
     footerLeftData={`ساعت ${data.date.split(" ")[1]}`}

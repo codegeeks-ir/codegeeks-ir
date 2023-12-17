@@ -6,29 +6,27 @@ import { DataType, Format } from "./data-type";
 import EventElement from "./event/event-element";
 import FaqElement from "./faq/faq-element";
 import PageElement from "./page/page-element";
-import { ReferenceType } from "./reference-type";
 
 interface IProps {
   data: DataType;
-  reference: ReferenceType;
 }
 
-const ElementFactory = ({ data, reference }: IProps) => {
+const ElementFactory = ({ data }: IProps) => {
   switch (data.format) {
     case Format.Blog:
-      return <BlogElement data={data} reference={reference} />;
+      return <BlogElement data={data} />;
     case Format.Challenges:
       return <ChallengeElement data={data} />;
     case Format.Companions:
       return <CompanionElement data={data} />;
     case Format.Csv:
-      return <CsvElement data={data} reference={reference} />;
+      return <CsvElement data={data} />;
     case Format.Events:
-      return <EventElement data={data} reference={reference} />;
+      return <EventElement data={data} />;
     case Format.Faqs:
       return <FaqElement data={data} />;
     case Format.Page:
-      return <PageElement data={data} reference={reference} />;
+      return <PageElement data={data} />;
   }
 };
 

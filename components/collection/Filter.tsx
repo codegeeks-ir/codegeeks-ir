@@ -43,7 +43,11 @@ const FilterOptions = ({
         setSearch({
           ...search,
           input: e.target.value,
-          results: filterSearch(collection, search.searchProperty, e.target.value),
+          results: filterSearch(
+            collection,
+            search.searchProperty,
+            e.target.value,
+          ),
         })
       }
     />
