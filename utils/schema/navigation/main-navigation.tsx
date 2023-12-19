@@ -7,25 +7,25 @@ import Navigation from "./navigation-type";
 const mainNavItems: Navigation = [
   {
     name: "رویدادها",
-    link: "collections/events",
+    link: "/collections/events",
     repo: "docs",
     icon: <EventsIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "مسابقات",
-    link: "collections/challenges",
+    link: "/collections/challenges",
     repo: "docs",
     icon: <ChallengesIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "پروژه‌ها",
-    link: "collections/projects",
+    link: "/projects",
     repo: "docs",
     icon: <ProjectsIcon className="w-8 fill-slate-600" />,
   },
   {
     name: "انتشارات",
-    link: "collections/blog",
+    link: "/collections/blog",
     repo: "docs",
     icon: <BlogIcon className="w-8 fill-slate-600" />,
   },

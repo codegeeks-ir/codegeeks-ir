@@ -20,7 +20,7 @@ const requirementsNavItem: Navigation = [
   {
     name: "دروس",
     link: "/requirements/courses",
-    repo: "docs",
+    repo: "courses",
     icon: <CoursesIcon className="w-8 fill-slate-600" />,
   },
   {

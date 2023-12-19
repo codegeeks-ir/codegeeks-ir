@@ -6,29 +6,23 @@ import ForkIcon from "public/icones/fork.svg";
 import HeartIcon from "public/icones/heart.svg";
 import Icon from "./Icon";
 import Navigation from "utils/schema/navigation/navigation-type";
-import courseNavItems from "utils/schema/navigation/course-navigation";
 import requirementsNavItem from "utils/schema/navigation/requirements-navigation";
 import mainNavItems from "utils/schema/navigation/main-navigation";
 import sideNavItems from "utils/schema/navigation/side-navigation";
+import config from "utils/config";
 
 const getBackLink = (): string =>
   usePathname().split("/").slice(0, -1).join("/") + "/";
 
 const getRepoName = (): string => {
-  const mainPath = usePathname().split("/")[1];
   const allLinks: Navigation = [
-    ...courseNavItems,
     ...requirementsNavItem,
     ...sideNavItems,
     ...mainNavItems,
   ];
-  let page = allLinks.find((item) => item.link == usePathname());
+  const page = allLinks.find((item) => usePathname().startsWith(item.link));
   if (page?.repo) return page.repo;
-  else {
-    page = allLinks.find((item) => item.link == `/${mainPath}`);
-    if (page?.repo) return page.repo;
-    else return "codegeeks-ir";
-  }
+  else return config.repository;
 };
 
 const PageHeader = () => {

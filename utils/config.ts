@@ -5,6 +5,7 @@ type Config = {
   url: string;
   login: string;
   github: string;
+  repository: string;
 };
 
 const config: Config = {
@@ -17,6 +18,7 @@ const config: Config = {
       ? "https://codegeeks.ir/login-test"
       : "https://codegeeks.ir/login",
   github: "codegeeks-ir",
+  repository: "codegeeks-ir",
 };
 
 export default config;

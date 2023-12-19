@@ -26,10 +26,9 @@ const getMarkdownData = async (
   fileName: string,
   directory: string,
 ): Promise<DataType> => {
-  const slug = fileName.replace(/\.md$/, "");
   const matterResult = matter(fileContent);
   const data = matterResult.data as DataType;
-  data.slug = slug;
+  data.slug ? data.slug : fileName.replace(/\.md$/, "");
   data.path = `${directory}/${fileName}`;
   return data;
 };

@@ -1,19 +1,22 @@
-import { IElement } from "./FileExplorer";
+import { IFile } from "utils/schema/tree/tree-type";
 import FileIcon from "public/icones/file.svg";
 
-interface IFileProps {
-  element: IElement;
+interface IProps {
+  file: IFile;
   repoName: string;
-  rootDirectory: string;
+  root: string;
 }
 
-const File = ({ element, repoName, rootDirectory }: IFileProps) => (
+const File = ({ file, repoName, root }: IProps) => (
   <a
     className="file-explorer-element"
-    href={`https://github.com/codegeeks-ir/${repoName}/raw/main/${rootDirectory}/${element.name}`}
+    href={`https://github.com/codegeeks-ir/${repoName}/raw/main/${file.name
+      .split("/")
+      .slice(1)
+      .join("/")}`}
   >
     <FileIcon className="w-12 fill-blue-400" />
-    <p>{element.name.split("/").pop()}</p>
+    <p>{file.name.split("/").pop()}</p>
   </a>
 );
 

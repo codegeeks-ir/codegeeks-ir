@@ -1,26 +1,39 @@
 import PageHeader from "components/PageHeader";
-import courseNavItems from "utils/navigation/course-nav-items";
 import LinkSection from "components/LinkSection";
-import { getItem } from "lib/get-collection";
+import { getDirectorySlugs } from "utils/get-data/get-slugs";
+import getFileData from "utils/get-data/get-data";
+import IPageData from "utils/schema/collections/page/page-data";
+import { getProvider } from "utils/schema/collections/view-type";
+import Navigation from "utils/schema/navigation/navigation-type";
 
-const CoursesPage = ({ data }) => (
-  <div className="collection-container">
-    <PageHeader />
-    <div className="page-header">
-      <h1>{data.heading}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
-      <LinkSection items={courseNavItems} />
-    </div>
-  </div>
-);
-
-export const getStaticProps = async () => {
-  const data = await getItem("courses.md", "docs/pages/requirements");
-  return {
-    props: {
-      data,
-    },
-  };
+const getData = async () => {
+  const slugs = await getDirectorySlugs("courses");
+  const courses = (await Promise.all(
+    slugs.map(async (item) => await getFileData("README.md", `courses/${item}`))
+  )) as IPageData[];
+  const provider = await getProvider("README.md", "courses");
+  return { provider, courses };
 };
 
-export default CoursesPage;
+const Page = async () => {
+  const { provider, courses } = await getData();
+  return (
+    <div className="collection-container">
+      <PageHeader />
+      <section className="page-header">
+        <h1>{(provider?.data as IPageData).heading}</h1>
+        <div dangerouslySetInnerHTML={{ __html: provider.content }}></div>
+        <LinkSection
+          items={
+            courses.map((course) => ({
+              name: course.title,
+              link: `/requirements/courses/${course.slug}`,
+            })) as Navigation
+          }
+        />
+      </section>
+    </div>
+  );
+};
+
+export default Page;

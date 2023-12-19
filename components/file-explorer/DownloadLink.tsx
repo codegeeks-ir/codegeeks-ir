@@ -10,4 +10,4 @@ const DownloadLink = ({ repoName }: { repoName: string }) => {
   );
 };
 
-export default DownloadIcon;
+export default DownloadLink;

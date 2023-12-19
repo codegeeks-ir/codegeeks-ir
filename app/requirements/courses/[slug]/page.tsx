@@ -1,50 +1,32 @@
-import FileExplorer, { IElement, IReport } from "components/FileExplorer";
-import hljs from "highlight.js";
-import { getDirectorySlugs, getItem } from "lib/get-collection";
-import { centerImage } from "lib/manipulate-html";
-import Head from "next/head";
-import { useEffect } from "react";
+import FileExplorer from "components/file-explorer/FileExplorer";
+import { getDirectorySlugs } from "utils/get-data/get-slugs";
+import getTree from "utils/get-data/get-tree";
+import { SlugType } from "utils/schema/collections/data-type";
+import IPageData from "utils/schema/collections/page/page-data";
+import { getProvider } from "utils/schema/collections/view-type";
 
-const CoursePage = ({ data, repoName, rootDirectory, root, report }) => {
-  useEffect(() => {
-    hljs.highlightAll();
-    centerImage();
-  }, []);
+interface IParams {
+  slug: SlugType;
+}
+
+export const generateStaticParams = async (): Promise<IParams[]> =>
+  (await getDirectorySlugs("courses")).map((slug) => ({ slug }));
+
+const getData = async (params: IParams) => {
+  const provider = await getProvider("README.md", `courses/${params.slug}`);
+  const tree = await getTree(`courses/${params.slug}/resources`);
+  return { provider, tree };
+};
+
+const Page = async ({ params }: { params: IParams }) => {
+  const { provider, tree } = await getData(params);
   return (
-    <>
-      <Head>
-        <meta name="description" content="منابع و مستندات درسی گروه کامپیوتر" />
-        <title>{`مستندات درس ${data.title} | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه`}</title>
-      </Head>
-      <div>
-        <article dangerouslySetInnerHTML={{ __html: data.content }}></article>
-        <FileExplorer root={root} report={report} repoName={repoName} rootDirectory={rootDirectory} />
-      </div>
-    </>
+    <section>
+      <h1>{`مستندات درس ${(provider.data as IPageData).title}`}</h1>
+      <article dangerouslySetInnerHTML={{ __html: provider.content }}></article>
+      <FileExplorer tree={tree} repoName={"courses"} root={params.slug} />
+    </section>
   );
 };
 
-export const getStaticProps = async ({ params }) => {
-  const data = await getItem("README.md", `courses/${params.slug}`);
-  const repoName = "courses";
-  const rootDirectory = params.slug;
-  const tree = require(`../../../courses/${params.slug}/assets/tree.json`);
-  const root: IElement = tree[0];
-  const report: IReport = tree[1];
-  return {
-    props: {
-      data,
-      repoName,
-      rootDirectory,
-      root,
-      report
-    },
-  };
-};
-
-export const getStaticPaths = async () => {
-  const paths = await getDirectorySlugs("courses");
-  return { paths, fallback: false };
-};
-
-export default CoursePage;
+export default Page;

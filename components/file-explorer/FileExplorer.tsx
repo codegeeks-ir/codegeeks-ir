@@ -1,3 +1,4 @@
+"use client";
 import CloudIcon from "public/icones/cloud.svg";
 import {
   Dispatch,
@@ -11,44 +12,39 @@ import Directory from "./Directory";
 import Path from "./Path";
 import BackButton from "./BackButton";
 import DownloadLink from "./DownloadLink";
-
-export interface IElement {
-  type: "directory" | "file";
-  name: string;
-  size: string;
-  time: string;
-  contents?: IElement[];
-}
-
-export interface IReport {
-  type: "report";
-  directories: number;
-  files: number;
-}
+import {
+  Element,
+  IDirectory,
+  ResourcesType,
+  TreeType,
+} from "utils/schema/tree/tree-type";
 
 export interface IExplorerContext {
-  currentElement: IElement;
-  setCurrentElement: Dispatch<SetStateAction<IElement>>;
+  currentElement: IDirectory;
+  setCurrentElement: Dispatch<SetStateAction<IDirectory>>;
   currentPath: string;
   setCurrentPath: Dispatch<SetStateAction<string>>;
-  history: IElement[];
-  setHistory: Dispatch<SetStateAction<IElement[]>>;
+  history: IDirectory[];
+  setHistory: Dispatch<SetStateAction<IDirectory[]>>;
 }
 
 export const ExplorerContext = createContext<IExplorerContext | null>(null);
 
-const FileExplorer = ({ root, report, repoName, rootDirectory }: {
-  root: IElement;
-  report: IReport;
+interface IProps {
+  tree: TreeType;
   repoName: string;
-  rootDirectory: string;
-}) => {
-  const [currentPath, setCurrentPath] = useState<string>(root.name);
-  const [currentElement, setCurrentElement] = useState<IElement>(root);
-  const [history, setHistory] = useState<IElement[]>([root]);
-  const [content, setContent] = useState<IElement[] | undefined>(root.contents);
+  root: string;
+}
+
+const FileExplorer = ({ tree, repoName, root }: IProps) => {
+  const [currentPath, setCurrentPath] = useState<string>(tree.name);
+  const [currentElement, setCurrentElement] = useState<IDirectory>(tree);
+  const [history, setHistory] = useState<IDirectory[]>([tree]);
+  const [resources, setResources] = useState<ResourcesType | undefined>(
+    tree.resources
+  );
   useEffect(() => {
-    setContent(currentElement.contents);
+    setResources(currentElement.resources);
   }, [currentElement]);
   return (
     <ExplorerContext.Provider
@@ -69,17 +65,13 @@ const FileExplorer = ({ root, report, repoName, rootDirectory }: {
         </div>
         <div className="file-explorer-content">
           <BackButton />
-          {content &&
-            content.map((element: IElement, index: number) => (
+          {resources &&
+            resources.map((element: Element, index: number) => (
               <div key={index}>
                 {element.type == "directory" ? (
-                  <Directory element={element} />
+                  <Directory directory={element} />
                 ) : (
-                  <File
-                    element={element}
-                    repoName={repoName}
-                    rootDirectory={rootDirectory}
-                  />
+                  <File file={element} repoName={repoName} root={root} />
                 )}
               </div>
             ))}

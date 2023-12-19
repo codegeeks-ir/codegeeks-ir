@@ -4,20 +4,23 @@ import { SlugType } from "../schema/collections/data-type";
 
 const getFileSlugs = async (
   directory: string,
-  type: string,
+  isFullName?: boolean,
+  type?: string,
 ): Promise<SlugType[]> => {
   const directoryFullPath = path.join(process.cwd(), directory);
   const slugs = readdirSync(directoryFullPath, { withFileTypes: true })
     .filter(
       (element) =>
         element.isFile() &&
-        element.name.endsWith(`.${type}`) &&
+        (type ? element.name.endsWith(`.${type}`) : true) &&
         element.name != "README.md",
     )
     .map((file): SlugType => {
       const fileExtension = `.${file.name.split(".").at(-1)}`;
       const regex = new RegExp(`${fileExtension}$`, "gi");
-      return file.name.replace(regex, "").split(".v")[0];
+      return isFullName
+        ? file.name
+        : file.name.replace(regex, "").split(".v")[0];
     });
   return slugs;
 };

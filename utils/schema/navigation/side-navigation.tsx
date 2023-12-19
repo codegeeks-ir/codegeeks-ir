@@ -6,7 +6,7 @@ import Navigation from "./navigation-type";
 const sideNavItems: Navigation = [
   {
     name: "سوالات متداول",
-    link: "collections/faqs",
+    link: "/collections/faqs",
     repo: "docs",
     icon: <FaqsIcon className="w-8 fill-slate-600" />,
   },
