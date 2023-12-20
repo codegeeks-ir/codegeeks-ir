@@ -18,7 +18,7 @@ const getData = async () => {
 const Page = async () => {
   const { provider, courses } = await getData();
   return (
-    <div className="collection-container">
+    <section className="collection-container">
       <PageHeader />
       <section className="page-header">
         <h1>{(provider?.data as IPageData).heading}</h1>
@@ -32,7 +32,7 @@ const Page = async () => {
           }
         />
       </section>
-    </div>
+    </section>
   );
 };
 

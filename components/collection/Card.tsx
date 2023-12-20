@@ -37,7 +37,9 @@ const Card = ({
       <Link className="btn-primary m-0 py-0 rounded-b-none" href={link}>
         <MoreIcon className="fill-slate-300 w-6" />
       </Link>
-      <p className="absolute left-0 top-0 ml-2 text-xs md:text-sm">{footerLeftData}</p>
+      <p className="absolute left-0 top-0 ml-2 text-xs md:text-sm">
+        {footerLeftData}
+      </p>
     </section>
   </section>
 );

@@ -7,7 +7,7 @@ import Login from "components/Login";
 import LogoType from "components/LogoType";
 
 const Account = () => (
-  <div className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
+  <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
     <LogoType />
     <Login />
     <Tabs
@@ -19,7 +19,7 @@ const Account = () => (
         <BlogForm />,
       ]}
     />
-  </div>
+  </section>
 );
 
 export default Account;

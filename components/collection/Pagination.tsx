@@ -48,7 +48,7 @@ const Pagination = ({
 }) => {
   useEffect(() => viewPage(1, search, page, setPage), [search]);
   return (
-    <div className={page.count < 2 ? "hidden" : "pagination"}>
+    <section className={page.count < 2 ? "hidden" : "pagination"}>
       <a
         className={page.index == 1 ? "btn-disabled" : "btn-primary"}
         onClick={() => viewPage(page.index - 1, search, page, setPage)}
@@ -73,7 +73,7 @@ const Pagination = ({
       >
         <RightIcon className="w-6 fill-slate-300" />
       </a>
-    </div>
+    </section>
   );
 };
 

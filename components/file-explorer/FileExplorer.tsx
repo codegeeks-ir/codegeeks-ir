@@ -41,7 +41,7 @@ const FileExplorer = ({ tree, repoName, root }: IProps) => {
   const [currentElement, setCurrentElement] = useState<IDirectory>(tree);
   const [history, setHistory] = useState<IDirectory[]>([tree]);
   const [resources, setResources] = useState<ResourcesType | undefined>(
-    tree.resources
+    tree.resources,
   );
   useEffect(() => {
     setResources(currentElement.resources);
@@ -57,26 +57,26 @@ const FileExplorer = ({ tree, repoName, root }: IProps) => {
         setHistory,
       }}
     >
-      <div className="my-4 flex flex-col flex-wrap" dir="ltr">
-        <div className="file-explorer-header">
+      <section className="my-4 flex flex-col flex-wrap" dir="ltr">
+        <section className="file-explorer-header">
           <CloudIcon className="w-6 grow-0 fill-slate-300" />
           <Path path={currentPath} />
           <DownloadLink repoName={repoName} />
-        </div>
-        <div className="file-explorer-content">
+        </section>
+        <section className="file-explorer-content">
           <BackButton />
           {resources &&
             resources.map((element: Element, index: number) => (
-              <div key={index}>
+              <section key={index}>
                 {element.type == "directory" ? (
                   <Directory directory={element} />
                 ) : (
                   <File file={element} repoName={repoName} root={root} />
                 )}
-              </div>
+              </section>
             ))}
-        </div>
-      </div>
+        </section>
+      </section>
     </ExplorerContext.Provider>
   );
 };

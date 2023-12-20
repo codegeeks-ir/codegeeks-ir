@@ -1,5 +1,5 @@
 const Path = ({ path }: { path: string }) => (
-  <div className="mt-1 flex grow flex-wrap pl-2">
+  <section className="mt-1 flex grow flex-wrap pl-2">
     {path.length > 24 ? (
       <span className="text-sm">../{path.split("/").pop()}</span>
     ) : (
@@ -11,7 +11,7 @@ const Path = ({ path }: { path: string }) => (
         ))}
       </>
     )}
-  </div>
+  </section>
 );
 
 export default Path;

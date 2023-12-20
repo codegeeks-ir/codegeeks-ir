@@ -15,9 +15,9 @@ const CompanionView = ({ provider }: { provider: ProviderType }) => {
     centerImage();
   }, []);
   return (
-    <>
-      <div className="mb-0 flex flex-col items-center justify-center rounded-none">
-        <div className="profile-picture relative my-4 w-44">
+    <section>
+      <section className="mb-0 flex flex-col items-center justify-center rounded-none">
+        <section className="profile-picture relative my-4 w-44">
           <Image
             src={`https://github.com/${
               (provider?.data as ICompanionData).githubID
@@ -34,18 +34,18 @@ const CompanionView = ({ provider }: { provider: ProviderType }) => {
           >
             <GithubIcon className="icon w-8" />
           </a>
-        </div>
+        </section>
         <h2 className="card-title justify-center">
           {(provider?.data as ICompanionData).name}
         </h2>
         <p className="card-subtitle mb-2 text-center">
           {(provider?.data as ICompanionData).position}
         </p>
-      </div>
-      <div
+      </section>
+      <article
         className="non-important m-1 mt-0 rounded-t-none p-1 text-center"
         dangerouslySetInnerHTML={{ __html: provider?.content as string }}
-      ></div>
+      ></article>
       <ul
         className="m-0 mt-5 flex w-full flex-col 
       flex-wrap items-center justify-center rounded-md bg-slate-300 p-4"
@@ -54,7 +54,7 @@ const CompanionView = ({ provider }: { provider: ProviderType }) => {
           <ElementFactory data={data} />
         ))}
       </ul>
-    </>
+    </section>
   );
 };
 

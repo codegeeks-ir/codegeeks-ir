@@ -12,13 +12,13 @@ const ChallengeView = ({ provider }: { provider: ProviderType }) => {
     centerImage();
   }, []);
   return (
-    <>
+    <section>
       <h1 className="mb-0">{(provider.data as IChallengeData).title}</h1>
       <h5 className="card-subtitle mt-0 mb-2">
         {(provider.data as IChallengeData).score}
       </h5>
-      <div className="non-important mt-10 mb-20 flex flex-row p-0">
-        <div className="w-1/2">
+      <section className="non-important mt-10 mb-20 flex flex-row p-0">
+        <section className="w-1/2">
           <h5>زمان</h5>
           <p className="my-0">
             {getPersianLongDate((provider.data as IChallengeData).date)}
@@ -26,12 +26,12 @@ const ChallengeView = ({ provider }: { provider: ProviderType }) => {
           <p className="my-0">
             ساعت {(provider.data as IChallengeData).date.split(" ")[1]}
           </p>
-        </div>
-      </div>
+        </section>
+      </section>
       <article
         dangerouslySetInnerHTML={{ __html: provider?.content as string }}
       ></article>{" "}
-    </>
+    </section>
   );
 };
 

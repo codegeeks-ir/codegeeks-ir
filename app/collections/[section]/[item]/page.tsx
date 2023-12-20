@@ -14,13 +14,14 @@ export const generateStaticParams = async (): Promise<IParams[]> => {
   const allItems: IParams[] = [];
   collections.map(
     async (section: SlugType) =>
-      await getFileSlugs(`docs/collections/${section}`, "md").then((items) =>
-        items.map((item: SlugType) =>
-          allItems.push({
-            section,
-            item,
-          })
-        )
+      await getFileSlugs(`docs/collections/${section}`, false, "md").then(
+        (items) =>
+          items.map((item: SlugType) =>
+            allItems.push({
+              section,
+              item,
+            })
+          )
       )
   );
   return allItems;

@@ -21,7 +21,7 @@ const getItemUrl = (item: SlugType, format: Format): Url => {
         changeFrequency: "weekly",
         priority: 0.6,
       } as Url;
-    case Format.Collection:
+    case Format.Page:
       return {
         url: `${config.url}/${format}`,
         lastModified: new Date(),
@@ -50,13 +50,6 @@ const getItemUrl = (item: SlugType, format: Format): Url => {
         priority: 0.6,
       } as Url;
     case Format.Faqs:
-      return {
-        url: `${config.url}/${format}/${item}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly",
-        priority: 0.6,
-      } as Url;
-    case Format.Members:
       return {
         url: `${config.url}/${format}/${item}`,
         lastModified: new Date(),
@@ -160,7 +153,7 @@ const getPaths = async (): Promise<MetadataRoute.Sitemap> => {
       changeFrequency: "weekly",
       priority: 0.5,
     },
-    ...collectionPaths,
+    // ...collectionPaths,
     ...coursePaths,
   ];
 };

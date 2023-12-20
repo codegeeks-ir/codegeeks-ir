@@ -43,13 +43,15 @@ const Collection = ({ collection }: ICollectionProps) => {
     content: [],
   });
   return (
-    <>
+    <section className="w-full">
       <Filter collection={collection} search={search} setSearch={setSearch} />
-      {page.content.map((data) => (
-        <ElementFactory data={data} />
-      ))}
+      <section>
+        {page.content.map((data) => (
+          <ElementFactory data={data} />
+        ))}
+      </section>
       <Pagination page={page} setPage={setPage} search={search} />
-    </>
+    </section>
   );
 };
 

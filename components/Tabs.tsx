@@ -18,8 +18,8 @@ const Tabs = ({ headers, contents }: ITabsProps) => {
     [],
   );
   return (
-    <>
-      <div className="tab-buttons">
+    <section>
+      <section className="tab-buttons">
         {headers.map((headerItem, headerIndex: number) => (
           <button
             key={headerIndex}
@@ -37,18 +37,18 @@ const Tabs = ({ headers, contents }: ITabsProps) => {
             {headerItem}
           </button>
         ))}
-      </div>
+      </section>
       {contents?.map((contentItem, contentIndex: number) => (
-        <div
+        <section
           key={contentIndex}
           className={`m-0 -mt-6 w-full ${
             showCollapse[contentIndex] ? "block" : "hidden"
           }`}
         >
           {contentItem}
-        </div>
+        </section>
       ))}
-    </>
+    </section>
   );
 };
 

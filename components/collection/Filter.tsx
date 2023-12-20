@@ -31,7 +31,7 @@ const FilterOptions = ({
   setSearch: Dispatch<SetStateAction<ISearch>>;
   show: boolean;
 }) => (
-  <div
+  <section
     className={`flex grow flex-row flex-wrap items-center 
     ${show ? "visible" : "invisible"}`}
   >
@@ -51,7 +51,7 @@ const FilterOptions = ({
         })
       }
     />
-    <div className="flex grow flex-row flex-wrap items-center">
+    <section className="flex grow flex-row flex-wrap items-center">
       {getSearchables(collection[0].format).map((property) => {
         return (
           <button
@@ -65,8 +65,8 @@ const FilterOptions = ({
           </button>
         );
       })}
-    </div>
-  </div>
+    </section>
+  </section>
 );
 
 const Filter = ({
@@ -80,11 +80,11 @@ const Filter = ({
 }) => {
   const [show, setShow] = useState<boolean>(true);
   return (
-    <div
+    <section
       className="card mt-0 flex w-full flex-col items-start
             justify-start rounded-t-none py-3 px-2 sm:px-2 md:px-4 lg:px-5"
     >
-      <div className="flex w-full flex-row flex-wrap md:flex-row-reverse">
+      <section className="flex w-full flex-row flex-wrap md:flex-row-reverse">
         <FilterOptions
           collection={collection}
           search={search}
@@ -97,8 +97,8 @@ const Filter = ({
         >
           <FilterIcon className="w-6 fill-slate-300" />
         </button>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

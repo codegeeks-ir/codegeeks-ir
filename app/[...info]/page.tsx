@@ -40,9 +40,9 @@ const getData = async (params: IParams) => {
 const Page = async ({ params }: { params: IParams }) => {
   const { collection, provider } = await getData(params);
   return (
-    <>
+    <section>
       <h1>{(provider.data as IPageData).heading}</h1>
-      <div dangerouslySetInnerHTML={{ __html: provider.content }}></div>
+      <article dangerouslySetInnerHTML={{ __html: provider.content }}></article>
       <Tabs
         headers={collection.map((item) => item.title)}
         contents={collection.map((item, index) => (
@@ -53,7 +53,7 @@ const Page = async ({ params }: { params: IParams }) => {
           />
         ))}
       />
-    </>
+    </section>
   );
 };
 

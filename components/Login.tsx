@@ -2,7 +2,7 @@ import config from "utils/config";
 import GithubIcon from "public/icones/social/github.svg";
 
 const Login = () => (
-  <div
+  <section
     className="m-0 mt-10 flex w-full 
   flex-row flex-wrap justify-center sm:w-52 md:w-64"
   >
@@ -22,7 +22,7 @@ const Login = () => (
       <p className="m-0 mt-1 ml-0.5 px-0 py-1 text-sm">Github</p>
       <GithubIcon className="icon mb-0.5 fill-slate-800" />
     </a>
-  </div>
+  </section>
 );
 
 export default Login;

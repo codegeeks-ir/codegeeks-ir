@@ -30,7 +30,7 @@ const PageHeader = () => {
   const repo = getRepoName();
   const contributionLink = `https://github.com/codegeeks-ir/${repo}`;
   return (
-    <div className="page-header-navbar">
+    <section className="page-header-navbar">
       <Link className="page-header-navbar-button" href={back}>
         <BackIcon className="w-full fill-slate-600" />
       </Link>
@@ -41,7 +41,7 @@ const PageHeader = () => {
         <ForkIcon className="w-full fill-slate-600" />
       </a>
       <Icon />
-    </div>
+    </section>
   );
 };
 

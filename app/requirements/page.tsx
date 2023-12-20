@@ -12,14 +12,14 @@ const Page = () => (
       />
       <title>نیازمندی‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
     </Head>
-    <div className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
+    <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
       <LogoType />
-      <div className="grow-1 my-4 flex h-full w-full flex-col items-center justify-evenly">
-        <div className="h-auto w-full rounded-md bg-violet-600">
+      <section className="grow-1 my-4 flex h-full w-full flex-col items-center justify-evenly">
+        <section className="h-auto w-full rounded-md bg-violet-600">
           <LinkSection items={requirementsNavItem} />
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
+    </section>
   </>
 );
 

@@ -10,6 +10,7 @@ import {
 import ICsvData from "../schema/collections/csv/csv-data";
 import { DataType, Format } from "../schema/collections/data-type";
 import { PropertyType } from "utils/schema/properties/property-type";
+import getExcerpt from "./get-excerpt";
 
 export const getFileData = async (fileName: string, directory: string) => {
   const directoryFullPath = path.join(process.cwd(), directory);
@@ -28,6 +29,7 @@ const getMarkdownData = async (
 ): Promise<DataType> => {
   const matterResult = matter(fileContent);
   const data = matterResult.data as DataType;
+  if (data.format != Format.Csv) data.excerpt = getExcerpt(fileContent);
   data.slug ? data.slug : fileName.replace(/\.md$/, "");
   data.path = `${directory}/${fileName}`;
   return data;

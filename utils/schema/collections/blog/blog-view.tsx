@@ -12,7 +12,7 @@ const BlogView = ({ provider }: { provider: ProviderType }) => {
     centerImage();
   }, []);
   return (
-    <>
+    <section>
       <article
         dangerouslySetInnerHTML={{ __html: provider?.content as string }}
       ></article>
@@ -20,7 +20,7 @@ const BlogView = ({ provider }: { provider: ProviderType }) => {
         name={(provider.data.reference as ICompanionData).name}
         githubID={(provider.data.reference as ICompanionData).githubID}
       />
-    </>
+    </section>
   );
 };
 
