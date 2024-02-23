@@ -44,7 +44,7 @@ const GetDataComponent = ({ data }: { data: string }) => {
   );
 };
 
-const TableFormArray = ({
+const Table = ({
   array,
   description,
 }: {
@@ -85,4 +85,4 @@ const TableFormArray = ({
   );
 };
 
-export default TableFormArray;
+export default Table;
