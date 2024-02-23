@@ -1,33 +1,32 @@
-import BlogElement from "./blog/blog-element";
-import ChallengeElement from "./challenge/challenge-element";
-import CompanionElement from "./companion/companion-element";
-import CsvElement from "./csv/csv-element";
-import { DataType, Format } from "./data-type";
-import EventElement from "./event/event-element";
-import FaqElement from "./faq/faq-element";
-import PageElement from "./page/page-element";
+import { DataType } from "utils/schema/data";
+import metas from "utils/config/meta";
+import { Element } from "utils/schema/elements";
+import Card from "./Card";
+import ICardElement from "utils/schema/elements/card.interface";
+import Rows from "./Rows";
+import Section from "./Section";
+import Table from "./Table";
+import IRowsElement from "utils/schema/elements/rows.interface";
+import ITableElement from "utils/schema/elements/table.interface";
+import IImageElement from "utils/schema/elements/image.interface";
+import IAvatarElement from "utils/schema/elements/avatar.interface";
+import Avatar from "./Avatar";
 
 interface IProps {
   data: DataType;
 }
 
 const ElementFactory = ({ data }: IProps) => {
-  switch (data.format) {
-    case Format.Blog:
-      return <BlogElement data={data} />;
-    case Format.Challenges:
-      return <ChallengeElement data={data} />;
-    case Format.Companions:
-      return <CompanionElement data={data} />;
-    case Format.Csv:
-      return <CsvElement data={data} />;
-    case Format.Events:
-      return <EventElement data={data} />;
-    case Format.Faqs:
-      return <FaqElement data={data} />;
-    case Format.Page:
-      return <PageElement data={data} />;
-  }
+  const element = metas[data.format].getElement(data);
+  const elements: Record<Element, React.ReactNode> = {
+    [Element.Card]: <Card {...(element as ICardElement).props} />,
+    [Element.Rows]: <Rows {...(element as IRowsElement).props} />,
+    [Element.Table]: <Table {...(element as ITableElement).props} />,
+    [Element.Avatar]: <Avatar {...(element as IAvatarElement).props} />,
+    [Element.Section]: <Section {...(element as IRowsElement).props} />,
+    [Element.Image]: undefined,
+  };
+  return elements[element.type];
 };
 
-export { ElementFactory };
+export default ElementFactory;
