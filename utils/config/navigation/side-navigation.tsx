@@ -1,26 +1,40 @@
-import FaqsIcon from "public/icones/faqs.svg";
-import HeartIcon from "public/icones/heart.svg";
-import AboutIcon from "public/icones/about.svg";
-import Navigation from "./navigation-type";
+import Navigation from "utils/schema/navigation.type";
+import FoodIcon from "public/icones/food.svg";
+import EducationIcon from "public/icones/education.svg";
+import DormIcon from "public/icones/dorm.svg";
+import InternetIcon from "public/icones/internet.svg";
+import LibraryIcon from "public/icones/library.svg";
 
 const sideNavItems: Navigation = [
   {
-    name: "سوالات متداول",
-    link: "/collections/faqs",
+    name: "غذا",
+    link: "https://food.uut.ac.ir/",
     repo: "docs",
-    icon: <FaqsIcon className="w-8 fill-slate-600" />,
+    icon: <FoodIcon className="w-8 fill-slate-600" />,
   },
   {
-    name: "حمایت",
-    link: "/sponsor",
+    name: "آموزش",
+    link: "https://edu.uut.ac.ir/",
     repo: "codegeeks-ir",
-    icon: <HeartIcon className="w-8 fill-slate-600" />,
+    icon: <EducationIcon className="w-8 fill-slate-600" />,
   },
   {
-    name: "انجمن",
-    link: "/about",
+    name: "خوابگاه",
+    link: "http://dorm.uut.ac.ir:81/",
     repo: "docs",
-    icon: <AboutIcon className="w-8 fill-slate-600" />,
+    icon: <DormIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "اینترنت",
+    link: "http://internet.uut.ac.ir",
+    repo: "docs",
+    icon: <InternetIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "کتابخانه",
+    link: "http://library.uut.ac.ir:81/",
+    repo: "docs",
+    icon: <LibraryIcon className="w-8 fill-slate-600" />,
   },
 ];
 

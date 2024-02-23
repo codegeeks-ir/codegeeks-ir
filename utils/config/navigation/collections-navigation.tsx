@@ -1,10 +1,10 @@
 import EventsIcon from "public/icones/events.svg";
 import ChallengesIcon from "public/icones/challenges.svg";
-import ProjectsIcon from "public/icones/projects.svg";
 import BlogIcon from "public/icones/blog.svg";
-import Navigation from "./navigation-type";
+import Navigation from "utils/schema/navigation.type";
+import FaqsIcon from "public/icones/faqs.svg";
 
-const mainNavItems: Navigation = [
+const collectionsNavItems: Navigation = [
   {
     name: "رویدادها",
     link: "/collections/events",
@@ -18,17 +18,17 @@ const mainNavItems: Navigation = [
     icon: <ChallengesIcon className="w-8 fill-slate-600" />,
   },
   {
-    name: "پروژه‌ها",
-    link: "/projects",
-    repo: "docs",
-    icon: <ProjectsIcon className="w-8 fill-slate-600" />,
-  },
-  {
     name: "انتشارات",
     link: "/collections/blog",
     repo: "docs",
     icon: <BlogIcon className="w-8 fill-slate-600" />,
   },
+  {
+    name: "سوالات متداول",
+    link: "/collections/faqs",
+    repo: "docs",
+    icon: <FaqsIcon className="w-8 fill-slate-600" />,
+  },
 ];
 
-export default mainNavItems;
+export default collectionsNavItems;

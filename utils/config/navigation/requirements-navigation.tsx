@@ -2,7 +2,7 @@ import ContactsIcon from "public/icones/contacts.svg";
 import CurriculumGuideIcon from "public/icones/curriculum-guide.svg";
 import CoursesIcon from "public/icones/courses.svg";
 import BusStopTimesIcon from "public/icones/bus-stop-times.svg";
-import Navigation from "./navigation-type";
+import Navigation from "utils/schema/navigation.type";
 
 const requirementsNavItem: Navigation = [
   {
