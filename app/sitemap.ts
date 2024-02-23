@@ -1,7 +1,8 @@
 import { MetadataRoute } from "next";
-import config from "utils/config";
+import config from "utils/config/config";
 import { getFileSlugs, getDirectorySlugs } from "utils/get-data/get-slugs";
-import { Format, SlugType } from "utils/schema/collections/data-type";
+import { Format } from "utils/schema/data";
+import SlugType from "utils/schema/slug.type";
 
 type Url = MetadataRoute.Sitemap[0];
 
@@ -60,10 +61,10 @@ const getItemUrl = (item: SlugType, format: Format): Url => {
 };
 
 const getCollectionPaths = async () => {
-  const collections = await getFileSlugs("docs/pages/collections");
+  const collections = await getFileSlugs(config.source.collections);
   const items = collections.map(
     async (collection: SlugType) =>
-      await getFileSlugs(`docs/collections/${collection}`)
+      await getFileSlugs(`${config.source.collections}/${collection}`)
   );
   return [...items, collections];
 };
@@ -71,7 +72,7 @@ const getCollectionPaths = async () => {
 const getPaths = async (): Promise<MetadataRoute.Sitemap> => {
   // const collections = (await getCollectionPaths()).map(item => getItemUrl(item, item.));
   const coursePaths: MetadataRoute.Sitemap = await getDirectorySlugs(
-    "courses"
+    config.source.courses
   ).then((slugs) =>
     slugs.map((slug) => ({
       url: `${config.url}/requirements/courses/${slug}`,

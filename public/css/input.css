@@ -7,38 +7,34 @@
   /* Button components */
   .btn {
     @apply text-center
-        bg-none text-slate-700 
+        bg-none text-slate-500 
+        border border-solid border-slate-400
         font-semibold;
   }
   .btn-primary {
-    @apply m-1 py-1 px-2 
+    @apply btn m-1 py-1 px-2 
         text-center
-        bg-teal-500 text-slate-200 
+        bg-teal-400 
         bg-opacity-75
         font-semibold rounded-md
-        hover:bg-teal-600 focus:outline-none 
-        focus:ring-2 focus:ring-teal-500 
-        focus:ring-opacity-75
-        drop-shadow shadow-sm;
+        hover:bg-teal-300 focus:outline-none;
   }
   .btn-light {
     @apply btn-primary 
-        bg-slate-300 text-slate-500  
-        hover:bg-slate-400
+        bg-slate-300  
         focus:bg-slate-400
-        focus:ring-slate-400;
+        focus:bg-opacity-50
+        hover:bg-slate-300;
   }
   .btn-green {
     @apply btn-light 
         bg-green-300 
-        hover:bg-green-400
-        focus:ring-green-400;
+        hover:bg-green-400;
   }
   .btn-red {
     @apply btn-light 
         bg-red-300 
-        hover:bg-red-400
-        focus:ring-red-400;
+        hover:bg-red-400;
   }
   .btn-disabled {
     @apply btn-primary
@@ -53,10 +49,12 @@
         rounded-t-none mt-0 py-3;
   }
   .form-element {
-    @apply bg-slate-300 text-slate-700
-        focus:outline-none focus:bg-slate-700 
-        focus:shadow focus:text-slate-200 font-bold 
-        drop-shadow-sm rounded-lg px-4 py-1 mx-0 my-1 w-full md:w-48;
+    @apply bg-slate-300 text-slate-500
+        border border-solid border-slate-400
+        focus:outline-none focus:bg-slate-400 
+        focus:bg-opacity-25
+        font-bold 
+        rounded-lg px-4 py-1 mx-0 my-1 w-full md:w-48;
   }
   .form-content {
     @apply form-element overflow-y-scroll grow self-stretch mr-1.5;
@@ -65,9 +63,9 @@
   /* Card components */
   .card {
     @apply w-full
-        bg-slate-200
         rounded-t-md rounded-b-sm
-        p-0 mb-6;
+        border border-solid border-slate-400
+        p-0 mb-3;
   }
   .card-body {
     @apply p-0;
@@ -75,25 +73,29 @@
   .card-title {
     @apply flex flex-row
         justify-start items-center
-        text-slate-700 font-bold
-        rounded-t-md px-2 pt-2 mx-2 w-full;
+        font-bold
+        rounded-t-md px-4 py-2 m-0 w-full;
   }
   .card-subtitle {
-    @apply text-slate-400 text-sm my-0 mx-3 px-2;
+    @apply text-slate-500 text-sm my-0 mx-3 px-2;
+  }
+  .card-excerpt {
+    @apply text-xs text-slate-500 my-0 mx-3 py-0;
   }
   .card-footer {
     @apply flex flex-row flex-wrap relative
         justify-center items-start
-        pt-4 mx-2 bg-slate-300 text-slate-400
-        rounded-t-md;
+        bg-slate-400 bg-opacity-25
+        pt-4 text-slate-400
+        border border-solid border-slate-400
+        border-b-0 border-x-0;
   }
 
   /* Pagination component */
   .pagination {
     @apply card flex flex-row-reverse w-full 
         justify-center items-center 
-        bg-slate-300
-        rounded-md p-2;
+        p-2;
   }
 
   /* Profile picture component */
@@ -137,7 +139,7 @@
 
 /* Tag styles */
 body {
-  @apply text-slate-600 bg-slate-900 h-screen
+  @apply text-slate-600 bg-slate-300 h-screen
   bg-no-repeat bg-fixed;
   font-family: "irsans";
 }
@@ -195,24 +197,24 @@ img {
 /* Table styles */
 table {
   @apply text-slate-700 text-sm w-full my-7 self-center
-  border border-solid border-slate-300 border-t-0;
+  border border-solid border-slate-400 border-t-0;
 }
-table caption {
-  @apply w-full text-xs text-right text-slate-200 bg-teal-500 
+.caption {
+  @apply w-full text-xs text-right text-slate-500 
   pt-2 pb-1 px-2 rounded-t-md
-  border border-solid border-slate-300 border-b-0;
+  border border-solid border-slate-400;
 }
 th {
   @apply py-1 px-2;
 }
 thead {
-  @apply bg-teal-700 text-slate-300 
-  border border-solid border-slate-300 border-t-0;
+  @apply bg-slate-400 text-slate-600 
+  border border-solid border-slate-400 border-t-0;
 }
 tbody tr {
-  @apply bg-slate-200 text-slate-600
-  even:bg-slate-300 focus:bg-teal-400
-  border border-solid border-slate-300;
+  @apply text-slate-600
+  even:bg-slate-400 even:bg-opacity-25 focus:bg-teal-400
+  border border-solid border-slate-400;
 }
 td {
   @apply w-auto text-right py-1 px-2;
@@ -227,7 +229,6 @@ td a {
 /* Code styles */
 pre {
   direction: ltr;
-  @apply drop-shadow-md;
   @apply bg-none !important;
 }
 code {
@@ -236,8 +237,9 @@ code {
 
 /* File explorer styles */
 .file-explorer-header {
-  @apply flex flex-row flex-wrap items-center grow bg-slate-400 text-slate-200 
-  rounded-t-md p-2 font-mono drop-shadow-md w-full;
+  @apply card flex flex-row flex-wrap items-center grow 
+  text-slate-500 bg-slate-400 bg-opacity-50
+  rounded-t-md m-0 p-2 font-mono w-full;
 }
 .file-explorer-element {
   @apply flex flex-row flex-wrap items-center  
@@ -247,9 +249,9 @@ code {
   @apply text-slate-500 text-sm m-0;
 }
 .file-explorer-content {
-  @apply flex flex-col justify-start items-start flex-wrap p-4 
-  bg-slate-200 rounded-b-md
-  md:flex-row md:items-center drop-shadow-md;
+  @apply card flex flex-col justify-start items-start flex-wrap p-4 
+  rounded-t-none border-t-0 m-0
+  md:flex-row md:items-center;
 }
 
 /* Template styles */
@@ -258,8 +260,8 @@ code {
   items-center justify-center p-2;
 }
 .container {
-  @apply flex flex-col items-center justify-center grow-0 w-full
-  py-2 px-2 lg:px-5 md:px-4 md:mr-24 sm:p-2 m-0 mb-36 text-justify;
+  @apply flex flex-col items-center justify-center grow-0
+  md:mr-24 m-0 text-justify;
 }
 
 /* Navbar styles */
@@ -267,21 +269,22 @@ code {
   @apply fixed flex bg-slate-300 list-none z-20 p-4 m-0 
   flex-row items-center justify-evenly w-full h-auto bottom-0 right-0 mt-2 
   md:flex-col md:justify-center md:items-center 
-  md:grow-0 md:w-24 md:h-full md:top-0 md:mt-0 
-  drop-shadow-[0_-10px_8px_rgba(0,0,0,0.10)];
+  md:grow-0 md:w-24 md:h-full md:top-0 md:mt-0
+  border-t md:border-l md:border-t-0 border-solid border-slate-400;
 }
 .navbar-item {
   @apply flex flex-col items-center px-2 py-1 md:my-4;
 }
 .active {
-  @apply bg-slate-400 bg-opacity-50 rounded-md;
+  @apply bg-slate-400 bg-opacity-25 rounded-md;
 }
 
 /* Page header styles */
 .page-header-navbar {
-  @apply flex flex-row flex-grow rounded-t-md items-center
-    w-full m-0 py-1 px-2 lg:px-5 md:px-4 sm:px-2 rounded-b-none 
-    bg-teal-500;
+  @apply flex flex-row flex-grow items-center justify-start
+  bg-slate-400 bg-opacity-25
+  border border-solid border-slate-400 border-t-0 border-x-0
+    w-full m-0 py-1 px-2 md:px-4;
 }
 .page-header-navbar-button {
   @apply btn-light flex flex-row w-8 h-8 items-center justify-center;
@@ -290,7 +293,8 @@ code {
   @apply my-0 mx-1 py-0 text-xs;
 }
 .page-header {
-  @apply card rounded-none w-full my-0 p-2 lg:p-5 md:p-4 sm:p-2;
+  @apply card rounded-none border-none
+  w-full my-0 -mt-36 p-2 lg:p-5 md:p-4 sm:p-2;
 }
 .logo {
   @apply flex flex-row justify-end w-full;
@@ -308,7 +312,7 @@ code {
   @apply flex flex-col justify-center items-center;
 }
 .section-link {
-  @apply btn-light flex flex-col justify-center items-center w-24 py-2;
+  @apply btn-light flex flex-col justify-center items-center w-24 h-24 py-2;
 }
 
 /* Footer styles */
@@ -333,7 +337,7 @@ footer p {
 }
 .calendar-day-names {
   @apply grid grid-cols-7 gap-1 pb-4 pt-2
-  border-b-4 border-solid border-slate-300 border-opacity-20;
+  border-b-4 border-solid border-slate-400 border-opacity-20;
 }
 .calendar-day-list {
   @apply grid grid-cols-7 gap-1 py-8 text-center;
@@ -355,28 +359,26 @@ footer p {
   @apply flex flex-row flex-wrap mt-8 mb-8 w-full;
 }
 .tab-buttons button {
-  @apply rounded-none first:rounded-tr-md last:rounded-bl-md odd:w-1/2 even:w-1/2 
+  @apply rounded-none 
+  border-l last:border-b md:border-l-0 md:last:border-l
+  border-b-0 md:border-b
+  odd:border-l-0
+  first:rounded-tr-md last:rounded-bl-md odd:w-1/2 even:w-1/2 
   md:first:rounded-r-md md:last:rounded-l-md odd:md:w-auto even:md:w-auto m-0;
 }
 .tab-buttons button:nth-child(2) {
   @apply rounded-tl-md md:rounded-none;
 }
 .tab-buttons button:nth-last-child(2) {
-  @apply rounded-br-md md:rounded-none;
+  @apply rounded-br-md md:rounded-none border-b;
 }
 
 /* Icon styles */
 .icon {
-  @apply fill-slate-300 w-4 h-auto;
+  @apply fill-slate-600 w-6 h-auto;
 }
 p .icon {
   @apply fill-slate-700;
-}
-a .icon {
-  @apply fill-blue-400 bg-opacity-75;
-}
-.github-icon .icon {
-  @apply w-6;
 }
 .btn-light .icon {
   @apply fill-slate-600;
@@ -556,24 +558,19 @@ a .icon {
 }
 .profile-picture .github-icon {
   @apply absolute right-0 top-32
-    rounded-full border-solid border-2 border-slate-200
-    bg-slate-200;
+    rounded-full;
 }
 .post-content .profile-picture .github-icon {
   @apply absolute -top-4 -right-2
-    rounded-full border-solid border-slate-200
-    bg-slate-200;
-  border-width: 1px;
+    rounded-full border;
 }
 .story-content .profile-picture .github-icon {
   @apply absolute -top-5 -right-4
-    rounded-full border-solid border-2 border-slate-200
-    bg-slate-200;
+    rounded-full;
 }
 .pdf-content .profile-picture .github-icon {
   @apply absolute -top-14 -right-4
-    rounded-full border-solid border-slate-200
-    bg-slate-200;
+    rounded-full;
 }
 .contributors .profile-picture .github-icon {
   @apply top-14;

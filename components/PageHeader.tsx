@@ -5,21 +5,16 @@ import BackIcon from "public/icones/back.svg";
 import ForkIcon from "public/icones/fork.svg";
 import HeartIcon from "public/icones/heart.svg";
 import Icon from "./Icon";
-import Navigation from "utils/schema/navigation/navigation-type";
-import requirementsNavItem from "utils/schema/navigation/requirements-navigation";
-import mainNavItems from "utils/schema/navigation/main-navigation";
-import sideNavItems from "utils/schema/navigation/side-navigation";
-import config from "utils/config";
+import Navigation from "utils/schema/navigation.type";
+import requirementsNavItem from "utils/config/navigation/requirements-navigation";
+import collectionsNavItems from "utils/config/navigation/collections-navigation";
+import config from "utils/config/config";
 
 const getBackLink = (): string =>
   usePathname().split("/").slice(0, -1).join("/") + "/";
 
 const getRepoName = (): string => {
-  const allLinks: Navigation = [
-    ...requirementsNavItem,
-    ...sideNavItems,
-    ...mainNavItems,
-  ];
+  const allLinks: Navigation = [...requirementsNavItem, ...collectionsNavItems];
   const page = allLinks.find((item) => usePathname().startsWith(item.link));
   if (page?.repo) return page.repo;
   else return config.repository;

@@ -1,8 +1,9 @@
 import { getDirectorySlugs, getFileSlugs } from "utils/get-data/get-slugs";
-import { SlugType } from "utils/schema/collections/data-type";
-import { ProviderType } from "utils/schema/collections/view-type";
-import { getProvider } from "utils/schema/collections/view-type";
-import { ViewFactory } from "utils/schema/collections/view-type";
+import SlugType from "utils/schema/slug.type";
+import config from "utils/config/config";
+import ViewFactory from "components/collection/views";
+import getProvider from "utils/get-data/get-provider";
+import { ProviderType } from "utils/schema/provider.interface";
 
 interface IParams {
   section: SlugType;
@@ -10,25 +11,31 @@ interface IParams {
 }
 
 export const generateStaticParams = async (): Promise<IParams[]> => {
-  const collections = await getDirectorySlugs("docs/collections");
+  const collections = await getDirectorySlugs(config.source.collections);
   const allItems: IParams[] = [];
   collections.map(
     async (section: SlugType) =>
-      await getFileSlugs(`docs/collections/${section}`, false, "md").then(
-        (items) =>
-          items.map((item: SlugType) =>
-            allItems.push({
-              section,
-              item,
-            })
-          )
+      await getFileSlugs(
+        `${config.source.collections}/${section}`,
+        false,
+        "md"
+      ).then((items) =>
+        items.map((item: SlugType) =>
+          allItems.push({
+            section,
+            item,
+          })
+        )
       )
   );
   return allItems;
 };
 
 const getData = async (params: IParams) =>
-  await getProvider(`${params.item}.md`, `docs/collections/${params.section}`);
+  await getProvider(
+    `${params.item}.md`,
+    `${config.source.collections}/${params.section}`
+  );
 
 const Page = async ({ params }: { params: IParams }) => {
   const provider = await getData(params);

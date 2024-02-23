@@ -1,4 +1,4 @@
-type Config = {
+interface IProps {
   title: string;
   email: string;
   name: string;
@@ -6,9 +6,14 @@ type Config = {
   login: string;
   github: string;
   repository: string;
-};
+  source: {
+    collections: string;
+    info: string;
+    courses: string;
+  };
+}
 
-const config: Config = {
+const config: IProps = {
   title: "انجمن کامپیوتر دانشگاه صنعتی ارومیه",
   email: "info@codegeeks.ir",
   name: "codegeeks",
@@ -19,6 +24,11 @@ const config: Config = {
       : "https://codegeeks.ir/login",
   github: "codegeeks-ir",
   repository: "codegeeks-ir",
+  source: {
+    collections: "docs/collections",
+    info: "docs/info",
+    courses: "courses",
+  },
 };
 
 export default config;

@@ -1,7 +1,7 @@
 import LinkSection from "components/LinkSection";
-import LogoType from "components/LogoType";
 import Head from "next/head";
-import requirementsNavItem from "utils/schema/navigation/requirements-navigation";
+import requirementsNavItem from "utils/config/navigation/requirements-navigation";
+import sideNavItems from "utils/config/navigation/side-navigation";
 
 const Page = () => (
   <>
@@ -13,10 +13,10 @@ const Page = () => (
       <title>نیازمندی‌ها | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه</title>
     </Head>
     <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center">
-      <LogoType />
       <section className="grow-1 my-4 flex h-full w-full flex-col items-center justify-evenly">
-        <section className="h-auto w-full rounded-md bg-violet-600">
+        <section className="h-auto w-full">
           <LinkSection items={requirementsNavItem} />
+          <LinkSection items={sideNavItems} />
         </section>
       </section>
     </section>

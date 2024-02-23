@@ -1,32 +1,32 @@
+"use client";
 import { useEffect, useState } from "react";
 
-interface AccordionProps {
-  collapseData: string;
-  headerData: string;
+interface IProps {
+  collapse: React.ReactNode;
+  header: React.ReactNode;
   isShowByDefault: boolean;
 }
 
-const Accordion = ({
-  collapseData,
-  headerData,
-  isShowByDefault,
-}: AccordionProps) => {
+const Accordion = ({ collapse, header, isShowByDefault }: IProps) => {
   const [showCollapse, setShowCollapse] = useState<boolean>(false);
   useEffect(() => setShowCollapse(isShowByDefault), []);
   return (
     <section>
       <button
         onClick={() => setShowCollapse(!showCollapse)}
-        className={`btn-primary mx-0 w-full text-right text-sm focus:ring-0 ${
-          showCollapse ? "mt-2 rounded-b-none" : "my-0.5 mt-0 rounded-none"
+        className={`btn-primary mx-0 my-0 w-full text-right text-sm 
+        border-t-0
+        rounded-none ${showCollapse && "bg-teal-300 border-y-0"}`}
+      >
+        {header}
+      </button>
+      <section
+        className={`card bg-slate-300 rounded-t-none border-none my-0 ${
+          showCollapse ? "block" : "hidden"
         }`}
       >
-        {headerData}
-      </button>
-      <article
-        className={`m-0 -mt-8 ${showCollapse ? "block" : "hidden"}`}
-        dangerouslySetInnerHTML={{ __html: collapseData }}
-      ></article>
+        {collapse}
+      </section>
     </section>
   );
 };

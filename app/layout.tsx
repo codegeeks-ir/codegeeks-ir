@@ -6,7 +6,10 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import { Metadata } from "next";
 import { Viewport } from "next";
-import config from "utils/config";
+import config from "utils/config/config";
+import { usePathname } from "next/navigation";
+import navbarItems from "utils/config/navigation/navbar-navigation";
+import PageHeader from "components/PageHeader";
 
 export const viewport: Viewport = {
   themeColor: "black",
@@ -96,10 +99,17 @@ export const metaData: Metadata = {
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <html>
-    <body>
+    <body className="flex flex-col items-center">
       <Navbar />
-      <main className="container">{children}</main>
-      <Footer />
+      <main className={`container ${usePathname() != "/" ? "pb-36" : "pb-16"}`}>
+        {usePathname() != "/" && <PageHeader />}
+        <section
+          className={`w-full ${usePathname() != "/" ? "pt-36" : "pt-16"}`}
+        >
+          {children}
+        </section>
+      </main>
+      {usePathname() == "/" && <Footer />}
     </body>
   </html>
 );

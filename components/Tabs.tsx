@@ -30,9 +30,11 @@ const Tabs = ({ headers, contents }: ITabsProps) => {
                 });
               })
             }
-            className={`btn-light rounded-b-none focus:ring-0 ${
-              showCollapse[headerIndex] && "bg-slate-400"
-            }`}
+            className={
+              showCollapse[headerIndex]
+                ? "btn-primary"
+                : "btn-light rounded-b-none"
+            }
           >
             {headerItem}
           </button>

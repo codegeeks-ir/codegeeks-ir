@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import navbarItems from "utils/schema/navigation/navbar-navigation";
+import navbarItems from "utils/config/navigation/navbar-navigation";
 
 const isActiveLink = (link: string) => usePathname() == link;
 

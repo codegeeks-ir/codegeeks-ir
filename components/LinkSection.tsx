@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Navigation from "utils/schema/navigation/navigation-type";
+import Navigation from "utils/schema/navigation.type";
 
 const LinkSection = ({ items }: { items: Navigation }) => (
   <ul className="sections">
