@@ -1,5 +1,5 @@
 import { ExplorerContext } from "./FileExplorer";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import BackIcon from "public/icones/back-folder.svg";
 
 const BackButton = () => {
@@ -17,7 +17,7 @@ const BackButton = () => {
       disabled={disabled}
     >
       <BackIcon
-        className={`w-12 fill-amber-400 ${disabled ? "invisible" : "visible"}`}
+        className={`w-12 fill-slate-500 ${disabled ? "invisible" : "visible"}`}
       />
     </button>
   );

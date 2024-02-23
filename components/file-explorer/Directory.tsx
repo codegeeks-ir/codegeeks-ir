@@ -1,7 +1,7 @@
 import { ExplorerContext } from "./FileExplorer";
 import { useContext } from "react";
 import FolderIcon from "public/icones/folder.svg";
-import { IDirectory } from "utils/schema/tree/tree-type";
+import { IDirectory } from "utils/schema/tree.type";
 
 const Directory = ({ directory }: { directory: IDirectory }) => {
   const state = useContext(ExplorerContext);
@@ -15,7 +15,7 @@ const Directory = ({ directory }: { directory: IDirectory }) => {
         state.setHistory([...state.history, directory]);
       }}
     >
-      <FolderIcon className="w-12 fill-amber-400" />
+      <FolderIcon className="w-12 fill-slate-500" />
       <p>{directory.name.split("/").pop()}</p>
     </button>
   );

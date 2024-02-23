@@ -1,4 +1,4 @@
-import { IFile } from "utils/schema/tree/tree-type";
+import { IFile } from "utils/schema/tree.type";
 import FileIcon from "public/icones/file.svg";
 
 interface IProps {
@@ -15,7 +15,7 @@ const File = ({ file, repoName, root }: IProps) => (
       .slice(1)
       .join("/")}`}
   >
-    <FileIcon className="w-12 fill-blue-400" />
+    <FileIcon className="w-12 fill-slate-500" />
     <p>{file.name.split("/").pop()}</p>
   </a>
 );

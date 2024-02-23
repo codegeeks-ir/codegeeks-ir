@@ -11,15 +11,14 @@ import File from "./File";
 import Directory from "./Directory";
 import Path from "./Path";
 import BackButton from "./BackButton";
-import DownloadLink from "./DownloadLink";
 import {
   Element,
   IDirectory,
   ResourcesType,
   TreeType,
-} from "utils/schema/tree/tree-type";
+} from "utils/schema/tree.type";
 
-export interface IExplorerContext {
+interface IExplorerContext {
   currentElement: IDirectory;
   setCurrentElement: Dispatch<SetStateAction<IDirectory>>;
   currentPath: string;
@@ -59,9 +58,8 @@ const FileExplorer = ({ tree, repoName, root }: IProps) => {
     >
       <section className="my-4 flex flex-col flex-wrap" dir="ltr">
         <section className="file-explorer-header">
-          <CloudIcon className="w-6 grow-0 fill-slate-300" />
+          <CloudIcon className="w-6 grow-0 fill-slate-500" />
           <Path path={currentPath} />
-          <DownloadLink repoName={repoName} />
         </section>
         <section className="file-explorer-content">
           <BackButton />
