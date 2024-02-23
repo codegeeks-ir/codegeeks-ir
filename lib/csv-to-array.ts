@@ -26,6 +26,7 @@ const getSpecificMetaData = (
 ): string[] =>
   (comments.find((row: string) => row.startsWith(startsWith)) as string)
     .split(config.fieldDelimiter)
+    .map((item) => item.trim())
     .slice(1);
 
 const getRows = (csv: string, config: ICsvConfig = csvConfig): string[] =>
@@ -86,7 +87,7 @@ const csvToArrayOfObjects = (
           ? getMultiValue(data, config).forEach((dataCell) =>
               dataContainer.push(dataCell),
             )
-          : dataContainer.push(data);
+          : dataContainer.push(data.trim());
         rowContainer[headers[index]] = dataContainer;
       });
       array.push(rowContainer);
