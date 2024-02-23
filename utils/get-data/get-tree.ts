@@ -3,7 +3,7 @@ import {
   IDirectory,
   TreeType,
   ResourcesType,
-} from "utils/schema/tree/tree-type";
+} from "utils/schema/tree.type";
 import { getDirectorySlugs, getFileSlugs } from "./get-slugs";
 import fs from "fs";
 import path from "path";

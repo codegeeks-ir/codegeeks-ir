@@ -1,39 +1,21 @@
-import { DataType } from "utils/schema/collections/data-type";
-import { Format } from "./data-type";
-import blogMeta from "./blog/blog-meta";
-import challengeMeta from "./challenge/challenge-meta";
-import pageMeta from "./page/page-meta";
-import companionMeta from "./companion/companion-meta";
-import csvMeta from "./csv/csv-meta";
-import eventMeta from "./event/event-meta";
-import faqMeta from "./faq/faq-meta";
+import { DataType, Format } from "utils/schema/data";
+import blogMeta from "./blog-meta";
+import challengeMeta from "./challenge-meta";
+import companionMeta from "./companion-meta";
+import csvMeta from "./csv-meta";
+import eventMeta from "./event-meta";
+import faqMeta from "./faq-meta";
+import pageMeta from "./page-meta";
+import { MetaType } from "utils/schema/meta.type";
 
-const metaFactory = (format: Format) => {
-  switch (format) {
-    case Format.Blog:
-      return blogMeta;
-    case Format.Challenges:
-      return challengeMeta;
-    case Format.Page:
-      return pageMeta;
-    case Format.Companions:
-      return companionMeta;
-    case Format.Csv:
-      return csvMeta;
-    case Format.Events:
-      return eventMeta;
-    case Format.Faqs:
-      return faqMeta;
-  }
+const metas: Record<Format, MetaType<Format, DataType>> = {
+  [Format.Blog]: blogMeta,
+  [Format.Challenges]: challengeMeta,
+  [Format.Companions]: companionMeta,
+  [Format.Csv]: csvMeta,
+  [Format.Events]: eventMeta,
+  [Format.Faqs]: faqMeta,
+  [Format.Page]: pageMeta,
 };
 
-type MetaType = ReturnType<typeof metaFactory>;
-
-const getSearchables = (format: Format) => {
-  const meta = metaFactory(format);
-  return Object.entries(meta)
-    .filter((entery) => entery[1].isSearchable)
-    ?.map((entery) => entery[0] as keyof DataType);
-};
-
-export { metaFactory, type MetaType, getSearchables };
+export default metas;

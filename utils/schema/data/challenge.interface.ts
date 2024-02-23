@@ -1,15 +1,14 @@
-import { Format, SlugType } from "../data-type";
-import { ReferenceType } from "../reference-type";
+import { Format } from ".";
+import SlugType from "utils/schema/slug.type";
 
-interface IChallengeData {
+interface IChallenge {
   slug: SlugType;
   title: string;
   excerpt: string;
   score: number;
-  date: string;
-  reference?: ReferenceType;
+  date: Date;
   format: Format.Challenges;
   path: string;
 }
 
-export default IChallengeData;
+export default IChallenge;

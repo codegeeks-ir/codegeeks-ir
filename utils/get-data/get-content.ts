@@ -6,15 +6,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import gfm from "remark-gfm";
-import { ContentType } from "utils/schema/collections/view-type";
-
-export const getContent = async (fileName: string, directory: string) => {
-  const directoryFullPath = path.join(process.cwd(), directory);
-  const fileFullPath = path.join(directoryFullPath, fileName);
-  const fileContent = fs.readFileSync(fileFullPath, "utf8");
-  if (fileName.endsWith(".md")) return await getMarkdownContent(fileContent);
-  else if (fileName.endsWith(".csv")) return await getCsvContent(fileContent);
-};
+import { ContentType } from "utils/schema/provider.interface";
 
 const getMarkdownContent = async (
   fileContent: string,
@@ -38,6 +30,14 @@ const getCsvContent = async (fileContent: string): Promise<ContentType> => {
     .join("\n");
   csvString = csvString ? csvString : "";
   return csvString;
+};
+
+const getContent = async (fileName: string, directory: string) => {
+  const directoryFullPath = path.join(process.cwd(), directory);
+  const fileFullPath = path.join(directoryFullPath, fileName);
+  const fileContent = fs.readFileSync(fileFullPath, "utf8");
+  if (fileName.endsWith(".md")) return await getMarkdownContent(fileContent);
+  else if (fileName.endsWith(".csv")) return await getCsvContent(fileContent);
 };
 
 export default getContent;

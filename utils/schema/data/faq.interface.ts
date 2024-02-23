@@ -1,14 +1,13 @@
-import { Format, SlugType } from "../data-type";
-import { ReferenceType } from "../reference-type";
+import { Format } from ".";
+import SlugType from "utils/schema/slug.type";
 
-interface IFaqData {
+interface IFaq {
   slug: SlugType;
   title: string;
   excerpt: string;
   categories: string;
-  reference?: ReferenceType;
   format: Format.Faqs;
   path: string;
 }
 
-export default IFaqData;
+export default IFaq;

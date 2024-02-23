@@ -1,20 +1,21 @@
 import { CsvRow } from "lib/csv-to-array";
-import { Format, SlugType } from "../data-type";
-import { ReferenceType } from "../reference-type";
-import { PropertyType } from "utils/schema/properties/property-type";
+import { FieldType } from "utils/config/fields";
+import { Format } from ".";
+import SlugType from "utils/schema/slug.type";
+import { Element } from "../elements";
 
-interface ICsvData {
+interface ICsv {
   slug: SlugType;
   title: string;
   header: string[];
-  type: PropertyType[];
+  type: FieldType[];
   show: boolean[];
   version: string;
   description: string;
-  list: CsvRow[];
-  reference?: ReferenceType;
+  rows: CsvRow[];
+  element: Element;
   format: Format.Csv;
   path: string;
 }
 
-export default ICsvData;
+export default ICsv;

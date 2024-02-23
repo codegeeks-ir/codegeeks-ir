@@ -1,6 +1,6 @@
 import { readdirSync } from "fs";
 import path from "path";
-import { SlugType } from "../schema/collections/data-type";
+import SlugType from "utils/schema/slug.type";
 
 const getFileSlugs = async (
   directory: string,

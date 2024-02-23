@@ -1,18 +1,19 @@
-import { Format, SlugType } from "../data-type";
-import { ReferenceType } from "../reference-type";
+import { Format } from ".";
+import SlugType from "utils/schema/slug.type";
+import ICompanion from "./companion.interface";
 
-interface IBlogData {
+interface IBlog {
   slug: SlugType;
   title: string;
   excerpt: string;
-  date: string;
+  date: Date;
   image: string;
-  categories: string; ///// create type for this
+  categories: string;
   description: string;
   writer: string;
-  reference?: ReferenceType;
+  reference: ICompanion;
   format: Format.Blog;
   path: string;
 }
 
-export default IBlogData;
+export default IBlog;

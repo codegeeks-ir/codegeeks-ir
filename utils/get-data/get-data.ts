@@ -7,20 +7,12 @@ import {
   csvToArrayOfObjects,
   csvConfig,
 } from "lib/csv-to-array";
-import ICsvData from "../schema/collections/csv/csv-data";
-import { DataType, Format } from "../schema/collections/data-type";
-import { PropertyType } from "utils/schema/properties/property-type";
 import getExcerpt from "./get-excerpt";
-
-export const getFileData = async (fileName: string, directory: string) => {
-  const directoryFullPath = path.join(process.cwd(), directory);
-  const fileFullPath = path.join(directoryFullPath, fileName);
-  const fileContent = fs.readFileSync(fileFullPath, "utf8");
-  if (fileName.endsWith(".md"))
-    return await getMarkdownData(fileContent, fileName, directory);
-  else if (fileName.endsWith(".csv"))
-    return await getCsvData(fileContent, fileName, directory);
-};
+import { DataType, Format } from "utils/schema/data";
+import ICsv from "utils/schema/data/csv.interface";
+import parseData from "utils/pars-data";
+import { Element } from "utils/schema/elements";
+import { FieldType } from "utils/config/fields";
 
 const getMarkdownData = async (
   fileContent: string,
@@ -32,7 +24,7 @@ const getMarkdownData = async (
   if (data.format != Format.Csv) data.excerpt = getExcerpt(fileContent);
   data.slug ? data.slug : fileName.replace(/\.md$/, "");
   data.path = `${directory}/${fileName}`;
-  return data;
+  return parseData(data);
 };
 
 const getCsvData = async (
@@ -47,10 +39,10 @@ const getCsvData = async (
   );
   const header = getSpecificMetaData(comments, "#header");
   const type = getSpecificMetaData(comments, "#type").map(
-    (item) => item as PropertyType,
+    (item) => item as FieldType,
   );
   const show = getSpecificMetaData(comments, "#show").map((item) =>
-    item === "true" ? true : false,
+    item == "true" ? true : false,
   );
   const version = getSpecificMetaData(comments, "#version").join(
     csvConfig.fieldDelimiter,
@@ -58,7 +50,10 @@ const getCsvData = async (
   const description = getSpecificMetaData(comments, "#description").join(
     csvConfig.fieldDelimiter,
   );
-  const data: ICsvData = {
+  const element = getSpecificMetaData(comments, "#element").join(
+    csvConfig.fieldDelimiter,
+  ) as Element;
+  const data: ICsv = {
     slug,
     title,
     header,
@@ -66,11 +61,22 @@ const getCsvData = async (
     show,
     version,
     description,
-    list: csvToArrayOfObjects(fileContent),
+    rows: csvToArrayOfObjects(fileContent),
+    element,
     format: Format.Csv,
     path: `${directory}/${fileName}`,
   };
   return data;
+};
+
+const getFileData = async (fileName: string, directory: string) => {
+  const directoryFullPath = path.join(process.cwd(), directory);
+  const fileFullPath = path.join(directoryFullPath, fileName);
+  const fileContent = fs.readFileSync(fileFullPath, "utf8");
+  if (fileName.endsWith(".md"))
+    return await getMarkdownData(fileContent, fileName, directory);
+  else if (fileName.endsWith(".csv"))
+    return await getCsvData(fileContent, fileName, directory);
 };
 
 export default getFileData;

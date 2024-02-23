@@ -1,30 +1,23 @@
-import IBlogData from "./blog/blog-data";
-import IChallengeData from "./challenge/challenge-data";
-import IPageData from "./page/page-data";
-import ICompanionData from "./companion/companion-data";
-import ICsvData from "./csv/csv-data";
-import IEventData from "./event/event-data";
-import IFaqData from "./faq/faq-data";
-
-type SlugType = string;
+import IBlog from "./blog.interface";
+import IChallenge from "./challenge.interface";
+import ICompanion from "./companion.interface";
+import ICsv from "./csv.interface";
+import IEvent from "./event.interface";
+import IFaq from "./faq.interface";
+import IPage from "./page.interface";
 
 enum Format {
-  Page = "page",
-  Csv = "csv",
   Blog = "blog",
   Challenges = "challenges",
   Companions = "companions",
+  Csv = "csv",
   Events = "events",
   Faqs = "faqs",
+  Page = "page",
 }
 
-type DataType =
-  | IPageData
-  | ICsvData
-  | IBlogData
-  | IChallengeData
-  | ICompanionData
-  | IEventData
-  | IFaqData;
+// convert dataType to interface ?? or create basic interface that all ICollections extends it
 
-export { Format, type SlugType, type DataType };
+type DataType = IBlog | IChallenge | ICompanion | ICsv | IEvent | IFaq | IPage;
+
+export { Format, type DataType };

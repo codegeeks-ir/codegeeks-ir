@@ -1,16 +1,17 @@
-import { Format, SlugType } from "../data-type";
-import { ReferenceType } from "../reference-type";
+import { Format } from ".";
+import SlugType from "utils/schema/slug.type";
+import ICompanion from "./companion.interface";
 
-interface IEventData {
+interface IEvent {
   slug: SlugType;
   title: string;
   excerpt: string;
   lecturer: string;
-  date: string;
+  date: Date;
   location: string;
-  reference?: ReferenceType;
+  reference?: ICompanion;
   format: Format.Events;
   path: string;
 }
 
-export default IEventData;
+export default IEvent;

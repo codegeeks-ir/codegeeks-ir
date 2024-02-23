@@ -1,9 +1,10 @@
 import { readdirSync } from "fs";
 import path from "path";
-import { DataType } from "../schema/collections/data-type";
-import { ContentType } from "utils/schema/collections/view-type";
 import getFileData from "./get-data";
 import getContent from "./get-content";
+import { ContentType } from "utils/schema/provider.interface";
+import { DataType } from "utils/schema/data";
+import applyReference from "utils/apply-reference";
 
 const getDataCollection = async (
   directory: string,
@@ -14,9 +15,10 @@ const getDataCollection = async (
     withFileTypes: true,
   }).filter((element) => element.isFile() && element.name != "README.md");
   const collection = await Promise.all(
-    files.map(
-      async (file) => (await getFileData(file.name, directory)) as DataType,
-    ),
+    files.map(async (file) => {
+      const data = (await getFileData(file.name, directory)) as DataType;
+      return await applyReference(data);
+    }),
   );
   return isReverse ? collection.reverse() : collection;
 };

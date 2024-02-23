@@ -1,51 +1,34 @@
-import {
-  Properties,
-  PropertyType,
-} from "utils/schema/properties/property-type";
-import IChallengeData from "./challenge-data";
+import { FieldType } from "../fields";
+import IChallenge from "utils/schema/data/challenge.interface";
+import { MetaType } from "utils/schema/meta.type";
+import { DataType, Format } from "utils/schema/data";
+import fields from "../fields";
+import { getPersianLongDate } from "lib/persian-long-date";
+import { Element } from "utils/schema/elements";
 
-const challengeMeta: Properties<IChallengeData> = {
-  slug: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
+const challengeMeta: MetaType<Format.Challenges, IChallenge> = {
+  format: Format.Challenges,
+  properties: {
+    slug: fields[FieldType.Slug],
+    date: fields[FieldType.Date],
+    title: fields[FieldType.Title],
+    excerpt: fields[FieldType.Excerpt],
+    score: fields[FieldType.Score],
   },
-  title: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
-  },
-  score: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
-  },
-  date: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
-  },
-  reference: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
-  },
-  format: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
-  },
-  path: {
-    isSearchable: false,
-    localName: "",
-    type: PropertyType.Date,
-    form: undefined,
+  getElement: (data: DataType) => {
+    const casted = data as IChallenge;
+    return {
+      type: Element.Card,
+      props: {
+        title: casted.title,
+        subtitle: `امتیاز ${casted.score}`,
+        excerpt: casted.excerpt,
+        footerRightData: getPersianLongDate(casted.date),
+        footerLeftData: `ساعت ${casted.date.toTimeString().slice(0, 5)}`,
+        link: `${Format.Challenges}/${casted.slug}`,
+        isHot: new Date() <= new Date(casted.date),
+      },
+    };
   },
 };
 
