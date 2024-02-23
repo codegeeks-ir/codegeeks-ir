@@ -1,12 +1,12 @@
-"use client";
 import PostAuthor from "components/PostAuthor";
 import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 import { useEffect } from "react";
-import ICompanionData from "../companion/companion-data";
-import { ProviderType } from "../view-type";
+import IBlog from "utils/schema/data/blog.interface";
+import { ProviderType } from "utils/schema/provider.interface";
 
 const BlogView = ({ provider }: { provider: ProviderType }) => {
+  const companion = (provider.data as IBlog).reference;
   useEffect(() => {
     hljs.highlightAll();
     centerImage();
@@ -17,8 +17,8 @@ const BlogView = ({ provider }: { provider: ProviderType }) => {
         dangerouslySetInnerHTML={{ __html: provider?.content as string }}
       ></article>
       <PostAuthor
-        name={(provider.data.reference as ICompanionData).name}
-        githubID={(provider.data.reference as ICompanionData).githubID}
+        name={companion ? companion.name : ""}
+        githubID={companion ? companion.githubID : ""}
       />
     </section>
   );

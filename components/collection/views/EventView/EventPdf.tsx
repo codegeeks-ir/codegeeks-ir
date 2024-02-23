@@ -8,10 +8,37 @@ import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import textFit from "textfit";
 import { getPersianLongDate } from "lib/persian-long-date";
-import { useEffect, useRef } from "react";
-import config from "utils/config";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import config from "utils/config/config";
+import IEvent from "utils/schema/data/event.interface";
+import { ContentType } from "utils/schema/provider.interface";
+import ICompanion from "utils/schema/data/companion.interface";
 
-const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
+interface IProps {
+  data: IEvent;
+  content: ContentType;
+  companion: ICompanion;
+  isReadyForExport: {
+    post: boolean;
+    story: boolean;
+    pdf: boolean;
+  };
+  setIsReadyForExport: Dispatch<
+    SetStateAction<{
+      post: boolean;
+      story: boolean;
+      pdf: boolean;
+    }>
+  >;
+}
+
+const EventPdf = ({
+  data,
+  content,
+  companion,
+  isReadyForExport,
+  setIsReadyForExport,
+}: IProps) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
   const bioRef = useRef();
@@ -46,8 +73,8 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
         <div className="flex flex-col items-start">
           <div className="profile-picture relative w-2/5">
             <Image
-              src={`/images/${data.githubID}.png`}
-              alt={data.githubID}
+              src={`/images/${data.lecturer}.png`}
+              alt={data.lecturer}
               width={(40 * 1080) / 100}
               height={(40 * 1080) / 100}
             />
@@ -59,10 +86,10 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
           </div>
           <div className="pdf-bio">
             <h2 className="h-12 w-full" ref={lecturerRef}>
-              {data.lecturer}
+              {companion.name}
             </h2>
             <p className="m-0 mt-4" ref={bioRef}>
-              {data.bio}
+              {companion.position}
             </p>
           </div>
         </div>
@@ -74,12 +101,14 @@ const EventPdf = ({ data, isReadyForExport, setIsReadyForExport }) => {
             className="ml-4"
           />
           <div className="flex flex-col">
-            <p className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</p>
+            <p className="m-0">{getPersianLongDate(data.date)}</p>
             <div className="m-0 flex flex-row items-center p-0">
               <p className="mt-0 -mb-10">
                 <ClockIcon className="h-auto w-8 fill-slate-700" />
               </p>
-              <p className="mt-0 mb-0">ساعت {data.date.split(" ")[1]}</p>
+              <p className="mt-0 mb-0">
+                ساعت {data.date.toTimeString().slice(0, 5)}
+              </p>
             </div>
             <div className="m-0 flex flex-row items-center p-0">
               <p className="mt-0 -mb-10">

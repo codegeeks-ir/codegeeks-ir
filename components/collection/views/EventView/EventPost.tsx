@@ -7,9 +7,36 @@ import UutIcon from "public/icones/uut/uut-icon.svg";
 import textFit from "textfit";
 import Image from "next/image";
 import { getPersianLongDate } from "lib/persian-long-date";
-import { useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import IEvent from "utils/schema/data/event.interface";
+import { ContentType, ProviderType } from "utils/schema/provider.interface";
+import ICompanion from "utils/schema/data/companion.interface";
 
-const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
+interface IProps {
+  data: IEvent;
+  content: ContentType;
+  companion: ICompanion;
+  isReadyForExport: {
+    post: boolean;
+    story: boolean;
+    pdf: boolean;
+  };
+  setIsReadyForExport: Dispatch<
+    SetStateAction<{
+      post: boolean;
+      story: boolean;
+      pdf: boolean;
+    }>
+  >;
+}
+
+const EventPost = ({
+  data,
+  content,
+  companion,
+  isReadyForExport,
+  setIsReadyForExport,
+}: IProps) => {
   const subjectRef = useRef();
   const lecturerRef = useRef();
   const bioRef = useRef();
@@ -45,8 +72,8 @@ const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
         <div className="flex flex-row">
           <div className="profile-picture relative w-1/3">
             <Image
-              src={`/images/${data.githubID}.png`}
-              alt={data.githubID}
+              src={`/images/${data.lecturer}.png`}
+              alt={data.lecturer}
               width={(40 * 270) / 100}
               height={(40 * 270) / 100}
             />
@@ -55,31 +82,33 @@ const EventPost = ({ data, isReadyForExport, setIsReadyForExport }) => {
                 <GithubIcon className="h-auto w-3 fill-slate-700" />
               </p>
               <p className="non-important mx-0 -mt-0.5 w-full p-0 text-center">
-                {data.githubID}
+                {data.lecturer}
               </p>
             </div>
           </div>
           <div className="post-bio">
             <h2 className="h-6 w-full" ref={lecturerRef}>
-              {data.lecturer}
+              {companion?.name}
             </h2>
             <p className="m-0 mt-1" ref={bioRef}>
-              {data.bio}
+              {companion?.position}
             </p>
           </div>
         </div>
         <div
-          dangerouslySetInnerHTML={{ __html: data.content }}
+          dangerouslySetInnerHTML={{ __html: content }}
           className="post-topics"
           dir="auto"
         ></div>
         <div className="absolute bottom-1 pb-1">
-          <h3 className="m-0">{getPersianLongDate(data.date.split(" ")[0])}</h3>
+          <h3 className="m-0">{getPersianLongDate(data.date)}</h3>
           <div className="m-0 flex flex-row items-center p-0">
             <p className="text-3xs mt-0.5 -mb-2 px-0 py-1">
               <ClockIcon className="h-auto w-2 fill-slate-700" />
             </p>
-            <p className="text-3xs my-0 px-0">ساعت {data.date.split(" ")[1]}</p>
+            <p className="text-3xs my-0 px-0">
+              ساعت {data.date.toTimeString().slice(0, 5)}
+            </p>
           </div>
           <div className="m-0 flex flex-row items-center p-0">
             <p className="text-3xs mt-0.5 -mb-2 px-0 py-1">

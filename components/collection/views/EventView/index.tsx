@@ -1,11 +1,13 @@
-"use client";
 import { useEffect, useRef, useState } from "react";
-import Event from "components/events/Event";
-import EventPost from "components/events/EventPost";
-import EventStory from "components/events/EventStory";
-import EventPdf from "components/events/EventPdf";
+import Event from "./Event";
+import EventPost from "./EventPost";
+import EventStory from "./EventStory";
+import EventPdf from "./EventPdf";
 import html2canvas from "html2canvas";
 import ShareIcon from "public/icones/share.svg";
+import { ProviderType } from "utils/schema/provider.interface";
+import IEvent from "utils/schema/data/event.interface";
+import ICompanion from "utils/schema/data/companion.interface";
 
 const postOptions = {
   width: 270,
@@ -73,7 +75,9 @@ const exportAsPdf = async (
   });
 };
 
-const EventView = ({ data }) => {
+const EventView = ({ provider }: { provider: ProviderType }) => {
+  const data = provider.data as IEvent;
+  const companion = data.reference as ICompanion;
   const exportLink = useRef();
   const postRef = useRef();
   const storyRef = useRef();
@@ -93,7 +97,7 @@ const EventView = ({ data }) => {
       postRef.current,
       postOptions,
       exportLink.current,
-      `${data.title}-post.png`,
+      `${(provider.data as IEvent).title}-post.png`,
     ).then(() => {
       setShowExport({ ...showExport, post: false });
       setIsReadyForExport({ ...isReadyForExport, post: false });
@@ -104,7 +108,7 @@ const EventView = ({ data }) => {
       storyRef.current,
       storyOptions,
       exportLink.current,
-      `${data.title}-story.png`,
+      `${(provider.data as IEvent).title}-story.png`,
     ).then(() => {
       setShowExport({ ...showExport, story: false });
       setIsReadyForExport({ ...isReadyForExport, story: false });
@@ -116,7 +120,7 @@ const EventView = ({ data }) => {
       pdfOptions,
       html2pdfOptions,
       exportLink.current,
-      `${data.title}`,
+      `${(provider.data as IEvent).title}`,
     ).then(() => {
       setShowExport({ ...showExport, pdf: false });
       setIsReadyForExport({ ...isReadyForExport, pdf: false });
@@ -129,11 +133,13 @@ const EventView = ({ data }) => {
   }, [isReadyForExport]);
   return (
     <div className="w-full">
-      <Event data={data} />
+      <Event data={data} content={provider.content} companion={companion} />
       <div ref={postRef}>
         {showExport.post ? (
           <EventPost
             data={data}
+            content={provider.content}
+            companion={companion}
             isReadyForExport={isReadyForExport}
             setIsReadyForExport={setIsReadyForExport}
           />
@@ -143,6 +149,8 @@ const EventView = ({ data }) => {
         {showExport.story ? (
           <EventStory
             data={data}
+            content={provider.content}
+            companion={companion}
             isReadyForExport={isReadyForExport}
             setIsReadyForExport={setIsReadyForExport}
           />
@@ -152,6 +160,8 @@ const EventView = ({ data }) => {
         {showExport.pdf ? (
           <EventPdf
             data={data}
+            content={provider.content}
+            companion={companion}
             isReadyForExport={isReadyForExport}
             setIsReadyForExport={setIsReadyForExport}
           />
