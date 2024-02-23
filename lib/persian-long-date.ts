@@ -75,10 +75,9 @@ const isSameDate = (firstDate: Date, secondDate: Date) =>
 const getPersianShortDate = (date: Date) =>
   monthNames[toNumber(getPersianMonth(date)) - 1] + " " + getPersianYear(date);
 
-const getPersianLongDate = (georgianString: string) => {
-  const georgianDate = new Date(georgianString);
-  const persianString = georgianDate.toLocaleDateString("fa-IR");
-  const weekDay = dayNames[georgianDate.getDay()];
+const getPersianLongDate = (date: Date) => {
+  const persianString = date.toLocaleDateString("fa-IR");
+  const weekDay = dayNames[date.getDay()];
   const day = persianString.split("/")[2];
   const month = getPersianMonthName(persianString);
   const year = persianString.split("/")[0];
@@ -101,12 +100,9 @@ const getPersianMonthName = (persianString: string) => {
 const getPersianEducationYear = (dateString: string) => {
   const currentYearDate = new Date(dateString);
   const nextYearDate = shiftGeorgianDate(currentYearDate, 0, 0, 1);
-  const currentYearPersianString = getPersianLongDate(
-    currentYearDate.toDateString(),
-  ).split(" ")[3];
-  const nextYearPersianString = getPersianLongDate(
-    nextYearDate.toDateString(),
-  ).split(" ")[3];
+  const currentYearPersianString =
+    getPersianLongDate(currentYearDate).split(" ")[3];
+  const nextYearPersianString = getPersianLongDate(nextYearDate).split(" ")[3];
   return "سال" + " " + nextYearPersianString + " - " + currentYearPersianString;
 };
 
@@ -126,7 +122,7 @@ const getFullMonth = (
   const monthArray = [];
   for (let index = 0; index < 35; index++) {
     const georgianDate = shiftGeorgianDate(firstDay, index);
-    const persianLongDate = getPersianLongDate(georgianDate.toDateString());
+    const persianLongDate = getPersianLongDate(georgianDate);
     const persianDay = getPersianDay(georgianDate);
     const persianMonth = getPersianMonth(georgianDate);
     const persianYear = getPersianYear(georgianDate);
