@@ -1,60 +1,56 @@
 "use client";
-import Filter from "components/collection/Filter";
 import Pagination from "components/collection/Pagination";
-import { useState } from "react";
-import { DataType } from "utils/schema/collections/data-type";
-import {
-  MetaType,
-  getSearchables,
-  metaFactory,
-} from "utils/schema/collections/meta-type";
-import { ElementFactory } from "utils/schema/collections/element-type";
+import { useMemo, useState } from "react";
+import { DataType, Format } from "utils/schema/data";
+import ElementFactory from "./elements";
+import Filter from "./filters";
+import ResultsContext from "context/ResultsContext";
+import useResults from "hooks/useResults";
+import useFilters from "hooks/use-filters";
+import FilterContext from "context/FilterContext";
+import usePage from "hooks/usePage";
 
-interface ICollectionProps {
+interface IProps {
+  format: Format;
   collection: DataType[];
 }
 
-interface ISearch {
-  input: string;
-  meta: MetaType;
-  searchProperty: keyof DataType;
-  results: DataType[];
-}
-
-interface IPage {
-  index: number;
-  count: number;
-  capacity: number;
-  content: DataType[];
-}
-
-const Collection = ({ collection }: ICollectionProps) => {
-  const [search, setSearch] = useState<ISearch>({
-    input: "",
-    meta: metaFactory(collection[0].format),
-    searchProperty: getSearchables(collection[0].format)[0],
-    results: collection,
-  });
-
-  const [page, setPage] = useState<IPage>({
-    index: 1,
-    count: 0,
-    capacity: 5,
-    content: [],
-  });
+const Collection = ({ format, collection }: IProps) => {
+  const filters = useFilters(format);
+  const results = useResults(collection, filters.actions);
+  const paginationCapacity = useMemo(
+    () => (format == Format.Companions ? 30 : 5),
+    [format],
+  );
+  const { actions } = usePage(results.results, paginationCapacity); /// duplicate. does multiple hooks cost performance?
+  const [paginate, setPaginated] = useState<DataType[]>([]);
   return (
-    <section className="w-full">
-      <Filter collection={collection} search={search} setSearch={setSearch} />
-      <section>
-        {page.content.map((data) => (
-          <ElementFactory data={data} />
-        ))}
-      </section>
-      <Pagination page={page} setPage={setPage} search={search} />
-    </section>
+    <FilterContext.Provider
+      value={{ filters: filters.filters, actions: filters.actions }}
+    >
+      <ResultsContext.Provider
+        value={{ results: results.results, actions: results.actions }}
+      >
+        <section className="w-full px-4">
+          <Filter
+            onApplyFilters={() => {
+              results.actions.applyFilters();
+              actions.viewPage(1, setPaginated);
+            }}
+          />
+          <section className="flex flex-wrap w-full">
+            {paginate.map((data) => (
+              <ElementFactory data={data} key={data.slug} />
+            ))}
+          </section>
+          <Pagination
+            setPaginated={setPaginated}
+            capacity={paginationCapacity}
+          />
+        </section>
+      </ResultsContext.Provider>
+    </FilterContext.Provider>
   );
 };
 
 export default Collection;
-
-export { type ISearch, type IPage };

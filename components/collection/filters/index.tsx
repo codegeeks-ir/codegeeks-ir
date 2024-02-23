@@ -1,103 +1,66 @@
 import FilterIcon from "public/icones/filter.svg";
-import { Dispatch, SetStateAction, useState } from "react";
-import { ISearch } from "./Collection";
-import { DataType } from "utils/schema/collections/data-type";
-import { getSearchables } from "utils/schema/collections/meta-type";
+import { useContext, useState } from "react";
+import OptionsSection from "./options/OptionsSection";
+import RangesSection from "./range/RangesSection";
+import SearchSection from "./SearchSection";
+import SortSection from "./SortSection";
+import FilterContext, { IFilterContext } from "context/FilterContext";
+import CloseIcon from "public/icones/close.svg";
+import ApplyIcon from "public/icones/apply.svg";
 
-const filterSearch = (
-  collection: DataType[],
-  searchProperty: keyof DataType,
-  search: string,
-) => {
-  if (collection) {
-    const resultsByProperty = collection.filter((item: DataType) => {
-      let isFound = item[searchProperty]
-        .toLowerCase()
-        .includes(search.toLowerCase());
-      if (isFound) return true;
-    });
-    return resultsByProperty;
-  } else return [];
-};
+interface IProps {
+  onApplyFilters: () => void;
+}
 
-const FilterOptions = ({
-  collection,
-  search,
-  setSearch,
-  show,
-}: {
-  collection: DataType[];
-  search: ISearch;
-  setSearch: Dispatch<SetStateAction<ISearch>>;
-  show: boolean;
-}) => (
-  <section
-    className={`flex grow flex-row flex-wrap items-center 
-    ${show ? "visible" : "invisible"}`}
-  >
-    <input
-      type="search"
-      placeholder="جستجو"
-      className="form-element"
-      onChange={(e) =>
-        setSearch({
-          ...search,
-          input: e.target.value,
-          results: filterSearch(
-            collection,
-            search.searchProperty,
-            e.target.value,
-          ),
-        })
-      }
-    />
-    <section className="flex grow flex-row flex-wrap items-center">
-      {getSearchables(collection[0].format).map((property) => {
-        return (
-          <button
-            className={`mx-0.5 grow md:grow-0 ${
-              search.searchProperty == property ? "btn-primary" : "btn-light"
-            }`}
-            onClick={() => setSearch({ ...search, searchProperty: property })}
-            key={property}
-          >
-            {search.meta[property].localName}
-          </button>
-        );
-      })}
-    </section>
-  </section>
-);
-
-const Filter = ({
-  collection,
-  search,
-  setSearch,
-}: {
-  collection: DataType[];
-  search: ISearch;
-  setSearch: Dispatch<SetStateAction<ISearch>>;
-}) => {
-  const [show, setShow] = useState<boolean>(true);
+const Filter = ({ onApplyFilters }: IProps) => {
+  const [show, setShow] = useState<boolean>(false);
+  const { filters, actions } = useContext(FilterContext) as IFilterContext;
   return (
     <section
-      className="card mt-0 flex w-full flex-col items-start
-            justify-start rounded-t-none py-3 px-2 sm:px-2 md:px-4 lg:px-5"
+      className="card border-none mt-0 
+      flex w-full flex-col items-start
+        justify-start rounded-t-none py-3"
     >
-      <section className="flex w-full flex-row flex-wrap md:flex-row-reverse">
-        <FilterOptions
-          collection={collection}
-          search={search}
-          setSearch={setSearch}
-          show={show}
-        />
-        <button
-          className="btn-primary flex h-9 w-full items-center justify-center md:w-9"
-          onClick={() => setShow(!show)}
+      <button
+        className="btn-light flex h-9 w-full items-center justify-center md:w-9"
+        onClick={() => {
+          actions.setInput("");
+          setShow(!show);
+        }}
+      >
+        <FilterIcon className="w-6 fill-slate-300" />
+      </button>
+      {show && (
+        <section
+          className="flex items-start justify-center 
+        flex-wrap fixed right-0 top-0 z-10
+        bg-slate-300 w-full h-full md:mr-24"
         >
-          <FilterIcon className="w-6 fill-slate-300" />
-        </button>
-      </section>
+          <section className="page-header-navbar">
+            <button
+              className="page-header-navbar-button"
+              onClick={() => setShow(!show)}
+            >
+              <CloseIcon className="w-6 fill-slate-600" />
+            </button>
+          </section>
+          <section className="flex flex-col flex-wrap w-64">
+            {filters.searchables.length > 0 && <SearchSection />}
+            {/* {filters.options.length > 0 && <OptionsSection />} */}
+            {/* {filters.rangables.length > 0 && <RangesSection />} */}
+            {filters.sortables.length > 0 && <SortSection />}
+            <button
+              className="btn-primary flex h-9 w-full mx-0 items-center justify-center"
+              onClick={() => {
+                onApplyFilters();
+                setShow(!show);
+              }}
+            >
+              <ApplyIcon className="w-6 fill-slate-600" />
+            </button>
+          </section>
+        </section>
+      )}
     </section>
   );
 };

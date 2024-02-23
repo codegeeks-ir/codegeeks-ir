@@ -1,57 +1,24 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect } from "react";
 import RightIcon from "public/icones/right.svg";
 import LeftIcon from "public/icones/left.svg";
-import { IPage, ISearch } from "./Collection";
-import { DataType } from "utils/schema/collections/data-type";
+import { DataType } from "utils/schema/data";
+import usePage from "hooks/usePage";
+import ResultsContext from "context/ResultsContext";
 
-const getNumberOfPages = (capacity: number, collectionLength: number) =>
-  collectionLength % capacity == 0
-    ? collectionLength / capacity
-    : Math.floor(collectionLength / capacity) + 1;
+interface IProps {
+  setPaginated: Dispatch<SetStateAction<DataType[]>>;
+  capacity: number;
+}
 
-const paginate = (data: DataType[], pageIndex: number, capacity: number) => {
-  if (data) {
-    const paged = data.filter((item, index) => {
-      let startIndex = (pageIndex - 1) * capacity;
-      let endIndex = pageIndex * capacity;
-      let isItemInsidePage = startIndex <= index && index < endIndex;
-      if (isItemInsidePage) return true;
-    });
-    return paged;
-  } else return [];
-};
-
-const viewPage = (
-  pageIndex: number,
-  search: ISearch,
-  page: IPage,
-  setPage: Dispatch<SetStateAction<IPage>>,
-) => {
-  const numberOfPages = getNumberOfPages(page.capacity, search.results.length);
-  const pageResults = paginate(search.results, pageIndex, page.capacity);
-  setPage({
-    ...page,
-    index: pageIndex,
-    count: numberOfPages,
-    content: pageResults,
-  });
-};
-
-const Pagination = ({
-  page,
-  setPage,
-  search,
-}: {
-  page: IPage;
-  setPage: Dispatch<SetStateAction<IPage>>;
-  search: ISearch;
-}) => {
-  useEffect(() => viewPage(1, search, page, setPage), [search]);
+const Pagination = ({ setPaginated, capacity }: IProps) => {
+  const results = useContext(ResultsContext)?.results as DataType[];
+  const { page, actions } = usePage(results, capacity);
+  useEffect(() => actions.viewPage(1, setPaginated), [results]);
   return (
     <section className={page.count < 2 ? "hidden" : "pagination"}>
       <a
         className={page.index == 1 ? "btn-disabled" : "btn-primary"}
-        onClick={() => viewPage(page.index - 1, search, page, setPage)}
+        onClick={() => actions.viewPage(page.index - 1, setPaginated)}
         href="#top"
       >
         <LeftIcon className="w-6 fill-slate-300" />
@@ -60,7 +27,7 @@ const Pagination = ({
         <a
           key={pageIndex}
           className={page.index == pageIndex ? "btn-disabled" : "btn-primary"}
-          onClick={() => viewPage(pageIndex, search, page, setPage)}
+          onClick={() => actions.viewPage(pageIndex, setPaginated)}
           href="#top"
         >
           {pageIndex}
@@ -68,7 +35,7 @@ const Pagination = ({
       ))}
       <a
         className={page.index == page.count ? "btn-disabled" : "btn-primary"}
-        onClick={() => viewPage(page.index + 1, search, page, setPage)}
+        onClick={() => actions.viewPage(page.index + 1, setPaginated)}
         href="#top"
       >
         <RightIcon className="w-6 fill-slate-300" />
