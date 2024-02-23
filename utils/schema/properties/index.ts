@@ -1,19 +1,53 @@
-import { DataType } from "utils/schema/collections/data-type";
-import DateProperty from "./date-property";
-import NumberProperty from "./number-property";
-import StringProperty from "./string-property";
-import TimeProperty from "./time-property";
+import React from "react";
+import { FilterType, IFilter } from "../filters";
 
 enum PropertyType {
-  String = "string",
+  Text = "text",
   Number = "number",
-  Date = "date",
+  Options = "options",
   Time = "time",
-  Select = "select",
+  Date = "date",
+  Link = "link",
+  Image = "image",
 }
 
-type Property = DateProperty | NumberProperty | StringProperty | TimeProperty;
+enum MultiplicityType {
+  Row = "row",
+  Table = "table",
+}
 
-type Properties<Data extends DataType> = Record<keyof Data, Property>;
+interface IRow {
+  multiplicity: MultiplicityType.Row;
+  rowSize: number;
+}
 
-export { PropertyType, type Property, type Properties };
+interface ITable {
+  multiplicity: MultiplicityType.Table;
+  rowSize: number;
+  columnSize: number;
+}
+
+type PrimaryTypes = Number | String | Date | Boolean;
+
+interface IProperty {
+  propertyType: PropertyType;
+  isValid: (data: string) => Promise<boolean> | boolean;
+  parse: (data: string) => PrimaryTypes;
+  filters?: Partial<Record<FilterType, IFilter>>;
+  form?: { isRequired: boolean };
+  multiplicity?: IRow | ITable;
+  icon?: (data: string) =>
+    | {
+        inContainer: React.ReactNode;
+        inForm: React.ReactNode;
+        inFilter: React.ReactNode;
+      }
+    | Promise<{
+        inContainer: React.ReactNode;
+        inForm: React.ReactNode;
+        inFilter: React.ReactNode;
+      }>;
+  dataTransform?: (data: string) => string | Promise<string>;
+}
+
+export { PropertyType, type IProperty, type IRow, type ITable };
