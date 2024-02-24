@@ -4,7 +4,7 @@ import getProvider from "utils/get-data/get-provider";
 import Navigation from "utils/schema/navigation.type";
 import IPage from "utils/schema/data/page.interface";
 import getFileData from "utils/get-data/get-data";
-import config from "utils/config/config";
+import config from "data/config";
 
 const getData = async () => {
   const slugs = await getDirectorySlugs(config.source.courses);

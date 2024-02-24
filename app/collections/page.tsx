@@ -1,5 +1,5 @@
 import LinkSection from "components/LinkSection";
-import collectionsNavItems from "utils/config/navigation/collections-navigation";
+import collectionsNavItems from "data/navigation/collections-navigation";
 
 const Page = () => (
   <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center">

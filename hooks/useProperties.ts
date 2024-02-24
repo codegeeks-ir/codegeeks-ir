@@ -1,4 +1,4 @@
-import metas from "utils/config/meta";
+import metas from "data/meta";
 import { useMemo } from "react";
 import { DataType, Format } from "utils/schema/data";
 import useLocalization from "./useLocalization";

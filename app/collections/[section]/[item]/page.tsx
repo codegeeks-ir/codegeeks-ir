@@ -1,6 +1,6 @@
 import { getDirectorySlugs, getFileSlugs } from "utils/get-data/get-slugs";
 import SlugType from "utils/schema/slug.type";
-import config from "utils/config/config";
+import config from "data/config";
 import ViewFactory from "components/collection/views";
 import getProvider from "utils/get-data/get-provider";
 import { ProviderType } from "utils/schema/provider.interface";

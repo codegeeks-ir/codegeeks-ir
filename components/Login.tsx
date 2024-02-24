@@ -1,4 +1,4 @@
-import config from "utils/config/config";
+import config from "data/config";
 import GithubIcon from "public/icones/social/github.svg";
 
 const Login = () => (

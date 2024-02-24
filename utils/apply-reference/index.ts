@@ -1,4 +1,4 @@
-import metas from "utils/config/meta";
+import metas from "data/meta";
 import { DataType } from "utils/schema/data";
 
 const applyReference = async (item: DataType): Promise<DataType> => {

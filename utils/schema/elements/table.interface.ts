@@ -1,5 +1,5 @@
 import { CsvRow } from "lib/csv-to-array";
-import { FieldType } from "utils/config/fields";
+import { FieldType } from "data/fields";
 import { Element } from ".";
 
 interface ITableElement {

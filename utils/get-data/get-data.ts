@@ -12,7 +12,7 @@ import { DataType, Format } from "utils/schema/data";
 import ICsv from "utils/schema/data/csv.interface";
 import parseData from "utils/pars-data";
 import { Element } from "utils/schema/elements";
-import { FieldType } from "utils/config/fields";
+import { FieldType } from "data/fields";
 
 const getMarkdownData = async (
   fileContent: string,

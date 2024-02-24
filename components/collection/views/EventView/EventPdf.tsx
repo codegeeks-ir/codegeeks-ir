@@ -9,7 +9,7 @@ import { QRCodeSVG } from "qrcode.react";
 import textFit from "textfit";
 import { getPersianLongDate } from "lib/persian-long-date";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
-import config from "utils/config/config";
+import config from "data/config";
 import IEvent from "utils/schema/data/event.interface";
 import { ContentType } from "utils/schema/provider.interface";
 import ICompanion from "utils/schema/data/companion.interface";

@@ -1,8 +1,8 @@
 import Accordion from "components/Accordion";
 import { CsvRow } from "lib/csv-to-array";
-import { FieldType } from "utils/config/fields";
+import { FieldType } from "data/fields";
 import ContainerFactory from "components/properties/container";
-import fields from "utils/config/fields";
+import fields from "data/fields";
 import IRowsElement from "utils/schema/elements/rows.interface";
 
 const getAccordionHeader = (row: CsvRow, show: boolean[]) =>

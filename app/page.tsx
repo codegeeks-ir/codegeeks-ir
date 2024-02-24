@@ -1,6 +1,6 @@
 import LinkSection from "components/LinkSection";
 import LogoType from "components/LogoType";
-import homeNavItems from "utils/config/navigation/home-navigation";
+import homeNavItems from "data/navigation/home-navigation";
 
 const Page = () => (
   <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center">

@@ -4,7 +4,7 @@ import { getDirectorySlugs } from "utils/get-data/get-slugs";
 import SlugType from "utils/schema/slug.type";
 import IPage from "utils/schema/data/page.interface";
 import getProvider from "utils/get-data/get-provider";
-import config from "utils/config/config";
+import config from "data/config";
 
 interface IParams {
   section: SlugType;

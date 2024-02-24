@@ -6,9 +6,9 @@ import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import { Metadata } from "next";
 import { Viewport } from "next";
-import config from "utils/config/config";
+import config from "data/config";
 import { usePathname } from "next/navigation";
-import navbarItems from "utils/config/navigation/navbar-navigation";
+import navbarItems from "data/navigation/navbar-navigation";
 import PageHeader from "components/PageHeader";
 
 export const viewport: Viewport = {

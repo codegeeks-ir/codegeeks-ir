@@ -1,7 +1,7 @@
 import LinkSection from "components/LinkSection";
 import Head from "next/head";
-import requirementsNavItem from "utils/config/navigation/requirements-navigation";
-import sideNavItems from "utils/config/navigation/side-navigation";
+import requirementsNavItem from "data/navigation/requirements-navigation";
+import sideNavItems from "data/navigation/side-navigation";
 
 const Page = () => (
   <>

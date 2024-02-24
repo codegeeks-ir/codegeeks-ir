@@ -6,9 +6,9 @@ import ForkIcon from "public/icones/fork.svg";
 import HeartIcon from "public/icones/heart.svg";
 import Icon from "./Icon";
 import Navigation from "utils/schema/navigation.type";
-import requirementsNavItem from "utils/config/navigation/requirements-navigation";
-import collectionsNavItems from "utils/config/navigation/collections-navigation";
-import config from "utils/config/config";
+import requirementsNavItem from "data/navigation/requirements-navigation";
+import collectionsNavItems from "data/navigation/collections-navigation";
+import config from "data/config";
 
 const getBackLink = (): string =>
   usePathname().split("/").slice(0, -1).join("/") + "/";

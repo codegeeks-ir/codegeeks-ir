@@ -1,4 +1,4 @@
-import socialItems from "utils/config/navigation/social-navigation";
+import socialItems from "data/navigation/social-navigation";
 
 const Footer = () => (
   <footer>

@@ -1,5 +1,5 @@
 import ContainerFactory from "components/properties/container";
-import fields from "utils/config/fields";
+import fields from "data/fields";
 import ITableElement from "utils/schema/elements/table.interface";
 
 const Table = ({ description, header, type, rows }: ITableElement["props"]) => {

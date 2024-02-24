@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import config from "utils/config/config";
+import config from "data/config";
 import { getFileSlugs, getDirectorySlugs } from "utils/get-data/get-slugs";
 import { Format } from "utils/schema/data";
 import SlugType from "utils/schema/slug.type";

@@ -1,5 +1,5 @@
 import { DataType } from "utils/schema/data";
-import metas from "utils/config/meta";
+import metas from "data/meta";
 import { Element } from "utils/schema/elements";
 import Card from "./Card";
 import ICardElement from "utils/schema/elements/card.interface";

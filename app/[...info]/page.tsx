@@ -6,7 +6,7 @@ import ICsv from "utils/schema/data/csv.interface";
 import SlugType from "utils/schema/slug.type";
 import getProvider from "utils/get-data/get-provider";
 import getFileData from "utils/get-data/get-data";
-import config from "utils/config/config";
+import config from "data/config";
 import ElementFactory from "components/collection/elements";
 
 interface IParams {

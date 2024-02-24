@@ -1,4 +1,4 @@
-import localizations from "utils/config/localization";
+import localizations from "data/localization";
 import { useMemo } from "react";
 import { DataType, Format } from "utils/schema/data";
 

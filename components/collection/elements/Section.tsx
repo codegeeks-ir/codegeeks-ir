@@ -1,7 +1,7 @@
 import ContainerFactory from "components/properties/container";
 import { CsvRow } from "lib/csv-to-array";
 import { useMemo } from "react";
-import fields from "utils/config/fields";
+import fields from "data/fields";
 import IRowsElement from "utils/schema/elements/rows.interface";
 
 const Section = ({
