@@ -8,11 +8,7 @@
     "build": "next build",
     "tailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
     "tailwind-dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
-    "pretty": "prettier --write \"./{components,layouts,lib,pages,utils}/**/*.{js,jsx,ts,tsx,json}\"",
-    "sitemap": "node utils/sitemap-generator.mjs",
-    "clone-collections": "bash collection-update/clone.sh",
-    "update-collection-all": "bash collection-update/update-all.sh",
-    "update-collection-workflows": "bash collection-update/update-workflows.sh"
+    "pretty": "prettier --write \"./{components,layouts,lib,pages,utils}/**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
     "@octokit/core": "^5.0.2",
