@@ -95,7 +95,7 @@ const EventPdf = ({
         </div>
         <div className="absolute bottom-5 flex flex-row pb-3">
           <QRCodeSVG
-            value={`${baseUrl}/events/${data.slug}`}
+            value={`${baseUrl}/collections/events/${data.slug}`}
             bgColor="#e2e8f0"
             fgColor="#374151"
             className="ml-4"
