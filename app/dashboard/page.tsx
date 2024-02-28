@@ -1,4 +1,4 @@
-import Tabs from "components/Tabs.js";
+import Tabs from "components/Tabs";
 import Login from "components/Login";
 import LogoType from "components/LogoType";
 import { Metadata } from "next";
