@@ -7,7 +7,7 @@ import UutIcon from "public/icones/uut/uut-icon.svg";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { getPersianLongDate } from "lib/persian-long-date";
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import config from "data/config";
 import IEvent from "utils/schema/data/event.interface";
 import { ContentType } from "utils/schema/provider.interface";
@@ -38,9 +38,6 @@ const EventPdf = ({
   isReadyForExport,
   setIsReadyForExport,
 }: IProps) => {
-  const subjectRef = useRef();
-  const lecturerRef = useRef();
-  const bioRef = useRef();
   const baseUrl = config.url;
   useEffect(() => {
     setIsReadyForExport({ ...isReadyForExport, pdf: true });
@@ -58,7 +55,6 @@ const EventPdf = ({
       <div className="pdf-heading">
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
         <h1
-          ref={subjectRef}
           className="m-0 h-24 w-full p-1 text-center"
           dir="auto"
         >
@@ -81,10 +77,10 @@ const EventPdf = ({
             </div>
           </div>
           <div className="pdf-bio">
-            <h2 className="h-12 w-full" ref={lecturerRef}>
+            <h2 className="h-12 w-full">
               {companion.name}
             </h2>
-            <p className="m-0 mt-4" ref={bioRef}>
+            <p className="m-0 mt-4">
               {companion.position}
             </p>
           </div>

@@ -6,7 +6,7 @@ import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
 import UutIcon from "public/icones/uut/uut-icon.svg";
 import Image from "next/image";
 import { getPersianLongDate } from "lib/persian-long-date";
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import IEvent from "utils/schema/data/event.interface";
 import { ContentType } from "utils/schema/provider.interface";
 import ICompanion from "utils/schema/data/companion.interface";
@@ -36,9 +36,6 @@ const EventStory = ({
   isReadyForExport,
   setIsReadyForExport,
 }: IProps) => {
-  const subjectRef = useRef();
-  const lecturerRef = useRef();
-  const bioRef = useRef();
   useEffect(() => {
     setIsReadyForExport({ ...isReadyForExport, story: true });
   }, []);
@@ -57,7 +54,6 @@ const EventStory = ({
           انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند
         </p>
         <h1
-          ref={subjectRef}
           className="m-0 h-12 w-full p-1 text-center"
           dir="auto"
         >
@@ -83,10 +79,10 @@ const EventStory = ({
             </div>
           </div>
           <div className="story-bio">
-            <h2 className="h-6 w-full" ref={lecturerRef}>
+            <h2 className="h-6 w-full">
               {companion.name}
             </h2>
-            <p className="m-0 mt-1" ref={bioRef}>
+            <p className="m-0 mt-1">
               {companion.position}
             </p>
           </div>
