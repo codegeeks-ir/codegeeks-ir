@@ -1,4 +1,3 @@
-"use client";
 import "public/css/output.css";
 import "public/css/highlight.min.css";
 import "public/css/vs2015.min.css";
@@ -7,8 +6,6 @@ import Footer from "components/Footer";
 import { Metadata } from "next";
 import { Viewport } from "next";
 import config from "data/config";
-import { usePathname } from "next/navigation";
-import navbarItems from "data/navigation/navbar-navigation";
 import PageHeader from "components/PageHeader";
 
 export const viewport: Viewport = {
@@ -21,77 +18,70 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
   title: {
-    template: "%s | انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
-    default: "انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
+    template: `%s | ${config.title}`,
+    default: config.title,
   },
-  description: "انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
-  twitter: {
-    card: "app",
-    title: "انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
-    description: "انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
-    siteId: "1467726470533754880",
-    creator: "@nextjs",
-    creatorId: "1467726470533754880",
-    images: {
-      url: "https://nextjs.org/og.png",
-      alt: "Next.js Logo",
-    },
-    app: {
-      name: "twitter_app",
-      id: {
-        iphone: "twitter_app://iphone",
-        ipad: "twitter_app://ipad",
-        googleplay: "twitter_app://googleplay",
-      },
-      url: {
-        iphone: "https://iphone_url",
-        ipad: "https://ipad_url",
-      },
-    },
+  description: config.title,
+  appleWebApp: {
+    capable: true,
+    title: config.title,
+    statusBarStyle: "black-translucent",
   },
+  // <meta name="mobile-web-app-capable" content="yes" />
+  formatDetection: { telephone: false },
+  metadataBase: new URL(config.url),
+  // twitter: {
+  //   card: "app",
+  //   title: config.title,
+  //   description: config.description,
+  //   siteId: "1467726470533754880", ////////
+  //   creator: "@nextjs", ////////
+  //   creatorId: "1467726470533754880", /////
+  //   images: {
+  //     url: config.url + "/codegeeks-ir-og-800x600.png",
+  //     alt: config.title,
+  //   },
+  //   app: {
+  //     name: "twitter_app", ///////
+  //     id: {
+  //       iphone: "twitter_app://iphone", //////
+  //       ipad: "twitter_app://ipad", /////
+  //       googleplay: "twitter_app://googleplay", /////
+  //     },
+  //     url: {
+  //       iphone: "https://iphone_url", //////
+  //       ipad: "https://ipad_url", //////
+  //     },
+  //   },
+  // },
   openGraph: {
-    title: "انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
-    description: "انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه",
+    title: config.title,
+    description: config.description,
     url: config.url,
     siteName: config.name,
     images: [
       {
-        url: "https://nextjs.org/og.png",
+        url: config.url + "/codegeeks-ir-og-800x600.png",
         width: 800,
         height: 600,
       },
       {
-        url: "https://nextjs.org/og-alt.png",
+        url: config.url + "/codegeeks-ir-og-1800x1600.png",
         width: 1800,
         height: 1600,
-        alt: "My custom alt",
+        alt: config.title,
       },
     ],
     locale: "fa",
     type: "website",
   },
   manifest: config.url + "/manifest.json",
-  // icons: {
-  //   icon: {
-  //     type: 'image/svg+xml',
-  //     href: '/images/favicon.svg'
-  //   },
-  //   shortcut: {
-  //     type: 'image/svg+xml',
-  //     href: '/images/favicon.svg'
-  //   },
-  //   apple: {
-  //     type: 'image/svg+xml',
-  //     href: '/images/favicon.svg'
-  //   },
-  //   other: {
-  //     type: 'image/svg+xml',
-  //     rel: 'apple-touch-icon',
-  //     url: '/icones/codegeeks/codegeeks-icon.svg'
-  /* <meta charSet="utf-8" /> */
-  // },
+  icons: {
+    icon: config.url + "icones/codegeeks/codegeeks-icon.svg",
+    apple: config.url + "icones/codegeeks/codegeeks-icon.svg",
+  },
   other: {
     google: "nositelinkssearchbox",
   },
@@ -99,17 +89,13 @@ export const metaData: Metadata = {
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <html>
-    <body className="flex flex-col items-center">
+    <body className="flex flex-col items-center pb-36">
       <Navbar />
-      <main className={`container ${usePathname() != "/" ? "pb-36" : "pb-16"}`}>
-        {usePathname() != "/" && <PageHeader />}
-        <section
-          className={`w-full ${usePathname() != "/" ? "pt-36" : "pt-16"}`}
-        >
-          {children}
-        </section>
+      <main className="container">
+        <PageHeader />
+        {children}
       </main>
-      {usePathname() == "/" && <Footer />}
+      <Footer />
     </body>
   </html>
 );

@@ -25,18 +25,22 @@ const PageHeader = () => {
   const repo = getRepoName();
   const contributionLink = `https://github.com/codegeeks-ir/${repo}`;
   return (
-    <section className="page-header-navbar">
-      <Link className="page-header-navbar-button" href={back}>
-        <BackIcon className="w-full fill-slate-600" />
-      </Link>
-      <Link className="page-header-navbar-button" href="/sponsor">
-        <HeartIcon className="w-full fill-slate-600" />
-      </Link>
-      <a className="page-header-navbar-button" href={contributionLink}>
-        <ForkIcon className="w-full fill-slate-600" />
-      </a>
-      <Icon />
-    </section>
+    <>
+      {usePathname() != "/" && (
+        <section className="page-header-navbar">
+          <Link className="page-header-navbar-button" href={back}>
+            <BackIcon className="w-full fill-slate-600" />
+          </Link>
+          <Link className="page-header-navbar-button" href="/sponsor">
+            <HeartIcon className="w-full fill-slate-600" />
+          </Link>
+          <a className="page-header-navbar-button" href={contributionLink}>
+            <ForkIcon className="w-full fill-slate-600" />
+          </a>
+          <Icon />
+        </section>
+      )}
+    </>
   );
 };
 

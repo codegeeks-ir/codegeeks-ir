@@ -4,6 +4,11 @@ import config from "data/config";
 import ViewFactory from "components/collection/views";
 import getProvider from "utils/get-data/get-provider";
 import { ProviderType } from "utils/schema/provider.interface";
+import { Metadata } from "next";
+import IPage from "utils/schema/data/page.interface";
+import { DataType, Format } from "utils/schema/data";
+import ICompanion from "utils/schema/data/companion.interface";
+import ICsv from "utils/schema/data/csv.interface";
 
 interface IParams {
   section: SlugType;
@@ -29,6 +34,29 @@ export const generateStaticParams = async (): Promise<IParams[]> => {
       )
   );
   return allItems;
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: IParams;
+}): Promise<Metadata> => {
+  const data = (await getData(params)).data as Exclude<DataType, ICsv>;
+  const title =
+    data.format == Format.Companions
+      ? `${data.name} | ${config.title}`
+      : `${data.title} | ${config.title}`;
+  const description = data.excerpt;
+  const url = `${config.url}/collections/${params.section}/${params.item}`;
+  return {
+    title: { absolute: title },
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+    },
+  };
 };
 
 const getData = async (params: IParams) =>

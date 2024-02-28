@@ -8,6 +8,7 @@ import getProvider from "utils/get-data/get-provider";
 import getFileData from "utils/get-data/get-data";
 import config from "data/config";
 import ElementFactory from "components/collection/elements";
+import { Metadata } from "next";
 
 interface IParams {
   info: SlugType[];
@@ -29,6 +30,30 @@ export const generateStaticParams = async (): Promise<IParams[]> => {
       ? ({ info: [...page.mainRoute.split("/"), sections[index]] } as IParams)
       : { info: [sections[index]] }
   );
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: IParams;
+}): Promise<Metadata> => {
+  const section = params.info.at(-1);
+  const provider = await getProvider(
+    "README.md",
+    `${config.source.info}/${section}`
+  );
+  const title = `${(provider.data as IPage).title} | ${config.title}`;
+  const description = (provider.data as IPage).description;
+  const url = `${config.url}/${params.info.join("/")}`
+  return {
+    title: { absolute: title },
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+    }
+  };
 };
 
 const getData = async (params: IParams) => {
