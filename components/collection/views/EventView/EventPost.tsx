@@ -4,7 +4,6 @@ import LocationIcon from "public/icones/location.svg";
 import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
 import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
 import UutIcon from "public/icones/uut/uut-icon.svg";
-import textFit from "textfit";
 import Image from "next/image";
 import { getPersianLongDate } from "lib/persian-long-date";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
@@ -41,9 +40,6 @@ const EventPost = ({
   const lecturerRef = useRef();
   const bioRef = useRef();
   useEffect(() => {
-    textFit(subjectRef.current);
-    textFit(lecturerRef.current);
-    textFit(bioRef.current);
     setIsReadyForExport({ ...isReadyForExport, post: true });
   }, []);
   return (

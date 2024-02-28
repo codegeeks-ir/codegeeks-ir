@@ -6,7 +6,6 @@ import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
 import UutIcon from "public/icones/uut/uut-icon.svg";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
-import textFit from "textfit";
 import { getPersianLongDate } from "lib/persian-long-date";
 import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import config from "data/config";
@@ -44,9 +43,6 @@ const EventPdf = ({
   const bioRef = useRef();
   const baseUrl = config.url;
   useEffect(() => {
-    textFit(subjectRef.current, { widthOnly: true });
-    // textFit(lecturerRef.current, { widthOnly: true });
-    // textFit(bioRef.current);
     setIsReadyForExport({ ...isReadyForExport, pdf: true });
   }, []);
   return (
