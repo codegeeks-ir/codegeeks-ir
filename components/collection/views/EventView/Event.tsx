@@ -16,9 +16,7 @@ interface IProps {
 const Event = ({ data, content, companion }: IProps) => {
   return (
     <div className="flex flex-col">
-      <h1 dir="auto">
-        {data.title}
-      </h1>
+      <h1 dir="auto">{data.title}</h1>
       <div className="flex flex-col">
         <div className="profile-picture relative mb-4 w-44">
           <Image
@@ -35,9 +33,7 @@ const Event = ({ data, content, companion }: IProps) => {
           </a>
         </div>
         <div className="flex flex-col justify-end">
-          <h2 className="my-0">
-            {companion.name}
-          </h2>
+          <h2 className="my-0">{companion.name}</h2>
           <p className="my-0">{companion.position}</p>
         </div>
       </div>

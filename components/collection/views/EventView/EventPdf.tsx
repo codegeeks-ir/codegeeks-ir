@@ -54,10 +54,7 @@ const EventPdf = ({
       </div>
       <div className="pdf-heading">
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
-        <h1
-          className="m-0 h-24 w-full p-1 text-center"
-          dir="auto"
-        >
+        <h1 className="m-0 h-24 w-full p-1 text-center" dir="auto">
           {data.title}
         </h1>
       </div>
@@ -77,12 +74,8 @@ const EventPdf = ({
             </div>
           </div>
           <div className="pdf-bio">
-            <h2 className="h-12 w-full">
-              {companion.name}
-            </h2>
-            <p className="m-0 mt-4">
-              {companion.position}
-            </p>
+            <h2 className="h-12 w-full">{companion.name}</h2>
+            <p className="m-0 mt-4">{companion.position}</p>
           </div>
         </div>
         <div className="absolute bottom-5 flex flex-row pb-3">

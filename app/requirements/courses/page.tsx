@@ -38,19 +38,18 @@ const getData = async () => {
 const Page = async () => {
   const { provider, courses } = await getData();
   return (
-    <section className="collection-container">
-      <section className="page-header">
-        <h1>{(provider?.data as IPage).heading}</h1>
-        <div dangerouslySetInnerHTML={{ __html: provider.content }}></div>
-        <LinkSection
-          items={
-            courses.map((course) => ({
-              name: course.title,
-              link: `/requirements/courses/${course.slug}`,
-            })) as Navigation
-          }
-        />
-      </section>
+    <section className="page">
+      <h1>{(provider?.data as IPage).heading}</h1>
+      <div dangerouslySetInnerHTML={{ __html: provider.content }}></div>
+      <LinkSection
+        items={
+          courses.map((course) => ({
+            name: course.title,
+            link: `/requirements/courses/${course.slug}`,
+            repo: `https://github.com/${config.github}/courses`,
+          })) as Navigation
+        }
+      />
     </section>
   );
 };

@@ -58,7 +58,7 @@ const FileExplorer = ({ tree, repoName, root }: IProps) => {
     >
       <section className="my-4 flex flex-col flex-wrap" dir="ltr">
         <section className="file-explorer-header">
-          <CloudIcon className="w-6 grow-0 fill-slate-500" />
+          <CloudIcon className="w-6 grow-0 fill-slate-600" />
           <Path path={currentPath} />
         </section>
         <section className="file-explorer-content">

@@ -6,6 +6,7 @@ import { FieldType } from "../fields";
 import fields from "../fields";
 import IOptionsProperty from "utils/schema/properties/options-property.interface";
 import { Element } from "utils/schema/elements";
+import config from "data/config";
 
 const faqMeta: MetaType<Format.Faqs, IFaq> = {
   format: Format.Faqs,
@@ -38,7 +39,7 @@ const faqMeta: MetaType<Format.Faqs, IFaq> = {
         excerpt: casted.excerpt,
         footerRightData: "",
         footerLeftData: "",
-        link: `${Format.Faqs}/${casted.slug}`,
+        link: `${config.url}/collections/${Format.Faqs}/${casted.slug}`,
         isHot: false,
       },
     };

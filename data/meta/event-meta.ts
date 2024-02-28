@@ -40,7 +40,7 @@ const eventMeta: MetaType<Format.Events, IEvent> = {
         excerpt: casted.excerpt,
         footerRightData: getPersianLongDate(casted.date),
         footerLeftData: `ساعت ${casted.date.toTimeString().slice(0, 5)}`,
-        link: `${Format.Events}/${casted.slug}`,
+        link: `${config.url}/collections/${Format.Events}/${casted.slug}`,
         isHot: new Date() <= new Date(casted.date),
       },
     };

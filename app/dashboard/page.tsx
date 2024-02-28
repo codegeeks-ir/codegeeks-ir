@@ -20,7 +20,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Account = () => (
-  <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center py-36">
+  <section className="main-page">
     <LogoType />
     <Login />
     <Tabs

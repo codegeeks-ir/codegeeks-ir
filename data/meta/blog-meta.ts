@@ -55,7 +55,7 @@ const blogMeta: MetaType<Format.Blog, IBlog> = {
           ? (casted.reference as ICompanion).name
           : "",
         footerLeftData: getPersianLongDate(casted.date),
-        link: `${Format.Blog}/${casted.slug}`,
+        link: `${config.url}/collections/${Format.Blog}/${casted.slug}`,
         isHot: new Date() <= new Date(casted.date),
       },
     };

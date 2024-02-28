@@ -22,13 +22,13 @@ const Filter = ({ onApplyFilters }: IProps) => {
         justify-start rounded-t-none py-3"
     >
       <button
-        className="btn-light flex h-9 w-full items-center justify-center md:w-9"
+        className="btn-light m-0 flex h-9 w-full items-center justify-center md:w-9"
         onClick={() => {
           actions.setInput("");
           setShow(!show);
         }}
       >
-        <FilterIcon className="w-6 fill-slate-300" />
+        <FilterIcon className="w-6 fill-slate-600" />
       </button>
       {show && (
         <section

@@ -11,13 +11,13 @@ const Card = ({
   link,
   isHot,
 }: ICardElement["props"]) => (
-  <section className={`card w-full ${isHot && "bg-teal-500"}`}>
+  <section className={`card w-full`}>
     <h4 className="card-title">{title}</h4>
-    <section className="card-body">
+    <section className={`card-body ${isHot && "bg-teal-500"}`}>
       <h5 className={`card-subtitle ${isHot && "text-slate-300"}`}>
         {subtitle}
       </h5>
-      <section className="my-4">
+      <section className="py-4">
         {excerpt.split(/\r\n|\r|\n/).map((phrase, index) => (
           <p className="card-excerpt" key={index}>
             {phrase}
@@ -33,7 +33,7 @@ const Card = ({
         className="btn-primary m-0 py-0 rounded-b-none border-b-0"
         href={link}
       >
-        <MoreIcon className="fill-slate-300 w-6" />
+        <MoreIcon className="fill-slate-600 w-6" />
       </Link>
       <p className="absolute left-0 top-0 ml-2 text-xs md:text-sm">
         {footerLeftData}

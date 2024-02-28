@@ -1,21 +1,26 @@
 "use client";
+import config from "data/config";
 import socialItems from "data/navigation/social-navigation";
 import { usePathname } from "next/navigation";
 
 const Footer = () => (
   <>
     {usePathname() == "/" && (
-      <footer>
-        <ul className="navbar-nav m-0 flex flex-row justify-center p-0 -mt-12">
-          {socialItems.map((item) => (
-            <li className="social-item" key={item.name}>
-              <a href={item.link}>{item.icon}</a>
-            </li>
-          ))}
-        </ul>
-        <p className="text-2xs">
+      <footer className="animate__animated animate__fadeIn  animate__faster animate__delay-2s">
+        <p>
           تمامی حقوق متعلق به انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه می‌باشد.
         </p>
+        <ul className="flex flex-row justify-center w-full">
+          {socialItems
+            .filter((item) => item.name != "github")
+            .map((item) => (
+              <li className="grow w-full flex justify-center" key={item.name}>
+                <a href={item.link} target="_blank">
+                  {item.icon}
+                </a>
+              </li>
+            ))}
+        </ul>
       </footer>
     )}
   </>

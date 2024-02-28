@@ -3,15 +3,13 @@ import LogoType from "components/LogoType";
 import homeNavItems from "data/navigation/home-navigation";
 
 const Page = () => (
-  <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center py-16">
+  <section className="main-page md:items-center">
     <LogoType />
     <section
-      className="grow-1 my-4 flex h-full w-full 
-      flex-col items-center justify-evenly"
+      className="animate__animated 
+      animate__fadeInUp  animate__faster animate__delay-1s"
     >
-      <section className="h-auto w-full">
-        <LinkSection items={homeNavItems} />
-      </section>
+      <LinkSection items={homeNavItems} />
     </section>
   </section>
 );

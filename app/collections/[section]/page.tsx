@@ -28,7 +28,7 @@ export const generateMetadata = async ({
   );
   const title = `${(provider.data as IPage).title} | ${config.title}`;
   const description = (provider.data as IPage).description;
-  const url = `${config.url}/collections/${params.section}`
+  const url = `${config.url}/collections/${params.section}`;
   return {
     title: { absolute: title },
     description,
@@ -36,7 +36,7 @@ export const generateMetadata = async ({
       title,
       description,
       url,
-    }
+    },
   };
 };
 
@@ -59,8 +59,8 @@ const getData = async (params: IParams) => {
 const Page = async ({ params }: { params: IParams }) => {
   const { provider, collection, format } = await getData(params);
   return (
-    <section className="collection-container">
-      <section className="page-header">
+    <section className="page">
+      <section>
         <h1>{(provider.data as IPage).heading}</h1>
         <article
           dangerouslySetInnerHTML={{ __html: provider.content as string }}

@@ -53,10 +53,7 @@ const EventPost = ({
         <p className="m-0 mt-0.5 p-0">
           انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند
         </p>
-        <h1
-          className="m-0 h-12 w-full p-1 text-center"
-          dir="auto"
-        >
+        <h1 className="m-0 h-12 w-full p-1 text-center" dir="auto">
           {data.title}
         </h1>
       </div>
@@ -79,12 +76,8 @@ const EventPost = ({
             </div>
           </div>
           <div className="post-bio">
-            <h2 className="h-6 w-full">
-              {companion?.name}
-            </h2>
-            <p className="m-0 mt-1">
-              {companion?.position}
-            </p>
+            <h2 className="h-6 w-full">{companion?.name}</h2>
+            <p className="m-0 mt-1">{companion?.position}</p>
           </div>
         </div>
         <div
