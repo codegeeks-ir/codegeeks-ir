@@ -6,8 +6,9 @@ import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
 import UutIcon from "public/icones/uut/uut-icon.svg";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
+import textFit from "textfit";
 import { getPersianLongDate } from "lib/persian-long-date";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 import config from "data/config";
 import IEvent from "utils/schema/data/event.interface";
 import { ContentType } from "utils/schema/provider.interface";
@@ -38,8 +39,14 @@ const EventPdf = ({
   isReadyForExport,
   setIsReadyForExport,
 }: IProps) => {
+  const subjectRef = useRef();
+  const lecturerRef = useRef();
+  const bioRef = useRef();
   const baseUrl = config.url;
   useEffect(() => {
+    textFit(subjectRef.current, { widthOnly: true });
+    // textFit(lecturerRef.current, { widthOnly: true });
+    // textFit(bioRef.current);
     setIsReadyForExport({ ...isReadyForExport, pdf: true });
   }, []);
   return (
@@ -54,7 +61,11 @@ const EventPdf = ({
       </div>
       <div className="pdf-heading">
         <p>انجمن علمی کامپیوتر دانشگاه صنعتی ارومیه برگزار می کند</p>
-        <h1 className="m-0 h-24 w-full p-1 text-center" dir="auto">
+        <h1
+          ref={subjectRef}
+          className="m-0 h-24 w-full p-1 text-center"
+          dir="auto"
+        >
           {data.title}
         </h1>
       </div>
@@ -74,8 +85,12 @@ const EventPdf = ({
             </div>
           </div>
           <div className="pdf-bio">
-            <h2 className="h-12 w-full">{companion.name}</h2>
-            <p className="m-0 mt-4">{companion.position}</p>
+            <h2 className="h-12 w-full" ref={lecturerRef}>
+              {companion.name}
+            </h2>
+            <p className="m-0 mt-4" ref={bioRef}>
+              {companion.position}
+            </p>
           </div>
         </div>
         <div className="absolute bottom-5 flex flex-row pb-3">

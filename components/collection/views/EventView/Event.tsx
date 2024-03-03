@@ -3,6 +3,8 @@ import ClockIcon from "public/icones/clock.svg";
 import LocationIcon from "public/icones/location.svg";
 import Image from "next/image";
 import { getPersianLongDate } from "lib/persian-long-date";
+import textFit from "textfit";
+import { useEffect, useRef } from "react";
 import IEvent from "utils/schema/data/event.interface";
 import ICompanion from "utils/schema/data/companion.interface";
 import { ContentType } from "utils/schema/provider.interface";
@@ -14,9 +16,17 @@ interface IProps {
 }
 
 const Event = ({ data, content, companion }: IProps) => {
+  const subjectRef = useRef();
+  const lecturerRef = useRef();
+  useEffect(() => {
+    textFit(subjectRef.current);
+    textFit(lecturerRef.current);
+  }, []);
   return (
     <div className="flex flex-col">
-      <h1 dir="auto">{data.title}</h1>
+      <h1 ref={subjectRef} dir="auto">
+        {data.title}
+      </h1>
       <div className="flex flex-col">
         <div className="profile-picture relative mb-4 w-44">
           <Image
@@ -33,7 +43,9 @@ const Event = ({ data, content, companion }: IProps) => {
           </a>
         </div>
         <div className="flex flex-col justify-end">
-          <h2 className="my-0">{companion.name}</h2>
+          <h2 className="my-0" ref={lecturerRef}>
+            {companion.name}
+          </h2>
           <p className="my-0">{companion.position}</p>
         </div>
       </div>

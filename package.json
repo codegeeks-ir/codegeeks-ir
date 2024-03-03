@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "axios": "^1.6.7",
     "file-system": "^2.2.2",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.7.0",

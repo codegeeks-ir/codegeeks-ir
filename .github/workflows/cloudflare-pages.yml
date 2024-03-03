@@ -27,6 +27,7 @@ jobs:
           ./.github/prepare-content.sh
           npm install 
           npm run tailwind 
+          npx ts-node utils/get-images/get-companions-images.ts 
           NODE_ENV=production npm run build
       - name: Publish
         uses: cloudflare/pages-action@1
