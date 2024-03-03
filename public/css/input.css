@@ -148,8 +148,8 @@ body {
   font-family: "Sahel", monospace;
 }
 main {
-  @apply flex flex-col items-center justify-center grow-0
-  md:mr-24 m-0 text-justify;
+  @apply flex flex-col items-center justify-center w-full
+  md:pr-24 m-0 text-justify;
 }
 p,
 h1,
