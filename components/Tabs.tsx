@@ -19,31 +19,32 @@ const Tabs = ({ headers, contents }: ITabsProps) => {
   );
   return (
     <section>
-      <section className="tab-buttons">
+      <ul className="tab-buttons">
         {headers.map((headerItem, headerIndex: number) => (
-          <button
-            key={headerIndex}
-            onClick={() =>
-              setShowCollapse((currentShowCollapse) => {
-                return currentShowCollapse.map((flag, flagIndex) => {
-                  return flagIndex == headerIndex ? true : false;
-                });
-              })
-            }
-            className={
-              showCollapse[headerIndex]
-                ? "btn-primary"
-                : "btn-light rounded-b-none"
-            }
-          >
-            {headerItem}
-          </button>
+          <li className="w-full" key={headerIndex}>
+            <button
+              onClick={() =>
+                setShowCollapse((currentShowCollapse) => {
+                  return currentShowCollapse.map((flag, flagIndex) => {
+                    return flagIndex == headerIndex ? true : false;
+                  });
+                })
+              }
+              className={`
+                w-full m-0 ${
+                  showCollapse[headerIndex] ? "btn-primary" : "btn-light"
+                }
+              `}
+            >
+              {headerItem}
+            </button>
+          </li>
         ))}
-      </section>
+      </ul>
       {contents?.map((contentItem, contentIndex: number) => (
         <section
           key={contentIndex}
-          className={`m-0 -mt-6 w-full ${
+          className={`m-0 w-full ${
             showCollapse[contentIndex] ? "block" : "hidden"
           }`}
         >

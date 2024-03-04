@@ -8,7 +8,6 @@ import IBlog from "utils/schema/data/blog.interface";
 import IEvent from "utils/schema/data/event.interface";
 import config from "../config";
 import { Element } from "utils/schema/elements";
-import ILinkProperty from "utils/schema/properties/link-property.interface";
 
 const companionMeta: MetaType<Format.Companions, ICompanion> = {
   format: Format.Companions,
@@ -38,7 +37,7 @@ const companionMeta: MetaType<Format.Companions, ICompanion> = {
         imageSource: `https://github.com/${casted.githubID}.png`,
         github: casted.githubID,
         isCompanion: true,
-        link: `${config.url}/collections/companions/${casted.githubID}`,
+        link: `${config.url}/collections/${Format.Companions}/${casted.githubID}`,
       },
     };
   },

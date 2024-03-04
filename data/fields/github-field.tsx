@@ -1,5 +1,5 @@
 import { Format } from "utils/schema/data";
-import ILinkProperty from "../../schema/properties/link-property.interface";
+import ILinkProperty from "utils/schema/properties/link-property.interface";
 import config from "../config";
 import linkField from "./link-field";
 import GithubIcon from "public/icones/social/github.svg";

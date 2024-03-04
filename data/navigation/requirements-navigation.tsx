@@ -3,6 +3,11 @@ import CurriculumGuideIcon from "public/icones/curriculum-guide.svg";
 import CoursesIcon from "public/icones/courses.svg";
 import BusStopTimesIcon from "public/icones/bus-stop-times.svg";
 import Navigation from "utils/schema/navigation.type";
+import FoodIcon from "public/icones/food.svg";
+import EducationIcon from "public/icones/education.svg";
+import DormIcon from "public/icones/dorm.svg";
+import InternetIcon from "public/icones/internet.svg";
+import LibraryIcon from "public/icones/library.svg";
 
 const requirementsNavItem: Navigation = [
   {
@@ -28,6 +33,31 @@ const requirementsNavItem: Navigation = [
     link: "/requirements/bus-stop-times",
     repo: "docs",
     icon: <BusStopTimesIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "کتابخانه",
+    link: "http://library.uut.ac.ir:81/",
+    icon: <LibraryIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "خوابگاه",
+    link: "http://dorm.uut.ac.ir:81/",
+    icon: <DormIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "غذا",
+    link: "https://food.uut.ac.ir/",
+    icon: <FoodIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "اینترنت",
+    link: "http://internet.uut.ac.ir",
+    icon: <InternetIcon className="w-8 fill-slate-600" />,
+  },
+  {
+    name: "آموزش",
+    link: "https://edu.uut.ac.ir/",
+    icon: <EducationIcon className="w-8 fill-slate-600" />,
   },
 ];
 

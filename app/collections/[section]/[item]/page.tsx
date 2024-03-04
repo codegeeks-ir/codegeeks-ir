@@ -67,7 +67,11 @@ const getData = async (params: IParams) =>
 
 const Page = async ({ params }: { params: IParams }) => {
   const provider = await getData(params);
-  return <ViewFactory provider={provider as ProviderType} />;
+  return (
+    <section className="page">
+      <ViewFactory provider={provider as ProviderType} />
+    </section>
+  );
 };
 
 export default Page;

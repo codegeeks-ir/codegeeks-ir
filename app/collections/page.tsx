@@ -19,15 +19,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Page = () => (
-  <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center py-36">
-    <section
-      className="grow-1 my-4 flex h-full w-full 
-      flex-col items-center justify-evenly"
-    >
-      <section className="h-auto w-full">
-        <LinkSection items={collectionsNavItems} />
-      </section>
-    </section>
+  <section className="main-page">
+    <LinkSection items={collectionsNavItems} />
   </section>
 );
 

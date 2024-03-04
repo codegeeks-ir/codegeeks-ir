@@ -27,9 +27,9 @@ const SortSection = () => {
         }}
       >
         {isAscending ? (
-          <SortAscendingIcon className="w-6 fill-slate-500" />
+          <SortAscendingIcon className="w-6 fill-slate-600" />
         ) : (
-          <SortDescendingIcon className="w-6 fill-slate-500" />
+          <SortDescendingIcon className="w-6 fill-slate-600" />
         )}
       </button>
     </section>

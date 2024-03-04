@@ -1,5 +1,5 @@
 import ISearch from "utils/schema/filters/search.interface";
-import ITextProperty from "../../schema/properties/text-property.interface";
+import ITextProperty from "utils/schema/properties/text-property.interface";
 import ISort from "utils/schema/filters/sort.interface";
 import { PropertyType } from "utils/schema/properties";
 

@@ -72,7 +72,7 @@ const getData = async (params: IParams) => {
 const Page = async ({ params }: { params: IParams }) => {
   const { collection, provider } = await getData(params);
   return (
-    <section>
+    <section className="page">
       <h1>{(provider.data as IPage).heading}</h1>
       <article dangerouslySetInnerHTML={{ __html: provider.content }}></article>
       <Tabs

@@ -31,7 +31,7 @@ const Collection = ({ format, collection }: IProps) => {
       <ResultsContext.Provider
         value={{ results: results.results, actions: results.actions }}
       >
-        <section className="w-full px-4">
+        <section className="w-full">
           <Filter
             onApplyFilters={() => {
               results.actions.applyFilters();

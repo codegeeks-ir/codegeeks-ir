@@ -1,6 +1,7 @@
 import "public/css/output.css";
 import "public/css/highlight.min.css";
 import "public/css/vs2015.min.css";
+import "animate.css";
 import Navbar from "components/Navbar";
 import Footer from "components/Footer";
 import { Metadata } from "next";
@@ -89,9 +90,9 @@ export const metadata: Metadata = {
 
 const Layout = ({ children }: { children: React.ReactNode }) => (
   <html>
-    <body className="flex flex-col items-center pb-36">
+    <body>
       <Navbar />
-      <main className="container">
+      <main>
         <PageHeader />
         {children}
       </main>

@@ -1,5 +1,5 @@
 import PhoneIcon from "public/icones/phone.svg";
-import ILinkProperty from "../../schema/properties/link-property.interface";
+import ILinkProperty from "utils/schema/properties/link-property.interface";
 import linkField from "./link-field";
 
 const phoneField: ILinkProperty = {

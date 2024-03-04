@@ -1,4 +1,4 @@
-import Tabs from "components/Tabs.js";
+import Tabs from "components/Tabs";
 import Login from "components/Login";
 import LogoType from "components/LogoType";
 import { Metadata } from "next";
@@ -20,7 +20,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const Account = () => (
-  <section className="mt-4 flex h-full max-h-screen w-full flex-col items-center py-36">
+  <section className="main-page">
     <LogoType />
     <Login />
     <Tabs

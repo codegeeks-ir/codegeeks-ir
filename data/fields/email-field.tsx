@@ -1,4 +1,4 @@
-import ILinkProperty from "../../schema/properties/link-property.interface";
+import ILinkProperty from "utils/schema/properties/link-property.interface";
 import linkField from "./link-field";
 import EmailIcon from "public/icones/email.svg";
 

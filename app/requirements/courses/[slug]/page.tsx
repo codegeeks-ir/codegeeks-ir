@@ -23,7 +23,9 @@ export const generateMetadata = async ({
     "README.md",
     `${config.source.courses}/${params.slug}`
   );
-  const title = `مستندات درس ${(provider.data as IPage).title} | ${config.title}`;
+  const title = `مستندات درس ${(provider.data as IPage).title} | ${
+    config.title
+  }`;
   const description = (provider.data as IPage).description;
   const url = `${config.url}/requirements/courses/${params.slug}`;
   return {
@@ -51,7 +53,7 @@ const getData = async (params: IParams) => {
 const Page = async ({ params }: { params: IParams }) => {
   const { provider, tree } = await getData(params);
   return (
-    <section>
+    <section className="page">
       <h1>{`مستندات درس ${(provider.data as IPage).title}`}</h1>
       <article dangerouslySetInnerHTML={{ __html: provider.content }}></article>
       <FileExplorer tree={tree} repoName={"courses"} root={params.slug} />

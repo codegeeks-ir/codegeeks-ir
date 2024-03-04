@@ -1,6 +1,6 @@
 import IRange from "utils/schema/filters/range.interface";
 import ISort from "utils/schema/filters/sort.interface";
-import INumberProperty from "../../schema/properties/number-property.interface";
+import INumberProperty from "utils/schema/properties/number-property.interface";
 import { PropertyType } from "utils/schema/properties";
 
 const integerField: INumberProperty = {

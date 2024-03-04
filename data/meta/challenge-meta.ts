@@ -5,6 +5,7 @@ import { DataType, Format } from "utils/schema/data";
 import fields from "../fields";
 import { getPersianLongDate } from "lib/persian-long-date";
 import { Element } from "utils/schema/elements";
+import config from "data/config";
 
 const challengeMeta: MetaType<Format.Challenges, IChallenge> = {
   format: Format.Challenges,
@@ -25,7 +26,7 @@ const challengeMeta: MetaType<Format.Challenges, IChallenge> = {
         excerpt: casted.excerpt,
         footerRightData: getPersianLongDate(casted.date),
         footerLeftData: `ساعت ${casted.date.toTimeString().slice(0, 5)}`,
-        link: `${Format.Challenges}/${casted.slug}`,
+        link: `${config.url}/collections/${Format.Challenges}/${casted.slug}`,
         isHot: new Date() <= new Date(casted.date),
       },
     };
