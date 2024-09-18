@@ -23,6 +23,12 @@ const requirementsNavItem: Navigation = [
     icon: <CurriculumGuideIcon className="w-8 fill-slate-600" />,
   },
   {
+    name: "همیار واحد",
+    link: "https://hamyar.codegeeks.ir/",
+    icon: <EducationIcon className="w-8 fill-slate-600" />,
+    repo: "sub",
+  },
+  {
     name: "دروس",
     link: "/requirements/courses",
     repo: "courses",
