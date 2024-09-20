@@ -29,6 +29,12 @@ const requirementsNavItem: Navigation = [
     repo: "sub",
   },
   {
+    name: "یادآوری غذا",
+    link: "https://food.codegeeks.ir/",
+    icon: <FoodIcon className="w-8 fill-slate-600" />,
+    repo: "sub",
+  },
+  {
     name: "دروس",
     link: "/requirements/courses",
     repo: "courses",

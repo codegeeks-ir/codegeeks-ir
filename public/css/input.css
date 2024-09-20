@@ -14,10 +14,10 @@
   .btn-primary {
     @apply btn m-1 py-1 px-2 
         text-center
-        bg-teal-400 
+        bg-sky-400 
         bg-opacity-50
         rounded-md
-        hover:bg-teal-300 focus:outline-none;
+        hover:bg-sky-300 focus:outline-none;
   }
   .btn-light {
     @apply btn-primary 
@@ -135,7 +135,7 @@
 
 @font-face {
   font-family: Sahel;
-  src: url('..\/fonts\/Sahel-VF.woff2') format('woff2');
+  src: url("..\/fonts\/Sahel-VF.woff2") format("woff2");
 }
 
 /* Tag styles */
@@ -221,7 +221,7 @@ thead {
 }
 tbody tr {
   @apply text-slate-600
-  even:bg-slate-400 even:bg-opacity-25 focus:bg-teal-400
+  even:bg-slate-400 even:bg-opacity-25 focus:bg-sky-400
   border border-solid border-slate-400;
 }
 td {
@@ -314,7 +314,7 @@ footer {
   @apply flex flex-col self-center md:mr-24 mt-6 mb-36 md:mb-0;
 }
 footer p {
-  @apply block text-slate-500 text-center text-2xs ;
+  @apply block text-slate-500 text-center text-2xs;
 }
 .sponsor-link {
   @apply btn-primary bg-opacity-100 fixed left-0 bottom-16 
@@ -534,19 +534,19 @@ p .icon {
   @apply rounded-full;
 }
 .profile-picture .github-icon {
-  @apply bg-teal-400 absolute right-0 top-32
+  @apply bg-sky-400 absolute right-0 top-32
     rounded-full;
 }
 .post-content .profile-picture .github-icon {
-  @apply bg-teal-400 absolute -top-4 -right-2
+  @apply bg-sky-400 absolute -top-4 -right-2
     rounded-full border;
 }
 .story-content .profile-picture .github-icon {
-  @apply bg-teal-400 absolute -top-5 -right-4
+  @apply bg-sky-400 absolute -top-5 -right-4
     rounded-full;
 }
 .pdf-content .profile-picture .github-icon {
-  @apply bg-teal-400 absolute -top-14 -right-4
+  @apply bg-sky-400 absolute -top-14 -right-4
     rounded-full;
 }
 .contributors .profile-picture .github-icon {
