@@ -25,10 +25,10 @@ jobs:
         run: |
           chmod +x .github/prepare-content.sh
           ./.github/prepare-content.sh
-          npm install 
-          npm run tailwind 
+          pnpm install 
+          pnpm tailwind 
           npx ts-node utils/get-images/get-companions-images.ts 
-          NODE_ENV=production npm run build
+          NODE_ENV=production pnpm build
       - name: Publish
         uses: cloudflare/pages-action@1
         with:
