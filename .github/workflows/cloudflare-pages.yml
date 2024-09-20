@@ -19,15 +19,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
       - name: Build
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
         run: |
           chmod +x .github/prepare-content.sh
           ./.github/prepare-content.sh
-          pnpm install 
+          pnpm install --frozen-lockfile
           pnpm tailwind 
-          npx ts-node utils/get-images/get-companions-images.ts 
+          pnpm dlx ts-node utils/get-images/get-companions-images.ts
           NODE_ENV=production pnpm build
       - name: Publish
         uses: cloudflare/pages-action@1

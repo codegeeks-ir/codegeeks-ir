@@ -6,13 +6,14 @@
     "dev": "next dev",
     "debug": "NODE_OPTIONS='--inspect[127.0.0.1:3001]' next dev",
     "build": "next build",
-    "tailwind": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
-    "tailwind-dev": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "tailwind": "pnpm dlx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify",
+    "tailwind-dev": "pnpm dlx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
     "pretty": "prettier --write \"./{components,layouts,lib,pages,utils}/**/*.{js,jsx,ts,tsx,json}\""
   },
   "devDependencies": {
     "@octokit/core": "^5.0.2",
     "@svgr/webpack": "^8.1.0",
+    "@types/node": "^22.5.5",
     "@types/react": "^18.2.43",
     "autoprefixer": "^10.4.13",
     "eslint-config-next": "^14.0.4",
