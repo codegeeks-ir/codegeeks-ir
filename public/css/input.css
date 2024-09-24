@@ -302,7 +302,7 @@ code {
 
 /* Section styles */
 .sections {
-  @apply grid grid-cols-3 gap-2 list-none w-fit m-0;
+  @apply max-w-xl flex flex-wrap justify-center gap-4 mx-auto;
 }
 .section-link {
   @apply flex flex-col justify-center items-center 
