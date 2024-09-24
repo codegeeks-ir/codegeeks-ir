@@ -13,17 +13,17 @@ const socialItems: Navigation = [
   {
     name: "youtube",
     link: "https://www.youtube.com/channel/UCVHy7Dv9vkf3zt0_P2J5vLw",
-    icon: <YoutubeIcon className="w-6 fill-teal-500" />,
+    icon: <YoutubeIcon className="w-6 fill-sky-700	" />,
   },
   {
     name: "instagram",
     link: "https://www.instagram.com/ceit_uut",
-    icon: <InstagramIcon className="w-6 fill-teal-500" />,
+    icon: <InstagramIcon className="w-6 fill-sky-700	" />,
   },
   {
     name: "telegram",
     link: "https://t.me/ceit_uut",
-    icon: <TelegramIcon className="w-6 fill-teal-500" />,
+    icon: <TelegramIcon className="w-6 fill-sky-700	" />,
   },
 ];
 

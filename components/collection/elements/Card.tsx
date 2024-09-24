@@ -15,7 +15,7 @@ const Card = ({
     <Link href={link}>
       <h4 className="card-title">{title}</h4>
     </Link>
-    <section className={`card-body ${isHot && "bg-teal-500"}`}>
+    <section className={`card-body ${isHot && "bg-sky-500"}`}>
       <h5 className={`card-subtitle ${isHot && "text-slate-300"}`}>
         {subtitle}
       </h5>

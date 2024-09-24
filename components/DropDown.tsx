@@ -19,7 +19,7 @@ const DropDown = ({ values, label, keys, onSelect, defaultOption }: IProps) => {
         className={`btn-primary mx-0 my-0  h-9 text-sm 
         flex items-center justify-center border-l-0 rounded-l-none
         rounded-b-none w-full
-        ${showCollapse && "bg-teal-300"}`}
+        ${showCollapse && "bg-sky-300"}`}
       >
         {label}
       </button>

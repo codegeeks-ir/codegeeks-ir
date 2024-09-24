@@ -16,7 +16,7 @@ const Accordion = ({ collapse, header, isShowByDefault }: IProps) => {
         onClick={() => setShowCollapse(!showCollapse)}
         className={`btn-primary mx-0 my-0 w-full text-right text-sm 
         border-t-0
-        rounded-none ${showCollapse && "bg-teal-300 border-y-0"}`}
+        rounded-none ${showCollapse && "bg-sky-300 border-y-0"}`}
       >
         {header}
       </button>

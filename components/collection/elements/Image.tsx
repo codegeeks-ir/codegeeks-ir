@@ -11,7 +11,7 @@ const Image = ({
   link,
   isHot,
 }: ICardElement["props"]) => (
-  <section className={`card ${isHot && "bg-teal-500"}`}>
+  <section className={`card ${isHot && "bg-sky-500"}`}>
     <h4 className="card-title">{title}</h4>
     <section className="card-body">
       <h5 className={`card-subtitle ${isHot && "text-slate-300"}`}>

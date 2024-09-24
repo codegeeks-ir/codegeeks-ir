@@ -30,7 +30,7 @@ const Collapse = ({
           key={dataIndex}
           className="flex flex-row flex-wrap 
            text-slate-600
-           focus:bg-teal-400
+           focus:bg-sky-400
           border border-solid border-slate-400 border-b-0 last:border-b
           text-sm 
           my-0"
