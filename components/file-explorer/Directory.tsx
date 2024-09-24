@@ -1,6 +1,6 @@
 import { ExplorerContext } from "./FileExplorer";
 import { useContext } from "react";
-import FolderIcon from "public/icones/folder.svg";
+import FolderIcon from "public/icons/folder.svg";
 import { IDirectory } from "utils/schema/tree.type";
 
 const Directory = ({ directory }: { directory: IDirectory }) => {

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import GithubIcon from "public/icones/social/github.svg";
-import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
+import GithubIcon from "public/icons/social/github.svg";
+import CodegeeksIcon from "public/icons/codegeeks/codegeeks-icon.svg";
 import IAvatarElement from "utils/schema/elements/avatar.interface";
 
 const Avatar = ({

@@ -1,7 +1,7 @@
 import hljs from "highlight.js";
 import { centerImage } from "lib/manipulate-html";
 import Image from "next/image";
-import GithubIcon from "public/icones/social/github.svg";
+import GithubIcon from "public/icons/social/github.svg";
 import { useEffect } from "react";
 import ICompanion from "utils/schema/data/companion.interface";
 import { ProviderType } from "utils/schema/provider.interface";

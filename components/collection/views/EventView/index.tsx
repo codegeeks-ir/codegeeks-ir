@@ -4,7 +4,7 @@ import EventPost from "./EventPost";
 import EventStory from "./EventStory";
 import EventPdf from "./EventPdf";
 import html2canvas from "html2canvas";
-import ShareIcon from "public/icones/share.svg";
+import ShareIcon from "public/icons/share.svg";
 import { ProviderType } from "utils/schema/provider.interface";
 import IEvent from "utils/schema/data/event.interface";
 import ICompanion from "utils/schema/data/companion.interface";
@@ -57,7 +57,7 @@ const exportAsPdf = async (
   html2canvasOptions,
   html2pdfOptions,
   luncherLink,
-  fileName,
+  fileName
 ) => {
   await html2canvas(element, html2canvasOptions).then((canvas) => {
     require("html2pdf.js")()
@@ -97,7 +97,7 @@ const EventView = ({ provider }: { provider: ProviderType }) => {
       postRef.current,
       postOptions,
       exportLink.current,
-      `${(provider.data as IEvent).title}-post.png`,
+      `${(provider.data as IEvent).title}-post.png`
     ).then(() => {
       setShowExport({ ...showExport, post: false });
       setIsReadyForExport({ ...isReadyForExport, post: false });
@@ -108,7 +108,7 @@ const EventView = ({ provider }: { provider: ProviderType }) => {
       storyRef.current,
       storyOptions,
       exportLink.current,
-      `${(provider.data as IEvent).title}-story.png`,
+      `${(provider.data as IEvent).title}-story.png`
     ).then(() => {
       setShowExport({ ...showExport, story: false });
       setIsReadyForExport({ ...isReadyForExport, story: false });
@@ -120,7 +120,7 @@ const EventView = ({ provider }: { provider: ProviderType }) => {
       pdfOptions,
       html2pdfOptions,
       exportLink.current,
-      `${(provider.data as IEvent).title}`,
+      `${(provider.data as IEvent).title}`
     ).then(() => {
       setShowExport({ ...showExport, pdf: false });
       setIsReadyForExport({ ...isReadyForExport, pdf: false });

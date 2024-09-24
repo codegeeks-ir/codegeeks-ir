@@ -1,5 +1,5 @@
 "use client";
-import CloudIcon from "public/icones/cloud.svg";
+import CloudIcon from "public/icons/cloud.svg";
 import {
   Dispatch,
   SetStateAction,
@@ -40,7 +40,7 @@ const FileExplorer = ({ tree, repoName, root }: IProps) => {
   const [currentElement, setCurrentElement] = useState<IDirectory>(tree);
   const [history, setHistory] = useState<IDirectory[]>([tree]);
   const [resources, setResources] = useState<ResourcesType | undefined>(
-    tree.resources,
+    tree.resources
   );
   useEffect(() => {
     setResources(currentElement.resources);

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useContext, useEffect } from "react";
-import RightIcon from "public/icones/right.svg";
-import LeftIcon from "public/icones/left.svg";
+import RightIcon from "public/icons/right.svg";
+import LeftIcon from "public/icons/left.svg";
 import { DataType } from "utils/schema/data";
 import usePage from "hooks/usePage";
 import ResultsContext from "context/ResultsContext";

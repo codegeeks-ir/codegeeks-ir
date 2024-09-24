@@ -1,8 +1,8 @@
 import Image from "next/image";
-import GithubIcon from "public/icones/social/github.svg";
-import StarIcon from "public/icones/star.svg";
-import ForkIcon from "public/icones/fork.svg";
-import PrayIcon from "public/icones/pray.svg";
+import GithubIcon from "public/icons/social/github.svg";
+import StarIcon from "public/icons/star.svg";
+import ForkIcon from "public/icons/fork.svg";
+import PrayIcon from "public/icons/pray.svg";
 
 interface ContributorProps {
   githubID: string;

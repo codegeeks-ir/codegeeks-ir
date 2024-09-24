@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
+import CodegeeksIcon from "public/icons/codegeeks/codegeeks-icon.svg";
 
 const Icon = () => (
   <div className="logo">

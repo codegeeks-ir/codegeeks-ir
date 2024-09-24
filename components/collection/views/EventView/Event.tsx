@@ -1,6 +1,6 @@
-import GithubIcon from "public/icones/social/github.svg";
-import ClockIcon from "public/icones/clock.svg";
-import LocationIcon from "public/icones/location.svg";
+import GithubIcon from "public/icons/social/github.svg";
+import ClockIcon from "public/icons/clock.svg";
+import LocationIcon from "public/icons/location.svg";
 import Image from "next/image";
 import { getPersianLongDate } from "lib/persian-long-date";
 import textFit from "textfit";

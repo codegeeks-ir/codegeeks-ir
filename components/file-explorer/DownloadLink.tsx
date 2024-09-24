@@ -1,4 +1,4 @@
-import DownloadIcon from "public/icones/download.svg";
+import DownloadIcon from "public/icons/download.svg";
 
 const DownloadLink = ({ repoName }: { repoName: string }) => {
   const repoLink = `https://github.com/codegeeks-ir/${repoName}`;

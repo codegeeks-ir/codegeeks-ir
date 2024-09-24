@@ -1,12 +1,12 @@
-import FilterIcon from "public/icones/filter.svg";
+import FilterIcon from "public/icons/filter.svg";
 import { useContext, useState } from "react";
 import OptionsSection from "./options/OptionsSection";
 import RangesSection from "./range/RangesSection";
 import SearchSection from "./SearchSection";
 import SortSection from "./SortSection";
 import FilterContext, { IFilterContext } from "context/FilterContext";
-import CloseIcon from "public/icones/close.svg";
-import ApplyIcon from "public/icones/apply.svg";
+import CloseIcon from "public/icons/close.svg";
+import ApplyIcon from "public/icons/apply.svg";
 
 interface IProps {
   onApplyFilters: () => void;

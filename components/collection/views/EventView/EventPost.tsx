@@ -1,9 +1,9 @@
-import GithubIcon from "public/icones/social/github.svg";
-import ClockIcon from "public/icones/clock.svg";
-import LocationIcon from "public/icones/location.svg";
-import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
-import CulturalIcon from "public/icones/uut/uut-cultural-affairs.svg";
-import UutIcon from "public/icones/uut/uut-icon.svg";
+import GithubIcon from "public/icons/social/github.svg";
+import ClockIcon from "public/icons/clock.svg";
+import LocationIcon from "public/icons/location.svg";
+import CodegeeksIcon from "public/icons/codegeeks/codegeeks-icon.svg";
+import CulturalIcon from "public/icons/uut/uut-cultural-affairs.svg";
+import UutIcon from "public/icons/uut/uut-icon.svg";
 import textFit from "textfit";
 import Image from "next/image";
 import { getPersianLongDate } from "lib/persian-long-date";

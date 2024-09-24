@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MoreIcon from "public/icones/more.svg";
+import MoreIcon from "public/icons/more.svg";
 import ICardElement from "utils/schema/elements/card.interface";
 
 const Image = ({

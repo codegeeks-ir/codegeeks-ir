@@ -1,13 +1,13 @@
 "use client";
 import config from "data/config";
 import socialItems from "data/navigation/social-navigation";
-import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
+import CodegeeksIcon from "public/icons/codegeeks/codegeeks-icon.svg";
 import { useMemo } from "react";
 
 const LogoType = () => {
   const github = useMemo(
     () => socialItems.find((item) => item.name == "github"),
-    [],
+    []
   );
   return (
     <section

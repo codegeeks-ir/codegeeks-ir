@@ -54,6 +54,6 @@ Any other things like code and docs are under [same MIT license][project-license
 
 [nextjs]: https://nextjs.org/
 [tailwindcss]: https://tailwindcss.com/
-[UUT-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/uut/LICENSE
-[codegeeks-ir-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icones/codegeeks/LICENSE
+[UUT-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icons/uut/LICENSE
+[codegeeks-ir-logo-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/public/icons/codegeeks/LICENSE
 [project-license]: https://github.com/codegeeks-ir/codegeeks-ir/blob/main/LICENSE

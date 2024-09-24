@@ -1,7 +1,7 @@
-import ProjectsIcon from "public/icones/projects.svg";
+import ProjectsIcon from "public/icons/projects.svg";
 import Navigation from "utils/schema/navigation.type";
-import HeartIcon from "public/icones/heart.svg";
-import AboutIcon from "public/icones/about.svg";
+import HeartIcon from "public/icons/heart.svg";
+import AboutIcon from "public/icons/about.svg";
 
 const homeNavItems: Navigation = [
   {

@@ -1,5 +1,5 @@
-import SortAscendingIcon from "public/icones/sort-ascending.svg";
-import SortDescendingIcon from "public/icones/sort-descending.svg";
+import SortAscendingIcon from "public/icons/sort-ascending.svg";
+import SortDescendingIcon from "public/icons/sort-descending.svg";
 import FilterContext, { IFilterContext } from "context/FilterContext";
 import { useContext, useState } from "react";
 import DropDown from "components/DropDown";
@@ -11,7 +11,7 @@ const SortSection = () => {
     <section className="flex grow flex-row items-center w-full">
       <DropDown
         values={filters.sortables.map(
-          (item) => item.local?.global.fa.name as string,
+          (item) => item.local?.global.fa.name as string
         )}
         keys={filters.sortables.map((item) => item.name as string)}
         label={"مرتب سازی"}

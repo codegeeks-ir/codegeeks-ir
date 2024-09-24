@@ -80,8 +80,8 @@ export const metadata: Metadata = {
   },
   manifest: config.url + "/manifest.json",
   icons: {
-    icon: config.url + "icones/codegeeks/codegeeks-icon.svg",
-    apple: config.url + "icones/codegeeks/codegeeks-icon.svg",
+    icon: config.url + "/icons/codegeeks/codegeeks-icon.svg",
+    apple: config.url + "/icons/codegeeks/codegeeks-icon.svg",
   },
   other: {
     google: "nositelinkssearchbox",

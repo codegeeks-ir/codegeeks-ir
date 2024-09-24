@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import SearchIcon from "public/icones/search.svg";
+import SearchIcon from "public/icons/search.svg";
 import FilterContext, { IFilterContext } from "context/FilterContext";
 import DropDown from "components/DropDown";
 import { DataType } from "utils/schema/data";
@@ -10,7 +10,7 @@ const SearchSection = () => {
     <section className="flex flex-row grow items-start w-full">
       <DropDown
         values={filters.searchables.map(
-          (item) => item.local?.global.fa.name as string,
+          (item) => item.local?.global.fa.name as string
         )}
         keys={filters.searchables.map((item) => item.name as string)}
         label={<SearchIcon className="w-6 fill-slate-500" />}

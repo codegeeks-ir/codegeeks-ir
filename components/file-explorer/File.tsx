@@ -1,5 +1,5 @@
 import { IFile } from "utils/schema/tree.type";
-import FileIcon from "public/icones/file.svg";
+import FileIcon from "public/icons/file.svg";
 
 interface IProps {
   file: IFile;

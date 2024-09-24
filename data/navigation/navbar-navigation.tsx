@@ -1,7 +1,7 @@
-import HomeIcon from "public/icones/home.svg";
-import CollectionsIcon from "public/icones/collections.svg";
-import RequirementsIcon from "public/icones/requirements.svg";
-import ProfileIcon from "public/icones/profile.svg";
+import HomeIcon from "public/icons/home.svg";
+import CollectionsIcon from "public/icons/collections.svg";
+import RequirementsIcon from "public/icons/requirements.svg";
+import ProfileIcon from "public/icons/profile.svg";
 import Navigation from "utils/schema/navigation.type";
 
 const navbarItems: Navigation = [

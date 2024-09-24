@@ -1,6 +1,6 @@
 import { ExplorerContext } from "./FileExplorer";
 import { useContext } from "react";
-import BackIcon from "public/icones/back-folder.svg";
+import BackIcon from "public/icons/back-folder.svg";
 
 const BackButton = () => {
   const state = useContext(ExplorerContext);

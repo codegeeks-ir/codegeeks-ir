@@ -1,5 +1,5 @@
 import config from "data/config";
-import GithubIcon from "public/icones/social/github.svg";
+import GithubIcon from "public/icons/social/github.svg";
 
 const Login = () => (
   <section

@@ -1,7 +1,7 @@
-import GithubIcon from "public/icones/social/github.svg";
-import InstagramIcon from "public/icones/social/instagram.svg";
-import TelegramIcon from "public/icones/social/telegram.svg";
-import YoutubeIcon from "public/icones/social/youtube.svg";
+import GithubIcon from "public/icons/social/github.svg";
+import InstagramIcon from "public/icons/social/instagram.svg";
+import TelegramIcon from "public/icons/social/telegram.svg";
+import YoutubeIcon from "public/icons/social/youtube.svg";
 import Navigation from "utils/schema/navigation.type";
 
 const socialItems: Navigation = [

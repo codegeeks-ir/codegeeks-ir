@@ -1,5 +1,5 @@
-import PreviousIcon from "public/icones/back.svg";
-import NextIcon from "public/icones/back-folder.svg";
+import PreviousIcon from "public/icons/back.svg";
+import NextIcon from "public/icons/back-folder.svg";
 import {
   getFullMonth,
   dayNamesInPersianOrder,
@@ -64,7 +64,7 @@ const Calendar = () => {
               setSelectedDate={setSelectedDate}
               key={index}
             />
-          ),
+          )
         )}
       </div>
       <div className="calendar-header">
@@ -78,8 +78,8 @@ const Calendar = () => {
               dayOffset,
               monthOffset,
               yearOffset,
-              1,
-            ),
+              1
+            )
           )}
         </p>
         <button className="btn" onClick={() => setMonthOffset(monthOffset + 1)}>

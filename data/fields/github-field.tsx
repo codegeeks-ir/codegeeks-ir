@@ -2,8 +2,8 @@ import { Format } from "utils/schema/data";
 import ILinkProperty from "utils/schema/properties/link-property.interface";
 import config from "../config";
 import linkField from "./link-field";
-import GithubIcon from "public/icones/social/github.svg";
-import CodegeeksIcon from "public/icones/codegeeks/codegeeks-icon.svg";
+import GithubIcon from "public/icons/social/github.svg";
+import CodegeeksIcon from "public/icons/codegeeks/codegeeks-icon.svg";
 
 const githubField: ILinkProperty = {
   ...linkField,

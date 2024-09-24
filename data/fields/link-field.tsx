@@ -1,7 +1,7 @@
 import ISearch from "utils/schema/filters/search.interface";
 import ISort from "utils/schema/filters/sort.interface";
 import { PropertyType } from "utils/schema/properties";
-import LinkIcon from "public/icones/link.svg";
+import LinkIcon from "public/icons/link.svg";
 import ILinkProperty from "utils/schema/properties/link-property.interface";
 
 const linkField: ILinkProperty = {

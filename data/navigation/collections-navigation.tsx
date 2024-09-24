@@ -1,8 +1,8 @@
-import EventsIcon from "public/icones/events.svg";
-import ChallengesIcon from "public/icones/challenges.svg";
-import BlogIcon from "public/icones/blog.svg";
+import EventsIcon from "public/icons/events.svg";
+import ChallengesIcon from "public/icons/challenges.svg";
+import BlogIcon from "public/icons/blog.svg";
 import Navigation from "utils/schema/navigation.type";
-import FaqsIcon from "public/icones/faqs.svg";
+import FaqsIcon from "public/icons/faqs.svg";
 
 const collectionsNavItems: Navigation = [
   {

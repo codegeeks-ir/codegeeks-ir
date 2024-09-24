@@ -1,13 +1,13 @@
-import ContactsIcon from "public/icones/contacts.svg";
-import CurriculumGuideIcon from "public/icones/curriculum-guide.svg";
-import CoursesIcon from "public/icones/courses.svg";
-import BusStopTimesIcon from "public/icones/bus-stop-times.svg";
+import ContactsIcon from "public/icons/contacts.svg";
+import CurriculumGuideIcon from "public/icons/curriculum-guide.svg";
+import CoursesIcon from "public/icons/courses.svg";
+import BusStopTimesIcon from "public/icons/bus-stop-times.svg";
 import Navigation from "utils/schema/navigation.type";
-import FoodIcon from "public/icones/food.svg";
-import EducationIcon from "public/icones/education.svg";
-import DormIcon from "public/icones/dorm.svg";
-import InternetIcon from "public/icones/internet.svg";
-import LibraryIcon from "public/icones/library.svg";
+import FoodIcon from "public/icons/food.svg";
+import EducationIcon from "public/icons/education.svg";
+import DormIcon from "public/icons/dorm.svg";
+import InternetIcon from "public/icons/internet.svg";
+import LibraryIcon from "public/icons/library.svg";
 
 const requirementsNavItem: Navigation = [
   {

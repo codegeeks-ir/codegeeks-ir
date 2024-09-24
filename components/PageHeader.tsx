@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import BackIcon from "public/icones/back.svg";
-import ForkIcon from "public/icones/fork.svg";
-import HeartIcon from "public/icones/heart.svg";
+import BackIcon from "public/icons/back.svg";
+import ForkIcon from "public/icons/fork.svg";
+import HeartIcon from "public/icons/heart.svg";
 import Icon from "./Icon";
 import Navigation from "utils/schema/navigation.type";
 import requirementsNavItem from "data/navigation/requirements-navigation";
@@ -15,7 +15,7 @@ const PageHeader = () => {
   const path = usePathname();
   const back = useMemo(
     () => path.split("/").slice(0, -1).join("/") + "/",
-    [path],
+    [path]
   );
   const repo = useMemo(() => {
     const allLinks: Navigation = [

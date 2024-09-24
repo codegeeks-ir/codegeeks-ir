@@ -1,4 +1,4 @@
-import PhoneIcon from "public/icones/phone.svg";
+import PhoneIcon from "public/icons/phone.svg";
 import ILinkProperty from "utils/schema/properties/link-property.interface";
 import linkField from "./link-field";
 
